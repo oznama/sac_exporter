@@ -16,11 +16,11 @@ $ ant
 Prueba directa con ant
 
 ```cmd
-$ ant Extractor -DreportName=SICLIR0060 -DinitDate=28/03/2023 -DendDate=29/03/2023
+$ ant Extractor -DreportNum=1 -DinitDate=28/03/2023 -DendDate=29/03/2023
 ```
 
 Ejecución desde bash
 
 ```bash
-$ PMTURPTB999G07 SICLIR0060 28/03/2023 29/03/2023
+$ PMTURPTB999G07 1 28/03/2023 29/03/2023
 ```
