@@ -11,11 +11,11 @@ public class BirtService {
 	
 	private static Logger logger = LoggerFactory.getLogger(BirtService.class);
 	
-	public void generateReport(String reportName, String initDate, String endDate) {
-		logger.debug("Gerating report {} ...", reportName);
+	public void generateReport(Integer reportNum, String initDate, String endDate) {
+		logger.debug("Gerating report {} ...", reportNum);
 		try {
 			
-			ReportConfig reportConfig = new ReportConfig(reportName);
+			ReportConfig reportConfig = new ReportConfig(reportNum);
 			
 			if(ReportDb.REPORT_CONFIG.contains(reportConfig)) {
 				logger.debug("Report exist in list, retriving params ..."); 
@@ -26,19 +26,27 @@ public class BirtService {
 				// Add param destination: /aplic/prod/pmt/rpt/sal/PMTRPTB999HAAMMDDII01.PDF
 				reportConfig.setPdfName(String.format("%s/%s", BirtImplementation.PDF_DESTINATION, reportConfig.getPdfName()));
 				
-				reportConfig.getParams().put(Constants.PARAM_RANGO_FECHA_INI, initDate);
-				reportConfig.getParams().put(Constants.PARAM_RANGO_FECHA_FIN, endDate);
+				if(reportConfig.getParams().containsKey(Constants.PARAM_RANGO_FECHA_INI)) {
+					reportConfig.getParams().put(Constants.PARAM_RANGO_FECHA_INI, initDate);
+					reportConfig.getParams().put(Constants.PARAM_RANGO_FECHA_FIN, endDate);
+				}
+				
+				if(reportConfig.getParams().containsKey(Constants.PARAM_RANGO_FECHA_INI_ORIG)) {
+					reportConfig.getParams().put(Constants.PARAM_RANGO_FECHA_INI_ORIG, initDate);
+					reportConfig.getParams().put(Constants.PARAM_RANGO_FECHA_FIN_ORIG, endDate);
+				}
+				
 				
 				BirtImplementation birtImplementation = new BirtImplementation();
 				// Add param log config: /aplic/prod/pmt/rpt/log
-				birtImplementation.buildPdf(null, null, reportName, reportConfig.getPdfName(), reportConfig.getParams());
+				birtImplementation.buildPdf(null, null, reportConfig.getReportName(), reportConfig.getPdfName(), reportConfig.getParams());
 			} else {
 				System.out.println("Report no exist in list"); 
-				logger.error("Report {} not supported", reportName);
+				logger.error("Report {} not supported", reportNum);
 			}
 					
 		} catch (Exception e) {
-			
+			e.printStackTrace();
 		}
 	}
 	

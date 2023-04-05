@@ -55,7 +55,7 @@
 	<target name="Extractor" depends="build">
         <java classname="com.prosa.main.Extractor" failonerror="true" fork="yes">
             <classpath refid="EXP_SC2.classpath"/>
-        	<arg value="${reportName}" />
+        	<arg value="${reportNum}" />
         	<arg value="${initDate}" />
         	<arg value="${endDate}" />
         </java>

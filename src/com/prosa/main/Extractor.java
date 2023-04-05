@@ -15,12 +15,12 @@ public class Extractor {
 		
 		if( args.length > 0 ) {
 			
-			String reportName = args[0];
+			Integer reportNum = Integer.valueOf(args[0]);
 			String initDate = args[1];
 			String endDate = args[2];
 			
 			BirtService birtService = new BirtService();
-			birtService.generateReport(reportName, initDate, endDate);
+			birtService.generateReport(reportNum, initDate, endDate);
 			
 			
 		} else if(args.length == 0) {

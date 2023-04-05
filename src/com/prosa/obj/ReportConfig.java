@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public class ReportConfig {
 
+	private Integer reportNum;
 	private String reportName;
 	private Map<String, String> params;
 	private String pdfName;
@@ -20,9 +21,17 @@ public class ReportConfig {
 		interchangeFlow = "C";
 	}
 
-	public ReportConfig(String reportName) {
+	public ReportConfig(Integer reportNum) {
 		this();
-		this.reportName = reportName;
+		this.reportNum = reportNum;
+	}
+
+	public Integer getReportNum() {
+		return reportNum;
+	}
+
+	public void setReportNum(Integer reportNum) {
+		this.reportNum = reportNum;
 	}
 
 	public String getReportName() {
@@ -75,7 +84,7 @@ public class ReportConfig {
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(reportName);
+		return Objects.hash(reportNum);
 	}
 
 	@Override
@@ -87,7 +96,7 @@ public class ReportConfig {
 		if (getClass() != obj.getClass())
 			return false;
 		ReportConfig other = (ReportConfig) obj;
-		return Objects.equals(reportName, other.reportName);
+		return Objects.equals(reportNum, other.reportNum);
 	}
 
 }
