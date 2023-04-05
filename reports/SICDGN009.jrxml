@@ -1,0 +1,307 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.3.0.final using JasperReports Library version 6.3.0  -->
+<!-- 2019-12-26T12:18:15 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TRX_TOT_LIQ_DSVR" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isTitleNewPage="true" whenResourceMissingType="Empty" uuid="a13e844d-625b-4859-ba60-33365030bc5b">
+	<property name="ireport.zoom" value="1.1000000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="386"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="PMTU"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="FECPROCINI" class="java.lang.String"/>
+	<parameter name="FECPROCFIN" class="java.lang.String"/>
+	<parameter name="USUARIO" class="java.lang.String"/>
+	<parameter name="logo" class="java.awt.Image" isForPrompting="false"/>
+	<queryString>
+		<![CDATA[SELECT 
+    HEA.RPH_ACT_TYP          AS ACT_TYP
+  , NVL(HEA.RPH_ACT_COUNT,0)        AS ACT_COUNT
+  , NVL(HEA.RPH_ACT_AMT,0)          AS ACT_AMT
+FROM DGN.TBL_DGN_REPINTE_HEAD@LG_PMTU_PMTWEB_IFO2_DGN HEA
+ WHERE HEA.RPH_FEC_PROC BETWEEN TO_DATE($P{FECPROCINI},'DD/MM/YYYY')
+                                AND TO_DATE($P{FECPROCFIN},'DD/MM/YYYY')
+   AND HEA.RPH_REC_TYP = 5
+   AND HEA.RPH_SEC_COD = 1
+   AND HEA.RPH_SUB_SEC_COD = 1
+     UNION  ALL
+SELECT 'TOTAL'              AS TOTAL
+, SUM(NVL(HED.RPH_ACT_COUNT,0))    AS ACT_COUNT
+, SUM(NVL(HED.RPH_ACT_AMT,0))      AS ACT_AMT
+  FROM DGN.TBL_DGN_REPINTE_HEAD@LG_PMTU_PMTWEB_IFO2_DGN HED
+ WHERE HED.RPH_FEC_PROC BETWEEN TO_DATE($P{FECPROCINI},'DD/MM/YYYY')
+                                AND TO_DATE($P{FECPROCFIN},'DD/MM/YYYY')
+   AND HED.RPH_REC_TYP = 5
+   AND HED.RPH_SEC_COD = 1
+   AND HED.RPH_SUB_SEC_COD = 1]]>
+	</queryString>
+	<field name="ACT_TYP" class="java.lang.String"/>
+	<field name="ACT_COUNT" class="java.math.BigDecimal"/>
+	<field name="ACT_AMT" class="java.math.BigDecimal"/>
+	<variable name="prosaLogo" class="java.lang.String" resetType="Page">
+		<initialValueExpression><![CDATA["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"]]></initialValueExpression>
+	</variable>
+	<variable name="subTotalesPag" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[1]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="totalesReporte" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[1]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="405" splitType="Stretch">
+			<image scaleImage="RetainShape">
+				<reportElement x="282" y="73" width="238" height="80" uuid="ea8ec041-018a-4453-8583-c3304ee1edea"/>
+				<imageExpression><![CDATA[new java.io.StringBufferInputStream( new org.w3c.tools.codec.Base64Decoder($V{prosaLogo}).processString() )]]></imageExpression>
+			</image>
+			<rectangle radius="10">
+				<reportElement mode="Transparent" x="189" y="168" width="417" height="117" uuid="e31aca3c-bd55-4892-b667-35cc61b45064"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="253" y="227" width="385" height="23" uuid="14da8cb0-0a52-4672-aebb-cf4d5bfb7d42"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DEL TOTAL DE LIQUIDACION DOLARES DISCOVER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="295" y="180" width="327" height="40" uuid="0fa0f109-1cbc-4ad3-a660-9350b785641f"/>
+				<textElement textAlignment="Center">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROMOCIÓN Y OPERACIÓN S. A. DE C. V.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="306" width="106" height="15" uuid="d2458967-2e9b-44bc-a1e3-c57a00f762f5"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Archivo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="324" width="106" height="15" uuid="64eff4bd-3c78-4f2a-9d1d-c36625ad7a4b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ejecutó:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="342" width="106" height="15" uuid="9341ba29-4aac-4e8d-9a7d-3e1e1406855b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de ejecución:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="360" width="106" height="15" uuid="8b15181f-9ce9-4ff7-9c74-7f7fa7e03d08"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha del:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="306" width="131" height="15" uuid="6fde27e4-c32e-4b9a-a36b-d79a7cfe9ef3"/>
+				<text><![CDATA[SICDGN009]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="347" y="324" width="131" height="15" uuid="3e6e7b56-ab07-4f5c-ae67-85413f0f2a7f"/>
+				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="347" y="342" width="131" height="15" uuid="0d0eda8e-7346-4b14-bef0-8df1152db384"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="347" y="360" width="131" height="15" uuid="09d64b3e-5ea6-48c6-8c2e-8a92fc0dddda"/>
+				<textFieldExpression><![CDATA[$P{FECPROCINI} + " al " + $P{FECPROCFIN}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="79" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="762" y="46" width="35" height="17" uuid="688514d4-38d9-4301-bcf9-bbd3a552ea3d"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="726" y="46" width="29" height="17" uuid="f8a4d5e7-f48f-4502-b484-aace723c3809"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="232" y="8" width="327" height="23" uuid="38bdf9ca-882a-4603-a39f-783dc7b5e101"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROMOCIÓN Y OPERACIÓN S. A. DE C. V.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="230" y="54" width="330" height="17" uuid="dbfb2b64-6ae7-4195-8ede-afbc2cfdc0e6"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Fecha del " + $P{FECPROCINI} + " al " + $P{FECPROCFIN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="638" y="8" width="83" height="17" uuid="5b5123d2-ee2a-4da8-aa76-7cc03c5ff3f8"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Fecha de proceso:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="638" y="27" width="83" height="17" uuid="4971764b-8e8b-419c-a74a-cc47fb092749"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Hora de Proceso:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="721" y="8" width="76" height="17" uuid="f1601d28-5d9a-4168-aeae-67da1ec2fd0f"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH.mm">
+				<reportElement x="721" y="27" width="76" height="17" uuid="f1526855-0619-49d3-b510-b25d03eb60bd"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="638" y="46" width="83" height="17" uuid="d4d922a1-e0d5-4c52-bbfc-5fa6d88d1f05"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Página:]]></text>
+			</staticText>
+			<image scaleImage="RetainShape">
+				<reportElement x="11" y="10" width="169" height="59" uuid="f374d2c5-9bb6-49a4-9dec-ba0944b9e38e"/>
+				<imageExpression><![CDATA[new java.io.StringBufferInputStream( new org.w3c.tools.codec.Base64Decoder($V{prosaLogo}).processString() )]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="233" y="34" width="327" height="17" uuid="e1ceed14-0ed8-4627-b012-d4703a07e199"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[REPORTE DEL TOTAL DE LIQUIDACION DOLARES DISCOVER]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="61">
+			<staticText>
+				<reportElement x="127" y="23" width="100" height="17" uuid="75c9eacd-348a-47d1-a91e-d11a61b80287"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIPO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="23" width="94" height="17" uuid="685b5cf9-6766-48a2-acb3-00c9a20cfe7e"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[NUMERO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="23" width="100" height="17" uuid="55283c4b-2e7e-4935-a979-fb25a1d3a3f9"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MONTO]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="43" width="799" height="1" uuid="9d2abc0e-d2e1-49af-870a-365eb8cb83aa"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField>
+				<reportElement x="125" y="0" width="100" height="19" uuid="fb72bb5d-60a1-4e71-9c46-df97f7755e56"/>
+				<textFieldExpression><![CDATA[$F{ACT_TYP}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="274" y="0" width="100" height="19" uuid="986a0632-0665-431a-ad77-465c7d06c789"/>
+				<textElement textAlignment="Right">
+					<paragraph leftIndent="0"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ACT_COUNT}]]></textFieldExpression>
+				<patternExpression><![CDATA["#,####,##0"]]></patternExpression>
+			</textField>
+			<textField pattern="" isBlankWhenNull="true">
+				<reportElement x="434" y="1" width="100" height="18" uuid="ab913eaf-c1ff-47d7-8abb-3baa7b7f7d8e"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$F{ACT_AMT}]]></textFieldExpression>
+				<patternExpression><![CDATA["#,####,##0.00"]]></patternExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="29">
+			<line>
+				<reportElement x="2" y="3" width="799" height="1" uuid="ee058f45-179b-4403-8ab7-68d4b32f04e6"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="32" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="4" width="799" height="1" uuid="d6f984d9-df60-4b8f-89c7-acff547fd29e"/>
+			</line>
+			<textField>
+				<reportElement x="683" y="7" width="116" height="20" uuid="bdee67a8-04e2-4be4-b5a9-b577a27faa6e"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["usuario: " + $P{USUARIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="6" width="100" height="20" uuid="4780bfcd-6096-4df4-abf6-1caee81c1a93"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SICDGN009]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="29">
+			<line>
+				<reportElement x="2" y="3" width="799" height="1" uuid="9a65fd09-83a6-4d94-a273-21e881d6c92e"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="4" width="100" height="20" uuid="1788b7e0-35f6-4c3c-8fdb-0e5ea2d92036"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SICDGN009]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="682" y="6" width="116" height="20" uuid="090b0a5f-cf4b-4601-9a2d-8766ea94d3b5"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["usuario: " + $P{USUARIO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="52" y="12" width="700" height="25" uuid="d2cc930f-8eec-4945-8ae8-a88ce0a01b2d"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No hay registros para los criterios proporcionados]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

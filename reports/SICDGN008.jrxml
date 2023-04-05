@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="TRX_CONFIRMADAS" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isTitleNewPage="true" isSummaryNewPage="true" whenResourceMissingType="Empty">
+	<property name="ireport.zoom" value="1.1000000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="266"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="QA Data Adapter "/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<parameter name="FECPROCINI" class="java.lang.String"/>
+	<parameter name="FECPROCFIN" class="java.lang.String"/>
+	<parameter name="USUARIO" class="java.lang.String"/>
+	<parameter name="logo" class="java.awt.Image" isForPrompting="false"/>
+	<parameter name="FIIDADQ" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT DET.TTD_LN                                  as LN
+      ,DET.TTD_FIID                                as FIID
+      ,SUBSTR(DET.TTD_NUM_CTA,1,6)||LPAD('X',LENGTH(DET.TTD_NUM_CTA) - 10,'X')||substr(DET.TTD_NUM_CTA,LENGTH(DET.TTD_NUM_CTA) - 3 ,4)        as NUM_CTA
+      ,DET.TTD_LNK                                 as LNK
+      ,DET.TTD_FIIDC                               as FIIDC
+      ,DET.TTD_ID                                  as ID
+      ,DET.TTD_TERM_ID                             as TERM_ID
+      ,DET.TTD_RETAILER_ID                         as RETAILER_ID
+      ,DET.TTD_TYP                                 as TYP
+      ,DET.TTD_ENTRY_TIM                           as ENTRY_TIM
+      ,DET.TTD_EXIT_TIM                            as EXIT_TIM
+      ,DET.TTD_RE_ENTRY_TIM                        as RE_ENTRY_TIM
+      ,DET.TTD_FEC_HORA_A                          as FEC_HORA_A
+      ,TO_CHAR(DET.TTD_FEC_HORA_B,'dd/mm/rrrr')                        as FEC_HORA_B
+      ,DET.TTD_SEQ_NUM                              as SEQ_NUM
+      ,DET.TTD_TERM_CITY                           as TERM_CITY
+      ,DET.TTD_TERM_CNTRY_CDE                      as TERM_CNTRY_CDE
+      ,DET.TTD_TERM_TYP                            as TERM_TYP
+      ,DET.TTD_RETL_SIC_CDE                        as RETL_SIC_CDE
+      ,DET.TTD_TERM_NUM                            as TERM_NUM
+      ,DET.TTD_AMT_2                               as AMT_2
+      ,DET.TTD_TC                                  as TC
+      ,DET.TTD_CRD_TYP                             as CRD_TYP
+      ,DET.TTD_RESP_CDE                            as RESP_CDE
+      ,DECODE(DET.TTD_TYP,'0210',DECODE(TRIM(DET.TTD_TC),'10',1,-1),-1)*
+        TO_NUMBER(NVL(DET.TTD_AMT_1,'0'))/100  as AMT_1
+      ,NVL(DET.TTD_APPRV_CDE,' ')                  as APPRV_CDE
+      ,DET.TTD_DFT_CAPTURE_FLG                     as DFT_CAPTURE_FLG
+      ,DET.TTD_RVRL_CDE                            as RVRL_CDE
+      ,DET.TTD_AUTH_CRNCY_CDE                      as AUTH_CRNCY_CDE
+      ,DET.TTD_SETL_CRNCY_CDE                      as SETL_CRNCY_CDE
+      ,DET.TTD_IND_CASHBACK                        as IND_CASHBACK
+      ,TO_CHAR(DET.TTD_FEC_PROC_TRAN,'dd/mm/rrrr')                       as FEC_PROC_TRAN
+      ,DET.TTD_NUMERO                              as NUMERO
+      ,DET.TTD_NUMERO_ACEP                         as NUMERO_ACEP
+      ,NVL(DET.TTD_REFERENCIA,0)                   as REFERENCIA
+      ,DET.TTD_FECHA_PROC_ACEP                     as FECHA_PROC_ACEP
+      ,DET.TTD_ENT_ADQ_ACEP                        as ENT_ADQ_ACEP
+      ,DET.TTD_ENT_EMI_ACEP                        as ENT_EMI_ACEP
+      ,DET.TTD_FECHA_PROC_REJ                      as FECHA_PROC_REJ
+      ,TO_CHAR(DET.TTD_FECHA_PROC_OUT,'dd/mm/rrrr')                      as FECHA_PROC_OUT
+      ,DET.TTD_ARCH_GENE_OUT                       as ARCH_GENE_OUT
+      ,DET.TTD_NUMERO_INBO                         as NUMERO_INBO
+      ,NVL(TO_CHAR(DET.TTD_FECHA_PROC_INBO, 'dd/mm/rrrr'), 'N/D') as FECHA_PROC_INBO
+      ,DET.TTD_FEC_PROC_1C_SIA                     as  FEC_PROC_1C_SIA
+      ,DET.TTD_NUMERO_1C_SIA                       as  NUMERO_1C_SIA
+      ,DET.TTD_FEC_PROC_RP_SIA                     as  FEC_PROC_RP_SIA
+      ,DET.TTD_NUMERO_RP_SIA                       as  NUMERO_RP_SIA
+      ,DET.TTD_FEC_PROC_2C_SIA                     as  FEC_PROC_2C_SIA
+      ,DET.TTD_NUMERO_2C_SIA                       as  NUMERO_2C_SIA
+      ,DET.TTD_NUMERO_REJ                             as  NUMERO_REJ
+FROM  DGN.TBL_DGN_TABL_DTE@LG_PMTU_PMTWEB_IFO2_DGN DET
+WHERE DET.TTD_FEC_PROC_TRAN BETWEEN TO_DATE($P{FECPROCINI},'DD/MM/YYYY')
+                                AND TO_DATE($P{FECPROCFIN},'DD/MM/YYYY')
+  AND DET.TTD_FIIDC                            IN ($P!{FIIDADQ})
+  AND DET.TTD_NUMERO_ACEP                      IS NOT NULL
+  AND DET.TTD_NUMERO_INBO                      IS NOT NULL
+  AND DET.TTD_FECHA_PROC_OUT                   IS NOT NULL]]>
+	</queryString>
+	<field name="LN" class="java.lang.String"/>
+	<field name="FIID" class="java.lang.String"/>
+	<field name="NUM_CTA" class="java.lang.String"/>
+	<field name="LNK" class="java.lang.String"/>
+	<field name="FIIDC" class="java.lang.String"/>
+	<field name="ID" class="java.lang.String"/>
+	<field name="TERM_ID" class="java.lang.String"/>
+	<field name="RETAILER_ID" class="java.lang.String"/>
+	<field name="TYP" class="java.lang.String"/>
+	<field name="ENTRY_TIM" class="java.lang.String"/>
+	<field name="EXIT_TIM" class="java.lang.String"/>
+	<field name="RE_ENTRY_TIM" class="java.lang.String"/>
+	<field name="FEC_HORA_A" class="java.sql.Date"/>
+	<field name="FEC_HORA_B" class="java.lang.String"/>
+	<field name="SEQ_NUM" class="java.lang.String"/>
+	<field name="TERM_CITY" class="java.lang.String"/>
+	<field name="TERM_CNTRY_CDE" class="java.lang.String"/>
+	<field name="TERM_TYP" class="java.lang.String"/>
+	<field name="RETL_SIC_CDE" class="java.lang.String"/>
+	<field name="TERM_NUM" class="java.lang.String"/>
+	<field name="AMT_2" class="java.lang.String"/>
+	<field name="TC" class="java.lang.String"/>
+	<field name="CRD_TYP" class="java.lang.String"/>
+	<field name="RESP_CDE" class="java.lang.String"/>
+	<field name="AMT_1" class="java.math.BigDecimal"/>
+	<field name="APPRV_CDE" class="java.lang.String"/>
+	<field name="DFT_CAPTURE_FLG" class="java.lang.String"/>
+	<field name="RVRL_CDE" class="java.lang.String"/>
+	<field name="AUTH_CRNCY_CDE" class="java.lang.String"/>
+	<field name="SETL_CRNCY_CDE" class="java.lang.String"/>
+	<field name="IND_CASHBACK" class="java.lang.String"/>
+	<field name="FEC_PROC_TRAN" class="java.lang.String"/>
+	<field name="NUMERO" class="java.math.BigDecimal"/>
+	<field name="NUMERO_ACEP" class="java.math.BigDecimal"/>
+	<field name="REFERENCIA" class="java.math.BigDecimal"/>
+	<field name="FECHA_PROC_ACEP" class="java.sql.Timestamp"/>
+	<field name="ENT_ADQ_ACEP" class="java.math.BigDecimal"/>
+	<field name="ENT_EMI_ACEP" class="java.math.BigDecimal"/>
+	<field name="FECHA_PROC_REJ" class="java.sql.Timestamp"/>
+	<field name="FECHA_PROC_OUT" class="java.lang.String"/>
+	<field name="ARCH_GENE_OUT" class="java.lang.String"/>
+	<field name="NUMERO_INBO" class="java.math.BigDecimal"/>
+	<field name="FECHA_PROC_INBO" class="java.lang.String"/>
+	<field name="FEC_PROC_1C_SIA" class="java.sql.Timestamp"/>
+	<field name="NUMERO_1C_SIA" class="java.math.BigDecimal"/>
+	<field name="FEC_PROC_RP_SIA" class="java.sql.Timestamp"/>
+	<field name="NUMERO_RP_SIA" class="java.math.BigDecimal"/>
+	<field name="FEC_PROC_2C_SIA" class="java.sql.Timestamp"/>
+	<field name="NUMERO_2C_SIA" class="java.math.BigDecimal"/>
+	<field name="NUMERO_REJ" class="java.math.BigDecimal"/>
+	<variable name="prosaLogo" class="java.lang.String" resetType="Page">
+		<initialValueExpression><![CDATA["iVBORw0KGgoAAAANSUhEUgAAALUAAAAxCAIAAAATEH8wAAAACXBIWXMAAAsSAAALEgHS3X78AAAQUklEQVR42u1dfXQTV3Z/o++RLdke82WPCKYZwTpBMoREYkvOWiY5xGb3pGB3T7dgFm+ztGkCTrctgSTnFLOnm4SkJcEQSDbZTTjB5EDAwJKDnQSwzG4SRklIkBaMkcB20NjGtsayZXtk66t/iKpCmvc0+vAeF+ee94elmbma997v3fu7990ZY6FQCExvcTPdbmd35KMqT52/YAH4XgAAAEimYZ9729rbPj3X29be23bVzfREvsfV2XnYuCLgFWEgb8FCmUo1+0HDXNMKYuEPpi0+sOljP9xM9xfvHrx65lw0JsIilctnKoLKoJf3wqyCwrllK4rXrs8uJL/Hx91pMFrq918908J7dNasHOWoS4Ql1jN76UOLn3x6zoMPfY+Pu0S8w56W+v0XDjTwHpUp5LnSgMQ3lpTOBX+zevnW52Uq1ff4+P8tHfSXDf+02esZ4T2Kq7Jx76AES6X7MpXqJ3v3aQzGux8fN53OgwcPMQyT1GUkSeI4rtVSGpLUaikcx2FnOhkmWf04riBJjRLHSQ2ZUD9Mvj56/MMtz8OOZuXlKEZcWHpjV/b8C0tralK+nOM4p5MBALAs62JZAICWogAAuBLXkFOF6GDvv99AWyxpajEaDKtWlRMEEX/o7bd/Z7XZ0tSv1+lMplKtlhJ4/uF/3frV0eOwo6r8PMnwAJaJ4dNVVv7k1VeTusRud9C0xe5wsCyLXoFaLWU0GlLDCk1bTjc18/6E0WCoqlojcMmJS01l6BsVIgzDmM2tHMfNLyqSSqXRh/702efp67/V10dbLHa7Y4EAW3Ji+39+fvCDEEQkcrlkbAgAEAxloPVeaRtyOheuXCmkF1arbd/+t8ytrQzDcByHPtnj8XR2dn322edWq2327Nn5+YTw4WJZtn7PXthPMAyjUqvnFxUJwkd5xar05y8snZ1dV9quLl36QDREaNqSKf0sy9I0XXxfsVqthq6bw0dPvbgzBBc85BNhIAQy1nquXFGo1ZolS9Cu5PDhD/9w6qOEsOAFCm2xaClKOERazK0OhwO13m71lZlK/9L4CHemo7NrmdEwGfgAAPj9/osXLz788PIYK3Wb6/z5yr61P0eAI29GHjbBRaZWiokKiRlzZ86aS8woyCPCbbYqR4krx8dGB8fFN8ZUzJii1yPuHZWG260JpTuAT/gCWdJARI+9tbXoh8vyNBoYOHbX7227ejWdjhP5hHD3erDhEBqIHMcJBJwo44zG4XDQtAVMmnCc99gxfm5xYPO/BIIBWJOrlAH3YNgvZGHiksJ77pNnEaNe8a0Bf3dvpAX7+vMCwUc3bPAXPTDh8UiH+2TcYKRJh/uCrlvugREbI7KP5UYcTcMTG73Dw7x39du3f5cs/Y+XfEKo8bDbHUIWpMA5Ek3GFJ5uap5UUk1bLPHr49Qr/91l+3MgGIQ1WTAQAiEMgJI5pFauxNhBXuXUz6vLz33yQN1/vP7F4UbfdWr1TwMYzy6ENOANDPRd7hHfHMODodDY8PCZXa/xTgPa1AsyHgRhjDLJGZl4q80qxNlJ0BS6qnJNfLzqsDvQIQnLslarTa/XJQySefVbrbaEY2q12qKHbGxo6ON9bwaCAegQz54FPMO4SKzLJYJD/Atdqspetq9+puGO9OiLx3d/+6eaX69cJ+HcPJf4Oc7FXSMKtPjAZ+/8fvkTT+TN1SS7VMLJgmgDHHNC9bq1wmNmgdEox3ljxjBpfIQzHDFfarVUmanUbne8/c47HOeFWjmHIyE+EPpp2nKw4RDiWtedJvST/W+NDLkR54e4UaVIpMsjgt5x3hNyfrDwR++/K1XzZEUXP7zkjbazTxc/wgsRAICI7WnPmb0w23Vm166fvrYrGutoU28yla6qKI+PyJwMEw6DWdZVVVkpnHlcSMazt5hbE+IjRf+i1VJVlZWIE8KZn9QTKkZDRUU5KqK+U3/zG/uDcMnKyZEHArrcfBg4pKpsGDjCUjCv4I22s348F7rOhm7ZvbO+/vDo4E1nNBVAe42qSv48hIYky0yl27ZueWXny8I9CwDAbG5NKivhTESMROlMIdrFpOl0w8lEmIxF+c7zDYc8bjeCecilEt0cMjg+DtOGBkcEIk+9+xpqKF3dPYEZl5s/jrb2iPNXIRdACiKQmd6Bp5bWSeSnJDy1lz4+0NFXtMn98tRHwVAQ0bLGxmTDHpiq4k3/nFMsqMLj0b97rKAUlQrzuIbPv39YYAdT2DRImZnqdbrUWGpa+GBZ1+QFKWjjHB3v2cxmRFgrkcsW3zMPpkeqyqY2rBd+V9sOvMQbztz2Mr6xb9rYaBeDkGONxzOYGUIwU4qiKAiDCbPUScEHy7IIfkpRVJodboG7UhxXRMhv5yXriHsIYT2I/HyMhVLXeWtWJ/QsMV5GrS2WiTFYE40MdV++LCRpwbLsyztfOd3UnEJSlTeggxoPvQ7BcFuQlEU0GfMHAFCmYTw5jkNv+ZpMpohxvnHpEtq55EhliN+iatYne3t//bc/lolEsJYV8J478mm8E4Qt36am5u11O2B7aRmZjhK9TkOSBASsDDLIkqRmOY4dO45OgSQMbsM4iHEiLMuG8x+IO6YoKprZ9XV1BkNBlCfCRADw50WUhYVKsjDZ7m/8Te3FXf+FOKHtwuVIhEJRVMJcThglTU3NJEkajYYSvY4giKRuyckwsOWk193WZjQamiDJmBZza3wiKjE+GMa5u35v/KQKyRYLwQfDMPV79iY1EHqdrrr6jmTRrc5OdImTIgBNmuUUL0xtsQaz8hReqM8aH3RFBynC+8gwTGPj8cbG48nWMyDCkMhELIPjg6bpVPDBcd7UcsMVfDmfNAXHFRUVFfG7jr0dHWj7ERgdA7iS91BucYqF6VK5QjYBdc1+DIuOsyoqypuS3HCw2mxWm40giOp1awU4Kc5qs8IGLZKGQBgzjvPStIU3YZH55xsIghC4d5wUMpYZDbyYCwEQRNoPQi7PeB+lYkwmhhYYybj+mDwH62JTKMIKl3EYDYYYkxnPTGGBgtF4RwXkMqMBtuAvQPAhyvgq37jxicwaD47zsiwL0xlKJOOBYMbxIRFhiBAmHjrV1Wur163FcUUqWQ2L5eDBQ6kx05gpRzh9B6SeLZP4IEmytnbzZNROms2tL+98lTcOTIiPEd9E5u0HPH6RiUTj6gLeqdq29VmjwZACSmiL5Vjj8WSZKUmSMXOB47jRYEgKZ6JMmY2KivJtW7dMXmEtwzC8y0hvMqEvxODpDXdbijU72RyLMB4SUQjmeaur1+6o215ZuSbZCMVsbuVNGCJyprz+AmFCaJrOPP+gKGqZ0aDX6zJOSHlZWzyNCgGA9h8DAf8cyDIYamtP4Ta+aDyjEgUBgPIPcf5M5FrCy0ylZaZSJ8PQtAUdzMdAJJ6r8k5qhG3w4oMgCN5fDOdSYwCE3t9XkGRszZxGc7tYQUtRkb9TxtYztZsiH8M72mged7qpOdanmkzBHTtQ+PByQJ7Fe2isu3uo7WpOklHMpZOfyMQou0uWCHq8W0OSmso1VZVrrFZbworR8PKINx6IFPazW59L2pHRliTwQZKa6PmbbNFqqXBDVH6wLBtjQu5dvBj9hFP/uBeGDwBAV+NJ/QvJ4WPij5+q4MGLB1Os2rAmuaSOXqfX66xW28GGBsR8h5dQtAm5kOk6TqvNxrJstO8TgSkmCSs/YgYlOzd3fklJEABYu9XbM5gFx8fxEz741m68HPrVi/nYhEyEwdp3ITm56P4UOq7X62prNwtnryzLpl+5mHB4pxw+wgkDBH1zOBwxTO2xmhr0IwgXnF0wbT7PiPXFnQJvzHWz1/vRUbkYg7VxMa5dXoznqFPruIYkTYnotpCwNh2hpz4+AAAmZIYtpkrq4dWrEfYjCIA3W9kjlsJNyMl+y5dC7urwxn/PlfpEEgzWvhkZ169Kq+pHeACIYKbpSLh2eKrjY5kRlScIu8nIxzlFRSWlpQj70dVx42uGmYA/cX/hqdqhRLHukS0vFXRbMQkGa/RElljqK/lxeTxpEL49i67GwJW4EGaaQRMyRfGB4zja0p4+fceOxi/q6tAmhFNIzl/vCkAg4vOMnF//CwREjjz7kuzMB5gYwFp7MIft/27FkxuVdzoXmrbU79nb1NS8ve7Xu+v3oqffbnegw7eIdUHryQhLzUz+Y/KkzFSK2Nay2qwc93/FvUtMpsWlpd+0Ql1yn8ctF6vOOrqW/9U9WaMjMIgsffk3hY+uuINzOHsPb3iq0O1ALKU/DuLugeu4Wv3oUxtj5js6FnM4HA6HA8cVep0+/GoCAEB+PuFysSzLJgRHpEaQZVlEcUXtZqEhJ+IJhEtWW3gTberiI5wMhg0Zx3lbzK3RhSAvvPde1fz5MG0cN8YVEJjHf87eeS+Re19+DhgdjYfIhaefKXikrOSFbeG6kCNbXwp8eqRQFIAlw5z+7EuMy+/tBwA8/ty/xRgP3kCd47y0xQKSj0wjmQlEWGs0GIRXBRiNRli9u9ncGsaHCExhWYXkemazOfpjQVHRP2zfjnAxXT1OLuALhYDD5f7Dta4rXn8wf0a82p6zLc0rHtu1cu0HSxbLzn6Ai/jLR276sloH5F85OnzccCgEFi7/4cqnN8YwiQyWl1IUFcn6oOqQBZTdRFtoBEsNB4lT+v2FBEHodTqYLY2vWvhlXd3XZvNFuJcZzpZIRoIiDAMAXBsYvDYwCACYIZdKRaJ77y0CAFy/3ukLBgfGfcB57luRBMfVs2bOmCnxhSs6QiHQ75cOe0aHhtigvy+iVqlW//Kt3XG3x2XOlCqqqtYkhB1BEEnhgyAIkiRh23s0bdFqqSltPxIGuvFPL75y4gRVUgILZAb6b3myxcEgiG59nI8ZHT9vbT9vbWdGx/s43+1Dfv+oh+24cc1yrYNu76DbOyzXOjpuXHP1M/4JLlrDcx83zpg3N34pk5nYrcRxRfSueKaMR0ITEn7IearjQ6ulEKXwETMYEVVu7ptmMwXPqDL9PaPSUDCUsfaPv319nn4RL3/atnVLRUV5amUfEbeybeuzEXBwHIdgpimUZaEhZbXaRIgafGUmtmTT14/utj0ux6zKzX3LbNbCrch3nr5RWQZeHqRQq3915L0frf8ZOhe8o2579bq1ydoSvU5Xu3nTM7WbolPJLmTZdrI1AyBRRYiLZbFQKETTFrvdEf3b+QRBakhYSV8K+ZY09dvtDqvNFvNMrxLHKS0FU+Jxu7fX1JhPnoTmErJnKcZT79TMezRbjh0oKlkk/JLwC+nsDgfruv1COpZlw2QislWe8JV/4fr++GlOZ7Jo2hKPvHyC0Ot1d/n7Txtef/3NurqRoSHeo3NnkjI2leqyhx4v3/T7PVm5OeBul7v//cndnZ376+pOHTjAe3TWjDkKdkICxELNxjzN5nf3LCpdDqaHTJf3ryNQgiuV6hCOexO88LKo5P7Hn3lyRc3PwHQSbFr9fw+P291y4sS5EyfieYk6Jzd7QirlYkdjfsn9i0zLH6n5+/mLF4HpJ9i0/f8vX5nN7d9+63G7v/zfPGzQ7/eNeAuzZy14cElWbo7OtHz+4kXTgWQg5H8AsCRiYOriyacAAAAASUVORK5CYII="]]></initialValueExpression>
+	</variable>
+	<variable name="subTotalesPag" class="java.lang.Integer" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[1]]></variableExpression>
+		<initialValueExpression><![CDATA[0]]></initialValueExpression>
+	</variable>
+	<variable name="subTotalesPagMto" class="java.lang.Double" resetType="Page" calculation="Sum">
+		<variableExpression><![CDATA[$F{AMT_1}]]></variableExpression>
+	</variable>
+	<variable name="totalesReporte" class="java.lang.Integer" calculation="Sum">
+		<variableExpression><![CDATA[1]]></variableExpression>
+	</variable>
+	<variable name="TotalesReporteMto" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{AMT_1}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="405" splitType="Stretch">
+			<image scaleImage="RetainShape">
+				<reportElement x="282" y="73" width="238" height="80"/>
+				<imageExpression><![CDATA[new java.io.StringBufferInputStream( new org.w3c.tools.codec.Base64Decoder($V{prosaLogo}).processString() )]]></imageExpression>
+			</image>
+			<rectangle radius="10">
+				<reportElement mode="Transparent" x="193" y="168" width="417" height="117"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="209" y="227" width="385" height="23"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE TRANSACCIONES CONFIRMADAS DISCOVER]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="238" y="180" width="327" height="40"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROMOCIÓN Y OPERACIÓN S. A. DE C. V.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="306" width="106" height="15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Archivo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="324" width="106" height="15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ejecutó:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="342" width="106" height="15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de ejecución:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="232" y="360" width="106" height="15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha del:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="347" y="306" width="131" height="15"/>
+				<textElement/>
+				<text><![CDATA[SICDGN008]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="347" y="324" width="131" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{USUARIO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="347" y="342" width="131" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="347" y="360" width="131" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{FECPROCINI} + " al " + $P{FECPROCFIN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="233" y="381" width="106" height="15"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Banco:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="347" y="381" width="131" height="15"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{FIIDADQ}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="79" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement x="762" y="46" width="35" height="17"/>
+				<textElement>
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="726" y="46" width="29" height="17"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="232" y="8" width="327" height="23"/>
+				<textElement textAlignment="Center">
+					<font size="15" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROMOCIÓN Y OPERACIÓN S. A. DE C. V.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="230" y="54" width="330" height="17"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Fecha del " + $P{FECPROCINI} + " al " + $P{FECPROCFIN}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="638" y="8" width="83" height="17"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Fecha de proceso:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="638" y="27" width="83" height="17"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Hora de Proceso:]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="721" y="8" width="76" height="17"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="HH.mm">
+				<reportElement x="721" y="27" width="76" height="17"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="638" y="46" width="83" height="17"/>
+				<textElement textAlignment="Right">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Página:]]></text>
+			</staticText>
+			<image scaleImage="RetainShape">
+				<reportElement x="11" y="10" width="169" height="59"/>
+				<imageExpression><![CDATA[new java.io.StringBufferInputStream( new org.w3c.tools.codec.Base64Decoder($V{prosaLogo}).processString() )]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="233" y="35" width="326" height="16"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE DE TRANSACCIONES CONFIRMADAS DISCOVER]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="51">
+			<staticText>
+				<reportElement x="-9" y="23" width="100" height="17"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CUENTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="99" y="23" width="26" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ADQ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="3" width="26" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FIID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="127" y="23" width="55" height="17"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMERCIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="184" y="23" width="55" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TRAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="186" y="3" width="55" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="243" y="3" width="55" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FECHA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="242" y="23" width="55" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="300" y="23" width="51" height="17"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MONTO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="354" y="23" width="42" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[APROB]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="399" y="23" width="25" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TIPO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="771" y="21" width="25" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MON]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="464" y="3" width="44" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Núm]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="459" y="23" width="108" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[INBOUND]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-9" y="43" width="820" height="1">
+					<property name="com.jaspersoft.studio.unit.width" value="pixel"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="518" y="4" width="44" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="586" y="4" width="44" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="574" y="23" width="181" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[OUTBOUND]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="685" y="4" width="44" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Archivo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="428" y="23" width="31" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TC]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="40" splitType="Stretch">
+			<textField>
+				<reportElement x="-10" y="3" width="108" height="16"/>
+				<textElement>
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NUM_CTA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="96" y="3" width="27" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FIIDC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="124" y="3" width="55" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{RETAILER_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="180" y="3" width="58" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FEC_HORA_B}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="241" y="3" width="54" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FEC_PROC_TRAN}]]></textFieldExpression>
+			</textField>
+			<textField pattern="">
+				<reportElement x="296" y="4" width="54" height="16"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AMT_1}]]></textFieldExpression>
+				<patternExpression><![CDATA["#,####,##0.00"]]></patternExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="359" y="3" width="36" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{APPRV_CDE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="399" y="3" width="30" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TYP}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="770" y="4" width="31" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{AUTH_CRNCY_CDE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="463" y="3" width="46" height="16"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NUMERO_INBO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="518" y="3" width="51" height="16"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FECHA_PROC_INBO}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="571" y="3" width="49" height="16"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FECHA_PROC_OUT}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="626" y="3" width="137" height="16"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ARCH_GENE_OUT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="431" y="3" width="31" height="15"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{TC}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="29">
+			<line>
+				<reportElement x="2" y="3" width="799" height="1"/>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="32" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="4" width="799" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="683" y="7" width="116" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["USUARIO: " + $P{USUARIO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="6" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SICDGN008]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="29">
+			<staticText>
+				<reportElement x="58" y="6" width="153" height="16"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Núm.  Total Trx.]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="283" y="8" width="83" height="16"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{TotalesReporteMto}]]></textFieldExpression>
+				<patternExpression><![CDATA["###,###,###,##0.00"]]></patternExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="217" y="6" width="62" height="16"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalesReporte}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="3" width="799" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="2" y="5" width="100" height="20"/>
+				<textElement>
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SICDGN008]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="682" y="6" width="116" height="20"/>
+				<textElement textAlignment="Right">
+					<font fontName="SansSerif" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["USUARIO: " + $P{USUARIO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+	<noData>
+		<band height="50">
+			<staticText>
+				<reportElement x="52" y="12" width="700" height="25"/>
+				<textElement textAlignment="Center">
+					<font fontName="SansSerif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No hay registros para los criterios proporcionados]]></text>
+			</staticText>
+		</band>
+	</noData>
+</jasperReport>

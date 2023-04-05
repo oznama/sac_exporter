@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="subCca001" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8d55a400-9916-4bec-a099-741cb4e26cff">
+	<property name="ireport.scriptlethandling" value="0"/>
+	<property name="ireport.encoding" value="UTF-8"/>
+	<property name="ireport.zoom" value="1.6528925619834793"/>
+	<property name="ireport.x" value="294"/>
+	<property name="ireport.y" value="0"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<import value="net.sf.jasperreports.engine.*"/>
+	<import value="java.util.*"/>
+	<import value="net.sf.jasperreports.engine.data.*"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="importeNeto" class="java.lang.Double">
+		<fieldDescription><![CDATA[importeNeto]]></fieldDescription>
+	</field>
+	<field name="comisionClicCash" class="java.lang.Double">
+		<fieldDescription><![CDATA[comisionClicCash]]></fieldDescription>
+	</field>
+	<field name="importeProsa" class="java.lang.Double">
+		<fieldDescription><![CDATA[importeProsa]]></fieldDescription>
+	</field>
+	<field name="fechaProceso" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaProceso]]></fieldDescription>
+	</field>
+	<field name="cuenta" class="java.lang.String">
+		<fieldDescription><![CDATA[cuenta]]></fieldDescription>
+	</field>
+	<field name="fechaMatch" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaMatch]]></fieldDescription>
+	</field>
+	<field name="fiidAdquirente" class="java.lang.String">
+		<fieldDescription><![CDATA[fiidAdquirente]]></fieldDescription>
+	</field>
+	<field name="fiidEmisor" class="java.lang.String">
+		<fieldDescription><![CDATA[fiidEmisor]]></fieldDescription>
+	</field>
+	<field name="class" class="java.lang.Class">
+		<fieldDescription><![CDATA[class]]></fieldDescription>
+	</field>
+	<field name="comisionProsa" class="java.lang.Double">
+		<fieldDescription><![CDATA[comisionProsa]]></fieldDescription>
+	</field>
+	<field name="fechaConsumo" class="java.lang.String">
+		<fieldDescription><![CDATA[fechaConsumo]]></fieldDescription>
+	</field>
+	<variable name="totalImporte" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{importeNeto}]]></variableExpression>
+	</variable>
+	<variable name="totalComCCA" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{comisionClicCash}]]></variableExpression>
+	</variable>
+	<variable name="totalProsa" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{importeProsa}]]></variableExpression>
+	</variable>
+	<variable name="totalComPrsa" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{comisionProsa}]]></variableExpression>
+	</variable>
+	<group name="gemisor">
+		<groupHeader>
+			<band height="28">
+				<staticText>
+					<reportElement x="0" y="0" width="78" height="26" uuid="2e0dd137-f454-42bc-a6fc-3bb52770edbc"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Fecha proceso]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="78" y="0" width="144" height="26" uuid="3cf6565e-aaad-4a30-b0d4-816e6784fb0f"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Adquirente]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="222" y="0" width="120" height="26" uuid="1c573786-1b7d-4965-bd6e-0753cbb8bbd7"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cuenta]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="538" y="0" width="86" height="26" uuid="a2d988ae-d713-466f-9307-819740d0224e"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Comision]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="628" y="0" width="98" height="26" uuid="249c66cd-d76f-467f-992a-0b3570fe931a"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Comision PROSA]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="26" width="802" height="1" uuid="1929a238-0078-4bd5-b4d6-9d7d514b5b06"/>
+				</line>
+				<staticText>
+					<reportElement x="344" y="0" width="93" height="26" uuid="5332c60d-efc2-4808-bf40-8e000a1ceec2"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Importe]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="440" y="0" width="93" height="26" uuid="53769649-0a62-4c51-869e-aef82c9af796"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Importe Remb.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="730" y="0" width="72" height="26" uuid="a34e997c-d339-4f4e-ae6a-098fb61d2f85"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="10" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Match]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<detail>
+		<band height="27">
+			<textField pattern="$###,###,###,##0.00">
+				<reportElement x="538" y="0" width="86" height="26" uuid="b292744f-f251-4a06-9365-3be633137f75"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comisionClicCash}]]></textFieldExpression>
+			</textField>
+			<textField pattern="$###,###,###,##0.00">
+				<reportElement x="628" y="0" width="98" height="26" uuid="cd0b37ce-933a-43e6-a5ab-00e97e4ee79d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{comisionProsa}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MM-yyyy">
+				<reportElement x="0" y="0" width="78" height="26" uuid="1b927242-931a-4b00-9161-41f1592c0a52"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaProceso}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="78" y="0" width="144" height="26" uuid="63b5e4ca-0165-4889-9b6d-616914651fbd"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fiidAdquirente}]]></textFieldExpression>
+			</textField>
+			<textField pattern="$###,###,###,##0.00">
+				<reportElement x="440" y="0" width="93" height="26" uuid="913c9d1e-2f25-4a93-9495-2dececd7ae14"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{importeProsa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="222" y="0" width="120" height="26" uuid="21606467-53cc-4ab6-a649-bfd5e39b406c"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cuenta}]]></textFieldExpression>
+			</textField>
+			<textField pattern="$###,###,###,##0.00">
+				<reportElement x="344" y="0" width="93" height="26" uuid="1d7e8d50-54a6-4998-ab60-aa0678f19965"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{importeNeto}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MM-yyyy">
+				<reportElement x="730" y="0" width="72" height="26" uuid="0147e3b5-f1f6-4198-b5b3-94d282503c3b"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaMatch}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<summary>
+		<band height="21">
+			<staticText>
+				<reportElement x="1" y="2" width="77" height="18" uuid="7c5636a1-9717-4d1f-9dc0-b6a9464c2bab"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<textField pattern="$###,###,###,##0.00" isBlankWhenNull="true">
+				<reportElement x="344" y="2" width="93" height="18" uuid="03c46937-c139-47c8-a118-04098dbf38b9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalImporte}]]></textFieldExpression>
+			</textField>
+			<textField pattern="$###,###,###,##0.00" isBlankWhenNull="true">
+				<reportElement x="538" y="2" width="86" height="18" uuid="8acfc337-8707-42f3-b2ed-a89d1c235db7"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalComCCA}]]></textFieldExpression>
+			</textField>
+			<textField pattern="$###,###,###,##0.00" isBlankWhenNull="true">
+				<reportElement x="440" y="2" width="93" height="18" uuid="cec03c9b-9797-4072-9735-4ee2855f3c2d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalProsa}]]></textFieldExpression>
+			</textField>
+			<textField pattern="$###,###,###,##0.00" isBlankWhenNull="true">
+				<reportElement x="628" y="2" width="98" height="18" uuid="fb231ae4-eca5-44b6-b5bd-a4ac02d4cff9"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalComPrsa}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="802" height="1" uuid="60a19121-8f11-4ad2-856d-274a658ce759"/>
+			</line>
+		</band>
+	</summary>
+</jasperReport>

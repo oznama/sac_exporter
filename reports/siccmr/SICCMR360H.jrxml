@@ -1,0 +1,1206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="SICCMR360H" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="NoDataSection" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isTitleNewPage="true">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="864"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="AxiaOracleSICB12c"/>
+	<property name="com.jaspersoft.studio.data.sql.tables" value=""/>
+	<property name="com.jaspersoft.studio.report.description" value=""/>
+	<parameter name="endDate" class="java.lang.String">
+		<defaultValueExpression><![CDATA["14/12/2021"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="initDate" class="java.lang.String">
+		<defaultValueExpression><![CDATA["14/12/2021"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="antEndDate" class="java.lang.String">
+		<defaultValueExpression><![CDATA["13/12/2021"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="antInitDate" class="java.lang.String">
+		<defaultValueExpression><![CDATA["13/12/2021"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ejecuto" class="java.lang.String">
+		<defaultValueExpression><![CDATA["MNREYES"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="logo" class="java.awt.Image" isForPrompting="false"/>
+	<parameter name="camara" class="java.lang.String">
+		<defaultValueExpression><![CDATA["2,3"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="dsCamara" class="java.lang.String">
+		<defaultValueExpression><![CDATA["EGLOBAL,MASTERCARD"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="banco" class="java.lang.String">
+		<defaultValueExpression><![CDATA["1,2,3,4,5,6,7,8,9,11,12,13,15,17,18,19,22,23,24,25,27,28,29,30,31,34,35,37,38,39,40,41,42,43,46,48,55,57,58,59,60,61,62,64,65,71,72,73,74,75,78,79,80,81,82,84,85,86,87,88,89,91,92,93,96,97,102,114,115,116,122,123,125,126,131,133,135,136,139,141,144,145,146,147,149,150,151,152,153,155,156,159,161,162,163,164,168,173,175,176,177,179,182,183,184,185,187,189,192,193,194,195,202,203,205,206,209,212,213,214,215,216,217,218,219,225,230,238,239,240,245,247,250,252,254,264,265,270,271,272,273,275,277,278,289,292,293,294,296,297,298,299,300,302,303,304,305,308,309,313,316,317,319,320,322,323,326,327,328,329,330,331,332,333,334,335,336,343,345,346,347,348,351,352,357,359,360,361,364,372,373,376,379,380,382,383,387,391,396,400,401,403,404,405,406,407,415,500,543,682,688,697,700,701,710,711,713,715,716,717,718,719,720,721,722,723,724,725,729,730,731,732,733,734,735,739,741,742,743,744,747,767,769,772,773,775,777,785,786,788,789,790,791,792,794,795,797,798,800,801,803,804,807,808,809,810,817,818,819,820,821,822,823,826,827,829,830,833,868,875,879,881,882,886,900,901,1008,1010,1011,1012,1018,1101,1104,1194,1198,1301,1302,1394,1398,2101,2190,2194,2198,2501,2594,2598,2601,2694,2698,2802,2803,2804,2805,2806,2813,2894,2898,2901,2994,2998,3000,10001,10002,10003"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tipoProc" class="java.lang.String">
+		<defaultValueExpression><![CDATA["100"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="tipoES" class="java.lang.String">
+		<defaultValueExpression><![CDATA["None"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="sqlCad" class="java.lang.String" isForPrompting="false">
+		<parameterDescription><![CDATA[Query Dinamico]]></parameterDescription>
+		<defaultValueExpression><![CDATA[($P{tipoProc}.indexOf( "45" ) > -1
+?" SELECT * FROM "+
+" ( "+
+" SELECT TA.ARCH_NUMERO TD_SRCE_NBR "+
+"       ,'ENTRANTE' PARAMETRO_PROCESO "+
+"       ,CASE  "+
+"             WHEN TA.CODIGO_RAZON = 99 THEN TA.ENT_NUMERO_PROSA_EMI "+
+"             ELSE TA.ENT_NUMERO_PROSA_ADQ  "+
+"       END BANCO_ENCABEZADO "+
+"       ,CASE "+
+"             WHEN TA.CODIGO_RAZON = 99 THEN EE.NOMBRE "+
+"             ELSE EA.NOMBRE "+
+"       END DESCRIPCION_ENCABEZADO "+
+"       ,TA.TTR_NUMERO TD_TXN_TYP "+
+"       ,TT.DESCRIPCION DESC_TIPO_TX "+
+"       ,TA.NUMERO PT_WH_SEQ "+
+"       ,TA.CODIGO_RAZON TD_RSN_CD "+
+"       ,CASE "+
+"             WHEN TA.CODIGO_RAZON = 99 THEN TA.ENT_NUMERO_PROSA_ADQ "+
+"             ELSE TA.ENT_NUMERO_PROSA_EMI "+
+"       END BANCO_COLUMNA "+
+"       ,CASE "+
+"             WHEN TA.CODIGO_RAZON = 99 THEN EA.NOMBRE "+
+"             ELSE EE.NOMBRE "+
+"       END DESCRIPCION_COLUMNA "+
+"       ,TA.CUENTA PT_TI_ID "+
+"       ,TO_CHAR(TA.NUMERO_REFERENCIA) PT_ACQ_REF_NUM "+
+"       ,TA.NUMERO_COMERCIO PT_RTLR_ID "+
+"       ,TA.NOMBRE_COMERCIO PT_MRCH_NAM "+
+"       ,TA.NUMERO_AUTORIZACION PT_AUTH_CD "+
+"       ,CASE   "+
+"       WHEN TA.TTR_NUMERO IN (16) THEN -TA.IMPORTE_TOTAL_TRANSAC "+
+"           ELSE  TA.IMPORTE_TOTAL_TRANSAC  "+
+"       END  PT_REQ_AMT "+
+"    , CASE " +
+"          WHEN TA.ENT_NUMERO_PROSA_EMI  = 741 OR TA.ENT_NUMERO_PROSA_ADQ = 741 THEN 3 " +
+"          ELSE 2 " +
+"       END " +
+"       AS CAMARA " +
+"    , CASE " +
+"          WHEN TA.ENT_NUMERO_PROSA_EMI  = 741 OR TA.ENT_NUMERO_PROSA_ADQ = 741 THEN 'MasterCard' " +
+"          ELSE 'EGLO' " +
+"       END " +
+"       AS DESC_CAMARA " +
+" FROM SUPERSIC.TRANSACCIONES_ACEPTADAS TA "+
+" INNER JOIN SUPERSIC.ENTIDADES EE "+
+"     ON EE.NUMERO_PROSA = TA.ENT_NUMERO_PROSA_EMI "+
+" INNER JOIN SUPERSIC.ENTIDADES EA "+
+"     ON EA.NUMERO_PROSA = TA.ENT_NUMERO_PROSA_ADQ "+
+" INNER JOIN SUPERSIC.TIPOS_TRANSACCION TT "+
+"     ON TT.NUMERO = TA.TTR_NUMERO "+
+" WHERE TA.FECHA_PROCESO_TRANSAC BETWEEN TO_DATE('"+ $P{initDate} + "','DD/MM/YYYY') AND TO_DATE('" + $P{endDate}+ "','DD/MM/YYYY') "+
+"     AND (TA.ENT_NUMERO_PROSA_ADQ IN (" + $P{banco} + ") OR TA.ENT_NUMERO_PROSA_EMI IN (" + $P{banco} + ")) "+
+($P{camara}.indexOf( "," ) > 0 ?  "     AND TA.ARCH_NUMERO IN (45,246) " : " " ) +
+($P{camara}.indexOf( "," ) == -1 && $P{camara}.indexOf( "2" )  > -1 ?  "     AND TA.ARCH_NUMERO = 45   " : " " ) +
+($P{camara}.indexOf( "," ) == -1 && $P{camara}.indexOf( "3" )  > -1 ?  "     AND TA.ARCH_NUMERO = 246 " : " " ) +
+"     AND TA.TTR_NUMERO IN (9,12,13,15,16,17,18,19,24,30,130) "+
+" ) IDEA"
+: " "
+) +
+
+($P{tipoProc}.indexOf( "774" ) > -1
+? " SELECT * FROM "+
+" ( "+
+" SELECT TA.ARCH_NUMERO TD_SRCE_NBR "+
+"       ,'CIRCUITO LOCAL' PARAMETRO_PROCESO "+
+"       ,CASE  "+
+"             WHEN TA.CODIGO_RAZON = 99 THEN TA.ENT_NUMERO_PROSA_EMI "+
+"             ELSE TA.ENT_NUMERO_PROSA_ADQ  "+
+"       END BANCO_ENCABEZADO "+
+"       ,CASE "+
+"             WHEN TA.CODIGO_RAZON = 99 THEN EE.NOMBRE "+
+"             ELSE EA.NOMBRE "+
+"       END DESCRIPCION_ENCABEZADO "+
+"       ,TA.TTR_NUMERO TD_TXN_TYP "+
+"       ,TT.DESCRIPCION DESC_TIPO_TX "+
+"       ,TA.NUMERO PT_WH_SEQ "+
+"       ,TA.CODIGO_RAZON TD_RSN_CD "+
+"       ,CASE "+
+"             WHEN TA.CODIGO_RAZON = 99 THEN TA.ENT_NUMERO_PROSA_ADQ "+
+"             ELSE TA.ENT_NUMERO_PROSA_EMI "+
+"       END BANCO_COLUMNA "+
+"       ,CASE "+
+"             WHEN TA.CODIGO_RAZON = 99 THEN EA.NOMBRE "+
+"             ELSE EE.NOMBRE "+
+"       END DESCRIPCION_COLUMNA "+
+"       ,TA.CUENTA PT_TI_ID "+
+"       ,TO_CHAR(TA.NUMERO_REFERENCIA) PT_ACQ_REF_NUM "+
+"       ,TA.NUMERO_COMERCIO PT_RTLR_ID "+
+"       ,TA.NOMBRE_COMERCIO PT_MRCH_NAM "+
+"       ,TA.NUMERO_AUTORIZACION PT_AUTH_CD "+
+"       ,CASE   "+
+"       WHEN TA.TTR_NUMERO IN (16) THEN -TA.IMPORTE_TOTAL_TRANSAC "+
+"           ELSE  TA.IMPORTE_TOTAL_TRANSAC  "+
+"       END  PT_REQ_AMT "+
+"    ,1 AS CAMARA " +
+"    ,'PROSA' AS DESC_CAMARA " +
+" FROM SUPERSIC.TRANSACCIONES_ACEPTADAS TA "+
+" INNER JOIN SUPERSIC.ENTIDADES EE "+
+"     ON EE.NUMERO_PROSA = TA.ENT_NUMERO_PROSA_EMI "+
+" INNER JOIN SUPERSIC.ENTIDADES EA "+
+"     ON EA.NUMERO_PROSA = TA.ENT_NUMERO_PROSA_ADQ "+
+" INNER JOIN SUPERSIC.TIPOS_TRANSACCION TT "+
+"     ON TT.NUMERO = TA.TTR_NUMERO "+
+" WHERE TA.FECHA_PROCESO_TRANSAC BETWEEN TO_DATE('" + $P{antInitDate} + "','DD/MM/YYYY') AND TO_DATE('" + $P{antEndDate}+ "','DD/MM/YYYY') "+
+"     AND (TA.ENT_NUMERO_PROSA_ADQ IN (" + $P{banco} + ") OR TA.ENT_NUMERO_PROSA_EMI IN (" + $P{banco} + ")) "+
+"     AND TA.ARCH_NUMERO = 774 "+
+"     AND TA.TTR_NUMERO IN (9,12,13,15,16,17,18,19,24,30,130) "+
+" ) IDEA "
+: " "
+) +
+($P{tipoProc}.indexOf( "100" ) > -1
+? " SELECT * FROM "+
+" ( "+
+" SELECT TA.ARCH_NUMERO TD_SRCE_NBR "+
+"       ,'SALIENTE' PARAMETRO_PROCESO "+
+"       ,CASE  "+
+"             WHEN TA.CODIGO_RAZON = 99 THEN TA.ENT_NUMERO_PROSA_ADQ "+
+"             ELSE TA.ENT_NUMERO_PROSA_EMI  "+
+"       END BANCO_ENCABEZADO "+
+"       ,CASE "+
+"             WHEN TA.CODIGO_RAZON = 99 THEN EA.NOMBRE "+
+"             ELSE EE.NOMBRE "+
+"       END DESCRIPCION_ENCABEZADO "+
+"       ,TA.TTR_NUMERO TD_TXN_TYP "+
+"       ,TT.DESCRIPCION DESC_TIPO_TX "+
+"       ,TA.NUMERO PT_WH_SEQ "+
+"       ,TA.CODIGO_RAZON TD_RSN_CD "+
+"       ,CASE "+
+"             WHEN TA.CODIGO_RAZON = 99 THEN TA.ENT_NUMERO_PROSA_EMI "+
+"             ELSE TA.ENT_NUMERO_PROSA_ADQ "+
+"       END BANCO_COLUMNA "+
+"       ,CASE "+
+"             WHEN TA.CODIGO_RAZON = 99 THEN EE.NOMBRE "+
+"             ELSE EA.NOMBRE "+
+"       END DESCRIPCION_COLUMNA "+
+"       ,TA.CUENTA PT_TI_ID "+
+"       ,TO_CHAR(TA.NUMERO_REFERENCIA) PT_ACQ_REF_NUM "+
+"       ,TA.NUMERO_COMERCIO PT_RTLR_ID "+
+"       ,TA.NOMBRE_COMERCIO PT_MRCH_NAM "+
+"       ,TA.NUMERO_AUTORIZACION PT_AUTH_CD "+
+"       ,CASE   "+
+"       WHEN TA.TTR_NUMERO IN (16) THEN -TA.IMPORTE_TOTAL_TRANSAC "+
+"           ELSE  TA.IMPORTE_TOTAL_TRANSAC  "+
+"       END  PT_REQ_AMT "+
+"    , CASE " +
+"          WHEN TA.ENT_NUMERO_PROSA_EMI  = 741 OR TA.ENT_NUMERO_PROSA_ADQ = 741 THEN 3 " +
+"          ELSE 2 " +
+"       END " +
+"       AS CAMARA " +
+"    , CASE " +
+"          WHEN TA.ENT_NUMERO_PROSA_EMI  = 741 OR TA.ENT_NUMERO_PROSA_ADQ = 741 THEN 'MasterCard' " +
+"          ELSE 'EGLO' " +
+"       END " +
+"       AS DESC_CAMARA " +
+" FROM SUPERSIC.TRANSACCIONES_ACEPTADAS TA "+
+" INNER JOIN SUPERSIC.ENTIDADES EE "+
+"     ON EE.NUMERO_PROSA = TA.ENT_NUMERO_PROSA_EMI "+
+" INNER JOIN SUPERSIC.ENTIDADES EA "+
+"     ON EA.NUMERO_PROSA = TA.ENT_NUMERO_PROSA_ADQ "+
+" INNER JOIN SUPERSIC.TIPOS_TRANSACCION TT "+
+"     ON TT.NUMERO = TA.TTR_NUMERO "+
+" WHERE TA.FECHA_PROCESO_TRANSAC BETWEEN TO_DATE('" + $P{antInitDate}+ "','DD/MM/YYYY') AND TO_DATE('" + $P{antEndDate} + "','DD/MM/YYYY') "+
+"     AND (TA.ENT_NUMERO_PROSA_ADQ IN (" + $P{banco} + ") OR TA.ENT_NUMERO_PROSA_EMI IN (" + $P{banco} + ")) "+
+($P{camara}.indexOf( "," ) > 0 ?  "     AND TA.ARCH_NUMERO IN (152,153, 245) " : " " ) +
+($P{camara}.indexOf( "," ) == -1 && $P{camara}.indexOf( "2" )  > -1 ?  "     AND TA.ARCH_NUMERO IN (152,153) " : " " ) +
+($P{camara}.indexOf( "," ) == -1 && $P{camara}.indexOf( "3" )  > -1 ?  "     AND TA.ARCH_NUMERO = 245 " : " " ) +
+"     AND TA.TTR_NUMERO IN (9,12,13,15,16,17,18,19,24,30,130) "+
+" ) IDEA "
+: " "
+) +
+($P{tipoProc}.equalsIgnoreCase( "774" ) && $P{tipoES}.contentEquals( "E" )
+? " where (BANCO_ENCABEZADO in (" + $P{banco} + ")) "
+:   ($P{tipoProc}.equalsIgnoreCase( "774" ) && $P{tipoES}.contentEquals( "S" )
+      ? " where (BANCO_COLUMNA in (" + $P{banco} + ")) "
+      : " "
+    )
+)]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[$P!{sqlCad}]]>
+	</queryString>
+	<field name="TD_SRCE_NBR" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Numero Archivo]]></fieldDescription>
+	</field>
+	<field name="PARAMETRO_PROCESO" class="java.lang.String"/>
+	<field name="BANCO_ENCABEZADO" class="java.lang.Integer"/>
+	<field name="DESCRIPCION_ENCABEZADO" class="java.lang.String"/>
+	<field name="TD_TXN_TYP" class="java.lang.Integer"/>
+	<field name="DESC_TIPO_TX" class="java.lang.String"/>
+	<field name="PT_WH_SEQ" class="java.lang.Float"/>
+	<field name="TD_RSN_CD" class="java.lang.String"/>
+	<field name="BANCO_COLUMNA" class="java.lang.Integer"/>
+	<field name="DESCRIPCION_COLUMNA" class="java.lang.String"/>
+	<field name="PT_TI_ID" class="java.lang.String"/>
+	<field name="PT_ACQ_REF_NUM" class="java.lang.String"/>
+	<field name="PT_RTLR_ID" class="java.lang.Integer"/>
+	<field name="PT_MRCH_NAM" class="java.lang.String"/>
+	<field name="PT_AUTH_CD" class="java.lang.String"/>
+	<field name="PT_REQ_AMT" class="java.lang.Double"/>
+	<field name="CAMARA" class="java.lang.Integer">
+		<fieldDescription><![CDATA[Camara]]></fieldDescription>
+	</field>
+	<field name="DESC_CAMARA" class="java.lang.String">
+		<fieldDescription><![CDATA[Descripcion Camara]]></fieldDescription>
+	</field>
+	<variable name="groupBanco_1C_Count" class="java.lang.Integer" resetType="Group" resetGroup="grupoBanco" incrementType="Group" incrementGroup="grupoBanco" calculation="Sum">
+		<variableExpression><![CDATA[new Integer(($F{TD_TXN_TYP}==15 || $F{TD_TXN_TYP}==16  ? $V{groupBanco_1C_Count}.intValue() + 1 : $V{groupBanco_1C_Count}.intValue() ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Integer(0)]]></initialValueExpression>
+	</variable>
+	<variable name="grupoBanco_Rep_Count" class="java.lang.Integer" resetType="Group" resetGroup="grupoBanco" incrementType="Group" incrementGroup="grupoBanco" calculation="Sum">
+		<variableExpression><![CDATA[new Integer(($F{TD_TXN_TYP} == 9 ? $V{grupoBanco_Rep_Count}.intValue() +1 : $V{grupoBanco_Rep_Count}.intValue() ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Integer(0)]]></initialValueExpression>
+	</variable>
+	<variable name="groupBanco_2C_Count" class="java.lang.Integer" resetType="Group" resetGroup="grupoBanco" incrementType="Group" incrementGroup="grupoBanco" calculation="Sum">
+		<variableExpression><![CDATA[new Integer(( $F{TD_TXN_TYP} == 18 ?  $V{groupBanco_2C_Count}.intValue() + 1 : $V{groupBanco_2C_Count}.intValue()   ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Integer(0)]]></initialValueExpression>
+	</variable>
+	<variable name="totalRep_Count" class="java.lang.Integer" incrementType="Report" calculation="Sum">
+		<variableExpression><![CDATA[new Integer(($F{TD_TXN_TYP} == 9 ? $V{totalRep_Count}.intValue() + 1  : $V{totalRep_Count}.intValue()  ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Integer(0)]]></initialValueExpression>
+	</variable>
+	<variable name="total_1C_Count" class="java.lang.Integer" incrementType="Report" calculation="Sum">
+		<variableExpression><![CDATA[new Integer(($F{TD_TXN_TYP} == 15 || $F{TD_TXN_TYP} == 16 ? $V{total_1C_Count}.intValue() + 1 : $V{total_1C_Count}.intValue()  ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Integer(0)]]></initialValueExpression>
+	</variable>
+	<variable name="total_2C_Count" class="java.lang.Integer" incrementType="Report" calculation="Sum">
+		<variableExpression><![CDATA[new Integer(( $F{TD_TXN_TYP} == 18 ?  $V{total_2C_Count}.intValue() + 1 : $V{total_2C_Count}.intValue() ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Integer(0)]]></initialValueExpression>
+	</variable>
+	<variable name="groupBanco_1C_IMP" class="java.lang.Double" resetType="Group" resetGroup="grupoBanco">
+		<variableExpression><![CDATA[new Double(($F{TD_TXN_TYP}==15 || $F{TD_TXN_TYP}==16  ? $V{groupBanco_1C_IMP}.doubleValue() + $F{PT_REQ_AMT} : $V{groupBanco_1C_IMP}.doubleValue() ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="groupBanco_2C_IMP" class="java.lang.Double" resetType="Group" resetGroup="grupoBanco">
+		<variableExpression><![CDATA[new Double(( $F{TD_TXN_TYP} == 18 ?  $V{groupBanco_2C_IMP}.doubleValue() + $F{PT_REQ_AMT} : $V{groupBanco_2C_IMP}.doubleValue()   ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="groupBanco_Rep_IMP" class="java.lang.Double" resetType="Group" resetGroup="grupoBanco">
+		<variableExpression><![CDATA[new Double(($F{TD_TXN_TYP} == 9 ? $V{groupBanco_Rep_IMP}.doubleValue() +$F{PT_REQ_AMT} : $V{groupBanco_Rep_IMP}.doubleValue() ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="grupoRazon_IMP" class="java.lang.Double" resetType="Group" resetGroup="grupoRazon" incrementType="Group" incrementGroup="grupoRazon" calculation="Sum">
+		<variableExpression><![CDATA[$V{grupoRazon_IMP}+$F{PT_REQ_AMT}]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="total_1C_IMP" class="java.lang.Double">
+		<variableExpression><![CDATA[new Double(($F{TD_TXN_TYP}==15 || $F{TD_TXN_TYP}==16  ? $V{total_1C_IMP}.doubleValue() + $F{PT_REQ_AMT} : $V{total_1C_IMP}.doubleValue() ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="total_2C_IMP" class="java.lang.Double">
+		<variableExpression><![CDATA[new Double(( $F{TD_TXN_TYP} == 18 ?  $V{total_2C_IMP}.doubleValue() + $F{PT_REQ_AMT} : $V{total_2C_IMP}.doubleValue()   ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="total_Rep_IMP" class="java.lang.Double">
+		<variableExpression><![CDATA[new Double(($F{TD_TXN_TYP} == 9 ? $V{total_Rep_IMP}.doubleValue() +$F{PT_REQ_AMT} : $V{total_Rep_IMP}.doubleValue() ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="total_Camara1C_Count" class="java.lang.Double" resetType="Group" resetGroup="Camara">
+		<variableExpression><![CDATA[new Double(($F{TD_TXN_TYP} == 15 || $F{TD_TXN_TYP} == 16 ? $V{total_Camara1C_Count}.doubleValue() + 1 : $V{total_Camara1C_Count}.doubleValue()  ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="total_Camara2C_Count" class="java.lang.Double" resetType="Group" resetGroup="Camara">
+		<variableExpression><![CDATA[new Double(( $F{TD_TXN_TYP} == 18 ?  $V{total_Camara2C_Count}.doubleValue() + 1 : $V{total_Camara2C_Count}.doubleValue() ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="total_CamaraRep_Count" class="java.lang.Double" resetType="Group" resetGroup="Camara">
+		<variableExpression><![CDATA[new Double(($F{TD_TXN_TYP} == 9 ? $V{total_CamaraRep_Count}.doubleValue() + 1  : $V{total_CamaraRep_Count}.doubleValue()  ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="total_Camara1C_IMP" class="java.lang.Double" resetType="Group" resetGroup="Camara">
+		<variableExpression><![CDATA[new Double(($F{TD_TXN_TYP}==15 || $F{TD_TXN_TYP}==16  ? $V{total_Camara1C_IMP}.doubleValue() + $F{PT_REQ_AMT} : $V{total_Camara1C_IMP}.doubleValue() ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="total_Camara2C_IMP" class="java.lang.Double" resetType="Group" resetGroup="Camara">
+		<variableExpression><![CDATA[new Double(( $F{TD_TXN_TYP} == 18 ?  $V{total_Camara2C_IMP}.doubleValue() + $F{PT_REQ_AMT} : $V{total_Camara2C_IMP}.doubleValue()   ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<variable name="total_CamaraRep_IMP" class="java.lang.Double" resetType="Group" resetGroup="Camara">
+		<variableExpression><![CDATA[new Double(($F{TD_TXN_TYP} == 9 ? $V{total_CamaraRep_IMP}.doubleValue() +$F{PT_REQ_AMT} : $V{total_CamaraRep_IMP}.doubleValue() ))]]></variableExpression>
+		<initialValueExpression><![CDATA[new Double(0.0)]]></initialValueExpression>
+	</variable>
+	<group name="Camara" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{CAMARA}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<staticText>
+					<reportElement x="7" y="5" width="50" height="22">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+						<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font size="12" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Cámara:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="62" y="5" width="433" height="22">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle">
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{CAMARA} + " " + $F{DESC_CAMARA}]]></textFieldExpression>
+				</textField>
+				<line>
+					<reportElement x="0" y="28" width="801" height="1"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="68">
+				<textField pattern="#,##0">
+					<reportElement x="452" y="48" width="95" height="18"/>
+					<textElement textAlignment="Right">
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{total_Camara2C_Count}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="241" y="49" width="211" height="16"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Total por Cámara 2dos Contracargos:]]></text>
+				</staticText>
+				<textField pattern="#,##0" isBlankWhenNull="false">
+					<reportElement x="451" y="8" width="95" height="18"/>
+					<textElement textAlignment="Right">
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{total_CamaraRep_Count}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0">
+					<reportElement x="452" y="28" width="95" height="18"/>
+					<textElement textAlignment="Right">
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{total_Camara1C_Count}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="242" y="9" width="209" height="16"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Total por Cámara Representaciones:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00">
+					<reportElement x="705" y="28" width="95" height="18"/>
+					<textElement textAlignment="Right">
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{total_Camara1C_IMP}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="704" y="8" width="95" height="18"/>
+					<textElement textAlignment="Right">
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{total_CamaraRep_IMP}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="241" y="29" width="211" height="16"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Total por Cámara 1ros Contracargos:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00">
+					<reportElement x="705" y="48" width="95" height="18"/>
+					<textElement textAlignment="Right">
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{total_Camara2C_IMP}]]></textFieldExpression>
+				</textField>
+				<line direction="BottomUp">
+					<reportElement x="242" y="5" width="304" height="1"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="grupoBanco" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[($P{tipoES}.equalsIgnoreCase( "S" ) && $P{tipoProc}.equalsIgnoreCase( "774" ) ? $F{BANCO_COLUMNA} : $F{BANCO_ENCABEZADO})]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<staticText>
+					<reportElement x="8" y="3" width="42" height="15"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Banco:]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="50" y="3" width="433" height="15"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[($P{tipoES}.equalsIgnoreCase( "S" ) && $P{tipoProc}.equalsIgnoreCase( "774" ) ? $F{BANCO_COLUMNA} + " " + $F{DESCRIPCION_COLUMNA}: $F{BANCO_ENCABEZADO} + " " + $F{DESCRIPCION_ENCABEZADO})]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="69">
+				<staticText>
+					<reportElement x="242" y="9" width="209" height="16"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Total por Banco Representaciones:]]></text>
+				</staticText>
+				<textField pattern="#,##0" isBlankWhenNull="false">
+					<reportElement x="451" y="7" width="95" height="18"/>
+					<textElement textAlignment="Right">
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{grupoBanco_Rep_Count}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="241" y="29" width="211" height="16"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Total por Banco 1ros Contracargos:]]></text>
+				</staticText>
+				<textField pattern="#,##0">
+					<reportElement x="452" y="27" width="95" height="18"/>
+					<textElement textAlignment="Right">
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{groupBanco_1C_Count}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0">
+					<reportElement x="452" y="47" width="95" height="18"/>
+					<textElement textAlignment="Right">
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{groupBanco_2C_Count}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="241" y="49" width="211" height="16"/>
+					<textElement>
+						<font size="11"/>
+					</textElement>
+					<text><![CDATA[Total por Banco 2dos Contracargos:]]></text>
+				</staticText>
+				<textField pattern="#,##0.00">
+					<reportElement x="704" y="8" width="95" height="18"/>
+					<textElement textAlignment="Right">
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{groupBanco_Rep_IMP}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="705" y="28" width="95" height="18"/>
+					<textElement textAlignment="Right">
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{groupBanco_1C_IMP}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="705" y="48" width="95" height="18"/>
+					<textElement textAlignment="Right">
+						<font size="11"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{groupBanco_2C_IMP}]]></textFieldExpression>
+				</textField>
+				<line direction="BottomUp">
+					<reportElement x="242" y="4" width="304" height="1"/>
+				</line>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="grupoTipoTxn" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{TD_TXN_TYP}]]></groupExpression>
+		<groupHeader>
+			<band height="20">
+				<textField>
+					<reportElement x="7" y="3" width="194" height="17"/>
+					<textElement>
+						<font size="9"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{DESC_TIPO_TX}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="grupoRazon" isReprintHeaderOnEachPage="true">
+		<groupExpression><![CDATA[$F{TD_RSN_CD}]]></groupExpression>
+		<groupHeader>
+			<band height="30">
+				<staticText>
+					<reportElement mode="Transparent" x="7" y="1" width="65" height="18" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8"/>
+					</textElement>
+					<text><![CDATA[Código de Razón]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="91" y="1" width="112" height="18" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8"/>
+					</textElement>
+					<text><![CDATA[Banco]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="216" y="1" width="112" height="18" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8"/>
+					</textElement>
+					<text><![CDATA[Cuenta]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="345" y="1" width="112" height="18" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8"/>
+					</textElement>
+					<text><![CDATA[Referencia]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="467" y="1" width="63" height="18" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8"/>
+					</textElement>
+					<text><![CDATA[Afiliación]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="532" y="1" width="98" height="18" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8"/>
+					</textElement>
+					<text><![CDATA[Comercio]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="638" y="1" width="92" height="18" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8"/>
+					</textElement>
+					<text><![CDATA[Número de Autorización]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="736" y="1" width="66" height="18" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="SansSerif" size="8"/>
+					</textElement>
+					<text><![CDATA[Importe]]></text>
+				</staticText>
+				<line>
+					<reportElement x="0" y="22" width="801" height="5"/>
+				</line>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="34">
+				<staticText>
+					<reportElement x="242" y="7" width="178" height="20">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement verticalAlignment="Middle"/>
+					<text><![CDATA[Total por Código de Razón:]]></text>
+				</staticText>
+				<line direction="BottomUp">
+					<reportElement x="242" y="4" width="304" height="1"/>
+				</line>
+				<textField pattern="#,##0">
+					<reportElement x="435" y="7" width="111" height="20">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{grupoRazon_COUNT}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="690" y="7" width="111" height="20">
+						<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					</reportElement>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{grupoRazon_IMP}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="Group1">
+		<groupExpression><![CDATA[$F{CAMARA}]]></groupExpression>
+		<groupFooter>
+			<band height="2"/>
+		</groupFooter>
+	</group>
+	<title>
+		<band height="518">
+			<rectangle radius="10">
+				<reportElement x="201" y="84" width="402" height="116"/>
+			</rectangle>
+			<textField pattern="dd-MM-yyyy HH:mm">
+				<reportElement x="383" y="250" width="139" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="263" y="250" width="115" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Ejecución:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="383" y="212" width="139" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[SICCMR360H]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="263" y="231" width="115" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ejecutó:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="263" y="212" width="115" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Archivo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="263" y="269" width="115" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha del:]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" hAlign="Left" vAlign="Top" isUsingCache="false">
+				<reportElement key="image-2" mode="Opaque" x="307" y="17" width="150" height="46" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+				</graphicElement>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="263" y="288" width="115" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cámara:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="263" y="308" width="115" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Banco:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="257" y="121" width="290" height="22"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROMOCIÓN Y OPERACIÓN S.A. DE C.V.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="254" y="147" width="301" height="19"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Contracargos y Representaciones]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="380" y="308" width="390" height="202"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{banco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="288" width="387" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{dsCamara}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="269" width="387" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{initDate} + " al " + $P{endDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="231" width="128" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{ejecuto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="111">
+			<textField>
+				<reportElement x="296" y="64" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{initDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="234" y="64" width="60" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Fecha del:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="742" y="50" width="20" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[de]]></text>
+			</staticText>
+			<textField pattern="HH:mm">
+				<reportElement x="702" y="23" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MM-yyyy">
+				<reportElement x="702" y="0" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="281" y="3" width="240" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROMOCION Y OPERACION S.A. DE C.V.]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="702" y="50" width="40" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="468" y="64" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{endDate}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="261" y="23" width="277" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Reporte Contracargos y Representaciones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="602" y="0" width="100" height="20"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[Fecha de proceso:  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="398" y="64" width="70" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[al]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="762" y="50" width="40" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="602" y="23" width="100" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Hora de proceso:  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="602" y="50" width="100" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Página:  ]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" hAlign="Left" vAlign="Top" isUsingCache="false">
+				<reportElement key="image-2" mode="Opaque" x="21" y="15" width="150" height="46" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+				</graphicElement>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="388" y="42" width="204" height="21">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{dsCamara}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="328" y="42" width="60" height="21">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<text><![CDATA[Cámara: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="2" y="87" width="801" height="20">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PARAMETRO_PROCESO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="23">
+			<textField>
+				<reportElement x="8" y="2" width="64" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TD_RSN_CD}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="736" y="2" width="65" height="19"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PT_REQ_AMT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="87" y="2" width="116" height="19"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[($P{tipoProc}.equalsIgnoreCase( "774" ) && $P{tipoES}.equalsIgnoreCase( "S" )
+	? $F{BANCO_ENCABEZADO} + "  " +$F{DESCRIPCION_ENCABEZADO}
+	: $F{BANCO_COLUMNA} + "  "  +$F{DESCRIPCION_COLUMNA}
+)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="216" y="2" width="112" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PT_TI_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="2" width="125" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PT_ACQ_REF_NUM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="465" y="2" width="61" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PT_RTLR_ID}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="530" y="2" width="108" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PT_MRCH_NAM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="640" y="2" width="90" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{PT_AUTH_CD}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="29" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="1" width="802" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="692" y="7" width="110" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ejecuto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="592" y="7" width="100" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usuario:  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="7" width="100" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SICCMR360H]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="4" width="799" height="1"/>
+			</line>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="88">
+			<staticText>
+				<reportElement x="246" y="45" width="211" height="16"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total de 2dos Contracargos:]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="459" y="23" width="95" height="18"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total_1C_Count}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="246" y="5" width="209" height="16"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total de Representaciones:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="246" y="25" width="211" height="16"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total de 1ros Contracargos:]]></text>
+			</staticText>
+			<textField pattern="#,##0">
+				<reportElement x="459" y="43" width="95" height="18"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total_2C_Count}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0">
+				<reportElement x="458" y="4" width="95" height="18"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{totalRep_Count}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="64" width="802" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="692" y="66" width="110" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{ejecuto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="592" y="66" width="100" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Usuario:  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="66" width="100" height="20"/>
+				<textElement verticalAlignment="Bottom">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SICCMR360H]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement x="702" y="4" width="95" height="18"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total_Rep_IMP}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="703" y="24" width="95" height="18"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total_1C_IMP}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement x="703" y="44" width="95" height="18"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{total_2C_IMP}]]></textFieldExpression>
+			</textField>
+			<line direction="BottomUp">
+				<reportElement x="247" y="3" width="304" height="1"/>
+			</line>
+		</band>
+	</lastPageFooter>
+	<summary>
+		<band/>
+	</summary>
+	<noData>
+		<band height="555">
+			<staticText>
+				<reportElement x="62" y="511" width="700" height="25"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No hay registros para los criterios proporcionados.]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="207" y="76" width="402" height="116"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="259" y="140" width="290" height="17"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Reporte Contracargos y Representaciones]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="259" y="115" width="290" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Serif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PROMOCIÓN Y OPERACIÓN S.A. DE C.V.]]></text>
+			</staticText>
+			<image scaleImage="FillFrame" hAlign="Left" vAlign="Top" isUsingCache="false">
+				<reportElement key="image-2" mode="Opaque" x="333" y="25" width="150" height="46" forecolor="#000000" backcolor="#FFFFFF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<graphicElement fill="Solid">
+					<pen lineWidth="0.0" lineStyle="Solid"/>
+				</graphicElement>
+				<imageExpression><![CDATA[$P{logo}]]></imageExpression>
+			</image>
+			<textField pattern="dd-MM-yyyy HH:mm">
+				<reportElement x="383" y="241" width="139" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="263" y="241" width="115" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de Ejecución:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="383" y="203" width="139" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<text><![CDATA[SICCMR0360]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="263" y="222" width="115" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Ejecutó:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="263" y="203" width="115" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Archivo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="263" y="260" width="115" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha del:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="263" y="279" width="115" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cámara:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="263" y="299" width="115" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font fontName="Serif" size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Banco:]]></text>
+			</staticText>
+			<textField>
+				<reportElement stretchType="RelativeToTallestObject" x="380" y="299" width="390" height="202"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$P{banco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="279" width="387" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{dsCamara}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="260" width="387" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{initDate} + " al " + $P{endDate}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="383" y="222" width="128" height="18">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{ejecuto}]]></textFieldExpression>
+			</textField>
+		</band>
+	</noData>
+</jasperReport>

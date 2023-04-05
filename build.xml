@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="main" name="EXP_SC2">
+	
+    <property environment="env"/>
+    <property name="debuglevel" value="source,lines,vars"/>
+    <property name="target" value="17"/>
+    <property name="source" value="17"/>
+	
+	<property name="appname" value="PMTURPTB999G07_01"/>
+    
+    <property name="src.dir"     value="src"/>
+    <property name="build.dir"   value="build"/>
+    <property name="classes.dir" value="${build.dir}/classes"/>
+    
+    <path id="EXP_SC2.classpath">
+        <pathelement location="bin"/>
+        <fileset dir="ReportEngine/lib" includes="**/*.jar"/>
+    	<fileset dir="lib" includes="**/*.jar"/>
+    </path>
+	
+    <target name="init">
+        <mkdir dir="bin"/>
+        <copy includeemptydirs="false" todir="bin">
+            <fileset dir="src">
+                <exclude name="**/*.launch"/>
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    
+	<target name="clean">
+    	<echo message="####################################" />
+        <echo message="### LIMPIANDO CLASES COMPILADAS ### " />
+        <echo message="####################################" />
+        <delete dir="${build.dir}"/>
+    	<delete dir="bin"/>
+    </target>
+    
+	<target depends="clean" name="cleanall"/>
+    
+	<target depends="build-subprojects,build-project" name="build"/>
+    
+	<target name="build-subprojects"/>
+    
+	<target depends="init" name="build-project">
+        <echo message="${ant.project.name}: ${ant.file}"/>
+        <javac debug="true" debuglevel="${debuglevel}" destdir="bin" includeantruntime="false" source="${source}" target="${target}">
+            <src path="src"/>
+            <classpath refid="EXP_SC2.classpath"/>
+        </javac>
+    </target>
+    
+	<target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
+    
+	<target name="Extractor" depends="build">
+        <java classname="com.prosa.main.Extractor" failonerror="true" fork="yes">
+            <classpath refid="EXP_SC2.classpath"/>
+        	<arg value="${reportName}" />
+        	<arg value="${initDate}" />
+        	<arg value="${endDate}" />
+        </java>
+    </target>
+	
+	<target  name="compile" depends="clean" >
+		<echo>Java Version via Ant: ${ant.java.version}</echo> 
+		<echo>Java Home via Ant: ${java.home}</echo> 
+		<echo>Java Version System Prop: ${java.version}</echo> 
+	    <echo message="############################################"/>
+    	<echo message="##          BEGIN COMPILATION             ##"/>
+	    <echo message="############################################"/>
+	    <echo message="##                                        ##"/>
+	    <mkdir dir="${classes.dir}"/>
+	    <echo message=" "/>
+  	    <javac debug="true" deprecation="false" destdir="build/classes" srcdir="src" includeantruntime="false" verbose="false" classpathref="EXP_SC2.classpath" />
+	    <echo message=" "/>
+	    <echo message="##                                        ##"/>
+	    <echo message="############################################"/>
+	    <echo message="##          DONE COMPILATION              ##"/>
+	    <echo message="############################################"/>
+    </target>
+
+    <target depends="compile" name="main">
+    	<echo message="############################################"/>
+       	<echo message="##          BEGIN JAR CREATION            ##"/>
+	    <echo message="############################################"/>
+	    <echo message="##                                        ##"/>
+	    <echo message=" "/>
+  	    <jar basedir = "${classes.dir}" destfile="${appname}.jar">
+             <fileset dir="src" casesensitive="yes">
+                <include name="**/*.properties"/>
+             </fileset>
+  	    	<!--fileset dir="ReportEngine/lib" includes="**/*.jar"/-->
+             <manifest>
+                <attribute name="Main-Class" value="com.prosa.main.Extractor"/>
+            </manifest>
+	    </jar>
+
+	    <echo message=" "/>
+	    <echo message="##                                        ##"/>
+	    <echo message="############################################"/>
+	    <echo message="##          DONE JAR CREATION             ##"/>
+	    <echo message="############################################"/>
+    </target>
+</project>
