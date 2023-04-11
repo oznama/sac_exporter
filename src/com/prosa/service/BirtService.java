@@ -1,8 +1,12 @@
 package com.prosa.service;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.prosa.birt.BirtImplementation;
+import com.prosa.obj.ReportParams;
 import com.prosa.obj.Constants;
 import com.prosa.obj.ReportConfig;
 import com.prosa.obj.ReportDb;
@@ -10,6 +14,7 @@ import com.prosa.obj.ReportDb;
 public class BirtService {
 	
 	private static Logger logger = LoggerFactory.getLogger(BirtService.class);
+	
 	
 	public void generateReport(Integer reportNum, String initDate, String endDate) {
 		logger.debug("Gerating report {} ...", reportNum);
@@ -26,14 +31,14 @@ public class BirtService {
 				// Add param destination: /aplic/prod/pmt/rpt/sal/PMTRPTB999HAAMMDDII01.PDF
 				reportConfig.setPdfName(String.format("%s/%s", BirtImplementation.PDF_DESTINATION, reportConfig.getPdfName()));
 				
-				if(reportConfig.getParams().containsKey(Constants.PARAM_RANGO_FECHA_INI)) {
-					reportConfig.getParams().put(Constants.PARAM_RANGO_FECHA_INI, initDate);
-					reportConfig.getParams().put(Constants.PARAM_RANGO_FECHA_FIN, endDate);
+				if(reportConfig.getParams().containsKey(ReportParams.RANGO_FECHA_INI)) {
+					reportConfig.getParams().put(ReportParams.RANGO_FECHA_INI, initDate);
+					reportConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, endDate);
 				}
 				
-				if(reportConfig.getParams().containsKey(Constants.PARAM_RANGO_FECHA_INI_ORIG)) {
-					reportConfig.getParams().put(Constants.PARAM_RANGO_FECHA_INI_ORIG, initDate);
-					reportConfig.getParams().put(Constants.PARAM_RANGO_FECHA_FIN_ORIG, endDate);
+				if(reportConfig.getParams().containsKey(ReportParams.RANGO_FECHA_INI_ORIG)) {
+					reportConfig.getParams().put(ReportParams.RANGO_FECHA_INI_ORIG, initDate);
+					reportConfig.getParams().put(ReportParams.RANGO_FECHA_FIN_ORIG, endDate);
 				}
 				
 				
@@ -48,6 +53,76 @@ public class BirtService {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public void generateReport(String args[]) {
+		BirtImplementation birtImplementation = new BirtImplementation();
+		// Add param log config: /aplic/prod/pmt/rpt/log
+		// Add param destination: /aplic/prod/pmt/rpt/sal/PMTRPTB999HAAMMDDII01.PDF
+		String destination = String.format("%s/%s", BirtImplementation.PDF_DESTINATION, args[1]);
+		birtImplementation.buildPdf(null, null, args[0], destination, buildParams(args));
+		
+	}
+	
+	private Map<String, String> buildParams(String args[]) {
+		System.out.println("Building params with " + args.length + " params!");
+		Map<String, String> params = new HashMap<>();
+		
+		setDbParams(args, params);
+		
+		setRepParams(args, params);
+		
+		System.out.println("Params build\n" + params);
+		
+		return params;
+		
+	}
+
+	private void setDbParams(String[] args, Map<String, String> params) {
+		// Database params
+		String dbHost = args[2];
+		String dbPort = args[3];
+		String dbName = args[4];
+		String dbUser = args[5];
+		String dbPswd = args[6];
+		if(dbHost.equalsIgnoreCase(Constants.EMPTY_VALUE) 
+				|| dbPort.equalsIgnoreCase(Constants.EMPTY_VALUE)
+				|| dbName.equalsIgnoreCase(Constants.EMPTY_VALUE)
+				|| dbUser.equalsIgnoreCase(Constants.EMPTY_VALUE)
+				|| dbPswd.equalsIgnoreCase(Constants.EMPTY_VALUE)) {
+			logger.warn("Data base params incomplete...");
+		} else {
+			params.put(Constants.DB_HOST, dbHost);
+			params.put(Constants.DB_PORT, dbPort);
+			params.put(Constants.DB_NAME, dbName);
+			params.put(Constants.DB_USER, dbUser);
+			params.put(Constants.DB_PSWD, dbPswd);
+		}
+	}
+	
+	private void setRepParams(String[] args, Map<String, String> params) {
+		int index = 7;
+		
+		// Report params
+		setValue(ReportParams.USUARIO, args[index++], params);
+		setValue(ReportParams.RANGO_FECHA_INI, args[index++], params); 
+		setValue(ReportParams.RANGO_FECHA_FIN, args[index++], params); 
+		setValue(ReportParams.RANGO_FECHA_INI_ORIG, args[index++], params); 
+		setValue(ReportParams.RANGO_FECHA_FIN_ORIG, args[index++], params); 
+		setValue(ReportParams.BANCO, args[index++], params); 
+		setValue(ReportParams.NATURALEZA_CONTABLE, args[index++], params); 
+		setValue(ReportParams.TIPO_LIQUIDACION, args[index++], params); 
+		setValue(ReportParams.ROLE, args[index++], params); 
+		setValue(ReportParams.MISC, args[index++], params); 
+		setValue(ReportParams.TIPO_PROCESO, args[index++], params); 
+		setValue(ReportParams.TIPO_EMISOR_ADQ, args[index++], params); 
+		
+		
+	}
+	
+	private void setValue(String key, String value, Map<String, String> params) {
+		if(!value.equalsIgnoreCase(Constants.EMPTY_VALUE))
+			params.put(key, value);
 	}
 	
 	public void dummy() {

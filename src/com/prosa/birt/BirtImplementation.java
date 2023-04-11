@@ -47,6 +47,8 @@ public class BirtImplementation {
 	 */
 	public void buildPdf(String birtHome, String logConfig, String report, String destination, Map<String, String> params) {
 		validateInputs(birtHome, logConfig, report, destination, params);
+		System.out.println("Report: " + this.report);
+		System.out.println("Destination: " + this.destination);
 		try {
 			initConfig();
 			Platform.startup(this.config);
@@ -69,6 +71,7 @@ public class BirtImplementation {
 	
 	private void validateInputs(String birtHome, String logConfig, String report, String destination, 
 			Map<String, String> params) {
+		System.out.println("Validint inputs ...");
 		this.birtHome = birtHome != null ? birtHome : BIRT_HOME;
 		logger.debug("Setting birt home: {}", this.birtHome);
 		
@@ -82,6 +85,7 @@ public class BirtImplementation {
 			String.format("%s/%s_%s.%s", PDF_DESTINATION, getFileDestinationName(this.report), date, PDF_EXT);
 		logger.debug("Saving report to: {}", this.destination);
 		logger.debug("Params: {}", params);
+		System.out.println("Params:\n" + params);
 	}
 
 	private void initConfig() throws BirtException {

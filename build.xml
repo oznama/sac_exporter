@@ -55,9 +55,25 @@
 	<target name="Extractor" depends="build">
         <java classname="com.prosa.main.Extractor" failonerror="true" fork="yes">
             <classpath refid="EXP_SC2.classpath"/>
-        	<arg value="${reportNum}" />
+        	<arg value="${reportName}" />
+        	<arg value="${pdfName}" />
+        	<arg value="${dbHost}" />
+        	<arg value="${dbPort}" />
+        	<arg value="${dbName}" />
+        	<arg value="${dbUser}" />
+        	<arg value="${dbPswd}" />
+        	<arg value="${ejecuto}" />
         	<arg value="${initDate}" />
         	<arg value="${endDate}" />
+        	<arg value="${initDateOrig}" />
+        	<arg value="${endDateOrig}" />
+        	<arg value="${banco}" />
+        	<arg value="${agrDia}" />
+        	<arg value="${tipoLiq}" />
+        	<arg value="${role}" />
+        	<arg value="${numMisc}" />
+        	<arg value="${tipoProc}" />
+        	<arg value="${tipoEmiAdq}" />
         </java>
     </target>
 	

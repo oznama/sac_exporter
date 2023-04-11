@@ -3,6 +3,7 @@ package com.prosa.main;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import com.prosa.obj.Constants;
 import com.prosa.service.BirtService;
 
 
@@ -13,14 +14,11 @@ public class Extractor {
 	public static void main(String args[]) {
 		logger.info("Starting extractor");
 		
-		if( args.length > 0 ) {
-			
-			Integer reportNum = Integer.valueOf(args[0]);
-			String initDate = args[1];
-			String endDate = args[2];
+		if( args.length > 0 && args.length == Constants.ARGS_LEGTH ) {
+			System.out.println("Generating report ...");
 			
 			BirtService birtService = new BirtService();
-			birtService.generateReport(reportNum, initDate, endDate);
+			birtService.generateReport(args);
 			
 			
 		} else if(args.length == 0) {

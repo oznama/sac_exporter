@@ -43,10 +43,10 @@ public class ReportDb {
 		repConfig.setReportName("SICLIR0060");
 		repConfig.setPdfName("PMTRPTB999HAAMMDDII01");
 
-		repConfig.getParams().put(Constants.PARAM_RANGO_FECHA_INI_ORIG, null);
-		repConfig.getParams().put(Constants.PARAM_RANGO_FECHA_FIN_ORIG, null);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI_ORIG, null);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN_ORIG, null);
 
-		repConfig.getParams().put(Constants.PARAM_BANCO, "0");
+		repConfig.getParams().put(ReportParams.BANCO, "0");
 
 		REPORT_CONFIG.add(repConfig);
 	}
@@ -60,9 +60,9 @@ public class ReportDb {
 		repConfig.setReportName("SICLIR0077");
 		repConfig.setPdfName("PMTRPTB999HAAMMDDII02");
 
-		repConfig.getParams().put(Constants.PARAM_RANGO_FECHA_INI_ORIG, null);
-		repConfig.getParams().put(Constants.PARAM_RANGO_FECHA_FIN_ORIG, null);
-		repConfig.getParams().put(Constants.PARAM_NATURALEZA_CONTABLE, "01");
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI_ORIG, null);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN_ORIG, null);
+		repConfig.getParams().put(ReportParams.NATURALEZA_CONTABLE, "01");
 
 		REPORT_CONFIG.add(repConfig);
 	}
@@ -73,10 +73,10 @@ public class ReportDb {
 		repConfig.setReportName("SICLIR0010");
 		repConfig.setPdfName("PMTRPTB999HAAMMDDII03");
 
-		repConfig.getParams().put(Constants.PARAM_RANGO_FECHA_INI, null);
-		repConfig.getParams().put(Constants.PARAM_RANGO_FECHA_FIN, null);
-		repConfig.getParams().put(Constants.PARAM_TIPO_LIQUIDACION, "22");
-		repConfig.getParams().put(Constants.PARAM_ROLE, "banco");
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, null);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, null);
+		repConfig.getParams().put(ReportParams.TIPO_LIQUIDACION, "22");
+		repConfig.getParams().put(ReportParams.ROLE, "banco");
 
 		REPORT_CONFIG.add(repConfig);
 	}
@@ -87,13 +87,13 @@ public class ReportDb {
 		repConfig.setReportName("SICLIR0350");
 		repConfig.setPdfName("PMTRPTB999HAAMMDDII11");
 
-		repConfig.getParams().put(Constants.PARAM_RANGO_FECHA_INI, null);
-		repConfig.getParams().put(Constants.PARAM_RANGO_FECHA_FIN, null);
-		repConfig.getParams().put(Constants.PARAM_MISC, "105");
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, null);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, null);
+		repConfig.getParams().put(ReportParams.MISC, "105");
 		// TODO Buscar valor para tipo proceso Circuito local
-		repConfig.getParams().put(Constants.PARAM_TIPO_PROCESO, "100");
+		repConfig.getParams().put(ReportParams.TIPO_PROCESO, "100");
 		// TODO Buscar valor para tipo de emisor adquirente a favot de banco
-		repConfig.getParams().put(Constants.PARAM_TIPO_EMISOR_ADQ, "EMI");
+		repConfig.getParams().put(ReportParams.TIPO_EMISOR_ADQ, "EMI");
 
 		REPORT_CONFIG.add(repConfig);
 	}
@@ -104,13 +104,13 @@ public class ReportDb {
 		repConfig.setReportName("SICLIR0350");
 		repConfig.setPdfName("PMTRPTB999HAAMMDDII12");
 
-		repConfig.getParams().put(Constants.PARAM_RANGO_FECHA_INI, null);
-		repConfig.getParams().put(Constants.PARAM_RANGO_FECHA_FIN, null);
-		repConfig.getParams().put(Constants.PARAM_MISC, "105");
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, null);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, null);
+		repConfig.getParams().put(ReportParams.MISC, "105");
 		// TODO Buscar valor para tipo proceso Entrante
-		repConfig.getParams().put(Constants.PARAM_TIPO_PROCESO, "100");
+		repConfig.getParams().put(ReportParams.TIPO_PROCESO, "100");
 		// TODO Buscar valor para tipo de emisor adquirente a favot de banco
-		repConfig.getParams().put(Constants.PARAM_TIPO_EMISOR_ADQ, "EMI");
+		repConfig.getParams().put(ReportParams.TIPO_EMISOR_ADQ, "EMI");
 
 		REPORT_CONFIG.add(repConfig);
 	}
