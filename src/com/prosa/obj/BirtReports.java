@@ -13,10 +13,10 @@ public class BirtReports {
 	public ReportConfig createSICLIR0060(String[] args) {
 		ReportConfig repConfig = new ReportConfig();
 		repConfig.setReportName(args[0]);
-		repConfig.setPdfName("PMTRPTB999HAAMMDDII01");
-		repConfig.getParams().put(ReportParams.BANCO, args[1]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI_ORIG, args[2]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN_ORIG, args[3]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCO, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI_ORIG, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN_ORIG, args[4]);
 		return repConfig;
 	}
 
@@ -28,10 +28,10 @@ public class BirtReports {
 	public ReportConfig createSICLIR0077(String[] args) {
 		ReportConfig repConfig = new ReportConfig();
 		repConfig.setReportName(args[0]);
-		repConfig.setPdfName("PMTRPTB999HAAMMDDII02");
-		repConfig.getParams().put(ReportParams.NATURALEZA_CONTABLE, args[1]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI_ORIG, args[2]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN_ORIG, args[3]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.NATURALEZA_CONTABLE, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI_ORIG, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN_ORIG, args[4]);
 		return repConfig;
 	}
 
@@ -46,12 +46,12 @@ public class BirtReports {
 	public ReportConfig createSICLIR0010(String args[]) {
 		ReportConfig repConfig = new ReportConfig();
 		repConfig.setReportName(args[0]);
-		repConfig.setPdfName("PMTRPTB999HAAMMDDII03");
-		repConfig.getParams().put(ReportParams.BANCO, args[1]);
-		repConfig.getParams().put(ReportParams.TIPO_LIQUIDACION, args[2]);
-		repConfig.getParams().put(ReportParams.ROLE, args[3]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[5]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCO, args[2]);
+		repConfig.getParams().put(ReportParams.TIPO_LIQUIDACION, args[3]);
+		repConfig.getParams().put(ReportParams.ROLE, args[4]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[5]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[6]);
 		return repConfig;
 	}
 
@@ -64,8 +64,13 @@ public class BirtReports {
 	 * @return
 	 */
 	public ReportConfig createSICLIR0011(String[] args) {
-		// TODO Auto-generated method stub
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCO, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+		return repConfig;
 	}
 	
 	/**
@@ -183,13 +188,13 @@ public class BirtReports {
 	public ReportConfig createSICLIR0350(String args[]) {
 		ReportConfig repConfig = new ReportConfig();
 		repConfig.setReportName(args[0]);
-		repConfig.setPdfName("PMTRPTB999HAAMMDDII11");
-		repConfig.getParams().put(ReportParams.BANCO, args[1]);
-		repConfig.getParams().put(ReportParams.MISC, args[2]);
-		repConfig.getParams().put(ReportParams.TIPO_PROCESO, args[3]);
-		repConfig.getParams().put(ReportParams.TIPO_EMISOR_ADQ, args[4]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[5]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[6]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCO, args[2]);
+		repConfig.getParams().put(ReportParams.MISC, args[3]);
+		repConfig.getParams().put(ReportParams.TIPO_PROCESO, args[4]);
+		repConfig.getParams().put(ReportParams.TIPO_EMISOR_ADQ, args[5]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[6]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[7]);
 		return repConfig;
 	}
 	

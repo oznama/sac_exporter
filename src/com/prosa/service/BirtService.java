@@ -83,89 +83,131 @@ public class BirtService {
 	
 	public void selectReport(String[] args) {
 		String reportName = args[0];
+		System.out.println("Searching report: " + reportName);
 		BirtReports reportDb = new BirtReports();
 		switch (reportName) {
 		case "SICLIR0060":
 			this.reportConfig = reportDb.createSICLIR0060(args);
+			break;
 		case "SICLIR0077":
 			this.reportConfig = reportDb.createSICLIR0077(args);
+			break;
 		case "SICLIR0010":
 			this.reportConfig = reportDb.createSICLIR0010(args);
+			break;
 		case "SICLIR0011":
 			this.reportConfig = reportDb.createSICLIR0011(args);
+			break;
 		case "SICLIR0030":
 			this.reportConfig = reportDb.createSICLIR0030(args);
+			break;
 		case "SICLIR0040":
 			this.reportConfig = reportDb.createSICLIR0040(args);
+			break;
 		case "SICCMR0060":
 			this.reportConfig = reportDb.createSICCMR0060(args);
+			break;
 		case "SICCMR0077":
 			this.reportConfig = reportDb.createSICCMR0077(args);
+			break;
 		case "SICLIR0090":
 			this.reportConfig = reportDb.createSICLIR0090(args);
+			break;
 		case "SICLIR0050":
 			this.reportConfig = reportDb.createSICLIR0050(args);
+			break;
 		case "SICLIR0087":
 			this.reportConfig = reportDb.createSICLIR0087(args);
+			break;
 		case "SICLIR0320":
 			this.reportConfig = reportDb.createSICLIR0320(args);
+			break;
 		case "SICLIR0350":
 			this.reportConfig = reportDb.createSICLIR0350(args);
+			break;
 		case "SICLIR0360":
 			this.reportConfig = reportDb.createSICLIR0360(args);
+			break;
 		case "SICMOR0280":
 			this.reportConfig = reportDb.createSICMOR0280(args);
+			break;
 		case "SICMOR0350":
 			this.reportConfig = reportDb.createSICMOR0350(args);
+			break;
 		case "SICMIR0300":
 			this.reportConfig = reportDb.createSICMIR0300(args);
+			break;
 		case "SICLIR0200":
 			this.reportConfig = reportDb.createSICLIR0200(args);
+			break;
 		case "SICLIR0020":
 			this.reportConfig = reportDb.createSICLIR0020(args);
+			break;
 		case "SICMOR0200":
 			this.reportConfig = reportDb.createSICMOR0200(args);
+			break;
 		case "SICMOR0170":
 			this.reportConfig = reportDb.createSICMOR0170(args);
+			break;
 		case "SICMIR0290":
 			this.reportConfig = reportDb.createSICMIR0290(args);
+			break;
 		case "SICDCC0100":
 			this.reportConfig = reportDb.createSICDCC0100(args);
+			break;
 		case "SICMOR0100":
 			this.reportConfig = reportDb.createSICMOR0100(args);
+			break;
 		case "SICPRO002 ":
 			this.reportConfig = reportDb.createSICPRO002(args);
+			break;
 		case "SICLIR0130":
 			this.reportConfig = reportDb.createSICLIR0130(args);
+			break;
 		case "SICLIR0140":
 			this.reportConfig = reportDb.createSICLIR0140(args);
+			break;
 		case "SICLIRP320":
 			this.reportConfig = reportDb.createSICLIRP320(args);
+			break;
 		case "SICLIR002":
 			this.reportConfig = reportDb.createSICLIR002(args);
+			break;
 		case "SICLIRI0050":
 			this.reportConfig = reportDb.createSICLIRI0050(args);
+			break;
 		case "SICLIRI0060":
 			this.reportConfig = reportDb.createSICLIRI0060(args);
+			break;
 		case "SICLIRI0020":
 			this.reportConfig = reportDb.createSICLIRI0020(args);
+			break;
 		case "SICLIRI0130":
 			this.reportConfig = reportDb.createSICLIRI0130(args);
+			break;
 		case "SICLIRD0050":
 			this.reportConfig = reportDb.createSICLIRD0050(args);
+			break;
 		case "SICLIRD0060":
 			this.reportConfig = reportDb.createSICLIRD0060(args);
+			break;
 		case "SICLIRD0020":
 			this.reportConfig = reportDb.createSICLIRD0020(args);
+			break;
 		case "SICLIRD0130":
 			this.reportConfig = reportDb.createSICLIRD0130(args);
+			break;
 		case "SICLICE0300":
 			this.reportConfig = reportDb.createSICLICE0300(args);
+			break;
 		case "SICLICA0170":
 			this.reportConfig = reportDb.createSICLICA0170(args);
+			break;
 		case "SICLICE0170":
 			this.reportConfig = reportDb.createSICLICE0170(args);
+			break;
 		default:
+			System.out.println("Report "+ reportName +" not match!");
 			this.reportConfig = null;
 		}
 	}
