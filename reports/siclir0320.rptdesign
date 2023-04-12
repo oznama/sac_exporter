@@ -97,10 +97,33 @@
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
+        <!-- oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
             <property name="meDriver">PMTUDBP</property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
             <property name="odaJndiName">jdbc/PMTUDBP</property>
+        </oda-data-source-->
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
+            <text-property name="displayName"></text-property>
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
+            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
+            <property name="odaURL">jdbc:oracle:thin:@172.16.136.233:1606:PMTU</property>
+            <property name="odaUser">PMTWEB</property>
+            <encrypted-property name="odaPassword" encryptionID="base64">UE1UV0VC</encrypted-property>
         </oda-data-source>
     </data-sources>
     <data-sets>
