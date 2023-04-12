@@ -4,8 +4,8 @@ public class BirtReports {
 
 	/**
 	 * Reporte 1
-	 * LIBERACIÓN SALIENTE
-	 * SICLIR0060 Reporte de la Compensación Saliente
+	 * LIBERACIï¿½N SALIENTE
+	 * SICLIR0060 Reporte de la Compensaciï¿½n Saliente
 	 * 
 	 * @param args
 	 * @return
@@ -22,7 +22,7 @@ public class BirtReports {
 
 	/**
 	 * Reporte 2
-	 * LIBERACIÓN SALIENTE
+	 * LIBERACIï¿½N SALIENTE
 	 * SICLIR0077 Consolidado Saliente E-Global
 	 */
 	public ReportConfig createSICLIR0077(String[] args) {
@@ -76,14 +76,18 @@ public class BirtReports {
 	/**
 	 * Reporte 5
 	 * CIRCUITO LOCAL
-	 * SICLIR0030 Reporte Consolidado de la Compensación Circuito Local
+	 * SICLIR0030 Reporte Consolidado de la Compensaciï¿½n Circuito Local
 	 * 
 	 * @param args
 	 * @return
 	 */
 	public ReportConfig createSICLIR0030(String[] args) {
-		// TODO Auto-generated method stub
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[3]);
+		return repConfig;
 	}
 	
 	/**
@@ -102,7 +106,7 @@ public class BirtReports {
 	/**
 	 * Reporte 7
 	 * COMPENSACION Y LIBERACION MASTERCARD NACIONAL
-	 * SICCMR0060 Reporte de la Compensación Cámaras Prosa-Mastercard
+	 * SICCMR0060 Reporte de la Compensaciï¿½n Cï¿½maras Prosa-Mastercard
 	 * 
 	 * @param args
 	 * @return
@@ -115,7 +119,7 @@ public class BirtReports {
 	/**
 	 * Reporte 8
 	 * COMPENSACION Y LIBERACION MASTERCARD NACIONAL
-	 * SICCMR0077 Reporte Consolidado Cámara
+	 * SICCMR0077 Reporte Consolidado Cï¿½mara
 	 * 
 	 * @param args
 	 * @return
@@ -128,7 +132,7 @@ public class BirtReports {
 	/**
 	 * Reporte 9
 	 * COMPENSACION Y LIBERACION MASTERCARD NACIONAL
-	 * SICLIR0090 Reporte de Compensación
+	 * SICLIR0090 Reporte de Compensaciï¿½n
 	 * 
 	 * @param args
 	 * @return
@@ -140,8 +144,8 @@ public class BirtReports {
 	
 	/**
 	 * Reporte 10
-	 * COMPENSACIÓN Y LIBERACION ENTRANTE
-	 * SICLIR0050 Reporte de la Compensación Entrante
+	 * COMPENSACIï¿½N Y LIBERACION ENTRANTE
+	 * SICLIR0050 Reporte de la Compensaciï¿½n Entrante
 	 * 
 	 * @param args
 	 * @return
@@ -153,7 +157,7 @@ public class BirtReports {
 	
 	/**
 	 * Reporte 11
-	 * COMPENSACIÓN Y LIBERACION ENTRANTE
+	 * COMPENSACIï¿½N Y LIBERACION ENTRANTE
 	 * SICLIR0087 Consolidado Entrante E-Global
 	 * 
 	 * @param args
@@ -166,7 +170,7 @@ public class BirtReports {
 	
 	/**
 	 * Reporte 12
-	 * COMPENSACIÓN Y LIBERACION ENTRANTE
+	 * COMPENSACIï¿½N Y LIBERACION ENTRANTE
 	 * SICLIR0320 Reporte Consolidado de Saldos
 	 * 
 	 * @param args
@@ -180,7 +184,7 @@ public class BirtReports {
 	/**
 	 * Reporte 13, 14
 	 * ACLARACIONES POS
-	 * SICLIR0350 Reporte de Misceláneos
+	 * SICLIR0350 Reporte de Miscelï¿½neos
 	 * 
 	 * @param args
 	 * @return
