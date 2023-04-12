@@ -1,46 +1,31 @@
 package com.prosa.service;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import com.prosa.birt.BirtImplementation;
-import com.prosa.obj.ReportParams;
 import com.prosa.obj.Constants;
 import com.prosa.obj.ReportConfig;
-import com.prosa.obj.ReportDb;
+import com.prosa.obj.BirtReports;
 
 public class BirtService {
 	
 	private static Logger logger = LoggerFactory.getLogger(BirtService.class);
 	
+	private ReportConfig reportConfig;
 	
-	public void generateReport(Integer reportNum, String initDate, String endDate) {
+	public void generateReport(String args[]) {
+		String reportNum = args[0];
 		logger.debug("Gerating report {} ...", reportNum);
 		try {
 			
-			ReportConfig reportConfig = new ReportConfig(reportNum);
+			selectReport(args);
 			
-			if(ReportDb.REPORT_CONFIG.contains(reportConfig)) {
-				logger.debug("Report exist in list, retriving params ..."); 
-				int reportIndex = ReportDb.REPORT_CONFIG.indexOf(reportConfig);
-				logger.debug("Getting report in position: {}", reportIndex);
-				ReportDb.copyAttr(reportIndex, reportConfig);
+			if(reportConfig != null) {
 				
 				// Add param destination: /aplic/prod/pmt/rpt/sal/PMTRPTB999HAAMMDDII01.PDF
-				reportConfig.setPdfName(String.format("%s/%s", BirtImplementation.PDF_DESTINATION, reportConfig.getPdfName()));
-				
-				if(reportConfig.getParams().containsKey(ReportParams.RANGO_FECHA_INI)) {
-					reportConfig.getParams().put(ReportParams.RANGO_FECHA_INI, initDate);
-					reportConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, endDate);
-				}
-				
-				if(reportConfig.getParams().containsKey(ReportParams.RANGO_FECHA_INI_ORIG)) {
-					reportConfig.getParams().put(ReportParams.RANGO_FECHA_INI_ORIG, initDate);
-					reportConfig.getParams().put(ReportParams.RANGO_FECHA_FIN_ORIG, endDate);
-				}
-				
+				reportConfig.setPdfName(String.format("%s/%s", BirtImplementation.PDF_DESTINATION, reportConfig.getPdfNameReal()));
 				
 				BirtImplementation birtImplementation = new BirtImplementation();
 				// Add param log config: /aplic/prod/pmt/rpt/log
@@ -55,28 +40,6 @@ public class BirtService {
 		}
 	}
 	
-	public void generateReport(String args[]) {
-		BirtImplementation birtImplementation = new BirtImplementation();
-		// Add param log config: /aplic/prod/pmt/rpt/log
-		// Add param destination: /aplic/prod/pmt/rpt/sal/PMTRPTB999HAAMMDDII01.PDF
-		String destination = String.format("%s/%s", BirtImplementation.PDF_DESTINATION, args[1]);
-		birtImplementation.buildPdf(null, null, args[0], destination, buildParams(args));
-		
-	}
-	
-	private Map<String, String> buildParams(String args[]) {
-		System.out.println("Building params with " + args.length + " params!");
-		Map<String, String> params = new HashMap<>();
-		
-		setDbParams(args, params);
-		
-		setRepParams(args, params);
-		
-		System.out.println("Params build\n" + params);
-		
-		return params;
-		
-	}
 
 	private void setDbParams(String[] args, Map<String, String> params) {
 		// Database params
@@ -100,31 +63,6 @@ public class BirtService {
 		}
 	}
 	
-	private void setRepParams(String[] args, Map<String, String> params) {
-		int index = 7;
-		
-		// Report params
-		setValue(ReportParams.USUARIO, args[index++], params);
-		setValue(ReportParams.RANGO_FECHA_INI, args[index++], params); 
-		setValue(ReportParams.RANGO_FECHA_FIN, args[index++], params); 
-		setValue(ReportParams.RANGO_FECHA_INI_ORIG, args[index++], params); 
-		setValue(ReportParams.RANGO_FECHA_FIN_ORIG, args[index++], params); 
-		setValue(ReportParams.BANCO, args[index++], params); 
-		setValue(ReportParams.NATURALEZA_CONTABLE, args[index++], params); 
-		setValue(ReportParams.TIPO_LIQUIDACION, args[index++], params); 
-		setValue(ReportParams.ROLE, args[index++], params); 
-		setValue(ReportParams.MISC, args[index++], params); 
-		setValue(ReportParams.TIPO_PROCESO, args[index++], params); 
-		setValue(ReportParams.TIPO_EMISOR_ADQ, args[index++], params); 
-		
-		
-	}
-	
-	private void setValue(String key, String value, Map<String, String> params) {
-		if(!value.equalsIgnoreCase(Constants.EMPTY_VALUE))
-			params.put(key, value);
-	}
-	
 	public void dummy() {
 		
 //		BirtImplementation birtImplementation = new BirtImplementation();
@@ -141,6 +79,95 @@ public class BirtService {
 //		params.put("agrDia", "01");
 //		birtImplementation.buildPdf(null, null, "SICLIR0077", null, params);
 
+	}
+	
+	public void selectReport(String[] args) {
+		String reportName = args[0];
+		BirtReports reportDb = new BirtReports();
+		switch (reportName) {
+		case "SICLIR0060":
+			this.reportConfig = reportDb.createSICLIR0060(args);
+		case "SICLIR0077":
+			this.reportConfig = reportDb.createSICLIR0077(args);
+		case "SICLIR0010":
+			this.reportConfig = reportDb.createSICLIR0010(args);
+		case "SICLIR0011":
+			this.reportConfig = reportDb.createSICLIR0011(args);
+		case "SICLIR0030":
+			this.reportConfig = reportDb.createSICLIR0030(args);
+		case "SICLIR0040":
+			this.reportConfig = reportDb.createSICLIR0040(args);
+		case "SICCMR0060":
+			this.reportConfig = reportDb.createSICCMR0060(args);
+		case "SICCMR0077":
+			this.reportConfig = reportDb.createSICCMR0077(args);
+		case "SICLIR0090":
+			this.reportConfig = reportDb.createSICLIR0090(args);
+		case "SICLIR0050":
+			this.reportConfig = reportDb.createSICLIR0050(args);
+		case "SICLIR0087":
+			this.reportConfig = reportDb.createSICLIR0087(args);
+		case "SICLIR0320":
+			this.reportConfig = reportDb.createSICLIR0320(args);
+		case "SICLIR0350":
+			this.reportConfig = reportDb.createSICLIR0350(args);
+		case "SICLIR0360":
+			this.reportConfig = reportDb.createSICLIR0360(args);
+		case "SICMOR0280":
+			this.reportConfig = reportDb.createSICMOR0280(args);
+		case "SICMOR0350":
+			this.reportConfig = reportDb.createSICMOR0350(args);
+		case "SICMIR0300":
+			this.reportConfig = reportDb.createSICMIR0300(args);
+		case "SICLIR0200":
+			this.reportConfig = reportDb.createSICLIR0200(args);
+		case "SICLIR0020":
+			this.reportConfig = reportDb.createSICLIR0020(args);
+		case "SICMOR0200":
+			this.reportConfig = reportDb.createSICMOR0200(args);
+		case "SICMOR0170":
+			this.reportConfig = reportDb.createSICMOR0170(args);
+		case "SICMIR0290":
+			this.reportConfig = reportDb.createSICMIR0290(args);
+		case "SICDCC0100":
+			this.reportConfig = reportDb.createSICDCC0100(args);
+		case "SICMOR0100":
+			this.reportConfig = reportDb.createSICMOR0100(args);
+		case "SICPRO002 ":
+			this.reportConfig = reportDb.createSICPRO002(args);
+		case "SICLIR0130":
+			this.reportConfig = reportDb.createSICLIR0130(args);
+		case "SICLIR0140":
+			this.reportConfig = reportDb.createSICLIR0140(args);
+		case "SICLIRP320":
+			this.reportConfig = reportDb.createSICLIRP320(args);
+		case "SICLIR002":
+			this.reportConfig = reportDb.createSICLIR002(args);
+		case "SICLIRI0050":
+			this.reportConfig = reportDb.createSICLIRI0050(args);
+		case "SICLIRI0060":
+			this.reportConfig = reportDb.createSICLIRI0060(args);
+		case "SICLIRI0020":
+			this.reportConfig = reportDb.createSICLIRI0020(args);
+		case "SICLIRI0130":
+			this.reportConfig = reportDb.createSICLIRI0130(args);
+		case "SICLIRD0050":
+			this.reportConfig = reportDb.createSICLIRD0050(args);
+		case "SICLIRD0060":
+			this.reportConfig = reportDb.createSICLIRD0060(args);
+		case "SICLIRD0020":
+			this.reportConfig = reportDb.createSICLIRD0020(args);
+		case "SICLIRD0130":
+			this.reportConfig = reportDb.createSICLIRD0130(args);
+		case "SICLICE0300":
+			this.reportConfig = reportDb.createSICLICE0300(args);
+		case "SICLICA0170":
+			this.reportConfig = reportDb.createSICLICA0170(args);
+		case "SICLICE0170":
+			this.reportConfig = reportDb.createSICLICE0170(args);
+		default:
+			this.reportConfig = null;
+		}
 	}
 
 }

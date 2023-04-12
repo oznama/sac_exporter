@@ -1,12 +1,13 @@
 package com.prosa.obj;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Objects;
 
 public class ReportConfig {
 
-	private Integer reportNum;
 	private String reportName;
 	private Map<String, String> params;
 	private String pdfName;
@@ -19,19 +20,6 @@ public class ReportConfig {
 		periodicity = 'D';
 		transmitionWay = "B";
 		interchangeFlow = "C";
-	}
-
-	public ReportConfig(Integer reportNum) {
-		this();
-		this.reportNum = reportNum;
-	}
-
-	public Integer getReportNum() {
-		return reportNum;
-	}
-
-	public void setReportNum(Integer reportNum) {
-		this.reportNum = reportNum;
 	}
 
 	public String getReportName() {
@@ -81,22 +69,12 @@ public class ReportConfig {
 	public void setInterchangeFlow(String interchangeFlow) {
 		this.interchangeFlow = interchangeFlow;
 	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(reportNum);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		ReportConfig other = (ReportConfig) obj;
-		return Objects.equals(reportNum, other.reportNum);
+	
+	public String getPdfNameReal() {
+		DateFormat df = new SimpleDateFormat("yyMMdd");
+		String dateString = df.format(new Date());
+		return this.pdfName.replace("AAMMDD", dateString).replace('H', this.periodicity)
+				.replaceFirst("I", this.transmitionWay).replaceFirst("I", this.interchangeFlow);
 	}
 
 }
