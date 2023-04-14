@@ -14,5 +14,6 @@ public interface ReportParams {
 	String TIPO_PROCESO = "tipoProc";
 	String TIPO_EMISOR_ADQ = "tipoEmiAdq";
 	String USUARIO = "ejecuto";
-
+	//-------Nuevos Parametros
+	String NATCONTABLE = "natContable";
 }

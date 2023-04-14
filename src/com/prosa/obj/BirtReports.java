@@ -99,8 +99,12 @@ public class BirtReports {
 	 * @return
 	 */
 	public ReportConfig createSICLIR0040(String[] args) {
-		// TODO Auto-generated method stub
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[3]);
+		return repConfig;
 	}
 
 	/**
@@ -112,8 +116,12 @@ public class BirtReports {
 	 * @return
 	 */
 	public ReportConfig createSICCMR0060(String[] args) {
-		// TODO Auto-generated method stub
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[3]);
+		return repConfig;
 	}
 	
 	/**
@@ -138,8 +146,13 @@ public class BirtReports {
 	 * @return
 	 */
 	public ReportConfig createSICLIR0090(String[] args) {
-		// TODO Auto-generated method stub
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCO, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+		return repConfig;
 	}
 	
 	/**
@@ -151,8 +164,13 @@ public class BirtReports {
 	 * @return
 	 */
 	public ReportConfig createSICLIR0050(String[] args) {
-		// TODO Auto-generated method stub
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCO, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+		return repConfig;
 	}
 	
 	/**
@@ -164,8 +182,13 @@ public class BirtReports {
 	 * @return
 	 */
 	public ReportConfig createSICLIR0087(String[] args) {
-		// TODO Auto-generated method stub
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.NATCONTABLE, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+		return repConfig;
 	}
 	
 	/**
@@ -177,8 +200,13 @@ public class BirtReports {
 	 * @return
 	 */
 	public ReportConfig createSICLIR0320(String[] args) {
-		// TODO Auto-generated method stub
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.TIPO_LIQUIDACION, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+		return repConfig;
 	}
 
 	/**
@@ -211,8 +239,15 @@ public class BirtReports {
 	 * @return
 	 */
 	public ReportConfig createSICLIR0360(String[] args) {
-		// TODO Auto-generated method stub
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCO, args[2]);
+		repConfig.getParams().put(ReportParams.TIPO_PROCESO, args[4]);
+		repConfig.getParams().put(ReportParams.TIPO_EMISOR_ADQ, args[5]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[6]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[7]);
+		return repConfig;
 	}
 	
 	/**
@@ -224,8 +259,13 @@ public class BirtReports {
 	 * @return
 	 */
 	public ReportConfig createSICMOR0280(String[] args) {
-		// TODO Auto-generated method stub
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCO, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+		return repConfig;
 	}
 	
 	/**
