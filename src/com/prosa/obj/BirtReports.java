@@ -243,10 +243,10 @@ public class BirtReports {
 		repConfig.setReportName(args[0]);
 		repConfig.setPdfName(args[1]);
 		repConfig.getParams().put(ReportParams.BANCO, args[2]);
-		repConfig.getParams().put(ReportParams.TIPO_PROCESO, args[4]);
-		repConfig.getParams().put(ReportParams.TIPO_EMISOR_ADQ, args[5]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[6]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[7]);
+		repConfig.getParams().put(ReportParams.TIPO_PROCESO, args[3]);
+		repConfig.getParams().put(ReportParams.TIPO_EMISOR_ADQ, args[4]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[5]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[6]);
 		return repConfig;
 	}
 	

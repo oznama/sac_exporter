@@ -2,65 +2,51 @@ package com.prosa.service;
 
 import java.util.Map;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.log4j.Logger;
+
 import com.prosa.birt.BirtImplementation;
+import com.prosa.main.Properties;
 import com.prosa.obj.Constants;
 import com.prosa.obj.ReportConfig;
 import com.prosa.obj.BirtReports;
 
 public class BirtService {
 	
-	private static Logger logger = LoggerFactory.getLogger(BirtService.class);
+	private static Logger logger = Logger.getLogger(BirtService.class);
 	
 	private ReportConfig reportConfig;
 	
+	// Load with properties
+	private String pathBirtHome = null;
+	
 	public void generateReport(String args[]) {
 		String reportNum = args[0];
-		logger.debug("Gerating report {} ...", reportNum);
+		logger.debug("Gerating report " + reportNum + " ...");
 		try {
-			
 			selectReport(args);
-			
 			if(reportConfig != null) {
-				
-				// Add param destination: /aplic/prod/pmt/rpt/sal/PMTRPTB999HAAMMDDII01.PDF
-				reportConfig.setPdfName(String.format("%s/%s", BirtImplementation.PDF_DESTINATION, reportConfig.getPdfNameReal()));
-				
+				setDbParams();
+				reportConfig.setPdfName(String.format("%s/%s", Properties.PATH_DEST == null ? 
+						BirtImplementation.PDF_DESTINATION : Properties.PATH_DEST, reportConfig.getPdfNameReal()));
 				BirtImplementation birtImplementation = new BirtImplementation();
-				// Add param log config: /aplic/prod/pmt/rpt/log
-				birtImplementation.buildPdf(null, null, reportConfig.getReportName(), reportConfig.getPdfName(), reportConfig.getParams());
+				birtImplementation.buildPdf(pathBirtHome, Properties.PATH_LOG, Properties.PATH_REPORTS, 
+						reportConfig.getReportName(), reportConfig.getPdfName(), reportConfig.getParams());
 			} else {
-				System.out.println("Report no exist in list"); 
-				logger.error("Report {} not supported", reportNum);
+				logger.error("Report "+ reportNum +" not supported");
 			}
 					
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.error("Error to generate report", e);
 		}
 	}
 	
 
-	private void setDbParams(String[] args, Map<String, String> params) {
-		// Database params
-		String dbHost = args[2];
-		String dbPort = args[3];
-		String dbName = args[4];
-		String dbUser = args[5];
-		String dbPswd = args[6];
-		if(dbHost.equalsIgnoreCase(Constants.EMPTY_VALUE) 
-				|| dbPort.equalsIgnoreCase(Constants.EMPTY_VALUE)
-				|| dbName.equalsIgnoreCase(Constants.EMPTY_VALUE)
-				|| dbUser.equalsIgnoreCase(Constants.EMPTY_VALUE)
-				|| dbPswd.equalsIgnoreCase(Constants.EMPTY_VALUE)) {
-			logger.warn("Data base params incomplete...");
-		} else {
-			params.put(Constants.DB_HOST, dbHost);
-			params.put(Constants.DB_PORT, dbPort);
-			params.put(Constants.DB_NAME, dbName);
-			params.put(Constants.DB_USER, dbUser);
-			params.put(Constants.DB_PSWD, dbPswd);
-		}
+	private void setDbParams() {
+		reportConfig.getParams().put(Constants.DB_HOST, Properties.DB_HOST);
+		reportConfig.getParams().put(Constants.DB_PORT, Properties.DB_PORT);
+		reportConfig.getParams().put(Constants.DB_NAME, Properties.DB_NAME);
+		reportConfig.getParams().put(Constants.DB_USER, Properties.DB_USER);
+		reportConfig.getParams().put(Constants.DB_PSWD, Properties.DB_PSWD);
 	}
 	
 	public void dummy() {
@@ -83,7 +69,6 @@ public class BirtService {
 	
 	public void selectReport(String[] args) {
 		String reportName = args[0];
-		System.out.println("Searching report: " + reportName);
 		BirtReports reportDb = new BirtReports();
 		switch (reportName) {
 		case "SICLIR0060":
@@ -207,7 +192,7 @@ public class BirtService {
 			this.reportConfig = reportDb.createSICLICE0170(args);
 			break;
 		default:
-			System.out.println("Report "+ reportName +" not match!");
+			logger.warn("Report not "+ reportName +" match");
 			this.reportConfig = null;
 		}
 	}
