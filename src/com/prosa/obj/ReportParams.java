@@ -17,4 +17,9 @@ public interface ReportParams {
 	//-------Nuevos Parametros
 	String NATCONTABLE = "natContable";
 	String TIPO_TRANSACCION = "typeTrans";
+	String BANCO_ADQUIRENTE = "adq";
+	String BANCO_EMISOR = "emi";
+	String FUENTE = "fuente";
+	String TIPO_DE_TRANSACCION = "ttrnumero";
+	
 }
