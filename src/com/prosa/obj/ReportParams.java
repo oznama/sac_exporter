@@ -16,4 +16,5 @@ public interface ReportParams {
 	String USUARIO = "ejecuto";
 	//-------Nuevos Parametros
 	String NATCONTABLE = "natContable";
+	String TIPO_TRANSACCION = "typeTrans";
 }
