@@ -35,6 +35,10 @@
 		<echo message="### LIMPIANDO CLASES COMPILADAS ### " />
 		<echo message="####################################" />
 		<delete dir="${build.dir}"/>
+
+		<condition property="profile.set" else="false">
+			<isset property="profile"/>
+		</condition>
 	</target>
 
 	<target depends="clean" name="cleanall"/>
@@ -67,7 +71,25 @@
 		</java>
 	</target>
 
-	<target  name="compile" depends="clean" >
+	<target name="property-copy-true" description="generate property on true condition"
+	    if="${profile.set}">
+		<echo>Property ${profile}.properties choised</echo>
+
+		<available file="config/${profile}.properties" 
+		           property="${profile}.properties.present"/>
+
+		<fail message="Profile ${profile} invalid :(" unless="${profile}.properties.present"/>
+
+		<copy file="config/${profile}.properties" overwrite="true" tofile="${src.dir}/config.properties" />
+	</target>
+
+	<target name="property-copy-false" description="generate property on false condition" 
+	    unless="${profile.set}">
+		<echo>Default dev.properties choised</echo>
+		<copy file="config/dev.properties" overwrite="true" tofile="${src.dir}/config.properties" />
+	</target>
+
+	<target  name="compile" depends="clean, property-copy-true, property-copy-false" >
 		<echo>Java Version via Ant: ${ant.java.version}</echo>
 		<echo>Java Home via Ant: ${java.home}</echo>
 		<echo>Java Version System Prop: ${java.version}</echo>
@@ -75,6 +97,7 @@
 		<echo message="##          BEGIN COMPILATION             ##"/>
 		<echo message="############################################"/>
 		<echo message="##                                        ##"/>
+
 		<mkdir dir="${classes.dir}"/>
 		<echo message=" "/>
 		<javac debug="true" deprecation="false" destdir="${classes.dir}" srcdir="src" includeantruntime="false" verbose="false" classpathref="externalLibs" />
