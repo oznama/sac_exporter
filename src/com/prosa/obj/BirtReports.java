@@ -277,19 +277,44 @@ public class BirtReports {
 	 * @return
 	 */
 	public ReportConfig createSICMOR0350(String[] args) {
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCO, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+		return repConfig;
 	}
 	
 	public ReportConfig createSICMIR0300(String[] args) {
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCO, args[2]);
+		repConfig.getParams().put(ReportParams.TIPO_TRANSACCION, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[5]);
+		return repConfig;
 	}
 	
 	public ReportConfig createSICLIR0200(String[] args) {
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCO, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+		return repConfig;
 	}
 	
 	public ReportConfig createSICLIR0020(String[] args) {
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCO, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+		return repConfig;
 	}
 	
 	public ReportConfig createSICMOR0200(String[] args) {
@@ -297,11 +322,23 @@ public class BirtReports {
 	}
 	
 	public ReportConfig createSICMOR0170(String[] args) {
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCO, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+		return repConfig;
 	}
 	
 	public ReportConfig createSICMIR0290(String[] args) {
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCO, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+		return repConfig;
 	}
 	
 	public ReportConfig createSICDCC0100(String[] args) {
