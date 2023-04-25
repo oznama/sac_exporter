@@ -2,6 +2,7 @@ package com.prosa.main;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.Base64;
 
 public class Properties {
 	
@@ -28,7 +29,7 @@ public class Properties {
 			DB_PORT = prop.getProperty("database.port");
 			DB_NAME = prop.getProperty("database.name");
 			DB_USER = prop.getProperty("database.user");
-			DB_PSWD = prop.getProperty("database.pswd");
+			DB_PSWD = decodePswd(prop.getProperty("database.pswd"));
 		}
 	}
 	
@@ -42,6 +43,13 @@ public class Properties {
 			ex.printStackTrace();
 		}
 		return isRead;
+	}
+	
+	private static String decodePswd(String pswdEncode) {
+		if(pswdEncode == null) return null;
+		byte[] decodedBytes = Base64.getDecoder().decode(pswdEncode);
+		String decodedString = new String(decodedBytes);
+		return decodedString;
 	}
 
 }
