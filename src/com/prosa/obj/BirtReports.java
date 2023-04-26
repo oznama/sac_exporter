@@ -133,8 +133,18 @@ public class BirtReports {
 	 * @return
 	 */
 	public ReportConfig createSICCMR0077(String[] args) {
-		// TODO Auto-generated method stub
-		return null;
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportType(ReportType.JASPER);
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.ROLE, args[2]);
+		repConfig.getParams().put(ReportParams.NUM_FIID, args[3]);
+		repConfig.getParams().put(ReportParams.LOGIN, args[4]);
+		repConfig.getParams().put(ReportParams.CAMARA_ADQ, args[5]);
+		repConfig.getParams().put(ReportParams.MARCA, args[6]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[7]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[8]);
+		return repConfig;
 	}
 	
 	/**

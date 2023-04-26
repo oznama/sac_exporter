@@ -2,7 +2,7 @@ package com.prosa.main;
 
 import org.apache.log4j.Logger;
 
-import com.prosa.service.BirtService;
+import com.prosa.service.ReportService;
 
 public class PMTURPTB999G07_01 {
 	
@@ -11,8 +11,8 @@ public class PMTURPTB999G07_01 {
 	public static void main(String args[]) {
 		logger.info("Starting extraction");
 		if( args.length > 0 ) {
-			BirtService birtService = new BirtService();
-			birtService.generateReport(args);
+			ReportService reportService = new ReportService();
+			reportService.generateReport(args);
 		} else if(args.length == 0) {
 			logger.error("Params empty");
 		}

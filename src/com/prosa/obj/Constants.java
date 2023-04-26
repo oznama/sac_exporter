@@ -11,5 +11,9 @@ public interface Constants {
 	String DB_NAME = "dbName";
 	String DB_USER = "dbUser";
 	String DB_PSWD = "dbPswd";
+	
+	String REPORT_SAC = "%s/%s.%s";
+	String PDF_EXT = "pdf";
+	String PDF_DESTINATION = "./tmp/report";
 
 }

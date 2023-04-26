@@ -14,12 +14,14 @@ public class ReportConfig {
 	private char periodicity;
 	private String transmitionWay;
 	private String interchangeFlow;
+	private ReportType reportType;
 
 	public ReportConfig() {
 		params = new HashMap<>();
 		periodicity = 'D';
 		transmitionWay = "B";
 		interchangeFlow = "C";
+		reportType = ReportType.BIRT;
 	}
 
 	public String getReportName() {
@@ -70,6 +72,14 @@ public class ReportConfig {
 		this.interchangeFlow = interchangeFlow;
 	}
 	
+	public ReportType getReportType() {
+		return reportType;
+	}
+
+	public void setReportType(ReportType reportType) {
+		this.reportType = reportType;
+	}
+
 	public String getPdfNameReal() {
 		DateFormat df = new SimpleDateFormat("yyMMdd");
 		String dateString = df.format(new Date());

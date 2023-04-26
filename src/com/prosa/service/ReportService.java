@@ -2,53 +2,47 @@ package com.prosa.service;
 
 import org.apache.log4j.Logger;
 
-import com.prosa.birt.BirtImplementation;
 import com.prosa.main.Properties;
+import com.prosa.obj.BirtReports;
 import com.prosa.obj.Constants;
 import com.prosa.obj.ReportConfig;
-import com.prosa.obj.BirtReports;
+import com.prosa.report.BirtImplementation;
+import com.prosa.report.JasperImplementation;
 
-public class BirtService {
-	
-	private static Logger logger = Logger.getLogger(BirtService.class);
-	
+public class ReportService {
+
+	private static Logger logger = Logger.getLogger(ReportService.class);
+
 	private ReportConfig reportConfig;
-	
-	// Load with properties
-	private String pathBirtHome = null;
-	
+
 	public void generateReport(String args[]) {
-		String reportNum = args[0];
-		logger.debug("Gerating report " + reportNum + " ...");
-		try {
-			selectReport(args);
-			if(reportConfig != null) {
-				setDbParams();
-				reportConfig.setPdfName(String.format("%s/%s", Properties.PATH_DEST == null ? 
-						BirtImplementation.PDF_DESTINATION : Properties.PATH_DEST, reportConfig.getPdfNameReal()));
-				BirtImplementation birtImplementation = new BirtImplementation();
-				birtImplementation.buildPdf(pathBirtHome, Properties.PATH_LOG, Properties.PATH_REPORTS, 
-						reportConfig.getReportName(), reportConfig.getPdfName(), reportConfig.getParams());
-			} else {
-				logger.error("Report "+ reportNum +" not supported");
+		selectReport(args);
+		if (reportConfig != null) {
+			reportConfig.setPdfName(String.format("%s/%s",
+					Properties.PATH_DEST == null ? Constants.PDF_DESTINATION : Properties.PATH_DEST,
+					reportConfig.getPdfNameReal()));
+			try {
+				switch(reportConfig.getReportType()) {
+				case BIRT:
+					setDbParams();
+					BirtImplementation birtImplementation = new BirtImplementation();
+					birtImplementation.buildPdf(null, Properties.PATH_LOG, Properties.PATH_REPORTS,
+							reportConfig.getReportName(), reportConfig.getPdfName(), reportConfig.getParams());
+					break;
+				case JASPER:
+					JasperImplementation jasperImplementation = new JasperImplementation();
+					jasperImplementation.processRequest(reportConfig);
+					break;
+				}
+
+			} catch (Exception e) {
+				logger.error("Error to generate report", e);
 			}
-					
-		} catch (Exception e) {
-			logger.error("Error to generate report", e);
 		}
 	}
-	
 
-	private void setDbParams() {
-		reportConfig.getParams().put(Constants.DB_HOST, Properties.DB_HOST);
-		reportConfig.getParams().put(Constants.DB_PORT, Properties.DB_PORT);
-		reportConfig.getParams().put(Constants.DB_NAME, Properties.DB_NAME);
-		reportConfig.getParams().put(Constants.DB_USER, Properties.DB_USER);
-		reportConfig.getParams().put(Constants.DB_PSWD, Properties.DB_PSWD);
-	}
-	
 	public void dummy() {
-		
+
 //		BirtImplementation birtImplementation = new BirtImplementation();
 //		birtImplementation.buildPdf(null, null, null, null, null); // Report hello world
 //		
@@ -64,9 +58,18 @@ public class BirtService {
 //		birtImplementation.buildPdf(null, null, "SICLIR0077", null, params);
 
 	}
-	
-	public void selectReport(String[] args) {
+
+	private void setDbParams() {
+		reportConfig.getParams().put(Constants.DB_HOST, Properties.DB_HOST);
+		reportConfig.getParams().put(Constants.DB_PORT, Properties.DB_PORT);
+		reportConfig.getParams().put(Constants.DB_NAME, Properties.DB_NAME);
+		reportConfig.getParams().put(Constants.DB_USER, Properties.DB_USER);
+		reportConfig.getParams().put(Constants.DB_PSWD, Properties.DB_PSWD);
+	}
+
+	private void selectReport(String[] args) {
 		String reportName = args[0];
+		logger.debug("Gerating report " + reportName + " ...");
 		BirtReports reportDb = new BirtReports();
 		switch (reportName) {
 		case "SICLIR0060":
@@ -190,7 +193,7 @@ public class BirtService {
 			this.reportConfig = reportDb.createSICLICE0170(args);
 			break;
 		default:
-			logger.warn("Report not "+ reportName +" match");
+			logger.warn("Report BIRT not " + reportName + " match");
 			this.reportConfig = null;
 		}
 	}

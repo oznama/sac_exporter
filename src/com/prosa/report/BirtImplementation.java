@@ -1,4 +1,4 @@
-package com.prosa.birt;
+package com.prosa.report;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -14,6 +14,8 @@ import org.eclipse.birt.report.engine.api.IReportEngineFactory;
 import org.eclipse.birt.report.engine.api.IRunAndRenderTask;
 import org.eclipse.birt.report.engine.api.PDFRenderOption;
 
+import com.prosa.obj.Constants;
+
 public class BirtImplementation {
 	
 	private static Logger logger = Logger.getLogger(BirtImplementation.class);
@@ -23,10 +25,8 @@ public class BirtImplementation {
 	private final String REPORT_EXT = "rptdesign";
 	private final String REPORT_SAMPLES = "ReportEngine/samples";
 	private final String REPORT_HELLO_WORD = String.format("%s/hello_world.%s", REPORT_SAMPLES, REPORT_EXT);
-	public static final String PDF_DESTINATION = "./tmp/report";
-	private final String PDF_EXT = "pdf";
 	private final String REPORT_PATH = "reports";
-	public final String REPORT_SAC = "%s/%s.%s";
+	
 	
 	private IReportEngine engine;
 	private EngineConfig config;
@@ -82,11 +82,11 @@ public class BirtImplementation {
 		this.pathReports = pathReports != null ? pathReports : REPORT_PATH;
 		logger.debug("Setting report path: " + this.pathReports);
 		
-		this.report = report != null ? String.format(REPORT_SAC, this.pathReports, report, REPORT_EXT) : REPORT_HELLO_WORD;
+		this.report = report != null ? String.format(Constants.REPORT_SAC, this.pathReports, report, REPORT_EXT) : REPORT_HELLO_WORD;
 		
 		String date = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss").format(LocalDateTime.now());
-		this.destination = destination != null ? String.format("%s.%s", destination, PDF_EXT.toUpperCase()) : 
-			String.format("%s/%s_%s.%s", PDF_DESTINATION, getFileDestinationName(this.report), date, PDF_EXT);
+		this.destination = destination != null ? String.format("%s.%s", destination, Constants.PDF_EXT.toUpperCase()) : 
+			String.format("%s/%s_%s.%s", Constants.PDF_DESTINATION, getFileDestinationName(this.report), date, Constants.PDF_EXT);
 		logger.debug("Saving report to: " + this.destination);
 		logger.debug("Params: " + params);
 	}
@@ -108,7 +108,7 @@ public class BirtImplementation {
 	private void initPdfOptions() {
 		pdfOptions = new PDFRenderOption();
 		pdfOptions.setOutputFileName(destination);
-		pdfOptions.setOutputFormat(PDF_EXT);
+		pdfOptions.setOutputFormat(Constants.PDF_EXT);
 	}
 	
 	private String getFileDestinationName(final String report) {

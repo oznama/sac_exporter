@@ -22,4 +22,11 @@ public interface ReportParams {
 	String FUENTE = "fuente";
 	String TIPO_DE_TRANSACCION = "ttrnumero";
 	
+	//---- Parametros Jasper
+	String NUM_FIID = "numFiid";
+	String LOGIN = "login";
+	String CAMARA_ADQ = "camaraAdq";
+	String MARCA = "marca";
+	
+	
 }
