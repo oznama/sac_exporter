@@ -21,6 +21,11 @@ public interface ReportParams {
 	String BANCO_EMISOR = "emi";
 	String FUENTE = "fuente";
 	String TIPO_DE_TRANSACCION = "ttrnumero";
+	String TTR = "ttr";
+	String AFILIACION = "afiliacion";
+	String BANCOADQ = "bancoAdq";
+	String TIPO = "tipo";
+	String INTERRED = "marca";
 	
 	//---- Parametros Jasper
 	String NUM_FIID = "numFiid";
