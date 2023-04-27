@@ -24,8 +24,14 @@ public interface ReportParams {
 	String TTR = "ttr";
 	String AFILIACION = "afiliacion";
 	String BANCOADQ = "bancoAdq";
+	String BANCOEMI = "bancoEmi";
 	String TIPO = "tipo";
 	String INTERRED = "marca";
+	String TIPO_RECHAZO = "typeRech";
+	String TIPO_TRANS = "tipoTrans";
+	String NATCON = "natcon";
+	String LIQUIDACION = "tipoLiquidacion";
+	String ARCHIVO = "archivo";
 	
 	//---- Parametros Jasper
 	String NUM_FIID = "numFiid";
