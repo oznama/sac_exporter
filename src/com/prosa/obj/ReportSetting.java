@@ -553,4 +553,74 @@ public class ReportSetting {
 		return repConfig;
 	}
 	
+	public ReportConfig createSICMOR0210(String[] args) {
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCOADQ, args[2]);
+		repConfig.getParams().put(ReportParams.TIPO_RECHAZO, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[5]);
+		return repConfig;
+	}
+	
+	public ReportConfig createSICMOR0305H(String[] args) {
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCOADQ, args[2]);
+		repConfig.getParams().put(ReportParams.BANCOEMI, args[3]);
+		repConfig.getParams().put(ReportParams.TIPO_TRANS, args[4]);
+		repConfig.getParams().put(ReportParams.NATCON, args[5]);
+		repConfig.getParams().put(ReportParams.LIQUIDACION, args[6]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[7]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[8]);
+		return repConfig;
+	}
+	
+	public ReportConfig createSICMIR0054(String[] args) {
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCOEMI, args[2]);
+		repConfig.getParams().put(ReportParams.ARCHIVO, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[5]);
+		return repConfig;
+	}
+	
+	public ReportConfig createSICLIR0110(String[] args) {
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCOEMI, args[2]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+		return repConfig;
+	}
+	
+	public ReportConfig createSICMOR0305(String[] args) {
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCOADQ, args[2]);
+		repConfig.getParams().put(ReportParams.BANCOEMI, args[3]);
+		repConfig.getParams().put(ReportParams.TIPO_TRANS, args[4]);
+		repConfig.getParams().put(ReportParams.LIQUIDACION, args[5]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[6]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[7]);
+		return repConfig;
+	}
+	
+	public ReportConfig createSICMOR0340(String[] args) {
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName(args[0]);
+		repConfig.setPdfName(args[1]);
+		repConfig.getParams().put(ReportParams.BANCO, args[2]);
+		repConfig.getParams().put(ReportParams.BANCOADQ, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[5]);
+		return repConfig;
+	}
+	
 }
