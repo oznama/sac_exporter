@@ -1,6 +1,6 @@
 package com.prosa.obj;
 
-public class BirtReports {
+public class ReportSetting {
 
 	/**
 	 * Reporte 1
