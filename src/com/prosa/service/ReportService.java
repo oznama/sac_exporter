@@ -144,7 +144,7 @@ public class ReportService {
 		case "SICMOR0100":
 			this.reportConfig = reportDb.createSICMOR0100(args);
 			break;
-		case "SICPRO002 ":
+		case "SICPRO002":
 			this.reportConfig = reportDb.createSICPRO002(args);
 			break;
 		case "SICLIR0130":
@@ -193,7 +193,7 @@ public class ReportService {
 			this.reportConfig = reportDb.createSICLICE0170(args);
 			break;
 		default:
-			logger.warn("Report BIRT not " + reportName + " match");
+			logger.warn("Report not " + reportName + " match");
 			this.reportConfig = null;
 		}
 	}
