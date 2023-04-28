@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project basedir="." default="main" name="PMTURPTB999G07_01">
+<project basedir="." default="main" name="PMTURPTB999G11_01">
 
 	<property environment="env"/>
 	<property name="debuglevel" value="source,lines,vars"/>
 	<property name="target" value="17"/>
 	<property name="source" value="17"/>
 
-	<property name="appname" value="PMTURPTB999G07_01"/>
+	<property name="appname" value="PMTURPTB999G11_01"/>
 
 	<property name="src.dir"     value="src"/>
 	<property name="build.dir"   value="build"/>
@@ -58,7 +58,7 @@
 	<target description="Build all projects which reference this project. Useful to propagate changes." name="build-refprojects"/>
 
 	<target name="Extractor" depends="build">
-		<java classname="com.prosa.main.PMTURPTB999G07_01" failonerror="true" fork="yes">
+		<java classname="com.prosa.main.PMTURPTB999G11_01" failonerror="true" fork="yes">
 			<classpath refid="externalLibs"/>
 			<arg value="${reportName}" />
 			<arg value="${pdfName}" />
@@ -129,7 +129,7 @@
 			</fileset>
 			<!-- zipgroupfileset dir="${lib.dir}" includes="*.jar"/ -->
 			<manifest>
-				<attribute name="Main-Class" value="com.prosa.main.PMTURPTB999G07_01"/>
+				<attribute name="Main-Class" value="com.prosa.main.PMTURPTB999G11_01"/>
 				<attribute name="Class-Path" value="${mf.classpath}"/>
 			</manifest>
 		</jar>
