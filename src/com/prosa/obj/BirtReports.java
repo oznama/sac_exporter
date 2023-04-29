@@ -311,9 +311,12 @@ public class BirtReports {
 		ReportConfig repConfig = new ReportConfig();
 		repConfig.setReportName(args[0]);
 		repConfig.setPdfName(args[1]);
-		repConfig.getParams().put(ReportParams.BANCO, args[2]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+		repConfig.getParams().put(ReportParams.BANCOEMI, args[2]);
+		repConfig.getParams().put(ReportParams.BANCOADQ, args[3]);
+		repConfig.getParams().put(ReportParams.FUENTE, args[4]);
+		repConfig.getParams().put(ReportParams.LIQUIDACION, args[5]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[6]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[7]);
 		return repConfig;
 	}
 	
@@ -335,8 +338,10 @@ public class BirtReports {
 		repConfig.getParams().put(ReportParams.BANCO_EMISOR, args[3]);
 		repConfig.getParams().put(ReportParams.FUENTE, args[4]);
 		repConfig.getParams().put(ReportParams.TIPO_DE_TRANSACCION, args[5]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[6]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[7]);
+		repConfig.getParams().put(ReportParams.AFILIACION, args[6]);
+		repConfig.getParams().put(ReportParams.TLIQUIDACION, args[6]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[7]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[8]);
 		return repConfig;
 	}
 	
@@ -377,9 +382,10 @@ public class BirtReports {
 		repConfig.setReportName(args[0]);
 		repConfig.setPdfName(args[1]);
 		repConfig.getParams().put(ReportParams.BANCOADQ, args[2]);
-		repConfig.getParams().put(ReportParams.AFILIACION, args[3]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[5]);
+		repConfig.getParams().put(ReportParams.TIPO_TRANS, args[3]);
+		repConfig.getParams().put(ReportParams.ARCHIVO, args[4]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[5]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[6]);
 		return repConfig;
 	}
 	

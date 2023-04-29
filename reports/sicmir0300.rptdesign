@@ -77,6 +77,39 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
+        <scalar-parameter name="bancoAdq" id="2759">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <property name="defaultValue">x</property>
+            <property name="distinct">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="fuente" id="2760">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <property name="defaultValue">x</property>
+            <property name="distinct">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="liquidacion" id="2761">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <property name="defaultValue">x</property>
+            <property name="distinct">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="2966">
             <property name="valueType">static</property>
             <property name="dataType">string</property>
