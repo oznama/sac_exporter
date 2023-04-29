@@ -3,7 +3,7 @@ package com.prosa.service;
 import org.apache.log4j.Logger;
 
 import com.prosa.main.Properties;
-import com.prosa.obj.BirtReports;
+import com.prosa.obj.ReportSetting;
 import com.prosa.obj.Constants;
 import com.prosa.obj.ReportConfig;
 import com.prosa.report.BirtImplementation;
@@ -70,7 +70,7 @@ public class ReportService {
 	private void selectReport(String[] args) {
 		String reportName = args[0];
 		logger.debug("Gerating report " + reportName + " ...");
-		BirtReports reportDb = new BirtReports();
+		ReportSetting reportDb = new ReportSetting();
 		switch (reportName) {
 		case "SICLIR0060":
 			this.reportConfig = reportDb.createSICLIR0060(args);
@@ -144,7 +144,7 @@ public class ReportService {
 		case "SICMOR0100":
 			this.reportConfig = reportDb.createSICMOR0100(args);
 			break;
-		case "SICPRO002 ":
+		case "SICPRO002":
 			this.reportConfig = reportDb.createSICPRO002(args);
 			break;
 		case "SICLIR0130":
@@ -193,7 +193,7 @@ public class ReportService {
 			this.reportConfig = reportDb.createSICLICE0170(args);
 			break;
 		default:
-			logger.warn("Report BIRT not " + reportName + " match");
+			logger.warn("Report not " + reportName + " match");
 			this.reportConfig = null;
 		}
 	}

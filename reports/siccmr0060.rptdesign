@@ -4,6 +4,48 @@
     <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">1016</property>
+            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">1016</property>
+            <expression name="value" type="javascript">params["dbUser"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure/>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">1016</property>
+            <expression name="value" type="javascript">params["dbPswd"].value</expression>
+        </structure>
+    </list-property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -127,6 +169,61 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
+        <scalar-parameter name="dbHost" id="6426">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbUser" id="6427">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbPswd" id="6428">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbPort" id="6429">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbName" id="6430">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
     </parameters>
     <data-sources>
         <!-- oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
@@ -135,7 +232,6 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
             <property name="odaJndiName">jdbc/PMTUDBP</property>
         </oda-data-source-->
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
-            <text-property name="displayName"></text-property>
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>contentBidiFormatStr</name>
@@ -153,9 +249,7 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@172.16.136.233:1606:PMTU</property>
-            <property name="odaUser">PMTWEB</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">UE1UV0VC</encrypted-property>
+            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
         </oda-data-source>
     </data-sources>
     <data-sets>

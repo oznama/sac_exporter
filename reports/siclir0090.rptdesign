@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.17" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 2.3.2.r232_20090202 Build &lt;2.3.2.v20090218-0730></property>
-    <property name="units">in</property>
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.24" id="1">
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here</property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.13.0.v202303021806</property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
     <list-property name="userProperties">
         <structure>
@@ -42,6 +41,48 @@
     <property name="cuboProcesoCernet.siclir0090.y">80</property>
     <property name="cuboMiscelaneos.siclir0090.x">135</property>
     <property name="cuboMiscelaneos.siclir0090.y">80</property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">1016</property>
+            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">1016</property>
+            <expression name="value" type="javascript">params["dbUser"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">1016</property>
+            <expression name="value" type="javascript">params["dbPswd"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">1016</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -56,16 +97,19 @@
 reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
     <text-property name="displayName">Blank Report</text-property>
     <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
     <parameters>
         <scalar-parameter name="initDate" id="28">
             <property name="hidden">false</property>
             <property name="valueType">static</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">09/04/2021</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="concealValue">false</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">09/04/2021</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
@@ -73,10 +117,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         <scalar-parameter name="banco" id="1574">
             <property name="valueType">static</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">95,96,97,741</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">95,96,97,741</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
@@ -84,8 +130,10 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         <scalar-parameter name="ejecuto" id="1592">
             <property name="valueType">static</property>
             <property name="dataType">string</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">acastillo</value>
+            </simple-property-list>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">acastillo</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
@@ -93,10 +141,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         <scalar-parameter name="endDate" id="1773">
             <property name="valueType">static</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">09/04/2021</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">09/04/2021</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
@@ -104,10 +154,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         <scalar-parameter name="initDateAntHab" id="3428">
             <property name="valueType">static</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">08/04/2021</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">08/04/2021</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
@@ -115,10 +167,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         <scalar-parameter name="endDateAntHab" id="3429">
             <property name="valueType">static</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">08/04/2021</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">08/04/2021</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
@@ -126,10 +180,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         <scalar-parameter name="srvImgRmt" id="7082">
             <property name="valueType">static</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">X</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">X</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
@@ -137,23 +193,74 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         <scalar-parameter name="srvImgLcl" id="7083">
             <property name="valueType">static</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">X</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">X</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbHost" id="6426">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbUser" id="6427">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbPswd" id="6428">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbPort" id="6429">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbName" id="6430">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <!-- oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
-        </oda-data-source-->
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
-            <text-property name="displayName"></text-property>
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>contentBidiFormatStr</name>
@@ -171,9 +278,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@172.16.136.233:1606:PMTU</property>
-            <property name="odaUser">PMTWEB</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">UE1UV0VC</encrypted-property>
+            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -222,7 +327,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">Data Source</property>
             <method name="beforeOpen"><![CDATA[this.queryText=
 //*---------------------------------------------------------------------------//
 //*Marca del Cambio : Axia-GGB-N-77-5012-20 Inicia  la Modificacion 07/05/2021//
@@ -995,6 +1099,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 //*Marca del Cambio : Axia-GGB-N-77-5012-20 Termina la Modificacion 07/05/2021//
 //*---------------------------------------------------------------------------//
 ;]]></method>
+            <property name="dataSource">Data Source</property>
             <list-property name="resultSet">
                 <structure>
                     <property name="position">1</property>
@@ -1045,7 +1150,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                     <property name="dataType">decimal</property>
                 </structure>
             </list-property>
-            <property name="queryText">select * from(
+            <xml-property name="queryText"><![CDATA[select * from(
 select  
 pts1.PTS_CYCLE_DT FECHA 
 ,NCI_NSI_CLR_D TIPO_MOVIMIENTO 
@@ -1401,12 +1506,11 @@ group by
 ) WHERE
 TIPO_TX in('053300','053100','0539830','5001030','5002030','020700','053300S8','030200','0539830S9','053100S3')
 order by 2,5,6
-</property>
+]]></xml-property>
         </oda-data-set>
     </data-sets>
     <cubes>
         <tabular-cube name="cuboMiscelaneos" id="6137">
-            <property name="defaultMeasureGroup">Summary Field</property>
             <list-property name="filter">
                 <structure>
                     <property name="operator">eq</property>
@@ -1477,7 +1581,6 @@ order by 2,5,6
             <property name="dataSet">siclir0090</property>
         </tabular-cube>
         <tabular-cube name="cuboMiscelaneosBmr" id="6886">
-            <property name="defaultMeasureGroup">Summary Field1</property>
             <list-property name="filter">
                 <structure>
                     <property name="operator">eq</property>
@@ -1972,9 +2075,9 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                 </cell>
             </row>
             <row id="2034">
-                <property name="height">2.1in</property>
                 <property name="textAlign">center</property>
                 <property name="verticalAlign">middle</property>
+                <property name="height">2.1in</property>
                 <cell id="2035">
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
@@ -2173,13 +2276,13 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">banco</property>
-                                <property name="displayName">banco</property>
+                                <text-property name="displayName">banco</text-property>
                                 <expression name="expression">dataSetRow["ENTIDAD"]+' '+dataSetRow["DESC_ENTIDAD"]+' '+dataSetRow["BU_ENT"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">00O</property>
-                                <property name="displayName">00O</property>
+                                <text-property name="displayName">00O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2197,7 +2300,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">00OI</property>
-                                <property name="displayName">00OI</property>
+                                <text-property name="displayName">00OI</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2215,7 +2318,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">10O</property>
-                                <property name="displayName">10O</property>
+                                <text-property name="displayName">10O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2233,7 +2336,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">10OI</property>
-                                <property name="displayName">10OI</property>
+                                <text-property name="displayName">10OI</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2251,7 +2354,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">01O</property>
-                                <property name="displayName">01O</property>
+                                <text-property name="displayName">01O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2269,7 +2372,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">01OI</property>
-                                <property name="displayName">01OI</property>
+                                <text-property name="displayName">01OI</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2287,7 +2390,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">11O</property>
-                                <property name="displayName">11O</property>
+                                <text-property name="displayName">11O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2305,7 +2408,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">110I</property>
-                                <property name="displayName">110I</property>
+                                <text-property name="displayName">110I</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2323,7 +2426,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">02O</property>
-                                <property name="displayName">02O</property>
+                                <text-property name="displayName">02O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2341,7 +2444,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">02OI</property>
-                                <property name="displayName">02OI</property>
+                                <text-property name="displayName">02OI</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2359,7 +2462,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">12O</property>
-                                <property name="displayName">12O</property>
+                                <text-property name="displayName">12O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2377,7 +2480,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">12OI</property>
-                                <property name="displayName">12OI</property>
+                                <text-property name="displayName">12OI</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2395,7 +2498,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">03O</property>
-                                <property name="displayName">03O</property>
+                                <text-property name="displayName">03O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2410,7 +2513,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">03OI</property>
-                                <property name="displayName">03OI</property>
+                                <text-property name="displayName">03OI</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2425,7 +2528,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">13O</property>
-                                <property name="displayName">13O</property>
+                                <text-property name="displayName">13O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2440,7 +2543,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">130I</property>
-                                <property name="displayName">130I</property>
+                                <text-property name="displayName">130I</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2455,7 +2558,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">04O</property>
-                                <property name="displayName">04O</property>
+                                <text-property name="displayName">04O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2473,7 +2576,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">04OI</property>
-                                <property name="displayName">04OI</property>
+                                <text-property name="displayName">04OI</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2491,7 +2594,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">14O</property>
-                                <property name="displayName">14O</property>
+                                <text-property name="displayName">14O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2509,7 +2612,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">14OI</property>
-                                <property name="displayName">14OI</property>
+                                <text-property name="displayName">14OI</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2527,7 +2630,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">05O</property>
-                                <property name="displayName">05O</property>
+                                <text-property name="displayName">05O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2545,7 +2648,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">05OI</property>
-                                <property name="displayName">05OI</property>
+                                <text-property name="displayName">05OI</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2563,7 +2666,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">15O</property>
-                                <property name="displayName">15O</property>
+                                <text-property name="displayName">15O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2581,7 +2684,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">15OI</property>
-                                <property name="displayName">15OI</property>
+                                <text-property name="displayName">15OI</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2599,7 +2702,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">06O</property>
-                                <property name="displayName">06O</property>
+                                <text-property name="displayName">06O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2621,7 +2724,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">06OI</property>
-                                <property name="displayName">06OI</property>
+                                <text-property name="displayName">06OI</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2643,7 +2746,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">16O</property>
-                                <property name="displayName">16O</property>
+                                <text-property name="displayName">16O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2665,7 +2768,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">16OI</property>
-                                <property name="displayName">16OI</property>
+                                <text-property name="displayName">16OI</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2687,7 +2790,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">07O</property>
-                                <property name="displayName">07O</property>
+                                <text-property name="displayName">07O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2702,7 +2805,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">07OI</property>
-                                <property name="displayName">07OI</property>
+                                <text-property name="displayName">07OI</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2717,7 +2820,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">17O</property>
-                                <property name="displayName">17O</property>
+                                <text-property name="displayName">17O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2732,7 +2835,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">17OI</property>
-                                <property name="displayName">17OI</property>
+                                <text-property name="displayName">17OI</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2747,7 +2850,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">08O</property>
-                                <property name="displayName">08O</property>
+                                <text-property name="displayName">08O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2762,7 +2865,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">08OI</property>
-                                <property name="displayName">08OI</property>
+                                <text-property name="displayName">08OI</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2777,7 +2880,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">18O</property>
-                                <property name="displayName">18O</property>
+                                <text-property name="displayName">18O</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2792,7 +2895,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">18OI</property>
-                                <property name="displayName">18OI</property>
+                                <text-property name="displayName">18OI</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2807,7 +2910,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00S</property>
-                                <property name="displayName">00S</property>
+                                <text-property name="displayName">00S</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2829,7 +2932,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00E</property>
-                                <property name="displayName">00E</property>
+                                <text-property name="displayName">00E</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2851,7 +2954,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01S</property>
-                                <property name="displayName">01S</property>
+                                <text-property name="displayName">01S</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2873,7 +2976,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01E</property>
-                                <property name="displayName">01E</property>
+                                <text-property name="displayName">01E</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2895,7 +2998,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">02S</property>
-                                <property name="displayName">02S</property>
+                                <text-property name="displayName">02S</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2917,7 +3020,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">02E</property>
-                                <property name="displayName">02E</property>
+                                <text-property name="displayName">02E</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2950,7 +3053,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">03S</property>
-                                <property name="displayName">03S</property>
+                                <text-property name="displayName">03S</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2972,7 +3075,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">03E</property>
-                                <property name="displayName">03E</property>
+                                <text-property name="displayName">03E</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -2994,7 +3097,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">04S</property>
-                                <property name="displayName">04S</property>
+                                <text-property name="displayName">04S</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3009,7 +3112,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">04E</property>
-                                <property name="displayName">04E</property>
+                                <text-property name="displayName">04E</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3024,7 +3127,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00A</property>
-                                <property name="displayName">00A</property>
+                                <text-property name="displayName">00A</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3046,7 +3149,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01A</property>
-                                <property name="displayName">01A</property>
+                                <text-property name="displayName">01A</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3068,7 +3171,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10A</property>
-                                <property name="displayName">10A</property>
+                                <text-property name="displayName">10A</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3090,7 +3193,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11A</property>
-                                <property name="displayName">11A</property>
+                                <text-property name="displayName">11A</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3112,7 +3215,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00A1</property>
-                                <property name="displayName">00A1</property>
+                                <text-property name="displayName">00A1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3134,7 +3237,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01A1</property>
-                                <property name="displayName">01A1</property>
+                                <text-property name="displayName">01A1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3156,7 +3259,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10A1</property>
-                                <property name="displayName">10A1</property>
+                                <text-property name="displayName">10A1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3178,7 +3281,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11A1</property>
-                                <property name="displayName">11A1</property>
+                                <text-property name="displayName">11A1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3200,7 +3303,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00A2</property>
-                                <property name="displayName">00A2</property>
+                                <text-property name="displayName">00A2</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3222,7 +3325,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01A2</property>
-                                <property name="displayName">01A2</property>
+                                <text-property name="displayName">01A2</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3244,7 +3347,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">20A2</property>
-                                <property name="displayName">20A2</property>
+                                <text-property name="displayName">20A2</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3266,7 +3369,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">21A2</property>
-                                <property name="displayName">21A2</property>
+                                <text-property name="displayName">21A2</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3288,7 +3391,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00A3</property>
-                                <property name="displayName">00A3</property>
+                                <text-property name="displayName">00A3</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3310,7 +3413,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01A3</property>
-                                <property name="displayName">01A3</property>
+                                <text-property name="displayName">01A3</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3332,7 +3435,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">30A3</property>
-                                <property name="displayName">30A3</property>
+                                <text-property name="displayName">30A3</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3354,7 +3457,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">31A3</property>
-                                <property name="displayName">31A3</property>
+                                <text-property name="displayName">31A3</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3376,7 +3479,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00A4</property>
-                                <property name="displayName">00A4</property>
+                                <text-property name="displayName">00A4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3398,7 +3501,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01A4</property>
-                                <property name="displayName">01A4</property>
+                                <text-property name="displayName">01A4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3420,7 +3523,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">40A4</property>
-                                <property name="displayName">40A4</property>
+                                <text-property name="displayName">40A4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3442,7 +3545,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">41A4</property>
-                                <property name="displayName">41A4</property>
+                                <text-property name="displayName">41A4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3464,7 +3567,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00A5</property>
-                                <property name="displayName">00A5</property>
+                                <text-property name="displayName">00A5</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3486,7 +3589,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01A5</property>
-                                <property name="displayName">01A5</property>
+                                <text-property name="displayName">01A5</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3508,7 +3611,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">50A5</property>
-                                <property name="displayName">50A5</property>
+                                <text-property name="displayName">50A5</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3530,7 +3633,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">51A5</property>
-                                <property name="displayName">51A5</property>
+                                <text-property name="displayName">51A5</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3552,7 +3655,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00A6</property>
-                                <property name="displayName">00A6</property>
+                                <text-property name="displayName">00A6</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3574,7 +3677,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01A6</property>
-                                <property name="displayName">01A6</property>
+                                <text-property name="displayName">01A6</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3596,7 +3699,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">60A6</property>
-                                <property name="displayName">60A6</property>
+                                <text-property name="displayName">60A6</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3618,7 +3721,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">61A6</property>
-                                <property name="displayName">61A6</property>
+                                <text-property name="displayName">61A6</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3640,7 +3743,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00A7</property>
-                                <property name="displayName">00A7</property>
+                                <text-property name="displayName">00A7</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3662,7 +3765,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01A7</property>
-                                <property name="displayName">01A7</property>
+                                <text-property name="displayName">01A7</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3684,7 +3787,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">70A7</property>
-                                <property name="displayName">70A7</property>
+                                <text-property name="displayName">70A7</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3706,7 +3809,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">71A7</property>
-                                <property name="displayName">71A7</property>
+                                <text-property name="displayName">71A7</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3728,7 +3831,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00A8</property>
-                                <property name="displayName">00A8</property>
+                                <text-property name="displayName">00A8</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3750,7 +3853,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01A8</property>
-                                <property name="displayName">01A8</property>
+                                <text-property name="displayName">01A8</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3772,7 +3875,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">80A8</property>
-                                <property name="displayName">80A8</property>
+                                <text-property name="displayName">80A8</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3794,7 +3897,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">81A8</property>
-                                <property name="displayName">81A8</property>
+                                <text-property name="displayName">81A8</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3816,7 +3919,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00A9</property>
-                                <property name="displayName">00A9</property>
+                                <text-property name="displayName">00A9</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3831,7 +3934,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01A9</property>
-                                <property name="displayName">01A9</property>
+                                <text-property name="displayName">01A9</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3846,7 +3949,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">90A9</property>
-                                <property name="displayName">90A9</property>
+                                <text-property name="displayName">90A9</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3861,7 +3964,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">91A9</property>
-                                <property name="displayName">91A9</property>
+                                <text-property name="displayName">91A9</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3876,7 +3979,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00R1</property>
-                                <property name="displayName">00R1</property>
+                                <text-property name="displayName">00R1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3898,7 +4001,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01R1</property>
-                                <property name="displayName">01R1</property>
+                                <text-property name="displayName">01R1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3920,7 +4023,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10R1</property>
-                                <property name="displayName">10R1</property>
+                                <text-property name="displayName">10R1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3942,7 +4045,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11R1</property>
-                                <property name="displayName">11R1</property>
+                                <text-property name="displayName">11R1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3964,7 +4067,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01R2</property>
-                                <property name="displayName">01R2</property>
+                                <text-property name="displayName">01R2</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -3986,7 +4089,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11R2</property>
-                                <property name="displayName">11R2</property>
+                                <text-property name="displayName">11R2</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4008,7 +4111,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01R3</property>
-                                <property name="displayName">01R3</property>
+                                <text-property name="displayName">01R3</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4030,7 +4133,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11R3</property>
-                                <property name="displayName">11R3</property>
+                                <text-property name="displayName">11R3</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4052,7 +4155,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00R4</property>
-                                <property name="displayName">00R4</property>
+                                <text-property name="displayName">00R4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4067,7 +4170,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01R4</property>
-                                <property name="displayName">01R4</property>
+                                <text-property name="displayName">01R4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4082,7 +4185,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10R4</property>
-                                <property name="displayName">10R4</property>
+                                <text-property name="displayName">10R4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4097,7 +4200,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11R4</property>
-                                <property name="displayName">11R4</property>
+                                <text-property name="displayName">11R4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4112,7 +4215,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00M1</property>
-                                <property name="displayName">00M1</property>
+                                <text-property name="displayName">00M1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4134,7 +4237,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01M1</property>
-                                <property name="displayName">01M1</property>
+                                <text-property name="displayName">01M1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4156,7 +4259,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10M1</property>
-                                <property name="displayName">10M1</property>
+                                <text-property name="displayName">10M1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4178,7 +4281,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11M1</property>
-                                <property name="displayName">11M1</property>
+                                <text-property name="displayName">11M1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4200,7 +4303,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00M2</property>
-                                <property name="displayName">00M2</property>
+                                <text-property name="displayName">00M2</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4222,7 +4325,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01M2</property>
-                                <property name="displayName">01M2</property>
+                                <text-property name="displayName">01M2</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4244,7 +4347,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10M2</property>
-                                <property name="displayName">10M2</property>
+                                <text-property name="displayName">10M2</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4266,7 +4369,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11M2</property>
-                                <property name="displayName">11M2</property>
+                                <text-property name="displayName">11M2</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4288,7 +4391,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00M3</property>
-                                <property name="displayName">00M3</property>
+                                <text-property name="displayName">00M3</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4310,7 +4413,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01M3</property>
-                                <property name="displayName">01M3</property>
+                                <text-property name="displayName">01M3</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4332,7 +4435,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10M3</property>
-                                <property name="displayName">10M3</property>
+                                <text-property name="displayName">10M3</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4354,7 +4457,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11M3</property>
-                                <property name="displayName">11M3</property>
+                                <text-property name="displayName">11M3</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4376,7 +4479,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00M4</property>
-                                <property name="displayName">00M4</property>
+                                <text-property name="displayName">00M4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4398,7 +4501,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01M4</property>
-                                <property name="displayName">01M4</property>
+                                <text-property name="displayName">01M4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4420,7 +4523,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10M4</property>
-                                <property name="displayName">10M4</property>
+                                <text-property name="displayName">10M4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4442,7 +4545,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11M4</property>
-                                <property name="displayName">11M4</property>
+                                <text-property name="displayName">11M4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4464,7 +4567,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00M5</property>
-                                <property name="displayName">00M5</property>
+                                <text-property name="displayName">00M5</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4486,7 +4589,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01M5</property>
-                                <property name="displayName">01M5</property>
+                                <text-property name="displayName">01M5</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4508,7 +4611,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10M5</property>
-                                <property name="displayName">10M5</property>
+                                <text-property name="displayName">10M5</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4530,7 +4633,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11M5</property>
-                                <property name="displayName">11M5</property>
+                                <text-property name="displayName">11M5</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4552,7 +4655,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00M6</property>
-                                <property name="displayName">00M6</property>
+                                <text-property name="displayName">00M6</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4574,7 +4677,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01M6</property>
-                                <property name="displayName">01M6</property>
+                                <text-property name="displayName">01M6</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4596,7 +4699,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10M6</property>
-                                <property name="displayName">10M6</property>
+                                <text-property name="displayName">10M6</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4618,7 +4721,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11M6</property>
-                                <property name="displayName">11M6</property>
+                                <text-property name="displayName">11M6</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4640,7 +4743,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00M7</property>
-                                <property name="displayName">00M7</property>
+                                <text-property name="displayName">00M7</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4662,7 +4765,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01M7</property>
-                                <property name="displayName">01M7</property>
+                                <text-property name="displayName">01M7</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4684,7 +4787,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10M7</property>
-                                <property name="displayName">10M7</property>
+                                <text-property name="displayName">10M7</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4706,7 +4809,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11M7</property>
-                                <property name="displayName">11M7</property>
+                                <text-property name="displayName">11M7</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4728,7 +4831,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00M8</property>
-                                <property name="displayName">00M8</property>
+                                <text-property name="displayName">00M8</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4750,7 +4853,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01M8</property>
-                                <property name="displayName">01M8</property>
+                                <text-property name="displayName">01M8</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4772,7 +4875,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10M8</property>
-                                <property name="displayName">10M8</property>
+                                <text-property name="displayName">10M8</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4794,7 +4897,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11M8</property>
-                                <property name="displayName">11M8</property>
+                                <text-property name="displayName">11M8</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4816,7 +4919,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00M9</property>
-                                <property name="displayName">00M9</property>
+                                <text-property name="displayName">00M9</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4838,7 +4941,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01M9</property>
-                                <property name="displayName">01M9</property>
+                                <text-property name="displayName">01M9</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4860,7 +4963,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10M9</property>
-                                <property name="displayName">10M9</property>
+                                <text-property name="displayName">10M9</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4882,7 +4985,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11M9</property>
-                                <property name="displayName">11M9</property>
+                                <text-property name="displayName">11M9</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4904,7 +5007,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00M10</property>
-                                <property name="displayName">00M10</property>
+                                <text-property name="displayName">00M10</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4926,7 +5029,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01M10</property>
-                                <property name="displayName">01M10</property>
+                                <text-property name="displayName">01M10</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4948,7 +5051,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11M10</property>
-                                <property name="displayName">11M10</property>
+                                <text-property name="displayName">11M10</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4970,7 +5073,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10M10</property>
-                                <property name="displayName">10M10</property>
+                                <text-property name="displayName">10M10</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -4992,7 +5095,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00M11</property>
-                                <property name="displayName">00M11</property>
+                                <text-property name="displayName">00M11</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5014,7 +5117,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01M11</property>
-                                <property name="displayName">01M11</property>
+                                <text-property name="displayName">01M11</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5036,7 +5139,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10M11</property>
-                                <property name="displayName">10M11</property>
+                                <text-property name="displayName">10M11</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5058,7 +5161,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11M11</property>
-                                <property name="displayName">11M11</property>
+                                <text-property name="displayName">11M11</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5080,7 +5183,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00M12</property>
-                                <property name="displayName">00M12</property>
+                                <text-property name="displayName">00M12</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5102,7 +5205,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01M12</property>
-                                <property name="displayName">01M12</property>
+                                <text-property name="displayName">01M12</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5124,7 +5227,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11M12</property>
-                                <property name="displayName">11M12</property>
+                                <text-property name="displayName">11M12</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5146,7 +5249,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10M12</property>
-                                <property name="displayName">10M12</property>
+                                <text-property name="displayName">10M12</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5168,7 +5271,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-00M1</property>
-                                <property name="displayName">-00M1</property>
+                                <text-property name="displayName">-00M1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5190,7 +5293,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-01M1</property>
-                                <property name="displayName">-01M1</property>
+                                <text-property name="displayName">-01M1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5212,7 +5315,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-10M1</property>
-                                <property name="displayName">-10M1</property>
+                                <text-property name="displayName">-10M1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5234,7 +5337,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-11M1</property>
-                                <property name="displayName">-11M1</property>
+                                <text-property name="displayName">-11M1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5256,7 +5359,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-00M2</property>
-                                <property name="displayName">-00M2</property>
+                                <text-property name="displayName">-00M2</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5278,7 +5381,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-01M2</property>
-                                <property name="displayName">-01M2</property>
+                                <text-property name="displayName">-01M2</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5300,7 +5403,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-10M2</property>
-                                <property name="displayName">-10M2</property>
+                                <text-property name="displayName">-10M2</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5322,7 +5425,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-11M2</property>
-                                <property name="displayName">-11M2</property>
+                                <text-property name="displayName">-11M2</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5344,7 +5447,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-00M3</property>
-                                <property name="displayName">-00M3</property>
+                                <text-property name="displayName">-00M3</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5366,7 +5469,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-01M3</property>
-                                <property name="displayName">-01M3</property>
+                                <text-property name="displayName">-01M3</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5388,7 +5491,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-10M3</property>
-                                <property name="displayName">-10M3</property>
+                                <text-property name="displayName">-10M3</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5410,7 +5513,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-11M3</property>
-                                <property name="displayName">-11M3</property>
+                                <text-property name="displayName">-11M3</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5432,7 +5535,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-00M4</property>
-                                <property name="displayName">-00M4</property>
+                                <text-property name="displayName">-00M4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5454,7 +5557,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-01M4</property>
-                                <property name="displayName">-01M4</property>
+                                <text-property name="displayName">-01M4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5476,7 +5579,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-10M4</property>
-                                <property name="displayName">-10M4</property>
+                                <text-property name="displayName">-10M4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5498,7 +5601,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-11M4</property>
-                                <property name="displayName">-11M4</property>
+                                <text-property name="displayName">-11M4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5520,7 +5623,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-00M5</property>
-                                <property name="displayName">-00M5</property>
+                                <text-property name="displayName">-00M5</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5542,7 +5645,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-01M5</property>
-                                <property name="displayName">-01M5</property>
+                                <text-property name="displayName">-01M5</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5564,7 +5667,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-10M5</property>
-                                <property name="displayName">-10M5</property>
+                                <text-property name="displayName">-10M5</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5586,7 +5689,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-11M5</property>
-                                <property name="displayName">-11M5</property>
+                                <text-property name="displayName">-11M5</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5608,7 +5711,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-00M6</property>
-                                <property name="displayName">-00M6</property>
+                                <text-property name="displayName">-00M6</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5630,7 +5733,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-01M6</property>
-                                <property name="displayName">-01M6</property>
+                                <text-property name="displayName">-01M6</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5652,7 +5755,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-10M6</property>
-                                <property name="displayName">-10M6</property>
+                                <text-property name="displayName">-10M6</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5674,7 +5777,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-11M6</property>
-                                <property name="displayName">-11M6</property>
+                                <text-property name="displayName">-11M6</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5696,7 +5799,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-00M7</property>
-                                <property name="displayName">-00M7</property>
+                                <text-property name="displayName">-00M7</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5718,7 +5821,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-01M7</property>
-                                <property name="displayName">-01M7</property>
+                                <text-property name="displayName">-01M7</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5740,7 +5843,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-10M7</property>
-                                <property name="displayName">-10M7</property>
+                                <text-property name="displayName">-10M7</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5762,7 +5865,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-11M7</property>
-                                <property name="displayName">-11M7</property>
+                                <text-property name="displayName">-11M7</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5784,7 +5887,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-00M8</property>
-                                <property name="displayName">-00M8</property>
+                                <text-property name="displayName">-00M8</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5806,7 +5909,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-01M8</property>
-                                <property name="displayName">-01M8</property>
+                                <text-property name="displayName">-01M8</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5828,7 +5931,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-10M8</property>
-                                <property name="displayName">-10M8</property>
+                                <text-property name="displayName">-10M8</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5850,7 +5953,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-11M8</property>
-                                <property name="displayName">-11M8</property>
+                                <text-property name="displayName">-11M8</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5872,7 +5975,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-00M9</property>
-                                <property name="displayName">-00M9</property>
+                                <text-property name="displayName">-00M9</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5894,7 +5997,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-01M9</property>
-                                <property name="displayName">-01M9</property>
+                                <text-property name="displayName">-01M9</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5916,7 +6019,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-10M9</property>
-                                <property name="displayName">-10M9</property>
+                                <text-property name="displayName">-10M9</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5938,7 +6041,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-11M9</property>
-                                <property name="displayName">-11M9</property>
+                                <text-property name="displayName">-11M9</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5960,7 +6063,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-00M10</property>
-                                <property name="displayName">-00M10</property>
+                                <text-property name="displayName">-00M10</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -5982,7 +6085,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-01M10</property>
-                                <property name="displayName">-01M10</property>
+                                <text-property name="displayName">-01M10</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6004,7 +6107,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-10M10</property>
-                                <property name="displayName">-10M10</property>
+                                <text-property name="displayName">-10M10</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6026,7 +6129,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-11M10</property>
-                                <property name="displayName">-11M10</property>
+                                <text-property name="displayName">-11M10</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6048,7 +6151,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-00M11</property>
-                                <property name="displayName">-00M11</property>
+                                <text-property name="displayName">-00M11</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6070,7 +6173,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-01M11</property>
-                                <property name="displayName">-01M11</property>
+                                <text-property name="displayName">-01M11</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6092,7 +6195,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-10M11</property>
-                                <property name="displayName">-10M11</property>
+                                <text-property name="displayName">-10M11</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6114,7 +6217,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-11M11</property>
-                                <property name="displayName">-11M11</property>
+                                <text-property name="displayName">-11M11</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6136,7 +6239,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-00M12</property>
-                                <property name="displayName">-00M12</property>
+                                <text-property name="displayName">-00M12</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6158,7 +6261,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-01M12</property>
-                                <property name="displayName">-01M12</property>
+                                <text-property name="displayName">-01M12</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6180,7 +6283,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-10M12</property>
-                                <property name="displayName">-10M12</property>
+                                <text-property name="displayName">-10M12</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6202,7 +6305,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">-11M12</property>
-                                <property name="displayName">-11M12</property>
+                                <text-property name="displayName">-11M12</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6224,7 +6327,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">M00</property>
-                                <property name="displayName">M00</property>
+                                <text-property name="displayName">M00</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6239,7 +6342,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">M01</property>
-                                <property name="displayName">M01</property>
+                                <text-property name="displayName">M01</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6254,7 +6357,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">M10</property>
-                                <property name="displayName">M10</property>
+                                <text-property name="displayName">M10</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6269,7 +6372,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">M11</property>
-                                <property name="displayName">M11</property>
+                                <text-property name="displayName">M11</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6284,7 +6387,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00PP</property>
-                                <property name="displayName">00PP</property>
+                                <text-property name="displayName">00PP</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6299,7 +6402,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">10PP</property>
-                                <property name="displayName">10PP</property>
+                                <text-property name="displayName">10PP</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6314,7 +6417,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">PAPAS</property>
-                                <property name="displayName">PAPAS</property>
+                                <text-property name="displayName">PAPAS</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>grupoBanco</value>
@@ -6366,24 +6469,24 @@ else
                                         <grid id="6260">
                                             <property name="width">100%</property>
                                             <column id="6261">
-                                                <property name="width">30%</property>
                                                 <property name="fontWeight">bold</property>
+                                                <property name="width">30%</property>
                                             </column>
                                             <column id="6262">
-                                                <property name="width">17.5%</property>
                                                 <property name="textAlign">right</property>
+                                                <property name="width">17.5%</property>
                                             </column>
                                             <column id="6339">
-                                                <property name="width">17.5%</property>
                                                 <property name="textAlign">right</property>
+                                                <property name="width">17.5%</property>
                                             </column>
                                             <column id="6263">
-                                                <property name="width">17.5%</property>
                                                 <property name="textAlign">right</property>
+                                                <property name="width">17.5%</property>
                                             </column>
                                             <column id="6355">
-                                                <property name="width">17.5%</property>
                                                 <property name="textAlign">right</property>
+                                                <property name="width">17.5%</property>
                                             </column>
                                             <row id="6264">
                                                 <property name="fontWeight">bold</property>
@@ -7538,14 +7641,14 @@ else
 	false</expression>
                                                     </structure>
                                                 </list-property>
-                                                <cell id="6426">
+                                                <cell id="7321">
                                                     <property name="fontWeight">normal</property>
                                                     <text id="6456">
                                                         <property name="contentType">auto</property>
                                                         <text-property name="content"><![CDATA[		Primeros Contracargos Devoluciones (-)  ]]></text-property>
                                                     </text>
                                                 </cell>
-                                                <cell id="6427">
+                                                <cell id="7322">
                                                     <property name="borderLeftColor">#000000</property>
                                                     <property name="borderLeftStyle">solid</property>
                                                     <property name="borderLeftWidth">thin</property>
@@ -7557,7 +7660,7 @@ else
                                                         <property name="resultSetColumn">00A3</property>
                                                     </data>
                                                 </cell>
-                                                <cell id="6428">
+                                                <cell id="7323">
                                                     <property name="borderRightColor">#000000</property>
                                                     <property name="borderRightStyle">solid</property>
                                                     <property name="borderRightWidth">thin</property>
@@ -7569,7 +7672,7 @@ else
                                                         <property name="resultSetColumn">01A3</property>
                                                     </data>
                                                 </cell>
-                                                <cell id="6429">
+                                                <cell id="7324">
                                                     <property name="borderLeftColor">#000000</property>
                                                     <property name="borderLeftStyle">solid</property>
                                                     <property name="borderLeftWidth">thin</property>
@@ -7581,7 +7684,7 @@ else
                                                         <property name="resultSetColumn">30A3</property>
                                                     </data>
                                                 </cell>
-                                                <cell id="6430">
+                                                <cell id="7325">
                                                     <property name="borderRightColor">#000000</property>
                                                     <property name="borderRightStyle">solid</property>
                                                     <property name="borderRightWidth">thin</property>

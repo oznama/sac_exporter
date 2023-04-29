@@ -1,6 +1,6 @@
 package com.prosa.obj;
 
-public class BirtReports {
+public class ReportSetting {
 
 	/**
 	 * Reporte 1
@@ -47,11 +47,11 @@ public class BirtReports {
 		ReportConfig repConfig = new ReportConfig();
 		repConfig.setReportName(args[0]);
 		repConfig.setPdfName(args[1]);
-		repConfig.getParams().put(ReportParams.BANCO, args[2]);
-		repConfig.getParams().put(ReportParams.TIPO_LIQUIDACION, args[3]);
-		repConfig.getParams().put(ReportParams.ROLE, args[4]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[5]);
-		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[6]);
+//		repConfig.getParams().put(ReportParams.BANCO, args[2]);
+		repConfig.getParams().put(ReportParams.TIPO_LIQUIDACION, args[2]);
+		repConfig.getParams().put(ReportParams.ROLE, args[3]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);
+		repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[5]);
 		return repConfig;
 	}
 
