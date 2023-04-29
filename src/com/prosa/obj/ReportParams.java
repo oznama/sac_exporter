@@ -31,6 +31,7 @@ public interface ReportParams {
 	String TIPO_TRANS = "tipoTrans";
 	String NATCON = "natcon";
 	String LIQUIDACION = "tipoLiquidacion";
+	String TLIQUIDACION = "liquidacion";
 	String ARCHIVO = "archivo";
 	
 	//---- Parametros Jasper
