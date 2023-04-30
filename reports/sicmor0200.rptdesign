@@ -332,9 +332,17 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "     AND PAV.AV_WH_GRP = PTA.TA_WH_GRP "+
 "     AND PAV.AV_WH_SEQ = PTA.TA_WH_SEQ "+
 " WHERE PTA.PARTITION_ID = "+params["suparticion"]+" "+
-" AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["adq"]+") "+
-" AND PTA.ENT_NUMERO_PROSA_EMI IN ("+params["emi"]+") "+
-" AND PTA.ARCH_NUMERO IN ("+params["fuente"]+") ";
+" AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["adq"]+") ";
+
+if (params["emi"]!="0")
+{
+	this.queryText+=" AND PTA.ENT_NUMERO_PROSA_EMI IN ("+params["emi"]+") ";
+}
+
+if (params["fuente"]!="0")
+{
+	this.queryText+=" AND PTA.ARCH_NUMERO IN ("+params["fuente"]+") ";
+}
 
 if (params["ttrnumero"]!="0")
 {

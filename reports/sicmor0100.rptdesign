@@ -322,9 +322,17 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
 "     ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+
 " WHERE PTA.PARTITION_ID BETWEEN "+params["susparticiones"]+" "+
-"     AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+") "+
-"     AND PTA.TA_TC_GRP_ID IN ("+params["tipoTrans"]+") "+
-" 	  AND PTA.ARCH_NUMERO IN ("+params["archivo"]+") ";
+" AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+") ";
+
+if (params["tipoTrans"]!="0")
+{
+	this.queryText+=" AND PTA.TA_TC_GRP_ID IN ("+params["tipoTrans"]+") ";
+}
+
+if (params["banco"]!="0")
+{
+	this.queryText+=" AND PTA.ARCH_NUMERO IN ("+params["archivo"]+") ";
+}
 
 
 if ((params["afiliacion"].value!="") &amp;&amp; (params["afiliacion"].value!=null) &amp;&amp; (params["afiliacion"].value!="null"))
