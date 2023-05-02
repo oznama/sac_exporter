@@ -310,8 +310,11 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 " INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
 "     ON PTT.NUMERO = PP.TTR_NUMERO "+
 " WHERE PP.ENT_NUMERO_PROSA_EMI IN ("+params["bancoEmi"]+") "+
-" AND PP.TTR_NUMERO IN ("+params["typeTrans"]+") "+
-" AND PP.FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
+" AND PP.TTR_NUMERO IN ("+params["typeTrans"]+") ";
+if (params["bancoAdq"]!="x"){this.queryText+="AND PP.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+")"; }
+if (params["fuente"]!="x"){this.queryText+="AND PP.ARCH_NUMERO IN ("+params["fuente"]+")"; }
+if (params["liquidacion"]!="x"){this.queryText+="AND PP.TLI_NUMERO IN ("+params["liquidacion"]+")"; }
+this.queryText+=" AND PP.FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
 " GROUP BY PP.ENT_NUMERO_PROSA_EMI "+
 "       ,PE.DESCRIPCION "+
 "       ,DECODE(PP.RUTEO,'1','PROSA','2','TSYS','3','VISA','4','MASTERCARD', 'PROSA') "+
