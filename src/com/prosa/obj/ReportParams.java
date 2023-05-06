@@ -33,6 +33,7 @@ public interface ReportParams {
 	String LIQUIDACION = "tipoLiquidacion";
 	String TLIQUIDACION = "liquidacion";
 	String ARCHIVO = "archivo";
+	String BIN = "bin";
 	
 	//---- Parametros Jasper
 	String NUM_FIID = "numFiid";

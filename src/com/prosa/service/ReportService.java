@@ -22,7 +22,7 @@ public class ReportService {
 					Properties.PATH_DEST == null ? Constants.PDF_DESTINATION : Properties.PATH_DEST,
 					reportConfig.getPdfNameReal()));
 			try {
-				switch(reportConfig.getReportType()) {
+				switch (reportConfig.getReportType()) {
 				case BIRT:
 					setDbParams();
 					BirtImplementation birtImplementation = new BirtImplementation();
@@ -68,10 +68,9 @@ public class ReportService {
 	}
 
 	private void selectReport(String[] args) {
-		String reportName = args[0];
-		logger.debug("Gerating report " + reportName + " ...");
-		ReportSetting reportDb = new ReportSetting();
-		switch (reportName) {
+		ReportSetting reportDb = new ReportSetting(args[0]);
+		logger.debug("Gerating report " + reportDb.getReportName() + " ...");
+		switch (reportDb.getReportName()) {
 		case "SICLIR0060":
 			this.reportConfig = reportDb.createSICLIR0060(args);
 			break;
@@ -193,7 +192,7 @@ public class ReportService {
 			this.reportConfig = reportDb.createSICLICE0170(args);
 			break;
 		default:
-			logger.warn("Report not " + reportName + " match");
+			logger.warn("Report not " + reportDb.getReportName() + " match");
 			this.reportConfig = null;
 		}
 	}
