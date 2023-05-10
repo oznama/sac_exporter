@@ -191,6 +191,9 @@ public class ReportService {
 		case "SICLICE0170":
 			this.reportConfig = reportDb.createSICLICE0170(args);
 			break;
+		case "SICLIRI320":
+			this.reportConfig = reportDb.createSICLIRI320(args);
+			break;
 		default:
 			logger.warn("Report not " + reportDb.getReportName() + " match");
 			this.reportConfig = null;

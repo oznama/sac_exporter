@@ -706,7 +706,7 @@ public class ReportSetting {
 		return repConfig;
 	}
 
-	public ReportConfig createSICLIRID320(String[] args) {
+	public ReportConfig createSICLIRI320(String[] args) {
 		ReportConfig repConfig = new ReportConfig();
 		repConfig.setReportName(this.reportName);
 		repConfig.setPdfName(args[1]);
