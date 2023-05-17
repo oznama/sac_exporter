@@ -194,7 +194,13 @@ public class ReportService {
 		case "SICLIRI320":
 			this.reportConfig = reportDb.createSICLIRI320(args);
 			break;
-		case "SICMOR0340" :
+		case "SICLIR0110":
+			this.reportConfig = reportDb.createSICLIR0110(args);
+			break;
+		case "SICMOR0305":
+			this.reportConfig = reportDb.createSICMOR0305(args);
+			break;
+		case "SICMOR0340":
 			this.reportConfig = reportDb.createSICMOR0340(args);
 			break;
 		default:

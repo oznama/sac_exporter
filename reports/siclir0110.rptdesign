@@ -4,6 +4,48 @@
     <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">1016</property>
+            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">1016</property>
+            <expression name="value" type="javascript">params["dbUser"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure/>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">1016</property>
+            <expression name="value" type="javascript">params["dbPswd"].value</expression>
+        </structure>
+    </list-property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -87,12 +129,82 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
+        <scalar-parameter name="dbHost" id="6426">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbUser" id="6427">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbPswd" id="6428">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbPort" id="6429">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbName" id="6430">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
     </parameters>
     <data-sources>
-        <oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="140">
-            <property name="meDriver">PMTUDBP</property>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
+            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -202,10 +314,8 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 " ,SUM(DATOS.PFR_CR_TXN_AMT108) PFR_CR_TXN_AMT108 "+
 " ,SUM(DATOS.PFR_CR_MRCH_FEE_AMT108) PFR_CR_MRCH_FEE_AMT108 "+
 " ,SUM(DATOS.PFR_CR_MRCH_IVA_AMT108) PFR_CR_MRCH_IVA_AMT108 "+
-/*INICIO DE SOBRETASA*/
 " ,SUM(DATOS.PFR_CR_MRCH_IMP_STASA110) PFR_CR_MRCH_IMP_STASA110 "+
 " ,SUM(DATOS.PFR_CR_MRCH_IVA_STASA110) PFR_CR_MRCH_IVA_STASA110 "+
- /*TERMINA SOBRETASA*/
 " ,SUM(DATOS.PFR_CR_CNT109) PFR_CR_CNT109 "+
 " ,SUM(DATOS.PFR_CR_TXN_AMT109) PFR_CR_TXN_AMT109 "+
 " ,SUM(DATOS.PFR_CR_MRCH_FEE_AMT109) PFR_CR_MRCH_FEE_AMT109 "+
@@ -222,7 +332,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 " ,SUM(DATOS.PFR_DB_TXN_AMT225_DB) PFR_DB_TXN_AMT225_DB "+
 " ,SUM(DATOS.PFR_CR_TXN_AMT225_CR) PFR_CR_TXN_AMT225_CR "+
 " ,SUM(DATOS.PFR_DB_TXN_AMT225_CR) PFR_DB_TXN_AMT225_CR "+
-/* INICIO MODIFICACION ACD-SAS C-54-7129-18 05-12-2019*/
 " ,SUM(DATOS.PFR_REPR_DB) PFR_REPR_DB "+
 " ,SUM(DATOS.PFR_CNTR_DB) PFR_CNTR_DB "+
 " ,SUM(DATOS.PFR_REPR_CR) PFR_REPR_CR "+
@@ -231,16 +340,10 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 " ,SUM(DATOS.PFR_CNTR_CR2) PFR_CNTR_CR2 "+
 " ,SUM(DATOS.PFR_REPR_DB2) PFR_REPR_DB2 "+
 " ,SUM(DATOS.PFR_REPR_CR2) PFR_REPR_CR2 "+
-/* INICIO MODIFICACION ACD-SAS C-54-7129-18 05-12-2019*/
 " FROM ( "+
-/* INICIA MODIFICACION WELLCOM 0-02-0309-13 18-10-2013*/
-//" SELECT DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE) ENTIDAD_PADRE "+
-//"       ,(SELECT DISTINCT PE1.DESCRIPCION FROM PMADMIN.PRSA_ENTIDADES PE1 WHERE PE1.NUMERO_PROSA = DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE)) DESCRIPCION "+
-//"       ,(SELECT DISTINCT DECODE(VBE.BU_TX_PARENT,641,522,VBE.BU_TX_PARENT) FROM PMADMIN.VW_BUS_EMI VBE WHERE VBE.NUMERO_PROSA = DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE)) BU_PARENT "+
 " SELECT DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,7,PE.NUMERO_PROSA,500,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE) ENTIDAD_PADRE "+
 "       ,(SELECT DISTINCT PE1.DESCRIPCION FROM PMADMIN.PRSA_ENTIDADES PE1 WHERE PE1.NUMERO_PROSA = DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,7,PE.NUMERO_PROSA,500,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE)) DESCRIPCION "+
 "       ,(SELECT DISTINCT DECODE(VBE.BU_TX_PARENT,641,522,VBE.BU_TX_PARENT) FROM PMADMIN.VW_BUS_EMI VBE WHERE VBE.NUMERO_PROSA = DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,7,PE.NUMERO_PROSA,500,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE)) BU_PARENT "+
-/* FIN MODIFICACION WELLCOM 0-02-0309-13 18-10-2013*/
 "       ,SUM(CASE "+
 "             WHEN PP.TTR_NUMERO = 1 AND PP.TIPO_TARJETA = 'C' THEN PP.NUMERO_TRANSACCIONES "+
 "             ELSE 0 "+
@@ -305,7 +408,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "             WHEN PP.TTR_NUMERO = 21 AND PP.TIPO_TARJETA = 'C' THEN PP.IVA_COMISION_COMERCIO "+
 "             ELSE 0 "+
 "        END),2) PFR_CR_MRCH_IVA_AMT108 "+
-			/*INICIO  CAMBIO P-02-0309-13 Alta de prefijos CARNET CHIP 506349 y 506348 para BANORTE  19/04/2017*/
 "		,ROUND(SUM(CASE "+
 "             WHEN PP.TTR_NUMERO IN (1,21) AND PP.TIPO_TARJETA = 'C' THEN PP.IMP_SOBRETASA "+
 "             ELSE 0 "+
@@ -314,7 +416,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "             WHEN PP.TTR_NUMERO IN (1,21) AND PP.TIPO_TARJETA = 'C' THEN PP.IMP_IVA_SOBRETASA "+
 "             ELSE 0 "+
 "        END),2) PFR_CR_MRCH_IVA_STASA110 "+
-		/*TERMINA  CAMBIO P-02-0309-13 Alta de prefijos CARNET CHIP 506349 y 506348 para BANORTE  19/04/2017*/
 "       ,SUM(CASE "+
 "             WHEN PP.TTR_NUMERO = 21 AND PP.TIPO_TARJETA = 'D' THEN PP.NUMERO_TRANSACCIONES "+
 "             ELSE 0 "+
@@ -370,7 +471,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "       ,0 PFR_DB_TXN_AMT225_DB "+
 "       ,0 PFR_CR_TXN_AMT225_CR "+
 "       ,0 PFR_DB_TXN_AMT225_CR "+
-/* INICIO MODIFICACION ACD-SAS C-54-7129-18 05-12-2019*/
 "		,SUM(CASE"+ 
 "            WHEN PP.TTR_NUMERO =9 AND PP.TIPO_TARJETA = 'D' THEN PP.TOTAL_IMPORTE "+
 "            ELSE 0 "+
@@ -403,92 +503,38 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "            WHEN PP.TTR_NUMERO =9 AND PP.TIPO_TARJETA = 'C'  AND PP.TOT_TXS_CASHB = 0 THEN PP.NUMERO_TRANSACCIONES "+
 "            ELSE 0 "+
 "       END) PFR_REPR_CR2 "+
-/* FIN MODIFICACION ACD-SAS C-54-7129-18 05-12-2019*/
 " FROM PMADMIN.PRSA_POSICIONES PP "+
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
 "     ON PE.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_EMI "+
-//-- INICIO CAMBIO PARA CUANDRE DE CENTAVOS AGRUPACION POR INTERRED 07/08/2012
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PE1 "+
 "     ON PE1.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_ADQ "+
-//-- FIN CAMBIO PARA CUANDRE DE CENTAVOS AGRUPACION POR INTERRED 07/08/2012
-//" WHERE ((PP.FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') AND PP.TTR_NUMERO NOT IN (20,40)) "+
-//"         OR "+
-//"        (PP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') AND PP.TTR_NUMERO IN (20,40)) "+ 
-//"       ) "+
-//-- INICIO  CAMBIO P-53-2021-14 Single Message en Interredes 30/06/2016 
 " WHERE PP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-//-- FIN  CAMBIO P-53-2021-14 Single Message en Interredes 30/06/2016 
 " AND PP.TLI_NUMERO = 5 "+
 " AND PE.ENTIDAD_PADRE IN ("+params["bancoEmi"]+") "+
-/* INICIA MODIFICACION WELLCOM 0-02-0309-13 18-10-2013*/
-//" GROUP BY DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE) "+
 " GROUP BY DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,7,PE.NUMERO_PROSA,500,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE) "+
-/* FIN MODIFICACION WELLCOM 0-02-0309-13 18-10-2013*/
 " 		  ,PE.ENTIDAD_PADRE "+
-//-- INICIO CAMBIO PARA CUANDRE DE CENTAVOS AGRUPACION POR INTERRED 07/08/2012
 " 		  ,PP.ENT_NUMERO_PROSA_ADQ "+
 " 		  ,PP.ENT_NUMERO_PROSA_EMI "+
-//-- FIN CAMBIO PARA CUANDRE DE CENTAVOS AGRUPACION POR INTERRED 07/08/2012
 " UNION ALL "+
-/* INICIA MODIFICACION WELLCOM 0-02-0309-13 18-10-2013*/
-//" SELECT DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE) "+
-//"       ,(SELECT DISTINCT PE1.DESCRIPCION FROM PMADMIN.PRSA_ENTIDADES PE1 WHERE PE1.NUMERO_PROSA = DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE)) DESCRIPCION "+
 " SELECT DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,7,PE.NUMERO_PROSA,500,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE) "+
 "       ,(SELECT DISTINCT PE1.DESCRIPCION FROM PMADMIN.PRSA_ENTIDADES PE1 WHERE PE1.NUMERO_PROSA = DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,7,PE.NUMERO_PROSA,500,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE)) DESCRIPCION "+
-/* FIN MODIFICACION WELLCOM 0-02-0309-13 18-10-2013*/
 "       ,CASE "+
-/* INICIA MODIFICACION WELLCOM 0-02-0309-13 18-10-2013*/
-//"          WHEN (SELECT DISTINCT DECODE(VBA.BU_TX_PARENT,641,522,VBA.BU_TX_PARENT) FROM PMADMIN.VW_BUS_ACQ VBA WHERE VBA.NUMERO_PROSA = DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE)) IS NULL THEN  "+
-//"               (SELECT DISTINCT DECODE(VBE.BU_TX_PARENT,641,522,VBE.BU_TX_PARENT) FROM PMADMIN.VW_BUS_EMI VBE WHERE VBE.NUMERO_PROSA = DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE)) "+
-//"          ELSE (SELECT DISTINCT DECODE(VBA.BU_TX_PARENT,641,522,VBA.BU_TX_PARENT) FROM PMADMIN.VW_BUS_ACQ VBA WHERE VBA.NUMERO_PROSA = DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE)) "+
 "          WHEN (SELECT DISTINCT DECODE(VBA.BU_TX_PARENT,641,522,VBA.BU_TX_PARENT) FROM PMADMIN.VW_BUS_ACQ VBA WHERE VBA.NUMERO_PROSA = DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,7,PE.NUMERO_PROSA,500,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE)) IS NULL THEN "+ 
 "               (SELECT DISTINCT DECODE(VBE.BU_TX_PARENT,641,522,VBE.BU_TX_PARENT) FROM PMADMIN.VW_BUS_EMI VBE WHERE VBE.NUMERO_PROSA = DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,7,PE.NUMERO_PROSA,500,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE)) "+
 "          ELSE (SELECT DISTINCT DECODE(VBA.BU_TX_PARENT,641,522,VBA.BU_TX_PARENT) FROM PMADMIN.VW_BUS_ACQ VBA WHERE VBA.NUMERO_PROSA = DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,7,PE.NUMERO_PROSA,500,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE)) "+
-/* FIN MODIFICACION WELLCOM 0-02-0309-13 18-10-2013*/
 "        END BU_PARENT "+
 "       ,0,0,0,0,0,0,0,0,0,0,0 "+
 "       ,0,0,0,0,0,0,0,0,0,0,0 "+
 "       ,0,0,0,0,0,0,0,0,0 "+
 "       ,SUM(PP.TOTAL_IMPORTE) "+
 "       ,0,0 "+
-/* INICIA MODIFICACION SAS-ACD C-54-7129-18 07-01-2019*/
 "       ,0,0,0,0,0,0,0,0"+
-/* FIN MODIFICACION SAS-ACD C-54-7129-18 07-01-2019*/
 " FROM PMADMIN.PRSA_POSICIONES PP "+
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
 "     ON PE.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_ADQ "+
-" WHERE PP.TLI_NUMERO = 5 "+
-" AND PP.TTR_NUMERO = 23 "+
-//" AND PP.FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-//-- INICIO  CAMBIO P-53-2021-14 Single Message en Interredes 30/06/2016 
-" AND PP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-//-- FIN  CAMBIO P-53-2021-14 Single Message en Interredes 30/06/2016 
+" WHERE PP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
 " AND PE.ENTIDAD_PADRE IN ("+params["bancoEmi"]+") "+
-/* INICIA MODIFICACION WELLCOM 0-02-0309-13 18-10-2013*/
-//" GROUP BY DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE) "+
 " GROUP BY DECODE(PE.ENTIDAD_PADRE,31,PE.NUMERO_PROSA,7,PE.NUMERO_PROSA,500,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE) "+
-/* FIN MODIFICACION WELLCOM 0-02-0309-13 18-10-2013*/
-//" UNION ALL "+
-//" SELECT "+
-//"        PE.NUMERO_PROSA ENTIDAD "+
-//"       ,PE.DESCRIPCION DESC_ENTIDAD "+
-//"       ,(SELECT MAX( BU_TX_PARENT) FROM PMADMIN.VW_BUS_EMI VBE WHERE VBE.NUMERO_PROSA=PF.ENT_NUMERO_PROSA) PFR_CLR_BU "+
-//"       ,0,0,0,0,0,0,0,0,0,0 "+
-//"       ,0,0,0,0,0,0,0,0,0,0 "+
-//"       ,0,0 "+
-//"       ,SUM(PF.IMPORTE_ADMON_BENEFICIOS) PFR_CR_MRCH_FEE_AMT "+
-//"       ,SUM(PF.IVA_ADMON_BENEFICIOS) PFR_CR_MRCH_IVA_AMT "+
-//"       ,0,0,0,0,0,0,0,0 "+
-//" FROM SUPERSIC.POSICIONES_FINALES@LG_PMTU_SIC PF "+
-//"     INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
-//"         ON PF.ENT_NUMERO_PROSA = PE.NUMERO_PROSA "+
-//" WHERE PF.TTR_NUMERO = 20 "+
-//"       AND PF.FECHA BETWEEN TO_DATE('"+params["initDate"]+"','dd-MM-yyyy') and TO_DATE('"+params["endDate"]+"','dd-MM-yyyy') "+
-//"       AND PF.TIPO_TARJETA = 'C' "+
-//"       AND PF.TLI_NUMERO = 5 "+
-//"       AND PE.TIE_NUMERO = 1 "+
-//"       AND PE.ENTIDAD_PADRE IN ("+params["bancoEmi"]+") "+
-//" GROUP BY PF.ENT_NUMERO_PROSA, NUMERO_TRANSACCIONES_EMI, PE.NUMERO_PROSA,PE.DESCRIPCION "+
 " ) DATOS  "+
 " GROUP BY  "+
 "  DATOS.ENTIDAD_PADRE "+ 

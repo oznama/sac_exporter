@@ -6,9 +6,44 @@
     <html-property name="description">Detalle Transaccion Emisor</html-property>
     <list-property name="propertyBindings">
         <structure>
-            <property name="name">queryTimeOut</property>
-            <property name="id">1989</property>
-            <expression name="value">1800</expression>
+            <property name="name">odaDriverClass</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">1016</property>
+            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">1016</property>
+            <expression name="value" type="javascript">params["dbUser"].value</expression>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure/>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">1016</property>
+            <expression name="value" type="javascript">params["dbPswd"].value</expression>
         </structure>
     </list-property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
@@ -102,7 +137,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="paramType">simple</property>
             <property name="isRequired">false</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">402944</property>
+            <property name="defaultValue">0</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -130,17 +165,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <scalar-parameter name="susparticiones" id="2837">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
-            <text-property name="promptText">susparticiones</text-property>
-            <property name="controlType">text-box</property>
-            <property name="distinct">true</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
         <scalar-parameter name="tipoLiquidacion" id="2838">
             <property name="valueType">static</property>
             <property name="dataType">string</property>
@@ -153,15 +177,82 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
+        <scalar-parameter name="dbHost" id="6426">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbUser" id="6427">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbPswd" id="6428">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbPort" id="6429">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="dbName" id="6430">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <list-property name="selectionList"/>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
     </parameters>
     <data-sources>
-        <oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
-            <property name="meDriver">PMTUDBP</property>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@10.255.220.165:1590:PMTu</property>
-            <property name="odaUser">PMTWEB</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">cmFpc2lucw==</encrypted-property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
+            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -189,8 +280,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "     ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+
 " INNER JOIN SETTLEMENT.SZ_TC_GRP STG "+
 "     ON STG.TCG_GRP_ID = PTA.TA_TC_GRP_ID "+
-" WHERE PTA.PARTITION_ID BETWEEN "+params["susparticiones"]+" "+
-" AND PTA.ENT_NUMERO_PROSA_EMI IN ("+params["bancoEmi"]+") ";
+" WHERE PTA.ENT_NUMERO_PROSA_EMI IN ("+params["bancoEmi"]+") ";
 
 if (params["bancoAdq"]!="0")
 {
@@ -783,11 +873,24 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
 " from pmadmin.prsa_txn_aceptadas a "+
 "               ,pmadmin.prsa_tipos_transaccion e "+
 "               ,pmadmin.prsa_entidades ent "+
-" where a.fecha_proceso_transac between TO_DATE('"+params["initDate"]+"','dd-MM-yyyy') and TO_DATE('"+params["endDate"]+"','dd-MM-yyyy') "+
-" and a.ent_numero_prosa_adq in (select numero_prosa from pmadmin.prsa_entidades where entidad_padre in("+params["bancoAdq"]+")) "+
-" and a.ttr_numero in ("+params["tipoTrans"]+") "+
-" and a.ent_numero_prosa_emi in("+params["bancoEmi"]+") "+
-" and e.numero = a.ttr_numero "+
+" where a.fecha_proceso_transac between TO_DATE('"+params["initDate"]+"','dd-MM-yyyy') and TO_DATE('"+params["endDate"]+"','dd-MM-yyyy') ";
+
+if(params["bancoAdq"]!="0")
+{
+	this.queryText+=" and a.ent_numero_prosa_adq in (select numero_prosa from pmadmin.prsa_entidades where entidad_padre in("+params["bancoAdq"]+")) ";
+}
+
+if(params["tipoTrans"]!="0")
+{
+	this.queryText+=" and a.ttr_numero in ("+params["tipoTrans"]+") ";
+}
+
+if(params["bancoEmi"]!="0")
+{
+	this.queryText+=" and a.ent_numero_prosa_emi in("+params["bancoEmi"]+") ";
+}
+
+this.queryText+=" and e.numero = a.ttr_numero "+
 " and a.ent_numero_prosa_emi  = ent.numero_prosa "+
 " order by       3, 8, 4, 5 , 6 ";]]></method>
                                     <property name="resultSetColumn">bancoEmi</property>
