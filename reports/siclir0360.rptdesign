@@ -185,6 +185,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
+            <property name="defaultValue">x</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -195,33 +196,14 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
+            <property name="defaultValue">x</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <scalar-parameter name="susparticiones" id="7359">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
-            <text-property name="promptText">susparticiones</text-property>
-            <property name="controlType">text-box</property>
-            <property name="distinct">true</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="susparticioneshabant" id="7360">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
-            <text-property name="promptText">susparticioneshabant</text-property>
-            <property name="controlType">text-box</property>
-            <property name="distinct">true</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
+        
+        
         <scalar-parameter name="dbHost" id="6426">
             <property name="valueType">static</property>
             <property name="dataType">string</property>
@@ -352,8 +334,7 @@ this.queryText=
 "     ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+
 " INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
 "     ON PTT.NUMERO = PTA.TTR_NUMERO "+
-" WHERE PTA.PARTITION_ID BETWEEN "+params["susparticiones"]+" "+
-" AND (PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") OR PTA.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+")) "+
+" WHERE(PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") OR PTA.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+")) "+
 " AND PTA.ARCH_NUMERO = 45 "+
 " AND PTA.TA_TC_GRP_ID IN (113,117,118,119,131,134,135,136,223,110,122,125,222) "+
 " ) IDEA";
@@ -404,8 +385,7 @@ this.queryText=
 "     ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+
 " INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
 "     ON PTT.NUMERO = PTA.TTR_NUMERO "+
-" WHERE PTA.PARTITION_ID BETWEEN "+params["susparticioneshabant"]+" "+
-" AND PTA.ARCH_NUMERO = 774 "+
+" WHERE PTA.ARCH_NUMERO = 774 "+
 " AND (PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") OR PTA.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+")) "+
 " AND PTA.TA_TC_GRP_ID IN (113,117,118,119,131,134,135,136,223,110,122,125,222) "+
 " ) IDEA ";
@@ -454,8 +434,7 @@ this.queryText=
 "     ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+
 " INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
 "     ON PTT.NUMERO = PTA.TTR_NUMERO "+
-" WHERE PTA.PARTITION_ID BETWEEN "+params["susparticioneshabant"]+" "+
-" AND PTA.ARCH_NUMERO IN (152,153) "+
+" WHERE PTA.ARCH_NUMERO IN (152,153) "+
 " AND (PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") OR PTA.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+")) "+
 " AND PTA.TA_TC_GRP_ID IN (113,117,118,119,131,134,135,136,223,110,122,125,222) "+
 " ) IDEA ";

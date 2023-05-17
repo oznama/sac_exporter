@@ -122,7 +122,7 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <scalar-parameter name="diaant" id="3017">
+        <!--scalar-parameter name="diaant" id="3017">
             <property name="valueType">static</property>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
@@ -132,7 +132,7 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
-        </scalar-parameter>
+        </scalar-parameter-->
         <scalar-parameter name="dbHost" id="6426">
             <property name="valueType">static</property>
             <property name="dataType">string</property>
