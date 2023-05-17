@@ -12,6 +12,7 @@ public interface ReportParams {
 	String ROLE = "role";
 	String MISC = "numMisc";
 	String TIPO_PROCESO = "tipoProc";
+	String TIPO_ES="tipoes";
 	String TIPO_EMISOR_ADQ = "tipoEmiAdq";
 	String USUARIO = "ejecuto";
 	//-------Nuevos Parametros
