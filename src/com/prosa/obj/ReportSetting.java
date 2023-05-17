@@ -958,7 +958,7 @@ public class ReportSetting {
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case 110:
-			repConfig.getParams().put(ReportParams.BANCO, args[2]);
+			repConfig.getParams().put(ReportParams.BANCOEMI, args[2]);
 			repConfig.getParams().put(ReportParams.BANCOADQ, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[5]);

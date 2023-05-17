@@ -91,7 +91,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="concealValue">false</property>
             <property name="isRequired">true</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">108,109</property>
+            <property name="defaultValue">0</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -105,7 +105,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="concealValue">false</property>
             <property name="isRequired">true</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">1005,1008</property>
+            <property name="defaultValue">0</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -133,7 +133,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="concealValue">false</property>
             <property name="isRequired">true</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">98</property>
+            <property name="defaultValue">0</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -146,7 +146,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <text-property name="promptText">liquidacion</text-property>
             <property name="isRequired">false</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">24</property>
+            <property name="defaultValue">0</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -159,6 +159,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <text-property name="promptText">afiliacion</text-property>
             <property name="isRequired">false</property>
             <property name="controlType">text-box</property>
+            <property name="defaultValue">0</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -181,17 +182,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
             <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="suparticion" id="3784">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
-            <text-property name="promptText">suparticion</text-property>
-            <property name="controlType">text-box</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -331,8 +321,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "     ON PAV.PARTITION_ID = PTA.PARTITION_ID "+
 "     AND PAV.AV_WH_GRP = PTA.TA_WH_GRP "+
 "     AND PAV.AV_WH_SEQ = PTA.TA_WH_SEQ "+
-" WHERE PTA.PARTITION_ID = "+params["suparticion"]+" "+
-" AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["adq"]+") ";
+" WHERE PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["adq"]+") ";
 
 if (params["emi"]!="0")
 {
@@ -346,7 +335,7 @@ if (params["fuente"]!="0")
 
 if (params["ttrnumero"]!="0")
 {
-	this.queryText+=" AND PTA.TA_TC_GRP_ID IN ("+params["ttrnumero"]+") ";	
+	this.queryText+=" AND PTA.TTR_NUMERO IN ("+params["ttrnumero"]+") ";	
 }
 
 if (params["liquidacion"]!="0")
@@ -403,10 +392,17 @@ this.queryText+=
 "     AND PTK2.POS_TRAN_ID_KEY = PTLV.LV_WH_SEQ "+
 " INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
 "     ON PTT.NUMERO = PTLV.TTR_NUMERO "+
-" WHERE PTLV.PARTITION_ID = "+params["suparticion"]+" "+
-" AND PTLV.ENT_NUMERO_PROSA_ADQ IN ("+params["adq"]+") "+
-" AND PTLV.ENT_NUMERO_PROSA_EMI IN ("+params["emi"]+") "+
-" AND PTLV.ARCH_NUMERO IN ("+params["fuente"]+") ";
+" WHERE PTLV.ENT_NUMERO_PROSA_ADQ IN ("+params["adq"]+") ";
+
+if (params["emi"]!="0")
+{
+	this.queryText+=" AND PTLV.ENT_NUMERO_PROSA_EMI IN ("+params["emi"]+") ";
+}
+
+if (params["fuente"]!="0")
+{
+	this.queryText+=" AND PTLV.ARCH_NUMERO IN ("+params["fuente"]+") ";
+}
 
 if (params["ttrnumero"]!="0")
 {
