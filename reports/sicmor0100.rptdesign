@@ -177,7 +177,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <scalar-parameter name="afiliacion" id="3951">
+        <!--scalar-parameter name="afiliacion" id="3951">
             <text-property name="promptText">afiliacion</text-property>
             <property name="valueType">static</property>
             <property name="isRequired">true</property>
@@ -188,8 +188,8 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
-        </scalar-parameter>
-        <scalar-parameter name="susparticiones" id="3952">
+        </scalar-parameter-->
+        <!--scalar-parameter name="susparticiones" id="3952">
             <text-property name="promptText">susparticiones</text-property>
             <property name="valueType">static</property>
             <property name="dataType">string</property>
@@ -199,7 +199,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
-        </scalar-parameter>
+        </scalar-parameter-->
         <scalar-parameter name="dbHost" id="6426">
             <property name="valueType">static</property>
             <property name="dataType">string</property>
@@ -321,8 +321,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "     ON VBA.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_ADQ "+
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
 "     ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+
-" WHERE PTA.PARTITION_ID BETWEEN "+params["susparticiones"]+" "+
-" AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+") ";
+" WHERE PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+") ";
 
 if (params["tipoTrans"]!="0")
 {
@@ -334,15 +333,8 @@ if (params["banco"]!="0")
 	this.queryText+=" AND PTA.ARCH_NUMERO IN ("+params["archivo"]+") ";
 }
 
-
-if ((params["afiliacion"].value!="") &amp;&amp; (params["afiliacion"].value!=null) &amp;&amp; (params["afiliacion"].value!="null"))
-{
-	this.queryText+=" AND TRIM(PTA.NUMERO_COMERCIO) = "+params["afiliacion"]+" ";
-}
-else
-{
 	this.queryText+=" ";
-}]]></method>
+]]></method>
             <property name="dataSource">Data Source</property>
             <list-property name="resultSet">
                 <structure>

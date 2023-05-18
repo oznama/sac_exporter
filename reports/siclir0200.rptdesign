@@ -694,8 +694,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "     ON PTL.NUMERO = PP.TLI_NUMERO "+
 " INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
 "     ON PTT.NUMERO = PP.TTR_NUMERO "+
-" INNER JOIN HUB.TBL_HUB_ENTIDADES@LG_PMTU_PMTWEB_PWS_HUB PE1 "+
-"     ON PE1.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_ADQ "+
 " WHERE PP.TLI_NUMERO = 15 "+
 " AND ((PP.FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') AND PP.TTR_NUMERO NOT IN (20,40)) "+
 "      OR "+
@@ -712,7 +710,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "        END "+
 "       ,PP.ENT_NUMERO_PROSA_EMI "+
 "       ,PP.ENT_NUMERO_PROSA_ADQ"+ 
-"	     ,PE1.ENTIDAD_PADRE   "+
 " UNION ALL    "+
 " SELECT 15 LIQ "+
 "       ,'INTERREDES' DESC_LIQ "+

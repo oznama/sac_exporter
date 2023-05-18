@@ -388,7 +388,7 @@ public class ReportSetting {
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case 20:
-			repConfig.getParams().put(ReportParams.BANCO, args[2]);
+			repConfig.getParams().put(ReportParams.BANCOEMI, args[2]);
 			repConfig.getParams().put(ReportParams.TIPO_TRANSACCION, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[5]);
@@ -396,7 +396,7 @@ public class ReportSetting {
 		case 69:
 		case 72:
 			repConfig.getParams().put(ReportParams.BIN, args[2]); // x
-			repConfig.getParams().put(ReportParams.BANCO, args[3]);
+			repConfig.getParams().put(ReportParams.BANCOEMI, args[3]);
 			repConfig.getParams().put(ReportParams.TLIQUIDACION, args[4]);
 			repConfig.getParams().put(ReportParams.BANCOADQ, args[5]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[6]);
@@ -412,12 +412,9 @@ public class ReportSetting {
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case 21:
-			repConfig.getParams().put(ReportParams.BANCOEMI, args[2]);
-			repConfig.getParams().put(ReportParams.BANCOADQ, args[3]);
-			repConfig.getParams().put(ReportParams.FUENTE, args[4]);
-			repConfig.getParams().put(ReportParams.LIQUIDACION, args[5]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[6]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[7]);
+			repConfig.getParams().put(ReportParams.BANCOADQ, args[2]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
 			break;
 		}
 		return repConfig;
