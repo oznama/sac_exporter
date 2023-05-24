@@ -62,6 +62,19 @@
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
+		<scalar-parameter name="typeTrans" id="2023">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="isRequired">true</property>
+            <property name="controlType">text-box</property>
+            <property name="defaultValue">1</property>
+            <property name="distinct">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
         <scalar-parameter name="initDate" id="1992">
             <property name="valueType">static</property>
             <property name="dataType">string</property>
@@ -361,6 +374,7 @@
 "     AND PTD.TD_WH_SEQ = PTB.TB_WH_SEQ "+
 " WHERE BP.START_TS BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
 " AND PTD.TD_PROSA_ISS_ENTITY = "+params["bancoAdq"]+" "+
+" AND PTD.TD_TXN_TYP in ("+params["typeTrans"]+") "+
 " AND PTD.TD_TXN_TYP IN (1,21) "+
 " AND PTD.TD_STATUS_TXN = 2 "+
 " AND PTD.TD_USG_TYP_ID = 2 "+

@@ -102,7 +102,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">1</property>
+            <property name="defaultValue">T</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -113,7 +113,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">5</property>
+            <property name="defaultValue">T</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -124,7 +124,18 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
+            <property name="defaultValue">T</property>
+            <property name="distinct">true</property>
+            <structure name="format">
+                <property name="category">Unformatted</property>
+            </structure>
+        </scalar-parameter>
+        <scalar-parameter name="bin" id="2759">
+            <property name="valueType">static</property>
+            <property name="dataType">string</property>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
+            <property name="defaultValue">T</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -135,7 +146,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
+            <property name="defaultValue">T</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -146,7 +157,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
+            <property name="defaultValue">T</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -310,10 +321,10 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 " INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
 "     ON PTT.NUMERO = PP.TTR_NUMERO "+
 " WHERE PP.ENT_NUMERO_PROSA_EMI IN ("+params["bancoEmi"]+") "+
-" AND PP.TTR_NUMERO IN ("+params["typeTrans"]+") ";
-if (params["bancoAdq"]!="x"){this.queryText+="AND PP.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+")"; }
-if (params["fuente"]!="x"){this.queryText+="AND PP.ARCH_NUMERO IN ("+params["fuente"]+")"; }
-if (params["liquidacion"]!="x"){this.queryText+="AND PP.TLI_NUMERO IN ("+params["liquidacion"]+")"; }
+if (params["typeTrans"]!="T"){this.queryText+=" AND PP.TTR_NUMERO IN ("+params["typeTrans"]+") "; }
+if (params["bancoAdq"]!="T"){this.queryText+="AND PP.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+")"; }
+if (params["fuente"]!="T"){this.queryText+="AND PP.ARCH_NUMERO IN ("+params["fuente"]+")"; }
+if (params["liquidacion"]!="T"){this.queryText+="AND PP.TLI_NUMERO IN ("+params["liquidacion"]+")"; }
 this.queryText+=" AND PP.FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
 " GROUP BY PP.ENT_NUMERO_PROSA_EMI "+
 "       ,PE.DESCRIPCION "+

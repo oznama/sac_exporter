@@ -334,8 +334,12 @@ this.queryText=
 "     ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+
 " INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
 "     ON PTT.NUMERO = PTA.TTR_NUMERO "+
-" WHERE(PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") OR PTA.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+")) "+
-" AND PTA.ARCH_NUMERO = 45 "+
+" WHERE ";
+if (params["banco"]!="T")
+{
+this.queryText= "(PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") OR PTA.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+")) AND " ;
+}
+this.queryText= " PTA.ARCH_NUMERO = 45 "+
 " AND PTA.TA_TC_GRP_ID IN (113,117,118,119,131,134,135,136,223,110,122,125,222) "+
 " ) IDEA";
 
@@ -385,9 +389,12 @@ this.queryText=
 "     ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+
 " INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
 "     ON PTT.NUMERO = PTA.TTR_NUMERO "+
-" WHERE PTA.ARCH_NUMERO = 774 "+
-" AND (PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") OR PTA.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+")) "+
-" AND PTA.TA_TC_GRP_ID IN (113,117,118,119,131,134,135,136,223,110,122,125,222) "+
+" WHERE PTA.ARCH_NUMERO = 774 ";
+if (params["banco"]!="T")
+{
+this.queryText=  " AND (PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") OR PTA.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+")) " ;
+}
+this.queryText=" AND PTA.TA_TC_GRP_ID IN (113,117,118,119,131,134,135,136,223,110,122,125,222) "+
 " ) IDEA ";
 
 if (params["tipoProc"]==100)
@@ -434,16 +441,19 @@ this.queryText=
 "     ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+
 " INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
 "     ON PTT.NUMERO = PTA.TTR_NUMERO "+
-" WHERE PTA.ARCH_NUMERO IN (152,153) "+
-" AND (PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") OR PTA.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+")) "+
-" AND PTA.TA_TC_GRP_ID IN (113,117,118,119,131,134,135,136,223,110,122,125,222) "+
+" WHERE PTA.ARCH_NUMERO IN (152,153) ";
+if (params["banco"]!="T")
+{
+this.queryText=  " AND (PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") OR PTA.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+")) ";
+}
+this.queryText=" AND PTA.TA_TC_GRP_ID IN (113,117,118,119,131,134,135,136,223,110,122,125,222) "+
 " ) IDEA ";
 
-if (params["tipoes"]=="E" &amp;&amp; params["tipoProc"]==774)
+if (params["tipoes"]=="E" &amp;&amp; params["tipoProc"]==774 && params["banco"]!="T")
 {
 	this.queryText+=" where (BANCO_ENCABEZADO in ("+params["banco"]+")) ";
 }
-else if (params["tipoes"]=="S" &amp;&amp; params["tipoProc"]==774)
+else if (params["tipoes"]=="S" &amp;&amp; params["tipoProc"]==774 && params["banco"]!="T")
 {
 	this.queryText+=" where (BANCO_COLUMNA in ("+params["banco"]+")) ";
 }
