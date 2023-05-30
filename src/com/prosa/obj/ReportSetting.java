@@ -819,7 +819,7 @@ public class ReportSetting {
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case 65:
-			repConfig.getParams().put(ReportParams.BANCO, args[2]);
+			repConfig.getParams().put(ReportParams.BANCO_ADQUIRENTE, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
 			break;
@@ -833,7 +833,7 @@ public class ReportSetting {
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case 66:
-			repConfig.getParams().put(ReportParams.BANCO, args[2]);
+			repConfig.getParams().put(ReportParams.BANCO_EMISOR, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
 			break;

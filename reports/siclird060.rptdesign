@@ -228,7 +228,7 @@ this.queryText+=
 " AND PP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
 " AND PP.TTR_NUMERO IN (1,21,20,15,9,18,16) ";
 
-if (params["banco"].equals("0"))
+if (params["banco"].equals("0") || params["banco"]=="T")
 {
 	this.queryText+=" ";
 }
@@ -312,7 +312,7 @@ this.queryText+=
 " AND PTRV.PTRV_TIER_CODIGO_MONEDA = 840 "+//DOLARES
 " AND PTRV.PTRV_TTR_NUMERO NOT IN (53) ";
 
-if (params["banco"].equals("0"))
+if (params["banco"].equals("0") || params["banco"]=="T")
 {
 	this.queryText+=" ";
 }
@@ -409,7 +409,7 @@ this.queryText+=
 "     ON VISTA2.BU = SFIT.FMI_DB_CLR_BU  "+
 " WHERE SFIT.FMI_DT+1 BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') ";
 
-if (params["banco"].equals("0"))
+if (params["banco"].equals("0") || params["banco"]=="T")
 {
 	this.queryText+=" ";
 }
@@ -506,7 +506,7 @@ this.queryText+=
 " AND PTS.PTS_CRNCY_CD = 480 "+
 " AND PTS.PTS_CYCLE_DT+1 BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') ";
 
-if (params["banco"].equals("0"))
+if (params["banco"].equals("0") || params["banco"]=="T")
 {
 	this.queryText+=" ";
 }

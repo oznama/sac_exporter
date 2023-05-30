@@ -282,7 +282,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "     ON STG.TCG_GRP_ID = PTA.TA_TC_GRP_ID "+
 " WHERE PTA.ENT_NUMERO_PROSA_EMI IN ("+params["bancoEmi"]+") ";
 
-if (params["bancoAdq"]!="0")
+if (params["bancoAdq"]!="0" || params["bancoAdq"]!="T")
 {
 	this.queryText+=" AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+") ";
 }
@@ -875,7 +875,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
 "               ,pmadmin.prsa_entidades ent "+
 " where a.fecha_proceso_transac between TO_DATE('"+params["initDate"]+"','dd-MM-yyyy') and TO_DATE('"+params["endDate"]+"','dd-MM-yyyy') ";
 
-if(params["bancoAdq"]!="0")
+if(params["bancoAdq"]!="0" || params["bancoAdq"]!="T")
 {
 	this.queryText+=" and a.ent_numero_prosa_adq in (select numero_prosa from pmadmin.prsa_entidades where entidad_padre in("+params["bancoAdq"]+")) ";
 }

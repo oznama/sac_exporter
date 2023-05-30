@@ -245,7 +245,7 @@ this.queryText+=
 "         AND PRT.PRT_PROC_DTE <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 "+ 
 "         AND PRT.PRT_TRAN_TYP IN (20, 24)) ";
 
-if (params["banco"].equals("0"))
+if (params["banco"].equals("0") || params["banco"]=="T")
 {
 	this.queryText+=" ";
 }
@@ -257,7 +257,7 @@ else
 this.queryText+=
 " GROUP BY PRT.PRT_PROC_DTE ";
 
-if (params["banco"].equals("0"))
+if (params["banco"].equals("0") || params["banco"]=="T")
 {
 	this.queryText+=" ";
 }
@@ -333,7 +333,7 @@ else
 					"       END ORDEN ";
 }
 
-if (params["banco"].equals("0"))
+if (params["banco"].equals("0") || params["banco"]=="T")
 {
 	this.queryText+="       ,0 EMISOR "+
 					"       ,'CONSOLIDADO' EMISOR_DESC ";
@@ -349,7 +349,22 @@ else
                 	" 			ELSE PE.DESCRIPCION "+
         			"		END EMISOR_DESC ";
 }
+if (params["banco"]=="T")
+{
+this.queryText+=
+"       ,0 EMISOR_BU "+
+"       ,CASE "+
+"             WHEN PP.ENT_NUMERO_PROSA_ADQ NOT IN (0) THEN PP.ENT_NUMERO_PROSA_ADQ "+
+"             ELSE PP.ENT_NUMERO_PROSA_EMI "+
+"        END ADQUIRENTE "+ 
+"       ,CASE  "+
+"             WHEN PP.ENT_NUMERO_PROSA_ADQ NOT IN (0) THEN VBA.DESCRIPCION "+
+"             ELSE PE.DESCRIPCION "+
+"       END ADQUIRENTE_DESC "+ 
+"       ,0 ADQUIRENTE_BU "+
+"       ,PP.TTR_NUMERO TTR_NUMERO ";
 
+}else{
 this.queryText+=
 "       ,0 EMISOR_BU "+
 "       ,CASE "+
@@ -362,7 +377,7 @@ this.queryText+=
 "       END ADQUIRENTE_DESC "+ 
 "       ,0 ADQUIRENTE_BU "+
 "       ,PP.TTR_NUMERO TTR_NUMERO ";
-
+}
 if (params["agrupacion0301"].equals("no"))
 {
 	this.queryText+="       ,PP.TIPO_TARJETA TIPO_TARJETA ";
@@ -390,7 +405,7 @@ this.queryText+=
 " WHERE PP.TLI_NUMERO = 32 "+
 " AND ((PP.TTR_NUMERO IN (10,11) AND PP.STTR_NUMERO NOT IN (100)) OR (PP.TTR_NUMERO NOT IN (10,11))) ";
 
-if (params["banco"].equals("0"))
+if (params["banco"].equals("0") || params["banco"]=="T")
 {
 	this.queryText+=" ";
 }
@@ -405,7 +420,7 @@ this.queryText+=
 "     ) "+
 " GROUP BY PP.FECHA_LIQ "+
 "         ,PP.STTR_NUMERO ";
-if (params["banco"].equals("0"))
+if (params["banco"].equals("0") || params["banco"]=="T")
 {
 	this.queryText+=" ";
 }
@@ -420,7 +435,20 @@ else
                 	" 			ELSE PE.DESCRIPCION "+
         			"		END ";
 }
-
+if (params["banco"]=="T")
+{
+this.queryText+=
+"       ,CASE "+
+"             WHEN PP.ENT_NUMERO_PROSA_ADQ NOT IN (0) THEN PP.ENT_NUMERO_PROSA_ADQ "+
+"             ELSE PP.ENT_NUMERO_PROSA_EMI "+
+"        END "+ 
+"       ,CASE  "+
+"             WHEN PP.ENT_NUMERO_PROSA_ADQ NOT IN (0) THEN VBA.DESCRIPCION "+
+"             ELSE PE.DESCRIPCION "+
+"       END "+
+"       ,PP.TTR_NUMERO ";
+}else
+{
 this.queryText+=
 "       ,CASE "+
 "             WHEN PP.ENT_NUMERO_PROSA_ADQ NOT IN ("+params["banco"]+") THEN PP.ENT_NUMERO_PROSA_ADQ "+
@@ -431,7 +459,7 @@ this.queryText+=
 "             ELSE PE.DESCRIPCION "+
 "       END "+
 "       ,PP.TTR_NUMERO ";
-
+}
 if (params["agrupacion0301"].equals("no"))
 {
 	this.queryText+="       ,PP.TIPO_TARJETA) ";
@@ -483,7 +511,7 @@ else
 					"       END ORDEN ";
 }
 
-if (params["banco"].equals("0"))
+if (params["banco"].equals("0") || params["banco"]=="T")
 {
 	this.queryText+="       ,0 EMISOR "+
 					"       ,'CONSOLIDADO' EMISOR_DESC "+
@@ -525,7 +553,7 @@ this.queryText+=
 "     ON PE.NUMERO_PROSA = PTRV.PTRV_ENT_NUMERO_PROSA_EMI "+
 " WHERE (PTRV.PTRV_ENT_NUMERO_PROSA_ADQ IN (94,98,95,96,97) OR PTRV.PTRV_ENT_NUMERO_PROSA_EMI IN (94,98,95,96,97)) ";
 
-if (params["banco"].equals("0"))
+if (params["banco"].equals("0") || params["banco"]=="T")
 {
 	this.queryText+=" ";
 }
@@ -578,7 +606,7 @@ else
 					"       END  ";
 }
 
-if (params["banco"].equals("0"))
+if (params["banco"].equals("0") || params["banco"]=="T")
 {
 	this.queryText+=" ";
 }

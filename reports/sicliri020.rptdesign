@@ -231,9 +231,11 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
 " FROM PMADMIN.PRSA_POSICIONES PP "+
 " WHERE PP.TLI_NUMERO = 21 "+
 " AND PP.FECHA_PROCESO >= TO_DATE('"+params["initDate"]+"', 'DD/MM/YYYY') - 1 "+
-" AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 "+
-" AND PP.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") "+
-" AND PP.ENT_NUMERO_PROSA_ADQ NOT IN (94,95,96,97,98) "+
+" AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 ";
+if (params["banco"]!= "T"){
+this.queryText=" AND PP.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") ";
+}
+this.queryText=" AND PP.ENT_NUMERO_PROSA_ADQ NOT IN (94,95,96,97,98) "+
 " AND PP.ENT_NUMERO_PROSA_EMI NOT IN (94,95,96,97,98) "+
 " AND PP.TTR_NUMERO NOT IN (52,53) "+
 " AND PP.ARCH_NUMERO NOT IN (48,49,1006,2148) "+
@@ -296,9 +298,11 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
 " FROM PMADMIN.PRSA_POSICIONES PP "+
 " WHERE PP.TLI_NUMERO = 21 "+
 " AND PP.FECHA_PROCESO >= TO_DATE('"+params["initDate"]+"', 'DD/MM/YYYY') - 1 "+
-" AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 "+
-" AND PP.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+") "+
-" AND PP.ENT_NUMERO_PROSA_ADQ NOT IN (94,95,96,97,98) "+
+" AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 ";
+if (params["banco"]!= "T"){
+this.queryText=" AND PP.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+") ";
+}
+this.queryText=" AND PP.ENT_NUMERO_PROSA_ADQ NOT IN (94,95,96,97,98) "+
 " AND PP.ENT_NUMERO_PROSA_EMI NOT IN (94,95,96,97,98) "+
 " AND PP.TTR_NUMERO NOT IN (52,53) "+
 " AND PP.ARCH_NUMERO NOT IN (48,49,1006,2148) "+
@@ -341,8 +345,11 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
 " INNER JOIN (SELECT * FROM PMADMIN.VW_BUS_EMI UNION SELECT * FROM PMADMIN.VW_BUS_ACQ) VBE "+
 "     ON VBE.BU_TX_ISS = SFIT.FMI_DB_CLR_BU "+
 " WHERE SFIT.FMI_DT BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-" AND SFIT.FMI_NSI_CLR_ID = 22 "+
-" AND VBE.NUMERO_PROSA IN ("+params["banco"]+") "+
+" AND SFIT.FMI_NSI_CLR_ID = 22 ";
+if (params["banco"]!= "T"){
+this.queryText=" AND VBE.NUMERO_PROSA IN ("+params["banco"]+") ";
+}
+this.queryText=
 " AND (VBE.BU_TX_ISS!=1050 OR (VBE.BU_TX_ISS=1050 AND SFIT.FMI_TYP_C !=16)) "+
 " GROUP BY VBE.NUMERO_PROSA "+
 " UNION ALL "+
@@ -359,9 +366,11 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
 " INNER JOIN (SELECT * FROM PMADMIN.VW_BUS_ACQ UNION SELECT * FROM PMADMIN.VW_BUS_EMI) VBA "+
 "     ON VBA.BU_TX_ADQ = SFIT.FMI_CR_CLR_BU "+
 " WHERE SFIT.FMI_DT BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-" AND SFIT.FMI_NSI_CLR_ID = 22 "+
-" AND VBA.NUMERO_PROSA IN ("+params["banco"]+") "+
-" AND (VBA.BU_TX_ADQ!=1050 OR (VBA.BU_TX_ADQ=1050 AND SFIT.FMI_TYP_C !=15)) "+
+" AND SFIT.FMI_NSI_CLR_ID = 22 ";
+if (params["banco"]!= "T"){
+this.queryText=" AND VBA.NUMERO_PROSA IN ("+params["banco"]+") ";
+}
+this.queryText=" AND (VBA.BU_TX_ADQ!=1050 OR (VBA.BU_TX_ADQ=1050 AND SFIT.FMI_TYP_C !=15)) "+
 " GROUP BY VBA.NUMERO_PROSA "+
 " UNION ALL "+
 " SELECT PP.ENT_NUMERO_PROSA_ADQ ENTIDAD "+
@@ -382,9 +391,11 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
 " FROM PMADMIN.PRSA_POSICIONES PP "+
 " WHERE PP.TLI_NUMERO = 21 "+
 " AND PP.FECHA_PROCESO >= TO_DATE('"+params["initDate"]+"', 'DD/MM/YYYY') - 1 "+
-" AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 "+
-" AND PP.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") "+
-" AND PP.TTR_NUMERO NOT IN (52,53) "+
+" AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 ";
+if (params["banco"]!= "T"){
+this.queryText=" AND PP.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") ";
+}
+this.queryText=" AND PP.TTR_NUMERO NOT IN (52,53) "+
 " AND PP.ARCH_NUMERO NOT IN (48,49,1006,2148) "+
 " GROUP BY PP.ENT_NUMERO_PROSA_ADQ "+
 " UNION ALL "+
@@ -406,9 +417,11 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
 " FROM PMADMIN.PRSA_POSICIONES PP "+
 " WHERE PP.TLI_NUMERO = 21 "+
 " AND PP.FECHA_PROCESO >= TO_DATE('"+params["initDate"]+"', 'DD/MM/YYYY') - 1 "+
-" AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 "+
-" AND PP.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+") "+
-" AND PP.ARCH_NUMERO NOT IN (48,49,1006,2148) "+
+" AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 ";
+if (params["banco"]!= "T"){
+this.queryText=" AND PP.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+") ";
+}
+this.queryText=" AND PP.ARCH_NUMERO NOT IN (48,49,1006,2148) "+
 " AND PP.TTR_NUMERO NOT IN (52,53) "+
 " GROUP BY PP.ENT_NUMERO_PROSA_EMI "+
 " ) DATOS "+

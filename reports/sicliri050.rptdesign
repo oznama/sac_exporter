@@ -330,8 +330,9 @@ if (params["banco"].equals("0"))
 {
 	this.queryText+=" ";
 }
-else
-{
+else if (params["banco"].equals("TC")){
+	this.queryText+=" AND VBA.NUMERO_PROSA NOT IN (0) ";
+}else{
 	this.queryText+=" AND VBA.NUMERO_PROSA IN ("+params["banco"]+") ";
 }
 
@@ -475,6 +476,9 @@ if (params["banco"].equals("0"))
 {
 	this.queryText+=" ";
 }
+else if (params["banco"].equals("TC")){
+	this.queryText+=" AND (PP.ENT_NUMERO_PROSA_EMI  NOT IN (0) OR PP.ENT_NUMERO_PROSA_ADQ NOT IN (0)) ";
+}
 else
 {
 	this.queryText+=" AND (PP.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+") OR PP.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+")) ";
@@ -609,6 +613,9 @@ this.queryText+=
 if (params["banco"].equals("0"))
 {
 	this.queryText+=" ";
+}
+else if (params["banco"].equals("TC")){
+	this.queryText+=" AND (PTRV.PTRV_ENT_NUMERO_PROSA_ADQ NOT IN (0) OR PTRV.PTRV_ENT_NUMERO_PROSA_EMI NOT IN (0)) ";
 }
 else
 {

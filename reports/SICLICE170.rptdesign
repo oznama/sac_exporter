@@ -200,7 +200,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "  INNER JOIN PMADMIN.PRSA_ENTIDADES PE"+
 "     ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI"+
 "  WHERE  PTA.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') ";
-if(params["emi"].value=="0")
+if(params["emi"].value=="0" || params["emi"]=="T")
 {
   this.queryText+= "";
 }

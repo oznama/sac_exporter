@@ -155,7 +155,7 @@ public class ReportService {
 		case "SICLIRP320":
 			this.reportConfig = reportDb.createSICLIRP320(args);
 			break;
-		case "SICLIR002":
+		case "siclir002interred":
 			this.reportConfig = reportDb.createSICLIR002(args);
 			break;
 		case "SICLIRI050":
