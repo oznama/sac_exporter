@@ -735,8 +735,13 @@
 "       ,SALIENTE.TTR "+
 // FIN CAMBIO DE SALIENTE
 " ) DATOS "+
-" WHERE DECODE(DATOS.LIQ,21,21,22,22,23,23,25,25,6,26) IN ("+params["tipoLiq"]+") "+
-" GROUP BY DATOS.ENTIDAD "+
+" WHERE ";
+if(params["tipoLiq"]!="T"){
+	this.queryText="DECODE(DATOS.LIQ,21,21,22,22,23,23,25,25,6,26) IN ("+params["tipoLiq"]+") ";
+}else{
+	this.queryText="1=1";  
+}
+this.queryText=" GROUP BY DATOS.ENTIDAD "+
 " ORDER BY 1 "+
 " ) DATOS2 "+
 " GROUP BY DATOS2.ENTIDAD_PADRE "+

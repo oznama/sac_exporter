@@ -155,40 +155,40 @@ public class ReportService {
 		case "SICLIRP320":
 			this.reportConfig = reportDb.createSICLIRP320(args);
 			break;
-		case "SICLIR002":
+		case "siclir002interred":
 			this.reportConfig = reportDb.createSICLIR002(args);
 			break;
-		case "SICLIRI0050":
+		case "SICLIRI050":
 			this.reportConfig = reportDb.createSICLIRI0050(args);
 			break;
-		case "SICLIRI0060":
+		case "SICLIRI060":
 			this.reportConfig = reportDb.createSICLIRI0060(args);
 			break;
-		case "SICLIRI0020":
+		case "SICLIRI020":
 			this.reportConfig = reportDb.createSICLIRI0020(args);
 			break;
-		case "SICLIRI0130":
+		case "SICLIRI130":
 			this.reportConfig = reportDb.createSICLIRI0130(args);
 			break;
-		case "SICLIRD0050":
+		case "SICLIRD050":
 			this.reportConfig = reportDb.createSICLIRD0050(args);
 			break;
-		case "SICLIRD0060":
+		case "SICLIRD060":
 			this.reportConfig = reportDb.createSICLIRD0060(args);
 			break;
-		case "SICLIRD0020":
+		case "SICLIRD020":
 			this.reportConfig = reportDb.createSICLIRD0020(args);
 			break;
-		case "SICLIRD0130":
+		case "SICLIRD130":
 			this.reportConfig = reportDb.createSICLIRD0130(args);
 			break;
-		case "SICLICE0300":
+		case "SICLICE300":
 			this.reportConfig = reportDb.createSICLICE0300(args);
 			break;
-		case "SICLICA0170":
+		case "SICLICA170":
 			this.reportConfig = reportDb.createSICLICA0170(args);
 			break;
-		case "SICLICE0170":
+		case "SICLICE170":
 			this.reportConfig = reportDb.createSICLICE0170(args);
 			break;
 		case "SICLIRI320":

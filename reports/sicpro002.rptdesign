@@ -372,8 +372,7 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
 "          ON PAV.PARTITION_ID = PTA.PARTITION_ID "+ 
 "             AND PAV.AV_WH_GRP = PTA.TA_WH_GRP "+ 
 "             AND PAV.AV_WH_SEQ = PTA.TA_WH_SEQ "+  
-" WHERE PTA.PARTITION_ID BETWEEN "+params["susparticiones"]+" "+
-" AND PTA.FECHA_PROCESO_TRANSAC BETWEEN TO_DATE('"+params["initDate"]+"', 'DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') ";
+" WHERE PTA.FECHA_PROCESO_TRANSAC BETWEEN TO_DATE('"+params["initDate"]+"', 'DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') ";
 
 if (params["tipo"].equals("ADQ"))
 {

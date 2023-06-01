@@ -446,9 +446,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "             FROM PMADMIN.PRSA_REGLAS_TRANS PRT) TABLA "+
 "     ON TABLA.PRT_CODIGO_RAZON_INICIAL = PFM_TMI_NUMERO  "+
 " WHERE PFM.PFM_FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-" AND PFM.PFM_ARCH_NUMERO IN(45,246) "+
-" AND DECODE(PFM.PFM_ENT_NUMERO_PROSA_ASOC,107,7,181,697,PFM.PFM_ENT_NUMERO_PROSA_ASOC) IN ("+params["banco"]+") "+
-" AND PFM.PFM_TMI_NUMERO IN ("+params["numMisc"]+") "+
+" AND PFM.PFM_ARCH_NUMERO IN(45,246) ";
+if(params["banco"]!="T")
+{
+this.queryText+= " AND DECODE(PFM.PFM_ENT_NUMERO_PROSA_ASOC,107,7,181,697,PFM.PFM_ENT_NUMERO_PROSA_ASOC) IN ("+params["banco"]+")  AND";
+}
+this.queryText+= " PFM.PFM_TMI_NUMERO IN ("+params["numMisc"]+") "+
 
 " UNION ALL "+
 " SELECT 'SALIENTE' PARAMETRO_PROCESO "+
@@ -493,9 +496,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "             FROM PMADMIN.PRSA_REGLAS_TRANS PRT) TABLA "+
 "     ON TABLA.PRT_CODIGO_RAZON_INICIAL = PFM_TMI_NUMERO  "+
 " WHERE PFM.PFM_FECHA_PROCESO+1 BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-" AND PFM.PFM_ARCH_NUMERO IN (152,153, 245) "+
-" AND PFM.PFM_ENT_NUMERO_PROSA_ASOC IN ("+params["banco"]+") "+
-" AND PFM.PFM_TMI_NUMERO IN ("+params["numMisc"]+") "+
+" AND PFM.PFM_ARCH_NUMERO IN (152,153, 245) ";
+if(params["banco"]!="T")
+{
+this.queryText+= " " AND PFM.PFM_ENT_NUMERO_PROSA_ASOC IN ("+params["banco"]+") AND";
+}
+this.queryText+= " AND PFM.PFM_TMI_NUMERO IN ("+params["numMisc"]+") "+
 " union ALL "+
 " select    "+
 "   'SALIENTE' PARAMETRO_PROCESO, "+  
@@ -528,10 +534,14 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "   and FMI_DB_CLR_BU = ve.BU_TX_ISS  "+
 "   and FMI_CR_CLR_BU = VA.BU_TX_ADQ "+ 
 "   and fmi_nsi_clr_id IN(33,50) "+
-"   AND DECODE(TRIM(FMI_OPER_ID),'CZDCS030',100,'CZDCS035',103,'CZDCS025_112',112) IN ("+params["numMisc"]+") "+
-"   AND (VA.NUMERO_PROSA IN ("+params["banco"]+") "+
-"      OR VE.NUMERO_PROSA IN ("+params["banco"]+")) "+ 
-"   group by   "+
+"   AND DECODE(TRIM(FMI_OPER_ID),'CZDCS030',100,'CZDCS035',103,'CZDCS025_112',112) IN ("+params["numMisc"]+") ";
+if(params["banco"]!="T")
+{
+this.queryText+= "   AND (VA.NUMERO_PROSA IN ("+params["banco"]+") "+
+"      OR VE.NUMERO_PROSA IN ("+params["banco"]+")) "; 
+}
+
+this.queryText+= "   group by   "+
 "   fmi_dt,   "+
 "   FMI_DB_CLR_BU,  "+
 "   VE.NUMERO_PROSA,  "+
@@ -578,9 +588,13 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "   and FMI_CR_CLR_BU = VA.BU_TX_ADQ "+  
 "   and fmi_nsi_clr_id IN(33,50)  "+
 "   AND DECODE(TRIM(FMI_OPER_ID),'CZDCS030',100,'CZDCS035',103,'CZDCS025_112',112) IN (100) "+
-"   AND VA.NUMERO_PROSA IN (95,96,97,741) "+
-"   AND 31 IN ("+params["banco"]+")  "+
-"   AND TO_CHAR(DECODE(TRIM(FMI_OPER_ID),'CZDCS030',100)) IN ("+params["numMisc"]+") "+
+"   AND VA.NUMERO_PROSA IN (95,96,97,741) ";
+if(params["banco"]!="T")
+{
+this.queryText+="   AND 31 IN ("+params["banco"]+")  "; 
+}
+
+this.queryText+= "   AND TO_CHAR(DECODE(TRIM(FMI_OPER_ID),'CZDCS030',100)) IN ("+params["numMisc"]+") "+
 "   group by fmi_dt  "+
 "           ,VA.NUMERO_PROSA "+
 "           ,VA.DESCRIPCION||'  '||va.bu_tx_parent   "+
@@ -668,11 +682,11 @@ else
 //*---------------------------------------------------------------------------*/
 //*Marca del Cambio : Axia-GGB-N-77-5012-20 Termina la Modificacion 15/04/2020*/
 //*---------------------------------------------------------------------------*/
-if(params["tipoEmiAdq"]=='EMI')
+if(params["tipoEmiAdq"]=='EMI' && params["banco"]!='T')
 {
 	this.queryText+=" AND PFM.PFM_ENT_NUMERO_PROSA_ASOC IN ("+params["banco"]+") ";
 }
-else
+else if(params["banco"]!='T')
 {
 	this.queryText+=" AND PFM.PFM_ENT_NUMERO_PROSA IN ("+params["banco"]+") ";
 }

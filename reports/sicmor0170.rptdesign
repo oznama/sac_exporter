@@ -108,6 +108,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
+            <property name="defaultValue">x</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -118,6 +119,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
+            <property name="defaultValue">x</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>

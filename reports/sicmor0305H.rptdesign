@@ -189,9 +189,13 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 " INNER JOIN SUPERSIC.TIPOS_TRANSACCION TT "+
 "     ON TA.TTR_NUMERO = TT.NUMERO "+ 
 " WHERE TA.FECHA_PROCESO_TRANSAC BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-" AND TA.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+") "+
-" AND TA.ENT_NUMERO_PROSA_EMI = "+params["bancoEmi"]+" "+
-" AND TA.TTR_NUMERO IN ("+params["tipoTrans"]+") ";
+if (params["bancoAdq"]!="T"){
+	this.queryText+=" AND TA.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+") ";
+}
+if (params["bancoEmi"]!="T"){
+	this.queryText+=" AND TA.ENT_NUMERO_PROSA_EMI = "+params["bancoEmi"]+" ";
+}
+	this.queryText+=" AND TA.TTR_NUMERO IN ("+params["tipoTrans"]+") ";
 
 if (params["tipoLiquidacion"]!="0")
 {

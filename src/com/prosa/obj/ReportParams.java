@@ -16,6 +16,7 @@ public interface ReportParams {
 	String TIPO_EMISOR_ADQ = "tipoEmiAdq";
 	String USUARIO = "ejecuto";
 	//-------Nuevos Parametros
+	String BANCOADQUIRENTE = "bancoAdquiriente";
 	String NATCONTABLE = "natContable";
 	String TIPO_TRANSACCION = "typeTrans";
 	String BANCO_ADQUIRENTE = "adq";

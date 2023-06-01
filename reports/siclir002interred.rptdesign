@@ -375,9 +375,11 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "  WHERE MP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
 "    AND MP.TLI_NUMERO = 5 "+
 "    AND PE.TIE_NUMERO = 1 "+
-"    AND MP.TTR_NUMERO = 23 "+
-"	 AND MP.MAPR_NUMERO IN ("+params["marca"]+")"+
-"  GROUP BY MP.FECHA_LIQ "+
+"    AND MP.TTR_NUMERO = 23 ";
+if (params["marca"] != "T"){
+this.queryText+="	 AND MP.MAPR_NUMERO IN ("+params["marca"]+")";
+}
+this.queryText+="  GROUP BY MP.FECHA_LIQ "+
 "          ,PE.ENTIDAD_PADRE "+
 "          ,PA.ENTIDAD_PADRE "+
 "          ,MP.MAPR_NUMERO "+

@@ -313,7 +313,7 @@ else
 "  AND CAJ.NUMERO        =  ALI.CAJ_NUMERO "+
 " AND  TRUNC( ALI.FECHA_LIQUIDACION)  BETWEEN  TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') ";
 
-if (!params["banco"].equals("None"))
+if (!params["banco"].equals("T"))
 {
 	this.queryText+=" AND ENT.NUMERO_PROSA  IN ("+params["banco"]+") ";
 }
