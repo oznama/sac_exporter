@@ -16,6 +16,13 @@ import org.eclipse.birt.report.engine.api.PDFRenderOption;
 
 import com.prosa.obj.Constants;
 
+/**
+ * BIRT Implementation
+ * drops versions: https://archive.eclipse.org/birt/downloads/drops/
+ * @author oziel
+ *
+ */
+
 public class BirtImplementation {
 	
 	private static Logger logger = Logger.getLogger(BirtImplementation.class);
