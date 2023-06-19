@@ -11,12 +11,10 @@
         <structure>
             <property name="name">odaURL</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
         </structure>
         <structure>
             <property name="name">odaUser</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbUser"].value</expression>
         </structure>
         <structure>
             <property name="name">odaAutoCommit</property>
@@ -42,7 +40,6 @@
         <structure>
             <property name="name">odaPassword</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbPswd"].value</expression>
         </structure>
     </list-property>
     <property name="units">in</property>
@@ -65,6 +62,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         <scalar-parameter name="initDate" id="28">
             <property name="hidden">false</property>
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
@@ -79,6 +77,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="banco" id="1574">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
@@ -92,6 +91,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="1592">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <simple-property-list name="defaultValue">
                 <value type="constant">ggonzalez</value>
@@ -103,6 +103,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="endDate" id="1773">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
@@ -116,6 +117,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="6037">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
@@ -129,6 +131,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="6038">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
@@ -142,6 +145,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="initDateOrig" id="6249">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <property name="paramType">simple</property>
@@ -152,6 +156,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="endDateOrig" id="6250">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <property name="paramType">simple</property>
@@ -162,6 +167,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbHost" id="6426">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -173,6 +179,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbUser" id="6427">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -184,6 +191,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbPswd" id="6428">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -195,6 +203,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbPort" id="6429">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -206,6 +215,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbName" id="6430">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -235,11 +245,97 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="siclir0060" id="2355">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">HIJO</property>
+                    <property name="nativeName">HIJO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">TITULO</property>
+                    <property name="nativeName">TITULO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">EMISOR</property>
+                    <property name="nativeName">EMISOR</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">EMISOR_DESC</property>
+                    <property name="nativeName">EMISOR_DESC</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">EMISOR_BU</property>
+                    <property name="nativeName">EMISOR_BU</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">ADQUIRENTE</property>
+                    <property name="nativeName">ADQUIRENTE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">ADQUIRENTE_DESC</property>
+                    <property name="nativeName">ADQUIRENTE_DESC</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">ADQUIRENTE_BU</property>
+                    <property name="nativeName">ADQUIRENTE_BU</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">TTR_NUMERO</property>
+                    <property name="nativeName">TTR_NUMERO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">TIPO_TARJETA</property>
+                    <property name="nativeName">TIPO_TARJETA</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">TXN</property>
+                    <property name="nativeName">TXN</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">IMPORTE</property>
+                    <property name="nativeName">IMPORTE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">COMISION</property>
+                    <property name="nativeName">COMISION</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">IVA</property>
+                    <property name="nativeName">IVA</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
             <list-property name="filter">
                 <structure>
                     <property name="operator">in</property>
@@ -786,94 +882,58 @@ this.queryText+=
 " ON TITULOS.PAPA = DATOS.ORDEN "+
 " ORDER BY HIJO ";]]></method>
             <property name="dataSource">Data Source</property>
-            <list-property name="resultSet">
+        </oda-data-set>
+        <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="CASHBACK" id="6424">
+            <list-property name="resultSetHints">
                 <structure>
                     <property name="position">1</property>
-                    <property name="name">HIJO</property>
-                    <property name="nativeName">HIJO</property>
+                    <property name="name">DESCRIPCION</property>
+                    <property name="nativeName">DESCRIPCION</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
                     <property name="position">2</property>
-                    <property name="name">TITULO</property>
-                    <property name="nativeName">TITULO</property>
+                    <property name="name">CASHB</property>
+                    <property name="nativeName">CASHB</property>
                     <property name="dataType">string</property>
                 </structure>
                 <structure>
                     <property name="position">3</property>
-                    <property name="name">EMISOR</property>
-                    <property name="nativeName">EMISOR</property>
+                    <property name="name">NUM_BANCOMER</property>
+                    <property name="nativeName">NUM_BANCOMER</property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
                     <property name="position">4</property>
-                    <property name="name">EMISOR_DESC</property>
-                    <property name="nativeName">EMISOR_DESC</property>
-                    <property name="dataType">string</property>
+                    <property name="name">IMP_BANCOMER</property>
+                    <property name="nativeName">IMP_BANCOMER</property>
+                    <property name="dataType">decimal</property>
                 </structure>
                 <structure>
                     <property name="position">5</property>
-                    <property name="name">EMISOR_BU</property>
-                    <property name="nativeName">EMISOR_BU</property>
+                    <property name="name">NUM_BANAMEX</property>
+                    <property name="nativeName">NUM_BANAMEX</property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
                     <property name="position">6</property>
-                    <property name="name">ADQUIRENTE</property>
-                    <property name="nativeName">ADQUIRENTE</property>
+                    <property name="name">IMP_BANAMEX</property>
+                    <property name="nativeName">IMP_BANAMEX</property>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
                     <property name="position">7</property>
-                    <property name="name">ADQUIRENTE_DESC</property>
-                    <property name="nativeName">ADQUIRENTE_DESC</property>
-                    <property name="dataType">string</property>
+                    <property name="name">NUM_EGLO</property>
+                    <property name="nativeName">NUM_EGLO</property>
+                    <property name="dataType">decimal</property>
                 </structure>
                 <structure>
                     <property name="position">8</property>
-                    <property name="name">ADQUIRENTE_BU</property>
-                    <property name="nativeName">ADQUIRENTE_BU</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">9</property>
-                    <property name="name">TTR_NUMERO</property>
-                    <property name="nativeName">TTR_NUMERO</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">10</property>
-                    <property name="name">TIPO_TARJETA</property>
-                    <property name="nativeName">TIPO_TARJETA</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">11</property>
-                    <property name="name">TXN</property>
-                    <property name="nativeName">TXN</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">12</property>
-                    <property name="name">IMPORTE</property>
-                    <property name="nativeName">IMPORTE</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">13</property>
-                    <property name="name">COMISION</property>
-                    <property name="nativeName">COMISION</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">14</property>
-                    <property name="name">IVA</property>
-                    <property name="nativeName">IVA</property>
+                    <property name="name">IMP_EGLO</property>
+                    <property name="nativeName">IMP_EGLO</property>
                     <property name="dataType">decimal</property>
                 </structure>
             </list-property>
-        </oda-data-set>
-        <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="CASHBACK" id="6424">
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
                     <structure>
@@ -985,56 +1045,6 @@ else
 "  GROUP BY ent.DESCRIPCION ";
 /*Fin modificacion WELL-GGE F-62-8104-21 18-10-2021*/]]></method>
             <property name="dataSource">Data Source</property>
-            <list-property name="resultSet">
-                <structure>
-                    <property name="position">1</property>
-                    <property name="name">DESCRIPCION</property>
-                    <property name="nativeName">DESCRIPCION</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">2</property>
-                    <property name="name">CASHB</property>
-                    <property name="nativeName">CASHB</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">3</property>
-                    <property name="name">NUM_BANCOMER</property>
-                    <property name="nativeName">NUM_BANCOMER</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">4</property>
-                    <property name="name">IMP_BANCOMER</property>
-                    <property name="nativeName">IMP_BANCOMER</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">5</property>
-                    <property name="name">NUM_BANAMEX</property>
-                    <property name="nativeName">NUM_BANAMEX</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">6</property>
-                    <property name="name">IMP_BANAMEX</property>
-                    <property name="nativeName">IMP_BANAMEX</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">7</property>
-                    <property name="name">NUM_EGLO</property>
-                    <property name="nativeName">NUM_EGLO</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">8</property>
-                    <property name="name">IMP_EGLO</property>
-                    <property name="nativeName">IMP_EGLO</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-            </list-property>
             <xml-property name="queryText"><![CDATA[select 
 from ]]></xml-property>
         </oda-data-set>
@@ -2419,7 +2429,22 @@ else
                                 <expression name="expression">row["32"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
+                            <structure>
+                                <property name="name">ADQUIRENTE_1</property>
+                                <expression name="expression">dataSetRow["ADQUIRENTE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>BCO</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">HIJO_1</property>
+                                <expression name="expression">dataSetRow["HIJO"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>hijo</value>
+                                </simple-property-list>
+                            </structure>
                         </list-property>
+                        <property name="pageBreakInterval">50</property>
                         <column id="6102">
                             <property name="width">20%</property>
                         </column>
@@ -2886,6 +2911,7 @@ else
                                 <property name="dataType">decimal</property>
                             </structure>
                         </list-property>
+                        <property name="pageBreakInterval">50</property>
                         <column id="6304"/>
                         <column id="6305"/>
                         <column id="6306"/>

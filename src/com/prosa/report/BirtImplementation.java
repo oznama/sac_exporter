@@ -53,7 +53,7 @@ public class BirtImplementation {
 	 * @param destination
 	 * @param params
 	 */
-	public void buildPdf(String birtHome, String logConfig, String pathReports, String report, String destination, Map<String, String> params) {
+	public void buildPdf(String birtHome, String logConfig, String pathReports, String report, String destination, Map<String, String> params, boolean isRedund) {
 		validateInputs(birtHome, logConfig, pathReports, report, destination, params);
 		logger.info("Creating report: " + this.report);
 		try {
@@ -69,12 +69,16 @@ public class BirtImplementation {
 			task.run();
 			task.close();
 			engine.destroy();
-		} catch (final Exception EX) {
-			logger.error("Error creating BIRT report", EX);
+			logger.info("Saved to: " + this.destination);
+		} catch (final BirtException e) {
+			if(e.getMessage().contains("can not be found") && isRedund) {
+				buildPdf(birtHome, logConfig, pathReports, report.toLowerCase(), destination, params, false);
+			} else {
+				logger.error("Error creating BIRT report", e);
+			}
 		} finally {
 			Platform.shutdown();
 		}
-		logger.info("Saved to: " + this.destination);
 	}
 	
 	private void validateInputs(String birtHome, String logConfig, String pathReports, String report, String destination, 

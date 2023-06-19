@@ -1,6 +1,7 @@
 package com.prosa.dao;
 
 import java.sql.Connection;
+import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -14,11 +15,13 @@ import com.prosa.main.Properties;
 
 import oracle.jdbc.pool.OracleDataSource;
 
+
 public class ConnectionManager {
 	
 	private static Logger logger = Logger.getLogger(ConnectionManager.class);
 	
 	private static final String DB_URL = "jdbc:oracle:thin:@%s:%s:%s";
+	private static final String DB_URL_OCI = "jdbc:oracle:oci8:/@PMTU";
 
 	public static DataSource conexionDS() {
 		OracleDataSource ds = null;
@@ -32,6 +35,25 @@ public class ConnectionManager {
         }
         return ds;
     }
+	
+	public static Connection conexionOCI() {
+		logger.debug("Creating OCI connection ...!");
+		Connection conn = null;
+		try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            logger.debug("STARTING DRIVER LOADED " );
+            conn=DriverManager.getConnection(DB_URL_OCI);
+            logger.debug("END DRIVER LOADED " );
+        } catch (ClassNotFoundException ex) {
+        	logger.error("Class not found exception", ex);
+        } catch (SQLException ex) {
+        	logger.error("SQL Exception", ex);
+        }
+        
+		logger.debug("Connection created successfull!");
+           
+       return conn;
+	}
 
 	public static int executeUpdate(Statement stmt, String query) throws SQLException {
 		return stmt.executeUpdate(query);

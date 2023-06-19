@@ -20,13 +20,8 @@ public class SICCMRDAO {
 	}
 
 	private Connection obtieneConexion() {
-		Connection conexion = null;
-		try {
-			conexion = ConnectionManager.conexionDS().getConnection();
-		} catch (SQLException ex) {
-			logger.error("Error al inicializar SICCMRDAO, " + ex.toString());
-			logger.error(ex);
-		}
+		Connection conexion = ConnectionManager.conexionOCI();
+		//ConnectionManager.conexionDS().getConnection();
 		return conexion;
 	}
 

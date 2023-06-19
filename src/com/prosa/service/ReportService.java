@@ -27,7 +27,7 @@ public class ReportService {
 					setDbParams();
 					BirtImplementation birtImplementation = new BirtImplementation();
 					birtImplementation.buildPdf(null, Properties.PATH_LOG, Properties.PATH_REPORTS,
-							reportConfig.getReportName(), reportConfig.getPdfName(), reportConfig.getParams());
+							reportConfig.getReportName(), reportConfig.getPdfName(), reportConfig.getParams(), true);
 					break;
 				case JASPER:
 					JasperImplementation jasperImplementation = new JasperImplementation();

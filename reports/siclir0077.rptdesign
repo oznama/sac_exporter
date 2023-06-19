@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 2.3.2.r232_20090202 Build &lt;2.3.2.v20090218-0730></property>
-    <property name="units">in</property>
     <property name="comments">Copyright (c) 2009 &lt;&lt;Wellcom SA de CV>></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.13.0.v202303021806</property>
     <html-property name="description">Detalle Transaccion Emisor</html-property>
     <list-property name="propertyBindings">
         <structure>
@@ -12,12 +11,10 @@
         <structure>
             <property name="name">odaURL</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
         </structure>
         <structure>
             <property name="name">odaUser</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbUser"].value</expression>
         </structure>
         <structure>
             <property name="name">odaAutoCommit</property>
@@ -43,9 +40,9 @@
         <structure>
             <property name="name">odaPassword</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbPswd"].value</expression>
         </structure>
     </list-property>
+    <property name="units">in</property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -60,125 +57,154 @@
 reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
     <text-property name="displayName">Blank Report</text-property>
     <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
     <parameters>
         <scalar-parameter name="initDate" id="1992">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">06/01/2012</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">06/01/2012</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="endDate" id="1993">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">06/01/2012</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">06/01/2012</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="2133">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">ggonzalez</value>
+            </simple-property-list>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">ggonzalez</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="natContable" id="2809">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">CD</value>
+            </simple-property-list>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">CD</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="initDateAntHab" id="2921">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">initDateAntHab</text-property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">05/01/2012</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">05/01/2012</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="endDateAntHab" id="2922">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">endDateAntHab</text-property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">05/01/2012</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">05/01/2012</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="3003">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="3004">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="agrDia" id="3128">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="initDateOrig" id="3129">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="endDateOrig" id="3130">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="dbHost" id="6426">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -190,6 +216,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbUser" id="6427">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -201,6 +228,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbPswd" id="6428">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -212,6 +240,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbPort" id="6429">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -223,6 +252,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbName" id="6430">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -234,11 +264,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <!-- oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
-        </oda-data-source-->
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
             <list-property name="privateDriverProperties">
                 <ex-property>
@@ -257,11 +282,67 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="siclir0077" id="1989">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">FECHA</property>
+                    <property name="nativeName">FECHA</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">ENTIDAD_PADRE</property>
+                    <property name="nativeName">ENTIDAD_PADRE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">DESCRIPCION</property>
+                    <property name="nativeName">DESCRIPCION</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">BU</property>
+                    <property name="nativeName">BU</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">DESCRIPCION_TTX</property>
+                    <property name="nativeName">DESCRIPCION_TTX</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">ADQ</property>
+                    <property name="nativeName">ADQ</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">TIPO_TARJETA</property>
+                    <property name="nativeName">TIPO_TARJETA</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">TXN</property>
+                    <property name="nativeName">TXN</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">IMPORTE</property>
+                    <property name="nativeName">IMPORTE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
             <list-property name="filter">
                 <structure>
                     <property name="operator">eq</property>
@@ -320,7 +401,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">Data Source</property>
             <method name="beforeOpen"><![CDATA[this.queryText=
 " SELECT FECHA,ENTIDAD_PADRE, DESCRIPCION, BU, DESCRIPCION_TTX, ADQ, TIPO_TARJETA, SUM(TXN) TXN, ROUND(SUM(IMPORTE),2) IMPORTE  "+
 " FROM ( "+
@@ -564,7 +644,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 " )        "+
 " GROUP BY FECHA,ENTIDAD_PADRE, DESCRIPCION, BU, DESCRIPCION_TTX, ADQ, TIPO_TARJETA"+
 " ORDER BY DESCRIPCION_TTX, ADQ, TIPO_TARJETA ";]]></method>
-            <list-property name="resultSet">
+            <property name="dataSource">Data Source</property>
+            <xml-property name="queryText"><![CDATA[select 
+from ]]></xml-property>
+        </oda-data-set>
+        <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="Cashback" id="3210">
+            <list-property name="resultSetHints">
                 <structure>
                     <property name="position">1</property>
                     <property name="name">FECHA</property>
@@ -620,10 +705,24 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                     <property name="dataType">decimal</property>
                 </structure>
             </list-property>
-            <property name="queryText">select 
-from </property>
-        </oda-data-set>
-        <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="Cashback" id="3210">
+            <list-property name="parameters">
+                <structure>
+                    <property name="name">initDate</property>
+                    <property name="paramName">initDate</property>
+                    <property name="dataType">string</property>
+                    <property name="position">1</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+                <structure>
+                    <property name="name">endDate</property>
+                    <property name="paramName">endDate</property>
+                    <property name="dataType">string</property>
+                    <property name="position">2</property>
+                    <property name="isInput">true</property>
+                    <property name="isOutput">false</property>
+                </structure>
+            </list-property>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
                     <structure>
@@ -674,81 +773,7 @@ from </property>
                 </list-property>
             </structure>
             <property name="dataSource">Data Source</property>
-            <list-property name="parameters">
-                <structure>
-                    <property name="name">initDate</property>
-                    <property name="paramName">initDate</property>
-                    <property name="dataType">string</property>
-                    <property name="position">1</property>
-                    <property name="isInput">true</property>
-                    <property name="isOutput">false</property>
-                </structure>
-                <structure>
-                    <property name="name">endDate</property>
-                    <property name="paramName">endDate</property>
-                    <property name="dataType">string</property>
-                    <property name="position">2</property>
-                    <property name="isInput">true</property>
-                    <property name="isOutput">false</property>
-                </structure>
-            </list-property>
-            <list-property name="resultSet">
-                <structure>
-                    <property name="position">1</property>
-                    <property name="name">FECHA</property>
-                    <property name="nativeName">FECHA</property>
-                    <property name="dataType">date-time</property>
-                </structure>
-                <structure>
-                    <property name="position">2</property>
-                    <property name="name">ENTIDAD_PADRE</property>
-                    <property name="nativeName">ENTIDAD_PADRE</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">3</property>
-                    <property name="name">DESCRIPCION</property>
-                    <property name="nativeName">DESCRIPCION</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">4</property>
-                    <property name="name">BU</property>
-                    <property name="nativeName">BU</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">5</property>
-                    <property name="name">DESCRIPCION_TTX</property>
-                    <property name="nativeName">DESCRIPCION_TTX</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">6</property>
-                    <property name="name">ADQ</property>
-                    <property name="nativeName">ADQ</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">7</property>
-                    <property name="name">TIPO_TARJETA</property>
-                    <property name="nativeName">TIPO_TARJETA</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">8</property>
-                    <property name="name">TXN</property>
-                    <property name="nativeName">TXN</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">9</property>
-                    <property name="name">IMPORTE</property>
-                    <property name="nativeName">IMPORTE</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-            </list-property>
-            <property name="queryText">SELECT PP.FECHA_PROCESO+1 FECHA
+            <xml-property name="queryText"><![CDATA[SELECT PP.FECHA_PROCESO+1 FECHA
       ,CASE
          WHEN PE.ENTIDAD_PADRE IN (95,96,97) THEN PE2.ENTIDAD_PADRE
          ELSE PE.ENTIDAD_PADRE
@@ -797,7 +822,7 @@ from </property>
       ,PE2.ENTIDAD_PADRE
       ,PTT.DESCRIPCION
       ,pe2.numero_prosa
-      ,PP.TIPO_TARJETA</property>
+      ,PP.TIPO_TARJETA]]></xml-property>
         </oda-data-set>
     </data-sets>
     <styles>
@@ -1228,9 +1253,9 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                 </cell>
             </row>
             <row id="2141">
-                <property name="height">2.1in</property>
                 <property name="textAlign">center</property>
                 <property name="verticalAlign">middle</property>
+                <property name="height">2.1in</property>
                 <cell id="2142">
                     <method name="onRender"><![CDATA[
 if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
@@ -1447,13 +1472,13 @@ else
                             </structure>
                             <structure>
                                 <property name="name">bco</property>
-                                <property name="displayName">bco</property>
+                                <text-property name="displayName">bco</text-property>
                                 <expression name="expression">row["ENTIDAD_PADRE"]+' '+row["DESCRIPCION"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">ventas</property>
-                                <property name="displayName">ventas</property>
+                                <text-property name="displayName">ventas</text-property>
                                 <expression name="expression">dataSetRow["IMPORTE"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
@@ -1461,7 +1486,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">VTAS</property>
-                                <property name="displayName">VTAS</property>
+                                <text-property name="displayName">VTAS</text-property>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -1477,7 +1502,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">BCO</property>
-                                <property name="displayName">BCO</property>
+                                <text-property name="displayName">BCO</text-property>
                                 <expression name="expression">if(row["ENTIDAD_PADRE"]=="7")
  row["ENTIDAD_PADRE"]+' '+"BANORTE"+' '+dataSetRow["BU"]
   else if (row["ENTIDAD_PADRE"]=="92")
@@ -1488,7 +1513,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">DVL</property>
-                                <property name="displayName">DVL</property>
+                                <text-property name="displayName">DVL</text-property>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -1504,7 +1529,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">PGS</property>
-                                <property name="displayName">PGS</property>
+                                <text-property name="displayName">PGS</text-property>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -1520,7 +1545,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">MSL</property>
-                                <property name="displayName">MSL</property>
+                                <text-property name="displayName">MSL</text-property>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -1539,7 +1564,7 @@ dataSetRow["IMPORTE"]</expression>
                             </structure>
                             <structure>
                                 <property name="name">CGS</property>
-                                <property name="displayName">CGS</property>
+                                <text-property name="displayName">CGS</text-property>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -1555,7 +1580,7 @@ dataSetRow["IMPORTE"]</expression>
                             </structure>
                             <structure>
                                 <property name="name">RST</property>
-                                <property name="displayName">RST</property>
+                                <text-property name="displayName">RST</text-property>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -1571,7 +1596,7 @@ dataSetRow["IMPORTE"]</expression>
                             </structure>
                             <structure>
                                 <property name="name">CGS2</property>
-                                <property name="displayName">CGS2</property>
+                                <text-property name="displayName">CGS2</text-property>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -1587,7 +1612,7 @@ dataSetRow["IMPORTE"]</expression>
                             </structure>
                             <structure>
                                 <property name="name">RS</property>
-                                <property name="displayName">RS</property>
+                                <text-property name="displayName">RS</text-property>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -1603,69 +1628,69 @@ dataSetRow["IMPORTE"]</expression>
                             </structure>
                             <structure>
                                 <property name="name">S1</property>
-                                <property name="displayName">S1</property>
+                                <text-property name="displayName">S1</text-property>
                                 <expression name="expression">row["VTAS"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
                             </structure>
                             <structure>
                                 <property name="name">S2</property>
-                                <property name="displayName">S2</property>
+                                <text-property name="displayName">S2</text-property>
                                 <expression name="expression">row["DVL"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
                             </structure>
                             <structure>
                                 <property name="name">S3</property>
-                                <property name="displayName">S3</property>
+                                <text-property name="displayName">S3</text-property>
                                 <expression name="expression">row["PGS"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
                             </structure>
                             <structure>
                                 <property name="name">S4</property>
-                                <property name="displayName">S4</property>
+                                <text-property name="displayName">S4</text-property>
                                 <expression name="expression">row["MSL"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
                             </structure>
                             <structure>
                                 <property name="name">S5</property>
-                                <property name="displayName">S5</property>
+                                <text-property name="displayName">S5</text-property>
                                 <expression name="expression">row["CGS"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
                             </structure>
                             <structure>
                                 <property name="name">S6</property>
-                                <property name="displayName">S6</property>
+                                <text-property name="displayName">S6</text-property>
                                 <expression name="expression">row["RST"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
                             </structure>
                             <structure>
                                 <property name="name">S7</property>
-                                <property name="displayName">S7</property>
+                                <text-property name="displayName">S7</text-property>
                                 <expression name="expression">row["CGS2"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
                             </structure>
                             <structure>
                                 <property name="name">S8</property>
-                                <property name="displayName">S8</property>
+                                <text-property name="displayName">S8</text-property>
                                 <expression name="expression">row["RS"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
                             </structure>
                             <structure>
                                 <property name="name">S9</property>
-                                <property name="displayName">S9</property>
+                                <text-property name="displayName">S9</text-property>
                                 <expression name="expression">row["S1"]+row["S2"]+row["S3"]+row["S4"]+row["S5"]+row["S6"]+row["S7"]+row["S8"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">TT</property>
-                                <property name="displayName">TT</property>
+                                <text-property name="displayName">TT</text-property>
                                 <expression name="expression">row["VTAS"]+row["DVL"]+row["PGS"]+row["MSL"]+row["CGS"]+row["RST"]+row["CGS2"]+row["RS"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
@@ -1687,6 +1712,45 @@ if(row["S9"]&lt;0)
                                 <property name="name">TXN</property>
                                 <expression name="expression">dataSetRow["TXN"]</expression>
                                 <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTVentas</property>
+                                <expression name="expression">dataSetRow["AZTVentas"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTDevoluciones</property>
+                                <expression name="expression">dataSetRow["AZTDevoluciones"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTPagos</property>
+                                <expression name="expression">dataSetRow["AZTPagos"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTMiscelaneos</property>
+                                <expression name="expression">dataSetRow["AZTMiscelaneos"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTContracargos</property>
+                                <expression name="expression">dataSetRow["AZTContracargos"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTRep</property>
+                                <expression name="expression">dataSetRow["AZTRep"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTContracargos2</property>
+                                <expression name="expression">dataSetRow["AZTContracargos2"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTRechSintaxis</property>
+                                <expression name="expression">dataSetRow["AZTRechSintaxis"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">ENTIDAD_PADRE_1</property>
+                                <expression name="expression">dataSetRow["ENTIDAD_PADRE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>BCO</value>
+                                </simple-property-list>
                             </structure>
                         </list-property>
                         <property name="pageBreakInterval">50</property>
@@ -1734,7 +1798,6 @@ else
                             </structure>
                         </list-property>
                         <column id="3118">
-                            <property name="width">19%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -1742,9 +1805,9 @@ else
                                 </structure>
                             </list-property>
                             <property name="textAlign">center</property>
+                            <property name="width">19%</property>
                         </column>
                         <column id="3119">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -1754,9 +1817,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3120">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -1766,9 +1829,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3121">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -1778,9 +1841,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3122">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -1790,9 +1853,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3123">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -1802,9 +1865,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3124">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -1814,9 +1877,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3125">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -1826,9 +1889,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3126">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -1838,10 +1901,11 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3127">
-                            <property name="width">9%</property>
                             <property name="fontWeight">bold</property>
+                            <property name="width">9%</property>
                         </column>
                         <header>
                             <row id="3054">
@@ -1978,7 +2042,7 @@ else
                                                 <property name="pattern">$#,##0.00</property>
                                             </structure>
                                             <property name="textAlign">right</property>
-                                            <property name="resultSetColumn">PGS</property>
+                                            <property name="resultSetColumn">DVL</property>
                                         </data>
                                     </cell>
                                     <cell id="3085">
@@ -2008,7 +2072,7 @@ else
                                                 <property name="pattern">$#,##0.00</property>
                                             </structure>
                                             <property name="textAlign">right</property>
-                                            <property name="resultSetColumn">RST</property>
+                                            <property name="resultSetColumn">CGS</property>
                                         </data>
                                     </cell>
                                     <cell id="3091">
@@ -2018,7 +2082,7 @@ else
                                                 <property name="pattern">$#,##0.00</property>
                                             </structure>
                                             <property name="textAlign">right</property>
-                                            <property name="resultSetColumn">CGS2</property>
+                                            <property name="resultSetColumn">CGS</property>
                                         </data>
                                     </cell>
                                     <cell id="3093">
@@ -2028,7 +2092,7 @@ else
                                                 <property name="pattern">$#,##0.00</property>
                                             </structure>
                                             <property name="textAlign">right</property>
-                                            <property name="resultSetColumn">RS</property>
+                                            <property name="resultSetColumn">CGS</property>
                                         </data>
                                     </cell>
                                     <cell id="3095">
@@ -2215,13 +2279,13 @@ else
                             </structure>
                             <structure>
                                 <property name="name">bco</property>
-                                <property name="displayName">bco</property>
+                                <text-property name="displayName">bco</text-property>
                                 <expression name="expression">row["ENTIDAD_PADRE"]+' '+row["DESCRIPCION"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">ventas</property>
-                                <property name="displayName">ventas</property>
+                                <text-property name="displayName">ventas</text-property>
                                 <expression name="expression">dataSetRow["IMPORTE"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
@@ -2229,7 +2293,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">VTAS</property>
-                                <property name="displayName">VTAS</property>
+                                <text-property name="displayName">VTAS</text-property>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -2245,7 +2309,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">BCO</property>
-                                <property name="displayName">BCO</property>
+                                <text-property name="displayName">BCO</text-property>
                                 <expression name="expression">if(row["ENTIDAD_PADRE"]=="7")
  row["ENTIDAD_PADRE"]+' '+"BANORTE"+' '+dataSetRow["BU"]
   else if (row["ENTIDAD_PADRE"]=="92")
@@ -2256,7 +2320,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">DVL</property>
-                                <property name="displayName">DVL</property>
+                                <text-property name="displayName">DVL</text-property>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -2272,7 +2336,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">PGS</property>
-                                <property name="displayName">PGS</property>
+                                <text-property name="displayName">PGS</text-property>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -2288,7 +2352,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">MSL</property>
-                                <property name="displayName">MSL</property>
+                                <text-property name="displayName">MSL</text-property>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -2307,7 +2371,7 @@ dataSetRow["IMPORTE"]</expression>
                             </structure>
                             <structure>
                                 <property name="name">CGS</property>
-                                <property name="displayName">CGS</property>
+                                <text-property name="displayName">CGS</text-property>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -2323,7 +2387,7 @@ dataSetRow["IMPORTE"]</expression>
                             </structure>
                             <structure>
                                 <property name="name">RST</property>
-                                <property name="displayName">RST</property>
+                                <text-property name="displayName">RST</text-property>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -2339,7 +2403,7 @@ dataSetRow["IMPORTE"]</expression>
                             </structure>
                             <structure>
                                 <property name="name">CGS2</property>
-                                <property name="displayName">CGS2</property>
+                                <text-property name="displayName">CGS2</text-property>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -2355,7 +2419,7 @@ dataSetRow["IMPORTE"]</expression>
                             </structure>
                             <structure>
                                 <property name="name">RS</property>
-                                <property name="displayName">RS</property>
+                                <text-property name="displayName">RS</text-property>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -2371,69 +2435,69 @@ dataSetRow["IMPORTE"]</expression>
                             </structure>
                             <structure>
                                 <property name="name">S1</property>
-                                <property name="displayName">S1</property>
+                                <text-property name="displayName">S1</text-property>
                                 <expression name="expression">row["VTAS"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
                             </structure>
                             <structure>
                                 <property name="name">S2</property>
-                                <property name="displayName">S2</property>
+                                <text-property name="displayName">S2</text-property>
                                 <expression name="expression">row["DVL"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
                             </structure>
                             <structure>
                                 <property name="name">S3</property>
-                                <property name="displayName">S3</property>
+                                <text-property name="displayName">S3</text-property>
                                 <expression name="expression">row["PGS"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
                             </structure>
                             <structure>
                                 <property name="name">S4</property>
-                                <property name="displayName">S4</property>
+                                <text-property name="displayName">S4</text-property>
                                 <expression name="expression">row["MSL"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
                             </structure>
                             <structure>
                                 <property name="name">S5</property>
-                                <property name="displayName">S5</property>
+                                <text-property name="displayName">S5</text-property>
                                 <expression name="expression">row["CGS"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
                             </structure>
                             <structure>
                                 <property name="name">S6</property>
-                                <property name="displayName">S6</property>
+                                <text-property name="displayName">S6</text-property>
                                 <expression name="expression">row["RST"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
                             </structure>
                             <structure>
                                 <property name="name">S7</property>
-                                <property name="displayName">S7</property>
+                                <text-property name="displayName">S7</text-property>
                                 <expression name="expression">row["CGS2"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
                             </structure>
                             <structure>
                                 <property name="name">S8</property>
-                                <property name="displayName">S8</property>
+                                <text-property name="displayName">S8</text-property>
                                 <expression name="expression">row["RS"]</expression>
                                 <property name="dataType">decimal</property>
                                 <property name="aggregateFunction">sum</property>
                             </structure>
                             <structure>
                                 <property name="name">S9</property>
-                                <property name="displayName">S9</property>
+                                <text-property name="displayName">S9</text-property>
                                 <expression name="expression">row["S1"]+row["S2"]+row["S3"]+row["S4"]+row["S5"]+row["S6"]+row["S7"]+row["S8"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">TT</property>
-                                <property name="displayName">TT</property>
+                                <text-property name="displayName">TT</text-property>
                                 <expression name="expression">row["VTAS"]+row["DVL"]+row["PGS"]+row["MSL"]+row["CGS"]+row["RST"]+row["CGS2"]+row["RS"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
@@ -2465,6 +2529,52 @@ if(row["S9"]&lt;0)
                                 <property name="name">ADQ</property>
                                 <expression name="expression">dataSetRow["ADQ"]</expression>
                                 <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTVentas</property>
+                                <expression name="expression">dataSetRow["AZTVentas"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTDevoluciones</property>
+                                <expression name="expression">dataSetRow["AZTDevoluciones"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTPagos</property>
+                                <expression name="expression">dataSetRow["AZTPagos"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTMiscelaneos</property>
+                                <expression name="expression">dataSetRow["AZTMiscelaneos"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTContracargos</property>
+                                <expression name="expression">dataSetRow["AZTContracargos"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTRep</property>
+                                <expression name="expression">dataSetRow["AZTRep"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTContracargos2</property>
+                                <expression name="expression">dataSetRow["AZTContracargos2"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTRechSintaxis</property>
+                                <expression name="expression">dataSetRow["AZTRechSintaxis"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">FECHA_1</property>
+                                <expression name="expression">dataSetRow["FECHA"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>Grupofecha</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">ENTIDAD_PADRE_1</property>
+                                <expression name="expression">dataSetRow["ENTIDAD_PADRE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>BCO</value>
+                                </simple-property-list>
                             </structure>
                         </list-property>
                         <property name="pageBreakInterval">50</property>
@@ -2512,11 +2622,10 @@ else
                             </structure>
                         </list-property>
                         <column id="2844">
-                            <property name="width">19%</property>
                             <property name="textAlign">center</property>
+                            <property name="width">19%</property>
                         </column>
                         <column id="2845">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -2526,9 +2635,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="2846">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -2538,9 +2647,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="2847">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -2550,9 +2659,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="2848">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -2562,9 +2671,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="2849">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -2574,9 +2683,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="2850">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -2586,9 +2695,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="2851">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -2598,9 +2707,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="2852">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -2610,10 +2719,11 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="2853">
-                            <property name="width">9%</property>
                             <property name="fontWeight">bold</property>
+                            <property name="width">9%</property>
                         </column>
                         <header>
                             <row id="2811">
@@ -2773,7 +2883,7 @@ else
                                                 <property name="category">Long Date</property>
                                                 <property name="pattern">Long Date</property>
                                             </structure>
-                                            <property name="resultSetColumn">FECHA</property>
+                                            <property name="resultSetColumn">FECHA_1</property>
                                         </data>
                                     </cell>
                                     <cell id="3030">
@@ -3191,7 +3301,7 @@ else
                                                 <property name="pattern">$#,##0.00</property>
                                             </structure>
                                             <property name="textAlign">right</property>
-                                            <property name="resultSetColumn">PGS</property>
+                                            <property name="resultSetColumn">DVL</property>
                                         </data>
                                     </cell>
                                     <cell id="2975">
@@ -3221,7 +3331,7 @@ else
                                                 <property name="pattern">$#,##0.00</property>
                                             </structure>
                                             <property name="textAlign">right</property>
-                                            <property name="resultSetColumn">RST</property>
+                                            <property name="resultSetColumn">CGS</property>
                                         </data>
                                     </cell>
                                     <cell id="2978">
@@ -3231,7 +3341,7 @@ else
                                                 <property name="pattern">$#,##0.00</property>
                                             </structure>
                                             <property name="textAlign">right</property>
-                                            <property name="resultSetColumn">CGS2</property>
+                                            <property name="resultSetColumn">CGS</property>
                                         </data>
                                     </cell>
                                     <cell id="2979">
@@ -3241,7 +3351,7 @@ else
                                                 <property name="pattern">$#,##0.00</property>
                                             </structure>
                                             <property name="textAlign">right</property>
-                                            <property name="resultSetColumn">RS</property>
+                                            <property name="resultSetColumn">CGS</property>
                                         </data>
                                     </cell>
                                     <cell id="2980">
@@ -3404,11 +3514,15 @@ else
                         <list-property name="paramBindings">
                             <structure>
                                 <property name="paramName">initDate</property>
-                                <expression name="expression">params["initDate"].value</expression>
+                                <simple-property-list name="expression">
+                                    <value>params["initDate"].value</value>
+                                </simple-property-list>
                             </structure>
                             <structure>
                                 <property name="paramName">endDate</property>
-                                <expression name="expression">params["endDate"].value</expression>
+                                <simple-property-list name="expression">
+                                    <value>params["endDate"].value</value>
+                                </simple-property-list>
                             </structure>
                         </list-property>
                         <list-property name="boundDataColumns">
@@ -3459,13 +3573,13 @@ else
                             </structure>
                             <structure>
                                 <property name="name">vtasCashback</property>
-                                <property name="displayName">vtasCashback</property>
+                                <text-property name="displayName">vtasCashback</text-property>
                                 <expression name="expression">dataSetRow["IMPORTE"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">banco</property>
-                                <property name="displayName">banco</property>
+                                <text-property name="displayName">banco</text-property>
                                 <expression name="expression">if(row["ENTIDAD_PADRE"]=="7")
  row["ENTIDAD_PADRE"]+' '+"BANORTE"+' '+dataSetRow["BU"]
   else if (row["ENTIDAD_PADRE"]=="92")
@@ -3487,7 +3601,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">AggTotalVtasCashback</property>
-                                <property name="displayName">AggTotalVtasCashback</property>
+                                <text-property name="displayName">AggTotalVtasCashback</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -3502,13 +3616,52 @@ else
                             </structure>
                             <structure>
                                 <property name="name">aFavor</property>
-                                <property name="displayName">aFavor</property>
+                                <text-property name="displayName">aFavor</text-property>
                                 <expression name="expression">if (row["AggTotalVtasCashback"]> 0)
 "TOTAL A FAVOR DEL BANCO"
 else
 if(row["AggTotalVtasCashback"]> 0&lt;0)
 "TOTAL A FAVOR DE PROSA"</expression>
                                 <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTVentas</property>
+                                <expression name="expression">dataSetRow["AZTVentas"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTDevoluciones</property>
+                                <expression name="expression">dataSetRow["AZTDevoluciones"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTPagos</property>
+                                <expression name="expression">dataSetRow["AZTPagos"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTMiscelaneos</property>
+                                <expression name="expression">dataSetRow["AZTMiscelaneos"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTContracargos</property>
+                                <expression name="expression">dataSetRow["AZTContracargos"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTRep</property>
+                                <expression name="expression">dataSetRow["AZTRep"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTContracargos2</property>
+                                <expression name="expression">dataSetRow["AZTContracargos2"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTRechSintaxis</property>
+                                <expression name="expression">dataSetRow["AZTRechSintaxis"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">ENTIDAD_PADRE_1</property>
+                                <expression name="expression">dataSetRow["ENTIDAD_PADRE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>BCO</value>
+                                </simple-property-list>
                             </structure>
                         </list-property>
                         <property name="pageBreakInterval">50</property>
@@ -3556,7 +3709,6 @@ else
                             </structure>
                         </list-property>
                         <column id="3200">
-                            <property name="width">19%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -3564,9 +3716,9 @@ else
                                 </structure>
                             </list-property>
                             <property name="textAlign">center</property>
+                            <property name="width">19%</property>
                         </column>
                         <column id="3201">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -3576,9 +3728,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3202">
-                            <property name="width">0.96875in</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -3588,9 +3740,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">0.96875in</property>
                         </column>
                         <column id="3203">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -3600,9 +3752,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3204">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -3612,9 +3764,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3205">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -3624,9 +3776,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3206">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -3636,9 +3788,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3207">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -3648,9 +3800,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3208">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -3660,10 +3812,11 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3209">
-                            <property name="width">9%</property>
                             <property name="fontWeight">bold</property>
+                            <property name="width">9%</property>
                         </column>
                         <header>
                             <row id="3136">
@@ -3758,7 +3911,7 @@ else
                                                 <property name="pattern">$#,##0.00</property>
                                             </structure>
                                             <property name="textAlign">right</property>
-                                            <property name="resultSetColumn">vtasCashback</property>
+                                            <property name="resultSetColumn">IMPORTE</property>
                                         </data>
                                     </cell>
                                     <cell id="3165"/>
@@ -3775,7 +3928,7 @@ else
                                                 <property name="pattern">$#,##0.00</property>
                                             </structure>
                                             <property name="textAlign">right</property>
-                                            <property name="resultSetColumn">vtasCashback</property>
+                                            <property name="resultSetColumn">IMPORTE</property>
                                         </data>
                                     </cell>
                                 </row>
@@ -3907,7 +4060,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">AggCashback</property>
-                                <property name="displayName">AggCashback</property>
+                                <text-property name="displayName">AggCashback</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -3922,7 +4075,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">AggTotCashback</property>
-                                <property name="displayName">AggTotCashback</property>
+                                <text-property name="displayName">AggTotCashback</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -3934,19 +4087,19 @@ else
                             </structure>
                             <structure>
                                 <property name="name">subTotalCashback</property>
-                                <property name="displayName">subTotalCashback</property>
+                                <text-property name="displayName">subTotalCashback</text-property>
                                 <expression name="expression">row["AggCashback"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">TotalCashback</property>
-                                <property name="displayName">TotalCashback</property>
+                                <text-property name="displayName">TotalCashback</text-property>
                                 <expression name="expression">row["AggTotCashback"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">aFavor</property>
-                                <property name="displayName">aFavor</property>
+                                <text-property name="displayName">aFavor</text-property>
                                 <expression name="expression">if(row["TotalCashback"]>=0)
 "TOTAL A FAVOR DEL BANCO"
 else
@@ -3956,7 +4109,7 @@ if(row["TotalCashback"]&lt;0)
                             </structure>
                             <structure>
                                 <property name="name">Column Binding</property>
-                                <property name="displayName">Banco</property>
+                                <text-property name="displayName">Banco</text-property>
                                 <expression name="expression">if(row["ENTIDAD_P"]=="7")
  row["ENTIDAD_P"]+' '+"BANORTE"+' '+dataSetRow["BU"]
   else if (row["ENTIDAD_P"]=="92")
@@ -3967,9 +4120,55 @@ if(row["TotalCashback"]&lt;0)
                             </structure>
                             <structure>
                                 <property name="name">ENTIDAD_P</property>
-                                <property name="displayName">ENTIDAD_P</property>
+                                <text-property name="displayName">ENTIDAD_P</text-property>
                                 <expression name="expression">dataSetRow["ENTIDAD_PADRE"]</expression>
                                 <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTVentas</property>
+                                <expression name="expression">dataSetRow["AZTVentas"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTDevoluciones</property>
+                                <expression name="expression">dataSetRow["AZTDevoluciones"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTPagos</property>
+                                <expression name="expression">dataSetRow["AZTPagos"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTMiscelaneos</property>
+                                <expression name="expression">dataSetRow["AZTMiscelaneos"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTContracargos</property>
+                                <expression name="expression">dataSetRow["AZTContracargos"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTRep</property>
+                                <expression name="expression">dataSetRow["AZTRep"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTContracargos2</property>
+                                <expression name="expression">dataSetRow["AZTContracargos2"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">AZTRechSintaxis</property>
+                                <expression name="expression">dataSetRow["AZTRechSintaxis"]</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">FECHA_1</property>
+                                <expression name="expression">dataSetRow["FECHA"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>Grupofecha</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">ENTIDAD_PADRE_1</property>
+                                <expression name="expression">dataSetRow["ENTIDAD_PADRE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>BCO</value>
+                                </simple-property-list>
                             </structure>
                         </list-property>
                         <property name="pageBreakInterval">50</property>
@@ -4017,11 +4216,10 @@ else
                             </structure>
                         </list-property>
                         <column id="3303">
-                            <property name="width">19%</property>
                             <property name="textAlign">center</property>
+                            <property name="width">19%</property>
                         </column>
                         <column id="3304">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -4031,9 +4229,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3305">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -4043,9 +4241,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3306">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -4055,9 +4253,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3307">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -4067,9 +4265,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3308">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -4079,9 +4277,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3309">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -4091,9 +4289,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3310">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -4103,9 +4301,9 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3311">
-                            <property name="width">9%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -4115,10 +4313,11 @@ else
  false</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">9%</property>
                         </column>
                         <column id="3312">
-                            <property name="width">9%</property>
                             <property name="fontWeight">bold</property>
+                            <property name="width">9%</property>
                         </column>
                         <header>
                             <row id="3217">
@@ -4254,7 +4453,7 @@ else
                                                 <property name="category">Long Date</property>
                                                 <property name="pattern">Long Date</property>
                                             </structure>
-                                            <property name="resultSetColumn">FECHA</property>
+                                            <property name="resultSetColumn">FECHA_1</property>
                                         </data>
                                     </cell>
                                     <cell id="3242">
@@ -4652,7 +4851,7 @@ else
                                                 <property name="pattern">#,##0.00</property>
                                             </structure>
                                             <property name="textAlign">right</property>
-                                            <property name="resultSetColumn">subTotalCashback</property>
+                                            <property name="resultSetColumn">AggTotCashback</property>
                                         </data>
                                     </cell>
                                 </row>
