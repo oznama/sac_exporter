@@ -50,6 +50,10 @@ public class ReportSetting {
 			repConfig.getParams().put(ReportParams.NATCONTABLE, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI_ORIG, args[3]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN_ORIG, args[4]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN_ORIG, args[4]);
+			repConfig.getParams().put(ReportParams.ARG_DIA, "false");
 			break;
 		}
 		return repConfig;

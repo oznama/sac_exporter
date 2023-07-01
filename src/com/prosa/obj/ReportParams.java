@@ -7,7 +7,7 @@ public interface ReportParams {
 	String RANGO_FECHA_INI_ORIG = "initDateOrig";
 	String RANGO_FECHA_FIN_ORIG = "endDateOrig";
 	String BANCO = "banco";
-	String NATURALEZA_CONTABLE = "agrDia";
+	String ARG_DIA = "agrDia";
 	String TIPO_LIQUIDACION = "tipoLiq";
 	String ROLE = "role";
 	String MISC = "numMisc";
