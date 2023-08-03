@@ -1,57 +1,16 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.17" id="1">
     <property name="createdBy">Eclipse BIRT Designer Version 2.3.2.r232_20090202 Build &lt;2.3.2.v20090218-0730></property>
     <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
     <text-property name="displayName">Blank Report</text-property>
-    <list-property name="propertyBindings">
-        <structure>
-            <property name="name">odaDriverClass</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaURL</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
-        </structure>
-        <structure>
-            <property name="name">odaUser</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbUser"].value</expression>
-        </structure>
-        <structure>
-            <property name="name">odaAutoCommit</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaIsolationMode</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure/>
-        <structure>
-            <property name="name">odaJndiName</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileName</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileStorePath</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaPassword</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbPswd"].value</expression>
-        </structure>
-    </list-property>
     <property name="iconFile">/templates/blank_report.gif</property>
     <parameters>
         <scalar-parameter name="initDate" id="28">
             <property name="hidden">false</property>
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="concealValue">false</property>
@@ -65,15 +24,17 @@
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="1709">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">acastillo</property>
+            <property name="defaultValue">Proceso batch</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="endDate" id="1726">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
@@ -85,6 +46,7 @@
         </scalar-parameter>
         <scalar-parameter name="bancoEmi" id="2716">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
@@ -96,6 +58,7 @@
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="3244">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
@@ -107,6 +70,7 @@
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="3245">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
@@ -118,66 +82,12 @@
         </scalar-parameter>
         <scalar-parameter name="bancoAdq" id="3265">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
             <property name="defaultValue">96,97,741</property>
             <property name="distinct">true</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbHost" id="6426">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbUser" id="6427">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbPswd" id="6428">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbPort" id="6429">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbName" id="6430">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
@@ -202,8 +112,8 @@
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
-        </oda-data-source>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
+        </oda-data-source>       
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="sicmor0340" id="1743">
@@ -338,17 +248,6 @@
             </structure>
             <property name="dataSource">Data Source</property>
             <method name="beforeOpen"><![CDATA[this.queryText=
-//-----------------------------------------------------------------------------
-//--Autor               : Gerardo G. Burguete                                --
-//--Compania            : AXIA Consultores S.A. de C.V.                      --
-//--Proyecto/Procliente : N-77-5012-20                      Fecha: 21/05/2020--
-//--Descripcion General : Instalación y Certificación de MasterCard como     --
-//--                    : Cámara  de Compensación                            --
-//--Modificacion        : Excluir archivos de camara Mastercard              --
-//--Marca del Cambio    : Axia-GGB-N-77-5012-20                              --
-//-----------------------------------------------------------------------------
-//*Marca del Cambio : Axia-GGB-N-77-5012-20 Inicia  la Modificacion 21/05/2020*/
-//*---------------------------------------------------------------------------*/
 " SELECT PTRV.PTRV_NUMERO NUMERO "+
 "       ,0 PARTITION_ID "+
 "       ,PTRV.PTRV_FECHA_PROCESO_TRANSAC FECHA_PROCESO "+
@@ -421,9 +320,6 @@ if (params["bancoEmi"]!=0){
 
 }else{
 	this.queryText+=" AND PTRV.PTRV_ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+")  "
-//*---------------------------------------------------------------------------*/
-//*Marca del Cambio : Axia-GGB-N-77-5012-20 Termina la Modificacion 21/05/2020*/
-//*---------------------------------------------------------------------------*/	
 ;
 }    ]]></method>
             <list-property name="resultSet">
@@ -579,20 +475,14 @@ if (params["bancoEmi"]!=0){
                 </structure>
             </list-property>
             <property name="queryText">    SELECT
-    -- INICIA MODIFICACION GERMAN ==============================================
         DISTINCT cpt.pt_wh_seq numero, 
-    -- TERMINA MODIFICACION GERMAN =============================================
         cpt.partition_id, 
         cpt.pt_load_proc_dt fecha_proceso,
         ptd.td_prosa_iss_entity emisor, 
         ptd.td_tc_grp_id grp_tipo_txn,
         stg.tcg_grp_nam, 
         ptd.TD_TXN_TYP tipo_tx,
-        --ptd.TD_TXN_TYP grp_tipo_txn,
        (SELECT DESCRIPCION FROM pmadmin.prsa_tipos_transaccion PTT WHERE PTT.NUMERO = PTD.TD_TXN_TYP) desc_tipo_tx,
-       -- (SELECT DESCRIPCION FROM pmadmin.prsa_tipos_transaccion PTT WHERE PTT.NUMERO = PTD.TD_TXN_TYP) tcg_grp_nam,
-        --RTRIM (CONCAT (tcx_proc_cd,CONCAT (tcx_txn_typ,CONCAT (tcx_from_acct,CONCAT (tcx_to_acct,tcx_txn_cd_sfx))))) tipo_tx,
-       -- tcx_d desc_tipo_tx, 
         'SINTAXIS' tipo_rechazo,         
         ptd.td_prosa_acq_entity adquirente,
         ptd.td_srce_nbr fuente, 
@@ -602,19 +492,14 @@ if (params["bancoEmi"]!=0){
         cpt.pt_rtlr_id comercio, 
         cpt.pt_req_amt importe,
         ptd.td_intchg_comm cuota_intercambio,
-        -- INICIA MODIFICACION GERMAN ========================================== 
-        --(ptd.td_intchg_comm * (select pp_valor from pmadmin.prsa_parametros where pp_clave = 'IVA')) iva_cuota_intercambio,
         (select pp_valor from pmadmin.prsa_parametros where pp_clave = 'IVA' and pp_id_parametro = 'IVA_PARM    ') iva_para_cuota,
-        -- TERMINA MODIFICACION GERMAN =========================================
         cpt.pt_dt fecha_consumo, 
         cpt.pt_auth_cd, 
         ptd.td_rsn_cd, 
         ve.numero_prosa, 
         ve.descripcion desc_emisor,
         ve.bu_tx_parent bu_emisor
-		-- INICIA MODIFICACION GERMAN ==========================================
         ,AC.DESCRIPCION
-        -- TERMINA MODIFICACION GERMAN =========================================
      FROM core.cz_prcd_txn cpt                     
          left join pmadmin.PRSA_TXN_DATA ptd
                 on cpt.PARTITION_ID IN  ptd.PARTITION_ID
@@ -624,7 +509,6 @@ if (params["bancoEmi"]!=0){
                 on ctc.PARTITION_ID = cpt.PARTITION_ID
                 and ctc.TCLR_WH_GRP = cpt.PT_WH_GRP
                 and ctc.TCLR_WH_SEQ = cpt.PT_WH_SEQ          
-               -- INICIA MODIFICACION GERMAN ==================================
            LEFT JOIN (SELECT DISTINCT CODIGO, CASE CODIGO
                 WHEN 7 THEN 'FECHA INVALIDA'
                 WHEN 0 THEN 'TRANSACCION INVALIDA PARA ENTRANTE EGLOBAL'
@@ -634,19 +518,14 @@ if (params["bancoEmi"]!=0){
                 FROM(select distinct TO_NUMBER(SUBSTR(PRN.PRN_MSG_CODE,8,2)) CODIGO, trim(PRN_DESCRIPCION) DESCRIPCION 
                 from pmadmin.prsa_reglas_negocio PRN
                 where prn_archivo = 45
-				-- INICIA MODIFICACION GERMAN ==================================
                 AND PRN_DESCRIPCION NOT LIKE '%TIPO DE TRANSACCION%'
-                -- FIN MODIFICACION GERMAN =====================================
                 UNION
                 select distinct TO_NUMBER(SUBSTR(PRN.PRN_MSG_CODE,5,2)) CODIGO, trim(PRN_DESCRIPCION) DESCRIPCION 
                 from pmadmin.prsa_reglas_negocio PRN
                 where prn_archivo = 45
-				-- INICIA MODIFICACION GERMAN ==================================
                 AND PRN_DESCRIPCION NOT LIKE '%TIPO DE TRANSACCION%'
-                -- FIN MODIFICACION GERMAN =====================================
                 AND PRN.PRN_MSG_CODE NOT LIKE '%CD%')) AC
                 ON ptd.td_rsn_cd = ac.codigo 
-                -- TERMINA MODIFICACION GERMAN =================================
         inner join pmadmin.sz_tc_grp stg
                 on ptd.td_tc_grp_id = stg.tcg_grp_id    
         inner join core.cd_txn_cd
@@ -735,12 +614,12 @@ if (params["bancoEmi"]!=0){
                                 <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">if(reportContext.getOutputFormat().equals('html'))
 'http://cvs.prosa.com.mx/comunicados/Carnet_header.jpg'
 else
-'http://10.247.220.132:38080/pmr/reports/images/Carnet_header.jpg'</expression>
+'http://10.247.220.132:38080/Carnet_header.jpg'</expression>
                             </image>
                         </cell>
                         <cell id="1942">
@@ -1110,12 +989,12 @@ else
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">if(reportContext.getOutputFormat().equals('html'))
 'http://cvs.prosa.com.mx/comunicados/Carnet_portada.jpg'
 else
-'http://10.247.220.132:38080/pmr/reports/images/Carnet_portada.jpg'</expression>
+'http://10.247.220.132:38080/Carnet_portada.jpg'</expression>
                     </image>
                 </cell>
             </row>
@@ -1127,7 +1006,7 @@ else
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">http://cvs.prosa.com.mx/comunicados/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>

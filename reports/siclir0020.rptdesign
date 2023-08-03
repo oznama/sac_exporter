@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 2.3.2.r232_20090202 Build &lt;2.3.2.v20090218-0730></property>
-    <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.13.0.v202303021806</property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
     <list-property name="propertyBindings">
         <structure>
@@ -12,12 +11,10 @@
         <structure>
             <property name="name">odaURL</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
         </structure>
         <structure>
             <property name="name">odaUser</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbUser"].value</expression>
         </structure>
         <structure>
             <property name="name">odaAutoCommit</property>
@@ -43,9 +40,9 @@
         <structure>
             <property name="name">odaPassword</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbPswd"].value</expression>
         </structure>
     </list-property>
+    <property name="units">in</property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -68,84 +65,93 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);
 reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
     <text-property name="displayName">Blank Report</text-property>
     <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
     <parameters>
         <scalar-parameter name="initDate" id="2283">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">07/10/2011</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">07/10/2011</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="endDate" id="2284">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">07/10/2011</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">07/10/2011</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="banco" id="2285">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">3</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">3</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="2342">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Proceso batch</value>
+            </simple-property-list>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">acastillo</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="3081">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="3082">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <!-- scalar-parameter name="diaant" id="3266">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
-            <text-property name="promptText">diaant</text-property>
-            <property name="controlType">text-box</property>
-            <property name="distinct">true</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter-->
         <scalar-parameter name="dbHost" id="6426">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -157,6 +163,7 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbUser" id="6427">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -168,6 +175,7 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbPswd" id="6428">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -179,6 +187,7 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbPort" id="6429">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -190,6 +199,7 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbName" id="6430">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -201,11 +211,6 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <!--oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
-        </oda-data-source-->
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
             <list-property name="privateDriverProperties">
                 <ex-property>
@@ -224,11 +229,73 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="siclir0020" id="2353">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">ENTIDAD</property>
+                    <property name="nativeName">ENTIDAD</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">DESCRIPCION</property>
+                    <property name="nativeName">DESCRIPCION</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">BU</property>
+                    <property name="nativeName">BU</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">TIPO</property>
+                    <property name="nativeName">TIPO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">PLR_SUBNIVEL</property>
+                    <property name="nativeName">PLR_SUBNIVEL</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">NUM</property>
+                    <property name="nativeName">NUM</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">IMP</property>
+                    <property name="nativeName">IMP</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">COM_INT</property>
+                    <property name="nativeName">COM_INT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">IVA_INT</property>
+                    <property name="nativeName">IVA_INT</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">DESCRIPCION_L</property>
+                    <property name="nativeName">DESCRIPCION_L</property>
+                    <property name="dataType">string</property>
+                </structure>
+            </list-property>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
                     <structure>
@@ -283,7 +350,6 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">Data Source</property>
             <method name="beforeOpen"><![CDATA[this.queryText=
 "  SELECT DATOS.ENTIDAD "+
 "       ,VISTA.DESCRIPCION "+
@@ -404,10 +470,8 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
 " AND PP.FECHA_PROCESO >= TO_DATE('"+params["initDate"]+"', 'DD/MM/YYYY') - 1 "+
 " AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 "+
 " AND PP.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") "+
-//--Modificacion: Corrección Reporteria Local Para Amex. Entidades 240 Marca de Inicial SAS-JSG P-20-0115-16 11/07/2018
 " AND PP.ENT_NUMERO_PROSA_ADQ NOT IN (94,95,96,97,98,240) "+
 " AND PP.ENT_NUMERO_PROSA_EMI NOT IN (94,95,96,97,98,240) "+
-//--Modificacion: Corrección Reporteria Local Para Amex. Entidades 240 Marca de Final SAS-JSG P-20-0115-16 11/07/2018
 " AND PP.TTR_NUMERO NOT IN (52,53) "+
 " AND PP.ARCH_NUMERO NOT IN (48,49,1006,2148) "+
 " GROUP BY PP.ENT_NUMERO_PROSA_ADQ "+
@@ -471,10 +535,8 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
 " AND PP.FECHA_PROCESO >= TO_DATE('"+params["initDate"]+"', 'DD/MM/YYYY') - 1 "+
 " AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 "+
 " AND PP.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+") "+
-//--Modificacion: Corrección Reporteria Local Para Amex. Entidades 240 Marca de Inicial SAS-JSG P-20-0115-16 11/07/2018
 " AND PP.ENT_NUMERO_PROSA_ADQ NOT IN (94,95,96,97,98,240) "+
 " AND PP.ENT_NUMERO_PROSA_EMI NOT IN (94,95,96,97,98,240) "+
-//--Modificacion: Corrección Reporteria Local Para Amex. Entidades 240 Marca de Final SAS-JSG P-20-0115-16 11/07/2018
 " AND PP.TTR_NUMERO NOT IN (52,53) "+
 " AND PP.ARCH_NUMERO NOT IN (48,49,1006,2148) "+
 " GROUP BY PP.ENT_NUMERO_PROSA_EMI "+
@@ -518,9 +580,7 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
 " WHERE SFIT.FMI_DT BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
 " AND SFIT.FMI_NSI_CLR_ID = 22 "+
 " AND VBE.NUMERO_PROSA IN ("+params["banco"]+") "+
-//--Modificacion: Corrección Reporteria Local Para Amex. Entidades 240 Marca de Inicial SAS-JSG P-20-0115-16 11/07/2018
 " AND VBE.NUMERO_PROSA NOT IN (240) "+
-//--Modificacion: Corrección Reporteria Local Para Amex. Entidades 240 Marca de Final SAS-JSG P-20-0115-16 11/07/2018
 " AND (VBE.BU_TX_ISS!=1050 OR (VBE.BU_TX_ISS=1050 AND SFIT.FMI_TYP_C !=16)) "+
 " GROUP BY VBE.NUMERO_PROSA "+
 " UNION ALL "+
@@ -565,10 +625,8 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
 " AND PP.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") "+
 " AND PP.TTR_NUMERO NOT IN (52,53) "+
 " AND PP.ARCH_NUMERO NOT IN (48,49,1006,2148) "+
-//--Modificacion: Corrección Reporteria Local Para Amex. Entidades 240 Marca de Inicial SAS-JSG P-20-0115-16 11/07/2018
 " AND PP.ENT_NUMERO_PROSA_ADQ NOT IN (240) "+
 " AND PP.ENT_NUMERO_PROSA_EMI NOT IN (240) "+
-//--Modificacion: Corrección Reporteria Local Para Amex. Entidades 240 Marca de Final SAS-JSG P-20-0115-16 11/07/2018
 " GROUP BY PP.ENT_NUMERO_PROSA_ADQ "+
 " UNION ALL "+
 " SELECT PP.ENT_NUMERO_PROSA_EMI ENTIDAD "+
@@ -593,10 +651,8 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
 " AND PP.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+") "+
 " AND PP.ARCH_NUMERO NOT IN (48,49,1006,2148) "+
 " AND PP.TTR_NUMERO NOT IN (52,53) "+
-//--Modificacion: Corrección Reporteria Local Para Amex. Entidades 240 Marca de Inicial SAS-JSG P-20-0115-16 11/07/2018
 " AND PP.ENT_NUMERO_PROSA_ADQ NOT IN (240) "+
 " AND PP.ENT_NUMERO_PROSA_EMI NOT IN (240) "+
-//--Modificacion: Corrección Reporteria Local Para Amex. Entidades 240 Marca de Final SAS-JSG P-20-0115-16 11/07/2018
 " GROUP BY PP.ENT_NUMERO_PROSA_EMI "+
 " ) DATOS "+
 " INNER JOIN PMADMIN.PRSA_LEYENDAS_REPORTE PLR "+
@@ -613,69 +669,8 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
 "       ,PLR.PLR_SUBNIVEL "+
 "       ,PLR.PLR_DESCRIPCION "+
 " ORDER BY 5 ";]]></method>
-            <list-property name="resultSet">
-                <structure>
-                    <property name="position">1</property>
-                    <property name="name">ENTIDAD</property>
-                    <property name="nativeName">ENTIDAD</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">2</property>
-                    <property name="name">DESCRIPCION</property>
-                    <property name="nativeName">DESCRIPCION</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">3</property>
-                    <property name="name">BU</property>
-                    <property name="nativeName">BU</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">4</property>
-                    <property name="name">TIPO</property>
-                    <property name="nativeName">TIPO</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">5</property>
-                    <property name="name">PLR_SUBNIVEL</property>
-                    <property name="nativeName">PLR_SUBNIVEL</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">6</property>
-                    <property name="name">NUM</property>
-                    <property name="nativeName">NUM</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">7</property>
-                    <property name="name">IMP</property>
-                    <property name="nativeName">IMP</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">8</property>
-                    <property name="name">COM_INT</property>
-                    <property name="nativeName">COM_INT</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">9</property>
-                    <property name="name">IVA_INT</property>
-                    <property name="nativeName">IVA_INT</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">10</property>
-                    <property name="name">DESCRIPCION_L</property>
-                    <property name="nativeName">DESCRIPCION_L</property>
-                    <property name="dataType">string</property>
-                </structure>
-            </list-property>
-            <property name="queryText"></property>
+            <property name="dataSource">Data Source</property>
+            <xml-property name="queryText"><![CDATA[]]></xml-property>
         </oda-data-set>
     </data-sets>
     <styles>
@@ -741,7 +736,7 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
                                 <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">''</expression>
                             </image>
@@ -1100,21 +1095,21 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">''</expression>
                     </image>
                 </cell>
             </row>
             <row id="2034">
-                <property name="height">2.1in</property>
                 <property name="textAlign">center</property>
                 <property name="verticalAlign">middle</property>
+                <property name="height">2.1in</property>
                 <cell id="2035">
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">reports/images/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>
@@ -1414,13 +1409,13 @@ else
                             </structure>
                             <structure>
                                 <property name="name">titulo</property>
-                                <property name="displayName">titulo</property>
+                                <text-property name="displayName">titulo</text-property>
                                 <expression name="expression">dataSetRow["ENTIDAD"]+' '+dataSetRow["DESCRIPCION"]+' '+dataSetRow["BU"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">titulo2</property>
-                                <property name="displayName">titulo2</property>
+                                <text-property name="displayName">titulo2</text-property>
                                 <expression name="expression">if (dataSetRow["TIPO"]=='EMI')
 {
 	'A FAVOR DE PROSA';
@@ -1433,7 +1428,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">00</property>
-                                <property name="displayName">00</property>
+                                <text-property name="displayName">00</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>TYP</value>
@@ -1465,7 +1460,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01</property>
-                                <property name="displayName">01</property>
+                                <text-property name="displayName">01</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>TYP</value>
@@ -1494,7 +1489,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">03</property>
-                                <property name="displayName">03</property>
+                                <text-property name="displayName">03</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>TYP</value>
@@ -1523,7 +1518,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">04</property>
-                                <property name="displayName">04</property>
+                                <text-property name="displayName">04</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>TYP</value>
@@ -1538,7 +1533,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">02</property>
-                                <property name="displayName">02</property>
+                                <text-property name="displayName">02</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -1547,7 +1542,7 @@ else
                                 <list-property name="arguments">
                                     <structure>
                                         <property name="name">Expression</property>
-                                        <expression name="value">//--Modificacion: Axia-GGB-N-77-7032-19 Inicia  Cambio 31/10/2021
+                                        <expression name="value">
 if (dataSetRow["DESCRIPCION_L"]=='Peticiones')
 {
 	0
@@ -1564,13 +1559,13 @@ else
 {
 	0
 }
-//--Modificacion: Axia-GGB-N-77-7032-19 Termina Cambio 31/10/2021</expression>
+</expression>
                                     </structure>
                                 </list-property>
                             </structure>
                             <structure>
                                 <property name="name">favor</property>
-                                <property name="displayName">favor</property>
+                                <text-property name="displayName">favor</text-property>
                                 <expression name="expression">if (row["02"]>0)
 {
 	'Total a favor de : PROSA';
@@ -1581,7 +1576,29 @@ else
 }</expression>
                                 <property name="dataType">string</property>
                             </structure>
+                            <structure>
+                                <property name="name">ENTIDAD_1</property>
+                                <expression name="expression">dataSetRow["ENTIDAD"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>BCO</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">TIPO_1</property>
+                                <expression name="expression">dataSetRow["TIPO"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>TYP</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">PLR_SUBNIVEL_1</property>
+                                <expression name="expression">dataSetRow["PLR_SUBNIVEL"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>ord</value>
+                                </simple-property-list>
+                            </structure>
                         </list-property>
+                        <property name="pageBreakInterval">50</property>
                         <column id="3170"/>
                         <column id="3171"/>
                         <column id="3172"/>

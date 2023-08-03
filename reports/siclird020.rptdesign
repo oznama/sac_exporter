@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.17" id="1">
     <property name="createdBy">Eclipse BIRT Designer Version 2.3.2.r232_v20090521 Build &lt;2.3.2.v20090601-0700></property>
     <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
@@ -7,7 +7,7 @@
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
-	var result; 
+	var result;
 	if(k<0)
 		result=(-1.0)*Math.round(Math.abs(k))/multiploDiez;
 	else
@@ -64,7 +64,7 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
             <property name="valueType">static</property>
             <property name="dataType">string</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">acastillo</property>
+            <property name="defaultValue">Proceso batch</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
@@ -93,33 +93,9 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <!--oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
-        </oda-data-source-->
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
-            <text-property name="displayName"></text-property>
-            <list-property name="privateDriverProperties">
-                <ex-property>
-                    <name>contentBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-                <ex-property>
-                    <name>disabledContentBidiFormatStr</name>
-                </ex-property>
-                <ex-property>
-                    <name>disabledMetadataBidiFormatStr</name>
-                </ex-property>
-                <ex-property>
-                    <name>metadataBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-            </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@172.16.136.233:1606:PMTU</property>
-            <property name="odaUser">PMTWEB</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">UE1UV0VC</encrypted-property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -244,11 +220,8 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
 " FROM PMADMIN.PRSA_POSICIONES PP "+
 " WHERE PP.TLI_NUMERO = 31 "+
 " AND PP.FECHA_PROCESO >= TO_DATE('"+params["initDate"]+"', 'DD/MM/YYYY') - 1 "+
-" AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 ";
-if(params["banco"]!="T"){
-this.queryText+=" AND PP.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") ";
-}
-this.queryText+=" AND PP.ENT_NUMERO_PROSA_ADQ NOT IN (94,95,96,97,98) "+
+" AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 "+
+" AND PP.ENT_NUMERO_PROSA_ADQ NOT IN (94,95,96,97,98) "+
 " AND PP.ENT_NUMERO_PROSA_EMI NOT IN (94,95,96,97,98) "+
 " AND PP.TTR_NUMERO NOT IN (52,53) "+
 " AND PP.CODIGO_MONEDA = 840 "+
@@ -315,11 +288,8 @@ this.queryText+=" AND PP.ENT_NUMERO_PROSA_ADQ NOT IN (94,95,96,97,98) "+
 " FROM PMADMIN.PRSA_POSICIONES PP "+
 " WHERE PP.TLI_NUMERO = 31 "+
 " AND PP.FECHA_PROCESO >= TO_DATE('"+params["initDate"]+"', 'DD/MM/YYYY') - 1 "+
-" AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 ";
-if(params["banco"]!="T"){
-this.queryText+=" AND PP.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+") ";
-}
-this.queryText+=" AND PP.ENT_NUMERO_PROSA_ADQ NOT IN (94,95,96,97,98) "+
+" AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 "+
+" AND PP.ENT_NUMERO_PROSA_ADQ NOT IN (94,95,96,97,98) "+
 " AND PP.ENT_NUMERO_PROSA_EMI NOT IN (94,95,96,97,98) "+
 " AND PP.TTR_NUMERO NOT IN (52,53) "+
 " AND PP.CODIGO_MONEDA = 840 "+
@@ -366,11 +336,7 @@ this.queryText+=" AND PP.ENT_NUMERO_PROSA_ADQ NOT IN (94,95,96,97,98) "+
 " INNER JOIN (SELECT * FROM PMADMIN.VW_BUS_EMI UNION SELECT * FROM PMADMIN.VW_BUS_ACQ) VBE "+
 "     ON VBE.BU_TX_ISS = SFIT.FMI_DB_CLR_BU "+
 " WHERE SFIT.FMI_DT BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-" AND SFIT.FMI_NSI_CLR_ID = 22 ";
-if(params["banco"]!="T"){
-this.queryText+=" AND VBE.NUMERO_PROSA IN ("+params["banco"]+") ";
-}
-this.queryText+=
+" AND SFIT.FMI_NSI_CLR_ID = 22 "+
 " AND (VBE.BU_TX_ISS!=1050 OR (VBE.BU_TX_ISS=1050 AND SFIT.FMI_TYP_C !=16)) "+
 " GROUP BY VBE.NUMERO_PROSA, SFIT.FMI_DT "+
 " UNION ALL "+
@@ -388,11 +354,7 @@ this.queryText+=
 " INNER JOIN (SELECT * FROM PMADMIN.VW_BUS_ACQ UNION SELECT * FROM PMADMIN.VW_BUS_EMI) VBA "+
 "     ON VBA.BU_TX_ADQ = SFIT.FMI_CR_CLR_BU "+
 " WHERE SFIT.FMI_DT BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-" AND SFIT.FMI_NSI_CLR_ID = 22 ";
-if(params["banco"]!="T"){
-this.queryText+=" AND VBA.NUMERO_PROSA IN ("+params["banco"]+") ";
-}
-this.queryText+=
+" AND SFIT.FMI_NSI_CLR_ID = 22 "+
 " AND (VBA.BU_TX_ADQ!=1050 OR (VBA.BU_TX_ADQ=1050 AND SFIT.FMI_TYP_C !=15)) "+
 " GROUP BY VBA.NUMERO_PROSA, SFIT.FMI_DT "+
 " UNION ALL "+
@@ -415,11 +377,7 @@ this.queryText+=
 " FROM PMADMIN.PRSA_POSICIONES PP "+
 " WHERE PP.TLI_NUMERO = 31 "+
 " AND PP.FECHA_PROCESO >= TO_DATE('"+params["initDate"]+"', 'DD/MM/YYYY') - 1 "+
-" AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 ";
-if(params["banco"]!="T"){
-this.queryText+=" AND PP.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") ";
-}
-this.queryText+=
+" AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 "+
 " AND PP.TTR_NUMERO NOT IN (52,53) "+
 " AND PP.ARCH_NUMERO NOT IN (48,49,1006,2148) "+
 " GROUP BY PP.ENT_NUMERO_PROSA_ADQ "+
@@ -445,11 +403,7 @@ this.queryText+=
 " FROM PMADMIN.PRSA_POSICIONES PP "+
 " WHERE PP.TLI_NUMERO = 1 "+
 " AND PP.FECHA_PROCESO >= TO_DATE('"+params["initDate"]+"', 'DD/MM/YYYY') - 1 "+
-" AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 ";
-if(params["banco"]!="T"){
-this.queryText+=" AND PP.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+") ";
-}
-this.queryText+=
+" AND PP.FECHA_PROCESO <= TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') - 1 "+
 " AND PP.ARCH_NUMERO NOT IN (48,49,1006,2148) "+
 " AND PP.TTR_NUMERO NOT IN (52,53) "+
 " GROUP BY PP.ENT_NUMERO_PROSA_EMI "+
@@ -616,7 +570,7 @@ this.queryText+=
                                 <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">''</expression>
                             </image>
@@ -975,7 +929,7 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">''</expression>
                     </image>
@@ -989,7 +943,7 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">reports/images/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>

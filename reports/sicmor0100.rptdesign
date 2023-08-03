@@ -11,12 +11,10 @@
         <structure>
             <property name="name">odaURL</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
         </structure>
         <structure>
             <property name="name">odaUser</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbUser"].value</expression>
         </structure>
         <structure>
             <property name="name">odaAutoCommit</property>
@@ -42,7 +40,6 @@
         <structure>
             <property name="name">odaPassword</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbPswd"].value</expression>
         </structure>
     </list-property>
     <property name="units">in</property>
@@ -64,6 +61,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
     <parameters>
         <scalar-parameter name="bancoAdq" id="8">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
@@ -77,6 +75,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="initDate" id="9">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
@@ -90,6 +89,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="endDate" id="10">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
@@ -103,6 +103,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="tipoTrans" id="11">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
@@ -116,9 +117,10 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="2355">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">acastillo</value>
+                <value type="constant">Proceso batch</value>
             </simple-property-list>
             <property name="controlType">text-box</property>
             <structure name="format">
@@ -127,6 +129,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="archivo" id="2691">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
@@ -140,6 +143,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="3330">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
@@ -153,6 +157,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="3331">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
@@ -166,6 +171,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="agrNatContable" id="3882">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <simple-property-list name="defaultValue">
@@ -177,31 +183,9 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <!--scalar-parameter name="afiliacion" id="3951">
-            <text-property name="promptText">afiliacion</text-property>
-            <property name="valueType">static</property>
-            <property name="isRequired">true</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter-->
-        <!--scalar-parameter name="susparticiones" id="3952">
-            <text-property name="promptText">susparticiones</text-property>
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter-->
         <scalar-parameter name="dbHost" id="6426">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -213,6 +197,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbUser" id="6427">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -224,6 +209,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbPswd" id="6428">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -235,6 +221,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbPort" id="6429">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -246,6 +233,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbName" id="6430">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -275,68 +263,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="sicmor0100" id="7">
-            <structure name="cachedMetaData"/>
-            <method name="beforeOpen"><![CDATA[this.queryText=
-" SELECT PTA.ARCH_NUMERO FUENTE "+
-"       ,PA.DESCRIPCION NAME_FUENTE "+
-"       ,TO_CHAR(PTA.NUMERO_COMERCIO) NO_COMERCIO "+
-"       ,PTA.NOMBRE_COMERCIO COMERCIO "+
-"       ,PTA.BDU_SIC_CVE GIRO_COMERCIO "+
-"       ,PTA.TTR_NUMERO NO_TXN "+
-//"       ,PTT.DESCRIPCION NAME_TXN "+
-"       ,STG.TCG_GRP_NAM NAME_TXN "+
-"       ,PTA.ENT_NUMERO_PROSA_ADQ ADQ "+
-"       ,VBA.DESCRIPCION NAME_ADQ "+
-"       ,PTA.ENT_NUMERO_PROSA_EMI EMI "+
-"       ,PE.DESCRIPCION NAME_EMI "+
-"       ,PTA.FECHA_PROCESO_TRANSAC FECHA_PROCESO "+
-"       ,TO_CHAR(PTA.CUENTA) CUENTA "+
-"       ,PTA.FECHA_CONSUMO_TRANSAC FECHA_CONSUMO "+
-"       ,PTA.NUMERO_AUTORIZACION AUTORIZACION "+
-"       ,TO_CHAR(PTA.NUMERO_REFERENCIA) REFERENCIA "+
-"       ,PTA.CODIGO_RESPUESTA_ISO CODIGO_RESPUESTA "+
-"       ,PTA.PROC_NUMERO ORIG "+
-"       ,PTA.TIPO_CAPTURA TIPO_CAPTURA "+
-"       ,PTA.IMPORTE_TOTAL_TRANSAC IMPORTE "+
-"       ,PTA.IMPORTE_CUOTA_COMERCIO CUOTA_COMERCIO "+
-"       ,PTA.IMPORTE_IVA_COMERCIO IVA_COMERCIO "+
-"       ,PTA.IMPORTE_CUOTA_INTERCAMBIO CUOTA_INTERCAMBIO "+
-"       ,PTA.IMPORTE_IVA_INTERCAMBIO IVA_INTERCAMBIO "+
-" FROM PMADMIN.PRSA_TXN_ACEPTADAS PTA "+
-" INNER JOIN PMADMIN.PRSA_ARCHIVOS PA  "+
-"     ON PTA.ARCH_NUMERO = PA.NUMERO "+
-//Modificación-INICIO-SAS-AGA-A-20-5092-21
-"     AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+") "+
-//Modificación-FIN-SAS-AGA-A-20-5092-21
-//" INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
-//"     ON PTT.NUMERO = PTA.TTR_NUMERO "+
-" INNER JOIN SETTLEMENT.SZ_TC_GRP STG "+
-"     ON STG.TCG_GRP_ID = PTA.TA_TC_GRP_ID "+
-" INNER JOIN PMADMIN.VW_BUS_ACQ VBA "+
-"     ON VBA.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_ADQ "+
-" INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
-"     ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+
-" WHERE PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+") ";
-
-if (params["tipoTrans"]!="0")
-{
-	this.queryText+=" AND PTA.TA_TC_GRP_ID IN ("+params["tipoTrans"]+") ";
-}
-
-if (params["banco"]!="0")
-{
-	this.queryText+=" AND PTA.ARCH_NUMERO IN ("+params["archivo"]+") ";
-}
-
-	this.queryText+=" ";
-]]></method>
-            <property name="dataSource">Data Source</property>
-            <list-property name="resultSet">
+            <list-property name="resultSetHints">
                 <structure>
                     <property name="position">1</property>
                     <property name="name">FUENTE</property>
@@ -482,6 +414,57 @@ if (params["banco"]!="0")
                     <property name="dataType">decimal</property>
                 </structure>
             </list-property>
+            <structure name="cachedMetaData"/>
+            <method name="beforeOpen"><![CDATA[this.queryText=
+" SELECT PTA.ARCH_NUMERO FUENTE "+
+"       ,PA.DESCRIPCION NAME_FUENTE "+
+"       ,TO_CHAR(PTA.NUMERO_COMERCIO) NO_COMERCIO "+
+"       ,PTA.NOMBRE_COMERCIO COMERCIO "+
+"       ,PTA.BDU_SIC_CVE GIRO_COMERCIO "+
+"       ,PTA.TTR_NUMERO NO_TXN "+
+"       ,STG.TCG_GRP_NAM NAME_TXN "+
+"       ,PTA.ENT_NUMERO_PROSA_ADQ ADQ "+
+"       ,VBA.DESCRIPCION NAME_ADQ "+
+"       ,PTA.ENT_NUMERO_PROSA_EMI EMI "+
+"       ,PE.DESCRIPCION NAME_EMI "+
+"       ,PTA.FECHA_PROCESO_TRANSAC FECHA_PROCESO "+
+"       ,TO_CHAR(PTA.CUENTA) CUENTA "+
+"       ,PTA.FECHA_CONSUMO_TRANSAC FECHA_CONSUMO "+
+"       ,PTA.NUMERO_AUTORIZACION AUTORIZACION "+
+"       ,TO_CHAR(PTA.NUMERO_REFERENCIA) REFERENCIA "+
+"       ,PTA.CODIGO_RESPUESTA_ISO CODIGO_RESPUESTA "+
+"       ,PTA.PROC_NUMERO ORIG "+
+"       ,PTA.TIPO_CAPTURA TIPO_CAPTURA "+
+"       ,PTA.IMPORTE_TOTAL_TRANSAC IMPORTE "+
+"       ,PTA.IMPORTE_CUOTA_COMERCIO CUOTA_COMERCIO "+
+"       ,PTA.IMPORTE_IVA_COMERCIO IVA_COMERCIO "+
+"       ,PTA.IMPORTE_CUOTA_INTERCAMBIO CUOTA_INTERCAMBIO "+
+"       ,PTA.IMPORTE_IVA_INTERCAMBIO IVA_INTERCAMBIO "+
+" FROM PMADMIN.PRSA_TXN_ACEPTADAS PTA "+
+" INNER JOIN PMADMIN.PRSA_ARCHIVOS PA  "+
+"     ON PTA.ARCH_NUMERO = PA.NUMERO "+
+"     AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+") "+
+" INNER JOIN SETTLEMENT.SZ_TC_GRP STG "+
+"     ON STG.TCG_GRP_ID = PTA.TA_TC_GRP_ID "+
+" INNER JOIN PMADMIN.VW_BUS_ACQ VBA "+
+"     ON VBA.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_ADQ "+
+" INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
+"     ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+
+" WHERE PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+") ";
+
+if (params["tipoTrans"]!="0")
+{
+	this.queryText+=" AND PTA.TA_TC_GRP_ID IN ("+params["tipoTrans"]+") ";
+}
+
+if (params["archivo"]!="0")
+{
+	this.queryText+=" AND PTA.ARCH_NUMERO IN ("+params["archivo"]+") ";
+}
+
+	this.queryText+=" ";
+]]></method>
+            <property name="dataSource">Data Source</property>
             <xml-property name="queryText"><![CDATA[]]></xml-property>
         </oda-data-set>
     </data-sets>
@@ -1108,6 +1091,41 @@ else
 	row["IMPORTE"]</expression>
                                     </structure>
                                 </list-property>
+                            </structure>
+                            <structure>
+                                <property name="name">FECHA_PROCESO_1</property>
+                                <expression name="expression">dataSetRow["FECHA_PROCESO"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>fech</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">ADQ_1</property>
+                                <expression name="expression">dataSetRow["ADQ"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>adq</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">FUENTE_1</property>
+                                <expression name="expression">dataSetRow["FUENTE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>fuente</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">NO_COMERCIO_1</property>
+                                <expression name="expression">dataSetRow["NO_COMERCIO"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>com</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">NO_TXN_1</property>
+                                <expression name="expression">dataSetRow["NO_TXN"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>ttx</value>
+                                </simple-property-list>
                             </structure>
                         </list-property>
                         <property name="pageBreakInterval">26</property>

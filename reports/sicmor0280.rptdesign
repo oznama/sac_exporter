@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
-    <property name="createdBy">MyEclipse Report Designer Version 1.0</property>
-    <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.13.0.v202303021806</property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
     <list-property name="propertyBindings">
         <structure>
@@ -12,12 +11,10 @@
         <structure>
             <property name="name">odaURL</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
         </structure>
         <structure>
             <property name="name">odaUser</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbUser"].value</expression>
         </structure>
         <structure>
             <property name="name">odaAutoCommit</property>
@@ -43,9 +40,9 @@
         <structure>
             <property name="name">odaPassword</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbPswd"].value</expression>
         </structure>
     </list-property>
+    <property name="units">in</property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -60,71 +57,87 @@
 reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
     <text-property name="displayName">Blank Report</text-property>
     <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
     <parameters>
         <scalar-parameter name="initDate" id="2359">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">23/02/2011</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">23/02/2011</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="endDate" id="2360">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">23/02/2011</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">23/02/2011</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="banco" id="2361">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">2</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">2</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="2362">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Proceso batch</value>
+            </simple-property-list>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">acastillo</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="2547">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="2548">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="dbHost" id="6426">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -136,6 +149,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbUser" id="6427">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -147,6 +161,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbPswd" id="6428">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -158,6 +173,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbPort" id="6429">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -169,6 +185,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbName" id="6430">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -180,11 +197,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <!-- oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
-        </oda-data-source-->
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
             <list-property name="privateDriverProperties">
                 <ex-property>
@@ -203,166 +215,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="sicmor0280" id="2358">
-            <structure name="cachedMetaData">
-                <list-property name="resultSet">
-                    <structure>
-                        <property name="position">1</property>
-                        <property name="name">FECHA</property>
-                        <property name="dataType">date-time</property>
-                    </structure>
-                    <structure>
-                        <property name="position">2</property>
-                        <property name="name">NUM_BITACORA</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">3</property>
-                        <property name="name">ARCHIVO</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">4</property>
-                        <property name="name">NUM_ENT_ADQ</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">5</property>
-                        <property name="name">NOM_ENT_ADQ</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">6</property>
-                        <property name="name">BU</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">7</property>
-                        <property name="name">FUENTE</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">8</property>
-                        <property name="name">DESC_FUENTE</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">9</property>
-                        <property name="name">NUM_TXN</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">10</property>
-                        <property name="name">DESC_TXN</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">11</property>
-                        <property name="name">CANT_TXN</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">12</property>
-                        <property name="name">IMPORTE</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                </list-property>
-            </structure>
-            <property name="dataSource">Data Source</property>
-            <method name="beforeOpen"><![CDATA[this.queryText=
-" SELECT DISTINCT * FROM ("+
-"  SELECT /*+ FIRST_ROWS */ "+
-"  PBA.BA_FCH_PROC FECHA, "+
-"  PBA.BA_ARCH_ID NUM_BITACORA, "+
-"  PBA.BA_ARCHIVO ARCHIVO,  "+
-"  PA.ENT_NUMERO_PROSA NUM_ENT_ADQ, "+
-"  PE.DESCRIPCION NOM_ENT_ADQ,  "+
-"  (SELECT DISTINCT BU_TX_PARENT FROM (SELECT * FROM PMADMIN.VW_BUS_ACQ UNION SELECT * FROM PMADMIN.VW_BUS_EMI)T1 WHERE T1.NUMERO_PROSA = PA.ENT_NUMERO_PROSA AND ROWNUM = 1) BU, "+
-"  PBA.BA_NUM_ARCH FUENTE, "+
-"  PA.DESCRIPCION DESC_FUENTE, "+
-"  PBA.BA_TC_PROSA NUM_TXN ,  "+
-"  PTT.DESCRIPCION DESC_TXN,    "+
-"  SUM(PBA.BA_CANTIDAD) CANT_TXN,  "+
-"  SUM(CASE "+
-"        WHEN PBA.BA_MONEDA = 484 AND PE.NUMERO_LN = 'DLMN' THEN "+
-"            ROUND(PBA.BA_IMPORTE/(SELECT CR_RATE FROM CORE.CZ_CRNCY_RATE WHERE CR_EFF_DT = TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') AND CR_CD = 484 AND CR_BU = 1033 AND CR_TYP = 1),2) "+
-"        ELSE PBA.BA_IMPORTE "+
-"      END "+
-"  ) IMPORTE "+
-//"  SUM(PBA.BA_IMPORTE) IMPORTE  "+
-"  FROM PMADMIN.PRSA_BITACORA_ARCHIVOS PBA  "+
-"  INNER JOIN  PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
-"  ON PBA.BA_TC_PROSA = PTT.NUMERO  "+
-"  INNER JOIN  PMADMIN.PRSA_ARCHIVOS PA "+
-"  ON (PA.BAIN_NUMERO = TO_NUMBER(REGEXP_REPLACE(REGEXP_SUBSTR(PBA.BA_ARCHIVO,  '[^.]+'),'[[:alpha:]]','')) "+
-"      OR (NOT REGEXP_LIKE(REGEXP_REPLACE(REGEXP_SUBSTR(PBA.BA_ARCHIVO,  '\\.[^.]+\\.'),'(\\.)',''),'[[:alpha:]]') "+
-"      AND PA.BAIN_NUMERO = TO_NUMBER(REGEXP_REPLACE(REGEXP_SUBSTR(PBA.BA_ARCHIVO,  '\\.[^.]+\\.'),'(\\.)','')))) "+
-//Modificación-INICIO-SAS-AGA-A-20-5092-21
-"  AND PA.ENT_NUMERO_PROSA IN ("+params["banco"]+") "+
-//Modificación-INICIO-SAS-AGA-A-20-5092-21
-"  INNER JOIN  PMADMIN.PRSA_ENTIDADES PE   "+
-"  ON PA.ENT_NUMERO_PROSA = PE.NUMERO_PROSA  "+
-"  WHERE PBA.BA_FCH_PROC BETWEEN TO_DATE('"+params["initDate"]+"','dd-MM-yyyy') AND TO_DATE('"+params["endDate"]+"','dd-MM-yyyy') "+
-"  AND PBA.BA_T_ARCH = 'O' "+
-"  AND PA.ENT_NUMERO_PROSA IN ("+params["banco"]+") "+
-"   AND REGEXP_LIKE(BA_ARCHIVO, ''||(SELECT "+
-"                              '('||RTRIM (XMLAGG (XMLELEMENT (E, BAIN_NUMERO || '|')).EXTRACT ('//text()'), '|')||')' ENAMES "+
-"                             FROM PMADMIN.PRSA_ARCHIVOS "+
-"                             WHERE BAIN_NUMERO IS NOT NULL "+
-"                             AND SALIDA = 1 "+
-"                             AND ENT_NUMERO_PROSA IN ("+params["banco"]+"))||'') "+
-"                             AND  PBA.BA_NUM_ARCH NOT IN (344)  "+ 
-"  GROUP BY PBA.BA_FCH_PROC  "+
-"          ,PBA.BA_ARCH_ID   "+
-"          ,PBA.BA_ARCHIVO  "+
-"          ,PA.ENT_NUMERO_PROSA   "+
-"          ,PE.DESCRIPCION  "+
-"          ,PBA.BA_NUM_ARCH"+
-"          ,PA.DESCRIPCION   "+
-"          ,PBA.BA_TC_PROSA "+
-"          ,PTT.DESCRIPCION "+
-"  UNION ALL "+
-"  SELECT "+
-"  PBA2.BA_FCH_PROC FECHA, "+
-"  PBA2.BA_ARCH_ID NUM_BITACORA, "+
-"  PBA2.BA_ARCHIVO ARCHIVO, "+
-"  PBA2.BA_ENT_EMI NUM_ENT_EMI, "+
-"  PE2.DESCRIPCION NOM_ENT_ADQ, "+
-"  (SELECT DISTINCT BU_TX_PARENT FROM (SELECT * FROM PMADMIN.VW_BUS_ACQ UNION SELECT * FROM PMADMIN.VW_BUS_EMI)T1 WHERE T1.NUMERO_PROSA = PBA2.BA_ENT_EMI AND ROWNUM = 1) BU, "+
-"  PBA2.BA_NUM_ARCH FUENTE, "+
-"  PA2.DESCRIPCION DESC_FUENTE, "+
-"  PBA2.BA_TC_PROSA NUM_TXN , "+
-"  PTT2.DESCRIPCION DESC_TXN, "+
-"  SUM(PBA2.BA_CANTIDAD) CANT_TXN, "+
-"  SUM(PBA2.BA_IMPORTE) IMPORTE "+
-"  FROM PMADMIN.PRSA_BITACORA_ARCHIVOS PBA2 "+
-"  INNER JOIN  PMADMIN.PRSA_TIPOS_TRANSACCION PTT2 "+
-"  ON PBA2.BA_TC_PROSA = PTT2.NUMERO "+
-"  INNER JOIN  PMADMIN.PRSA_ARCHIVOS PA2 "+
-"  ON (PA2.BAIN_NUMERO = TO_NUMBER(REGEXP_REPLACE(REGEXP_SUBSTR(PBA2.BA_ARCHIVO,  '[^.]+'),'[[:alpha:]]','')) "+
-"    AND PA2.TSYS_TRANSMISION_COD IS NOT NULL "+
-"  ) "+
-"  INNER JOIN  PMADMIN.PRSA_ENTIDADES PE2 "+
-"  ON PBA2.BA_ENT_EMI = PE2.NUMERO_PROSA "+
-"  WHERE PBA2.BA_FCH_PROC BETWEEN TO_DATE('"+params["initDate"]+"','dd-MM-yyyy') AND TO_DATE('"+params["endDate"]+"','dd-MM-yyyy') "+
-"  AND PBA2.BA_T_ARCH = 'O' "+
-"  AND PE2.NUMERO_PROSA in ("+params["banco"]+") "+
-"  GROUP BY PBA2.BA_FCH_PROC "+
-"          ,PBA2.BA_ARCH_ID "+
-"          ,PBA2.BA_ARCHIVO  "+
-"          ,PBA2.BA_ENT_EMI "+
-"          ,PE2.DESCRIPCION  "+
-"          ,PBA2.BA_NUM_ARCH "+
-"          ,PA2.DESCRIPCION  "+
-"          ,PBA2.BA_TC_PROSA "+
-"          ,PTT2.DESCRIPCION "+
-" ) "+
-" ORDER BY ARCHIVO ";]]></method>
-            <list-property name="resultSet">
+            <list-property name="resultSetHints">
                 <structure>
                     <property name="position">1</property>
                     <property name="name">FECHA</property>
@@ -436,7 +294,158 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                     <property name="dataType">decimal</property>
                 </structure>
             </list-property>
-            <property name="queryText"></property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">FECHA</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">NUM_BITACORA</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">ARCHIVO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">NUM_ENT_ADQ</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">NOM_ENT_ADQ</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">BU</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">FUENTE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">DESC_FUENTE</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">NUM_TXN</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">DESC_TXN</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">CANT_TXN</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">IMPORTE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[this.queryText=
+" SELECT DISTINCT * FROM ("+
+"  SELECT /*+ FIRST_ROWS */ "+
+"  PBA.BA_FCH_PROC FECHA, "+
+"  PBA.BA_ARCH_ID NUM_BITACORA, "+
+"  PBA.BA_ARCHIVO ARCHIVO,  "+
+"  PA.ENT_NUMERO_PROSA NUM_ENT_ADQ, "+
+"  PE.DESCRIPCION NOM_ENT_ADQ,  "+
+"  (SELECT DISTINCT BU_TX_PARENT FROM (SELECT * FROM PMADMIN.VW_BUS_ACQ UNION SELECT * FROM PMADMIN.VW_BUS_EMI)T1 WHERE T1.NUMERO_PROSA = PA.ENT_NUMERO_PROSA AND ROWNUM = 1) BU, "+
+"  PBA.BA_NUM_ARCH FUENTE, "+
+"  PA.DESCRIPCION DESC_FUENTE, "+
+"  PBA.BA_TC_PROSA NUM_TXN ,  "+
+"  PTT.DESCRIPCION DESC_TXN,    "+
+"  SUM(PBA.BA_CANTIDAD) CANT_TXN,  "+
+"  SUM(CASE "+
+"        WHEN PBA.BA_MONEDA = 484 AND PE.NUMERO_LN = 'DLMN' THEN "+
+"            ROUND(PBA.BA_IMPORTE/(SELECT CR_RATE FROM CORE.CZ_CRNCY_RATE WHERE CR_EFF_DT = TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') AND CR_CD = 484 AND CR_BU = 1033 AND CR_TYP = 1),2) "+
+"        ELSE PBA.BA_IMPORTE "+
+"      END "+
+"  ) IMPORTE "+
+"  FROM PMADMIN.PRSA_BITACORA_ARCHIVOS PBA  "+
+"  INNER JOIN  PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
+"  ON PBA.BA_TC_PROSA = PTT.NUMERO  "+
+"  INNER JOIN  PMADMIN.PRSA_ARCHIVOS PA "+
+"  ON (PA.BAIN_NUMERO = TO_NUMBER(REGEXP_REPLACE(REGEXP_SUBSTR(PBA.BA_ARCHIVO,  '[^.]+'),'[[:alpha:]]','')) "+
+"      OR (NOT REGEXP_LIKE(REGEXP_REPLACE(REGEXP_SUBSTR(PBA.BA_ARCHIVO,  '\\.[^.]+\\.'),'(\\.)',''),'[[:alpha:]]') "+
+"      AND PA.BAIN_NUMERO = TO_NUMBER(REGEXP_REPLACE(REGEXP_SUBSTR(PBA.BA_ARCHIVO,  '\\.[^.]+\\.'),'(\\.)','')))) "+
+"  AND PA.ENT_NUMERO_PROSA IN ("+params["banco"]+") "+
+"  INNER JOIN  PMADMIN.PRSA_ENTIDADES PE   "+
+"  ON PA.ENT_NUMERO_PROSA = PE.NUMERO_PROSA  "+
+"  WHERE PBA.BA_FCH_PROC BETWEEN TO_DATE('"+params["initDate"]+"','dd-MM-yyyy') AND TO_DATE('"+params["endDate"]+"','dd-MM-yyyy') "+
+"  AND PBA.BA_T_ARCH = 'O' "+
+"  AND PA.ENT_NUMERO_PROSA IN ("+params["banco"]+") "+
+"   AND REGEXP_LIKE(BA_ARCHIVO, ''||(SELECT "+
+"                              '('||RTRIM (XMLAGG (XMLELEMENT (E, BAIN_NUMERO || '|')).EXTRACT ('//text()'), '|')||')' ENAMES "+
+"                             FROM PMADMIN.PRSA_ARCHIVOS "+
+"                             WHERE BAIN_NUMERO IS NOT NULL "+
+"                             AND SALIDA = 1 "+
+"                             AND ENT_NUMERO_PROSA IN ("+params["banco"]+"))||'') "+
+"                             AND  PBA.BA_NUM_ARCH NOT IN (344)  "+ 
+"  GROUP BY PBA.BA_FCH_PROC  "+
+"          ,PBA.BA_ARCH_ID   "+
+"          ,PBA.BA_ARCHIVO  "+
+"          ,PA.ENT_NUMERO_PROSA   "+
+"          ,PE.DESCRIPCION  "+
+"          ,PBA.BA_NUM_ARCH"+
+"          ,PA.DESCRIPCION   "+
+"          ,PBA.BA_TC_PROSA "+
+"          ,PTT.DESCRIPCION "+
+"  UNION ALL "+
+"  SELECT "+
+"  PBA2.BA_FCH_PROC FECHA, "+
+"  PBA2.BA_ARCH_ID NUM_BITACORA, "+
+"  PBA2.BA_ARCHIVO ARCHIVO, "+
+"  PBA2.BA_ENT_EMI NUM_ENT_EMI, "+
+"  PE2.DESCRIPCION NOM_ENT_ADQ, "+
+"  (SELECT DISTINCT BU_TX_PARENT FROM (SELECT * FROM PMADMIN.VW_BUS_ACQ UNION SELECT * FROM PMADMIN.VW_BUS_EMI)T1 WHERE T1.NUMERO_PROSA = PBA2.BA_ENT_EMI AND ROWNUM = 1) BU, "+
+"  PBA2.BA_NUM_ARCH FUENTE, "+
+"  PA2.DESCRIPCION DESC_FUENTE, "+
+"  PBA2.BA_TC_PROSA NUM_TXN , "+
+"  PTT2.DESCRIPCION DESC_TXN, "+
+"  SUM(PBA2.BA_CANTIDAD) CANT_TXN, "+
+"  SUM(PBA2.BA_IMPORTE) IMPORTE "+
+"  FROM PMADMIN.PRSA_BITACORA_ARCHIVOS PBA2 "+
+"  INNER JOIN  PMADMIN.PRSA_TIPOS_TRANSACCION PTT2 "+
+"  ON PBA2.BA_TC_PROSA = PTT2.NUMERO "+
+"  INNER JOIN  PMADMIN.PRSA_ARCHIVOS PA2 "+
+"  ON (PA2.BAIN_NUMERO = TO_NUMBER(REGEXP_REPLACE(REGEXP_SUBSTR(PBA2.BA_ARCHIVO,  '[^.]+'),'[[:alpha:]]','')) "+
+"    AND PA2.TSYS_TRANSMISION_COD IS NOT NULL "+
+"  ) "+
+"  INNER JOIN  PMADMIN.PRSA_ENTIDADES PE2 "+
+"  ON PBA2.BA_ENT_EMI = PE2.NUMERO_PROSA "+
+"  WHERE PBA2.BA_FCH_PROC BETWEEN TO_DATE('"+params["initDate"]+"','dd-MM-yyyy') AND TO_DATE('"+params["endDate"]+"','dd-MM-yyyy') "+
+"  AND PBA2.BA_T_ARCH = 'O' "+
+"  AND PE2.NUMERO_PROSA in ("+params["banco"]+") "+
+"  GROUP BY PBA2.BA_FCH_PROC "+
+"          ,PBA2.BA_ARCH_ID "+
+"          ,PBA2.BA_ARCHIVO  "+
+"          ,PBA2.BA_ENT_EMI "+
+"          ,PE2.DESCRIPCION  "+
+"          ,PBA2.BA_NUM_ARCH "+
+"          ,PA2.DESCRIPCION  "+
+"          ,PBA2.BA_TC_PROSA "+
+"          ,PTT2.DESCRIPCION "+
+" ) "+
+" ORDER BY ARCHIVO ";]]></method>
+            <property name="dataSource">Data Source</property>
+            <xml-property name="queryText"><![CDATA[]]></xml-property>
         </oda-data-set>
     </data-sets>
     <styles>
@@ -502,12 +511,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                                 <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">if(reportContext.getOutputFormat().equals('html'))
 'http://cvs.prosa.com.mx/comunicados/Carnet_header.jpg'
 else
-'http://10.247.220.132:38080/pmr/reports/images/Carnet_header.jpg'</expression>
+'http://10.247.220.132:38080/Carnet_header.jpg'</expression>
                             </image>
                         </cell>
                         <cell id="1942">
@@ -857,24 +866,24 @@ else
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">if(reportContext.getOutputFormat().equals('html'))
 'http://cvs.prosa.com.mx/comunicados/Carnet_portada.jpg'
 else
-'http://10.247.220.132:38080/pmr/reports/images/Carnet_portada.jpg'</expression>
+'http://10.247.220.132:38080/Carnet_portada.jpg'</expression>
                     </image>
                 </cell>
             </row>
             <row id="2141">
-                <property name="height">2.1in</property>
                 <property name="textAlign">center</property>
                 <property name="verticalAlign">middle</property>
+                <property name="height">2.1in</property>
                 <cell id="2142">
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">http://cvs.prosa.com.mx/comunicados/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>
@@ -1177,15 +1186,36 @@ row["IMPORTE"]</expression>
                             </structure>
                             <structure>
                                 <property name="name">NUM_BITACORA</property>
-                                <property name="displayName">NUM_BITACORA</property>
+                                <text-property name="displayName">NUM_BITACORA</text-property>
                                 <expression name="expression">dataSetRow["NUM_BITACORA"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">ARCHIVO</property>
-                                <property name="displayName">ARCHIVO</property>
+                                <text-property name="displayName">ARCHIVO</text-property>
                                 <expression name="expression">dataSetRow["ARCHIVO"]</expression>
                                 <property name="dataType">string</property>
+                            </structure>
+                            <structure>
+                                <property name="name">NUM_ENT_ADQ_1</property>
+                                <expression name="expression">dataSetRow["NUM_ENT_ADQ"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>grupoBanco</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">FUENTE_1</property>
+                                <expression name="expression">dataSetRow["FUENTE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>grupoFuente</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">NUM_TXN_1</property>
+                                <expression name="expression">dataSetRow["NUM_TXN"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>grupoTipoTxn</value>
+                                </simple-property-list>
                             </structure>
                         </list-property>
                         <property name="pageBreakInterval">50</property>
@@ -1315,7 +1345,7 @@ row["IMPORTE"]</expression>
                                             <property name="marginTop">0pt</property>
                                             <property name="marginLeft">5pt</property>
                                             <property name="textAlign">center</property>
-                                            <property name="resultSetColumn">FUENTE</property>
+                                            <property name="resultSetColumn">FUENTE_1</property>
                                         </data>
                                     </cell>
                                     <cell id="2444">
@@ -1436,7 +1466,7 @@ row["IMPORTE"]</expression>
                                         <data id="2538">
                                             <property name="fontSize">8pt</property>
                                             <property name="textAlign">right</property>
-                                            <property name="resultSetColumn">NUM_TXN</property>
+                                            <property name="resultSetColumn">NUM_TXN_1</property>
                                         </data>
                                     </cell>
                                     <cell id="2489">

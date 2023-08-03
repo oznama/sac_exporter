@@ -1,49 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.17" id="1">
     <property name="createdBy">MyEclipse Report Designer Version 1.0</property>
     <property name="units">in</property>
     <property name="comments">Copyright (c) 2009 &lt;&lt;Wellcom SA de CV>></property>
     <html-property name="description">Detalle Transaccion Emisor</html-property>
     <list-property name="propertyBindings">
         <structure>
-            <property name="name">odaDriverClass</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaURL</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
-        </structure>
-        <structure>
-            <property name="name">odaUser</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbUser"].value</expression>
-        </structure>
-        <structure>
-            <property name="name">odaAutoCommit</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaIsolationMode</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure/>
-        <structure>
-            <property name="name">odaJndiName</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileName</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileStorePath</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaPassword</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbPswd"].value</expression>
+            <property name="name">queryTimeOut</property>
+            <property name="id">1989</property>
+            <expression name="value">1800</expression>
         </structure>
     </list-property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
@@ -126,7 +91,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="valueType">static</property>
             <property name="dataType">string</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">ggonzalez</property>
+            <property name="defaultValue">Proceso batch</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
@@ -177,82 +142,11 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <scalar-parameter name="dbHost" id="6426">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbUser" id="6427">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbPswd" id="6428">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbPort" id="6429">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbName" id="6430">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
     </parameters>
     <data-sources>
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
-            <list-property name="privateDriverProperties">
-                <ex-property>
-                    <name>contentBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-                <ex-property>
-                    <name>disabledContentBidiFormatStr</name>
-                </ex-property>
-                <ex-property>
-                    <name>disabledMetadataBidiFormatStr</name>
-                </ex-property>
-                <ex-property>
-                    <name>metadataBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-            </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -280,11 +174,15 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "     ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+
 " INNER JOIN SETTLEMENT.SZ_TC_GRP STG "+
 "     ON STG.TCG_GRP_ID = PTA.TA_TC_GRP_ID "+
-" WHERE PTA.ENT_NUMERO_PROSA_EMI IN ("+params["bancoEmi"]+") ";
+" WHERE 1=1 ";
 
-if (params["bancoAdq"]!="0" || params["bancoAdq"]!="T")
+if (params["bancoAdq"]!="T"){
+    this.queryText+=" AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+") ";
+}
+
+if(params["bancoEmi"]!="T")
 {
-	this.queryText+=" AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+") ";
+	this.queryText+=" and PTA.ENT_NUMERO_PROSA_EMI in("+params["bancoEmi"]+") ";
 }
 
 if(params["tipoTrans"]!="0")
@@ -301,10 +199,7 @@ if(params["prefijo"]!="0")
 {
 	this.queryText+=" AND PTA.PREF_NUMERO IN ("+params["prefijo"]+") ";
 }
-else
-{
-	this.queryText+=" ";
-}
+
 this.queryText+=
 " GROUP BY PE.DESCRIPCION "+
 "       ,PTA.ENT_NUMERO_PROSA_ADQ "+
@@ -381,7 +276,7 @@ this.queryText+=
                                 <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">if(reportContext.getOutputFormat().equals('html'))
 'http://cvs.prosa.com.mx/comunicados/Carnet_header.jpg'
@@ -656,7 +551,7 @@ else
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">if(reportContext.getOutputFormat().equals('html'))
 'http://cvs.prosa.com.mx/comunicados/Carnet_portada.jpg'
@@ -673,7 +568,7 @@ else
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">http://cvs.prosa.com.mx/comunicados/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>
@@ -789,7 +684,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                                     <row id="2170">
                                         <cell id="2171">
                                             <data id="1508">
-                                                <property name="fontSize">medium</property>
+                                                <property name="fontSize">9pt</property>
                                                 <structure name="dateTimeFormat">
                                                     <property name="category">Custom</property>
                                                     <property name="pattern">dd-MM-yyy</property>
@@ -816,7 +711,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                                         </cell>
                                         <cell id="2174">
                                             <data id="1727">
-                                                <property name="fontSize">medium</property>
+                                                <property name="fontSize">9pt</property>
                                                 <property name="textAlign">right</property>
                                                 <list-property name="boundDataColumns">
                                                     <structure>
@@ -875,8 +770,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
 "               ,pmadmin.prsa_entidades ent "+
 " where a.fecha_proceso_transac between TO_DATE('"+params["initDate"]+"','dd-MM-yyyy') and TO_DATE('"+params["endDate"]+"','dd-MM-yyyy') ";
 
-if(params["bancoAdq"]!="0" || params["bancoAdq"]!="T")
-{
+if(params["bancoAdq"]!="T"){
 	this.queryText+=" and a.ent_numero_prosa_adq in (select numero_prosa from pmadmin.prsa_entidades where entidad_padre in("+params["bancoAdq"]+")) ";
 }
 
@@ -885,7 +779,7 @@ if(params["tipoTrans"]!="0")
 	this.queryText+=" and a.ttr_numero in ("+params["tipoTrans"]+") ";
 }
 
-if(params["bancoEmi"]!="0")
+if(params["bancoEmi"]!="T")
 {
 	this.queryText+=" and a.ent_numero_prosa_emi in("+params["bancoEmi"]+") ";
 }

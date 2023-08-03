@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 2.3.2.r232_20090202 Build &lt;2.3.2.v20090218-0730></property>
-    <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.13.0.v202303021806</property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">1016</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -18,102 +56,108 @@
 reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
     <text-property name="displayName">Blank Report</text-property>
     <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
     <parameters>
         <scalar-parameter name="initDate" id="28">
             <property name="hidden">false</property>
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">21/01/2015</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="concealValue">false</property>
-            <property name="isRequired">true</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">21/01/2015</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="1709">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Proceso batch</value>
+            </simple-property-list>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">ggonzalez</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="endDate" id="1726">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">21/01/2015</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">21/01/2015</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="2480">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="2481">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="adq" id="2734">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">adq</text-property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">150</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">150</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="role" id="3005">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">role</text-property>
-            <property name="controlType">text-box</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
     </parameters>
     <data-sources>
-      <!--
-         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="140">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">java:comp/env/jdbc/PMTUDBP</property>
-        </oda-data-source>
-        --> 
-       <!--oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
-              <property name="meDriver">PMTUDBP</property>
-              <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-              <property name="odaJndiName">jdbc/PMTUDBP</property>
-       </oda-data-source-->
-       <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
-            <text-property name="displayName"></text-property>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>contentBidiFormatStr</name>
@@ -131,90 +175,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@172.16.136.233:1606:PMTU</property>
-            <property name="odaUser">PMTWEB</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">UE1UV0VC</encrypted-property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="01" id="2668">
-            <structure name="cachedMetaData">
-                <list-property name="resultSet">
-                    <structure>
-                        <property name="position">1</property>
-                        <property name="name">CONCEPTO</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">2</property>
-                        <property name="name">CORRESPONSAL</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">3</property>
-                        <property name="name">DBNUMSTRX</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">4</property>
-                        <property name="name">DBIMPSTRX</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">5</property>
-                        <property name="name">DBCOMSTRX</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">6</property>
-                        <property name="name">DBIVASTRX</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">7</property>
-                        <property name="name">TOTAL_COBRAR</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                </list-property>
-            </structure>
-            <property name="dataSource">Data Source</property>
-            <method name="beforeOpen"><![CDATA[this.queryText=
-//
-//Autor               : Francisco Javier Cuamatzi Cuamatzi                     
-//Compania            : Axia, consultores, S.A. DE C.V.                        
-//Proyecto/Procliente : P-60-2646-14                 Fecha: 12/04/2016         
-//Descripcion General : Incorporacion Consubanco a Corresponsales con Chedraui 
-//Modificacion        : Incorporacion Consolidado de Entidades                 
-//Marca del Cambio    : AXIA-FJCC-P-60-2646-14                                 
-//
-//   Marca del Cambio : AXIA-FJCC-P-60-2646-14 Inicia  Modificacion 12/04/2016 
-//
-" SELECT 'TOTAL A COBRAR ' CONCEPTO "+
-"      , lpad(PTA.ENT_NUMERO_PROSA_ADQ,5,' ') || ' ' || rpad(PEA.DESCRIPCION,30,' ') Corresponsal"+
-"      , SUM(NUMERO_TRANSACCIONES)  DBNumsTrx"+
-"      , SUM(PTA.TOTAL_IMPORTE)     DBImpsTrx"+
-"      , SUM(PTA.IMP_SOBRETASA)     DBComsTrx"+
-"      , SUM(PTA.IMP_IVA_SOBRETASA) DBIvasTrx"+
-"      , SUM(PTA.TOTAL_IMPORTE) - ( SUM(PTA.IMP_SOBRETASA) + SUM(PTA.IMP_IVA_SOBRETASA) )  Total_Cobrar"+
-"   FROM SSP.PRSA_POSICIONES@LG_PMTU_PMTWEB_IFO2_SSP PTA"+
-"  INNER JOIN PMADMIN.PRSA_ENTIDADES PEA"+
-"     ON PEA.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_ADQ"+
-"  WHERE  PTA.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"] +"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"] +"','DD/MM/YYYY') ";
-if (params["adq"].value=="0" || params["adq"] == "T")
-{
-  this.queryText+= " ";
-}
-else
-{
-  this.queryText+= "   and    PTA.ENT_NUMERO_PROSA_ADQ    IN  ("+params["adq"]+")    ";
- } 
-this.queryText+="  AND PTA.TLI_NUMERO          IN (60) "+
-//
-//   Marca del Cambio : AXIA-FJCC-P-60-2646-14 Termina Modificacion 12/04/2016 
-//
-"  GROUP BY"+
-"        lpad(PTA.ENT_NUMERO_PROSA_ADQ,5,' ') || ' ' || rpad(PEA.DESCRIPCION,30,' ')";]]></method>
-            <list-property name="resultSet">
+            <list-property name="resultSetHints">
                 <structure>
                     <property name="position">1</property>
                     <property name="name">CONCEPTO</property>
@@ -258,8 +224,77 @@ this.queryText+="  AND PTA.TLI_NUMERO          IN (60) "+
                     <property name="dataType">decimal</property>
                 </structure>
             </list-property>
-            <property name="queryText">select 
-from </property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">CONCEPTO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">CORRESPONSAL</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">DBNUMSTRX</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">DBIMPSTRX</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">DBCOMSTRX</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">DBIVASTRX</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">TOTAL_COBRAR</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[this.queryText=
+/*
+# Autor               :  Gerardo Lopez Carreno                                  #
+# Compania            :  SAS S.A. DE C.V.           	                        #
+# Proyecto/Procliente :  C-24-1644-22                 Fecha: 28/04/2023         #
+#-----------------------------------------------------------------------------  #
+*/                             
+" SELECT 'TOTAL A COBRAR ' CONCEPTO "+
+"      , lpad(PTA.ENT_NUMERO_PROSA_ADQ,5,' ') || ' ' || rpad(PEA.DESCRIPCION,30,' ') Corresponsal"+
+"      , SUM(NUMERO_TRANSACCIONES)  DBNumsTrx"+
+"      , SUM(PTA.TOTAL_IMPORTE)     DBImpsTrx"+
+"      , SUM(PTA.IMP_SOBRETASA)     DBComsTrx"+
+"      , SUM(PTA.IMP_IVA_SOBRETASA) DBIvasTrx"+
+"      , SUM(PTA.TOTAL_IMPORTE) - ( SUM(PTA.IMP_SOBRETASA) + SUM(PTA.IMP_IVA_SOBRETASA) )  Total_Cobrar"+
+"   FROM SSP.PRSA_POSICIONES@LG_PMTU_OPS$PMTEXE_IFOG1_SSP PTA"+
+"  INNER JOIN PMADMIN.PRSA_ENTIDADES PEA"+
+"     ON PEA.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_ADQ"+
+"  WHERE  PTA.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"] +"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"] +"','DD/MM/YYYY') ";
+if (params["adq"].value=="0" || params["adq"] == "T")
+{
+  this.queryText+= " ";
+}
+else
+{
+  this.queryText+= "   and    PTA.ENT_NUMERO_PROSA_ADQ    IN  ("+params["adq"]+")    ";
+ } 
+this.queryText+="  AND PTA.TLI_NUMERO          IN (60) "+
+"  GROUP BY"+
+"        lpad(PTA.ENT_NUMERO_PROSA_ADQ,5,' ') || ' ' || rpad(PEA.DESCRIPCION,30,' ')";]]></method>
+            <property name="dataSource">Data Source</property>
+            <xml-property name="queryText"><![CDATA[select 
+from ]]></xml-property>
         </oda-data-set>
     </data-sets>
     <styles>
@@ -326,7 +361,7 @@ from </property>
 if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">''</expression>
                             </image>
@@ -599,21 +634,21 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">''</expression>
                     </image>
                 </cell>
             </row>
             <row id="2034">
-                <property name="height">2.1in</property>
                 <property name="textAlign">center</property>
                 <property name="verticalAlign">middle</property>
+                <property name="height">2.1in</property>
                 <cell id="2035">
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">reports/images/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>
@@ -840,43 +875,43 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">Corresponsal</property>
-                                <property name="displayName">Corresponsal</property>
+                                <text-property name="displayName">Corresponsal</text-property>
                                 <expression name="expression">row["CORRESPONSAL"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">Tx</property>
-                                <property name="displayName">Tx</property>
+                                <text-property name="displayName">Tx</text-property>
                                 <expression name="expression">row["DBNUMSTRX"]</expression>
                                 <property name="dataType">integer</property>
                             </structure>
                             <structure>
                                 <property name="name">ImpPag</property>
-                                <property name="displayName">ImpPag</property>
+                                <text-property name="displayName">ImpPag</text-property>
                                 <expression name="expression">row["DBIMPSTRX"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">ImpCom</property>
-                                <property name="displayName">ImpCom</property>
+                                <text-property name="displayName">ImpCom</text-property>
                                 <expression name="expression">row["DBCOMSTRX"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">Iva</property>
-                                <property name="displayName">Iva</property>
+                                <text-property name="displayName">Iva</text-property>
                                 <expression name="expression">row["DBIVASTRX"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">TotCob</property>
-                                <property name="displayName">TotCob</property>
+                                <text-property name="displayName">TotCob</text-property>
                                 <expression name="expression">row["TOTAL_COBRAR"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">01</property>
-                                <property name="displayName">01</property>
+                                <text-property name="displayName">01</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -888,7 +923,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">02</property>
-                                <property name="displayName">02</property>
+                                <text-property name="displayName">02</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -900,7 +935,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">03</property>
-                                <property name="displayName">03</property>
+                                <text-property name="displayName">03</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -912,7 +947,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">04</property>
-                                <property name="displayName">04</property>
+                                <text-property name="displayName">04</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -924,7 +959,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">05</property>
-                                <property name="displayName">05</property>
+                                <text-property name="displayName">05</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -935,24 +970,25 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                                 </list-property>
                             </structure>
                         </list-property>
+                        <property name="pageBreakInterval">50</property>
                         <column id="2772">
                             <property name="textAlign">left</property>
                         </column>
                         <column id="2773">
-                            <property name="width">1.1354166666666667in</property>
                             <property name="textAlign">left</property>
+                            <property name="width">1.1354166666666667in</property>
                         </column>
                         <column id="2774">
-                            <property name="width">1.6145833333333333in</property>
                             <property name="textAlign">left</property>
+                            <property name="width">1.6145833333333333in</property>
                         </column>
                         <column id="2777">
-                            <property name="width">1.4583333333333333in</property>
                             <property name="textAlign">left</property>
+                            <property name="width">1.4583333333333333in</property>
                         </column>
                         <column id="2779">
-                            <property name="width">1.625in</property>
                             <property name="textAlign">left</property>
+                            <property name="width">1.625in</property>
                         </column>
                         <column id="2926">
                             <property name="textAlign">left</property>

@@ -3,7 +3,9 @@ package com.prosa.obj;
 public interface ReportParams {
 	
 	String RANGO_FECHA_INI = "initDate";
+	String init_Date_Hab_Ant = "initDateHabAnt";
 	String RANGO_FECHA_FIN = "endDate";
+	String end_Date_Hab_Ant = "endDateHabAnt";
 	String RANGO_FECHA_INI_ORIG = "initDateOrig";
 	String RANGO_FECHA_FIN_ORIG = "endDateOrig";
 	String BANCO = "banco";
@@ -37,6 +39,8 @@ public interface ReportParams {
 	String ARCHIVO = "archivo";
 	String BIN = "bin";
 	String MONEDA = "moneda";
+	String INIT_DATE_ANT_HAB = "initDateAntHab";
+	String END_DATE_ANT_HAB = "endDateAntHab";
 	
 	//---- Parametros Jasper
 	String NUM_FIID = "numFiid";

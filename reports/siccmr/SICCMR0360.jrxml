@@ -12,7 +12,7 @@
 		<defaultValueExpression><![CDATA["26/11/2021"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="ejecuto" class="java.lang.String">
-		<defaultValueExpression><![CDATA["MNREYES"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["Proceso batch"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="logo" class="java.awt.Image" isForPrompting="false"/>
 	<parameter name="camara" class="java.lang.String">

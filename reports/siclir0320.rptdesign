@@ -1,51 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.17" id="1">
     <property name="createdBy">MyEclipse Report Designer Version 1.0</property>
     <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
-    <list-property name="propertyBindings">
-        <structure>
-            <property name="name">odaDriverClass</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaURL</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
-        </structure>
-        <structure>
-            <property name="name">odaUser</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbUser"].value</expression>
-        </structure>
-        <structure>
-            <property name="name">odaAutoCommit</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaIsolationMode</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure/>
-        <structure>
-            <property name="name">odaJndiName</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileName</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileStorePath</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaPassword</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbPswd"].value</expression>
-        </structure>
-    </list-property>
     <text-property name="displayName">Blank Report</text-property>
     <property name="iconFile">/templates/blank_report.gif</property>
     <parameters>
@@ -76,7 +34,7 @@
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">ggonzalez</property>
+            <property name="defaultValue">Proceso batch</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -137,87 +95,11 @@
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <scalar-parameter name="dbHost" id="6426">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbUser" id="6427">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbPswd" id="6428">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbPort" id="6429">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbName" id="6430">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
     </parameters>
     <data-sources>
-        <!-- oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
-        </oda-data-source-->
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
-            <list-property name="privateDriverProperties">
-                <ex-property>
-                    <name>contentBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-                <ex-property>
-                    <name>disabledContentBidiFormatStr</name>
-                </ex-property>
-                <ex-property>
-                    <name>disabledMetadataBidiFormatStr</name>
-                </ex-property>
-                <ex-property>
-                    <name>metadataBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-            </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -289,78 +171,13 @@
             <property name="rowFetchLimit">800</property>
             <property name="dataSource">Data Source</property>
             <method name="beforeOpen"><![CDATA[this.queryText=
-//
-//-----------------------------------------------------------------------------
-//--Autor               : Ascencion Hernandez Huerta                         --
-//--Compania            : AXIA CONSULTORES, S.A. DE C.V.                     --
-//--Proyecto/Procliente : P-60-2646-14                      Fecha: 24/06/2015--
-//--Descripcion General : Incorporacion de Consubanco a Corresponsales con   --
-//--                    : Chedraui                                           --
-//--Modificacion        : Adquirente Chedrahui Emisor Consubanco             --
-//--Marca Del Cambio    : AXIA-AHH-P-60-2646-14                    24/06/2015--
-//-----------------------------------------------------------------------------
-//--Modificacion        : Mejoras en reporteador                             --
-//--Marca Del Cambio    : WELL-D-52-8122-17                        28/06/2017--
-//-----------------------------------------------------------------------------
-//--Autor               : Ascencion Hernandez Huerta                         --
-//--Compania            : AXIA CONSULTORES, S.A. DE C.V.                     --
-//--Proyecto/Procliente : F-52-8117-18                      Fecha: 09/01/2019--
-//--Descripcion General : Correccion al reporte SICLIR0320                   --
-//--Modificacion        : Ajuste para mostrar solamente un banco en multiples--
-//--Marca Del Cambio    : AXIA-AHH-F-52-8117-18                    09/01/2019--
-//-----------------------------------------------------------------------------
-//--Autor               : Ascencion Hernandez Huerta                         --
-//--Compania            : AXIA CONSULTORES, S.A. DE C.V.                     --
-//--Proyecto/Procliente : P-20-5766-17                      Fecha: 31/08/2019--
-//--Descripcion General : Ajuste Visualizar corresponsales.                  --
-//--Modificacion        : Incorporacion de Afirme al esquema de corresponsales-
-//--                    : Oxxo.                                              --
-//--Marca Del Cambio    : AXIA-AHH-P-20-5766-17                    31/08/2019--
-//-----------------------------------------------------------------------------
-//--Compania            : AXIA CONSULTORES, S.A. DE C.V.                     --
-//--Proyecto/Procliente : C-20-5337-18                      Fecha: 02/08/2019--
-//--Descripcion General : Excluir en liquidacion 6 y 16 entidades 7, 38 y 39 --
-//--Modificacion        : Cambiar el proceso de la liquidacion Internacional --
-//--                    : Visa y MC                                          --
-//--Marca Del Cambio    : AXIA-AHH-C-20-5337-18                    02/08/2019--
-//-----------------------------------------------------------------------------
-//--Autor               : Kata Ling Mendoza Flores                           --
-//--Compania            : WELLCOM S.A. DE C.V.                               --
-//--Proyecto/Procliente : D-62-9738-19                     Fecha: 02/12/2019 --
-//--Descripcion General : Separación de liquidaciones 					     --
-//--Modificacion        : Separación de liquidaciones                        --
-//--Marca Del Cambio    : WELLCOM-KMF-D-62-9738-19                           --
-//-----------------------------------------------------------------------------
-//--Compania            : WELLCOM S.A. DE C.V.			                     --
-//--Proyecto/Procliente : P-23-5183-18                      Fecha: 25/11/2019--
-//--Descripcion General : Incluir liquidacion DISCOVER						 --
-//--Modificacion        : Incluir liquidacion Discover						 --
-//--Marca Del Cambio    : WELLCOM-P-23-5183-18                    25/11/2019--
-//-----------------------------------------------------------------------------
-//--Autor               : Gerardo G. Burguete                                --
-//--Compania            : AXIA Consultores S.A. de C.V.                      --
-//--Proyecto/Procliente : N-77-5012-20                      Fecha: 24/05/2020--
-//--Descripcion General : Instalación y Certificación de MasterCard como     --
-//--                    : Cámara  de Compensación                            --
-//--Modificacion        : Excluir archivos de camara Mastercard              --
-//--Marca del Cambio    : Axia-GGB-N-77-5012-20                              --
-//-----------------------------------------------------------------------------
-//--Compania            : WELLCOM S.A. DE C.V.			                     --
-//--Autor               : German Gonzalez Esquivel                           --
-//--Proyecto/Procliente : P-23-5183-18                      Fecha: 13/10/2022--
-//--Descripcion General : Incluir liquidacion DISCOVER						 --
-//--Modificacion        : Incluir liquidacion Discover						 --
-//--Marca Del Cambio    : WELLGGE-P-23-5183-18.D91                 13/10/2022--
-//-----------------------------------------------------------------------------
-//-Marca del Cambio : Axia-GGB-N-77-5012-20 Inicia  la Modificacion 24/05/2020-
-//-----------------------------------------------------------------------------
-//
-//" -- 320 NUEVO "+
+/*
+# Autor               :  Gerardo Lopez Carreno                                  #
+# Compania            :  SAS S.A. DE C.V.           	                        #
+# Proyecto/Procliente :  C-24-1644-22                 Fecha: 28/04/2023         #
+#-----------------------------------------------------------------------------  #
+*/
 " SELECT DATOS2.ENTIDAD_PADRE "+
-// INICIO INTEGRACION LIQ 15 HUB DE PAGOS SAS-JPM P-06-0527-12 16/01/2015
-// Inicia marca de cambio WELL-D-52-8122-17 28/06/2017
-// INICIA CORRESPONSAL
-//"       ,(SELECT PE.DESCRIPCION FROM PMADMIN.PRSA_ENTIDADES PE WHERE DECODE(DATOS2.ENTIDAD_PADRE,131,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE) = DATOS2.ENTIDAD_PADRE AND ROWNUM = 1) NOMBRE "+
 "       ,(SELECT PE.DESCRIPCION FROM PMADMIN.PRSA_ENTIDADES PE WHERE DECODE(DATOS2.ENTIDAD_PADRE,131,PE.NUMERO_PROSA,2,PE.NUMERO_PROSA,82,PE.NUMERO_PROSA,92,PE.NUMERO_PROSA,PE.ENTIDAD_PADRE) = DATOS2.ENTIDAD_PADRE AND ROWNUM = 1) NOMBRE "+
 "       ,ROUND(SUM(DATOS2.CIRCUITO_LOCAL),2) CIRCUITO_LOCAL "+
 "       ,ROUND(SUM(DATOS2.INTRREDES),2) INTRREDES "+
@@ -371,14 +188,7 @@
 "       ,ROUND(SUM(DATOS2.SALIENTE),2) SALIENTE "+
 "       ,ROUND(SUM(DATOS2.SALIENTE_MC),2) SALIENTE_MC "+
 "       ,ROUND(SUM(DATOS2.CORRESPONSAL),2) CORRESPONSAL "+
-// FIN CORRESPONSAL
-// Fin marca de cambio WELL-D-52-8122-17 28/06/2017
-// FIN INTEGRACION LIQ 15 HUB DE PAGOS SAS-JPM P-06-0527-12 16/01/2015
-/* INICIA MODIFICACION WELLGGE-P-23-5183-18.D91 13/10/2022*/
-// INICIA marca de cambio WELL-P-23-5183-18 
 "       ,-1*ROUND(SUM(DATOS2.DISCOVER),2) DISCOVER  "+
-// FIN marca de cambio  WELL-P-23-5183-18 
-/* FIN MODIFICACION WELLGGE-P-23-5183-18.D91 13/10/2022*/
 " FROM ( "+
 " SELECT (SELECT DECODE(DATOS.ENTIDAD,131,DATOS.ENTIDAD,82,DATOS.ENTIDAD,92,DATOS.ENTIDAD,PE.ENTIDAD_PADRE) FROM PMADMIN.PRSA_ENTIDADES PE WHERE PE.NUMERO_PROSA = DATOS.ENTIDAD AND ROWNUM = 1) ENTIDAD_PADRE "+
 "       ,SUM(CASE  "+
@@ -413,21 +223,15 @@
 "             WHEN DATOS.LIQ IN(50) THEN DATOS.NETO "+
 "             ELSE 0 "+
 "        END) SALIENTE_MC "+
-// INICIA CORRESPONSAL
 "       ,SUM(CASE  "+
 "             WHEN DATOS.LIQ = 60 THEN DATOS.NETO "+
 "             ELSE 0 "+
 "        END) CORRESPONSAL "+
-// FIN CORRESPONSAL
-// INICIA marca de cambio WELL-P-23-5183-18 
 "       ,SUM(CASE   "+
 "             WHEN DATOS.LIQ = 65 THEN DATOS.NETO  "+
 "             ELSE 0  "+
 "        END) DISCOVER  "+
-// FIN marca de cambio  WELL-P-23-5183-18 
-// Inicio Marca Cambio WELLCOM-KMF-D-62-9738-19
 " FROM( "+
-//" -- INICIA LIQUIDACION ENTRANTE "+
 " SELECT ENTRANTE.LIQ, ENTRANTE.ENTIDAD_PADRE ENTIDAD, ENTRANTE.TTR, "+
 "        CASE "+
 "          WHEN ENTRANTE.TTR IN (19,20,21) THEN -SUM(IMPORTE) "+
@@ -513,9 +317,7 @@
 "  PE2.NUMERO_PROSA, PP.TIPO_TARJETA, PP.TTR_NUMERO, PP.TLI_NUMERO "+
 " )ENTRANTE "+
 " GROUP BY ENTRANTE.ENTIDAD_PADRE, ENTRANTE.TTR, ENTRANTE.LIQ "+
-//" -- TERMINA LIQUIDACION ENTRANTE "+
 " UNION ALL "+
-//" -- INICIA LIQUIDACION CIRCUITO LOCAL "+
 " SELECT CIRCUITO_LOCAL.LIQ "+
 "       ,CIRCUITO_LOCAL.ENTIDAD "+
 "       ,CIRCUITO_LOCAL.TTR "+
@@ -664,9 +466,7 @@
 " GROUP BY CIRCUITO_LOCAL.LIQ "+
 "       ,CIRCUITO_LOCAL.ENTIDAD "+
 "       ,CIRCUITO_LOCAL.TTR "+
-//" -- FIN LIQUIDACION CIRCUITO LOCAL "+
 " UNION ALL  "+
-//" -- INICIA CAMBIO DE SALIENTE "+
 " SELECT SALIENTE.LIQ "+
 "       ,SALIENTE.ENTIDAD_PADRE "+
 "       ,SALIENTE.TTR "+
@@ -918,24 +718,6 @@
 "            WHEN PTS.PTS_NSI_CLR_ID = 33 THEN 3 "+
 "            ELSE 50 "+ 
 "          END "+
-//"-- SELECT PP.TLI_NUMERO LIQ, "+
-//"--        PP.ENT_NUMERO_PROSA_EMI ENTIDAD_PADRE, "+
-//"--        PP.ENT_NUMERO_PROSA_EMI HIJA, "+
-//"--        PP.TTR_NUMERO TTR, "+
-//"--        'MISCELANEOS (A FAVOR)' DESCRIPCION, "+
-//"--        'X' TT, "+
-//"--        -SUM(PP.TOTAL_IMPORTE) IMPORTE, "+
-//"--        0 COMISION, "+
-//"--        0 IVA "+
-//"-- FROM PMADMIN.PRSA_POSICIONES PP "+
-//"-- WHERE PP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-//"-- AND PP.TTR_NUMERO = 10 "+
-//"-- AND STTR_NUMERO IS NOT NULL "+
-//"-- AND PP.ENT_NUMERO_PROSA_EMI NOT IN (97,96,95) "+
-//"-- AND PP.TLI_NUMERO IN (3) "+
-//"-- GROUP BY PP.TLI_NUMERO, "+
-//"--          ENT_NUMERO_PROSA_EMI, "+
-//"--          TTR_NUMERO "+
 " ) MS "+
 " GROUP BY MS.LIQ "+
 "       ,MS.ENTIDAD_PADRE "+
@@ -946,8 +728,6 @@
 " GROUP BY SALIENTE.LIQ "+
 "       ,SALIENTE.ENTIDAD_PADRE "+
 "       ,SALIENTE.TTR ";
-//" -- FIN CAMBIO DE SALIENTE "+
-//Empieza separacion de liquidaciones
 var liq = params["tipoLiq"].split(",");
 for(var j = 0; j < liq.length ; j++){
 if(liq[j]=="26" ){
@@ -956,12 +736,10 @@ this.queryText+=
 " UNION ALL ";
 }
 this.queryText+=
-//" -- CAMBIO INTERREDES REDONDEO "+
 " SELECT 5 LIQ "+
 "       ,INTERREDES.ENTIDAD_PADRE ENTIDAD"+
 "       ,INTERREDES.TTR "+
 "       ,SUM(INTERREDES.IMPORTE+INTERREDES.COMISION+INTERREDES.IVA) NETO "+
-// Fin Marca Cambio WELLCOM-KMF-D-62-9738-19
 " FROM ( "+
 " SELECT PP.TLI_NUMERO LIQ "+
 "       ,PE.ENTIDAD_PADRE "+
@@ -985,10 +763,8 @@ this.queryText+=
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
 "     ON PE.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_EMI "+
 "     AND PE.TIE_NUMERO = 1 "+
-//" -- INICIO CAMBIO PARA CUANDRE DE CENTAVOS AGRUPACION POR INTERRED 07/08/2012 "+
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PE1 "+
 "     ON PE1.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_ADQ "+
-//" -- FIN CAMBIO PARA CUANDRE DE CENTAVOS AGRUPACION POR INTERRED 07/08/2012 "+
 " WHERE ((PP.FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') AND PP.TTR_NUMERO NOT IN (20,40)) "+
 "         OR "+
 "        (PP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') AND PP.TTR_NUMERO IN (20,40))  "+
@@ -1004,9 +780,7 @@ this.queryText+=
 "             ELSE 0 "+
 "          END "+
 "         ,PP.TTR_NUMERO "+
-//" -- INICIO CAMBIO PARA CUANDRE DE CENTAVOS AGRUPACION POR INTERRED 07/08/2012 "+
 " 		  ,PE1.ENTIDAD_PADRE "+
-//" -- FIN CAMBIO PARA CUANDRE DE CENTAVOS AGRUPACION POR INTERRED 07/08/2012 "+
 " UNION ALL "+
 " SELECT PF.TLI_NUMERO LIQ "+
 "       ,PE.ENTIDAD_PADRE "+
@@ -1054,12 +828,7 @@ this.queryText+=
 "             WHEN INTERREDES.TTR = 40 THEN 'REVERSA DE PAGOS INTERREDES' "+
 "        END "+
 "       ,INTERREDES.ENTIDAD_PADRE "+
-// Inicio Marca Cambio WELLCOM-KMF-D-62-9738-19
 "       ,INTERREDES.TTR  ";
-// Fin Marca Cambio WELLCOM-KMF-D-62-9738-19
-//" -- FIN CAMBIO INTERREDES REDONDEO "+
-//"-- INICIO INTEGRACION LIQ 15 HUB DE PAGOS SAS-JPM P-06-0527-12 16/01/2015"
-// Inicio Marca Cambio WELLCOM-KMF-D-62-9738-19
 }else if(liq[j]=="15" ){
 if(this.queryText.contains("UNION ALL")){
 this.queryText+=
@@ -1070,7 +839,6 @@ this.queryText+=
 "       ,HUBESPECIALES.ENTIDAD_PADRE ENTIDAD "+
 "       ,HUBESPECIALES.TTR "+
 "       ,SUM(HUBESPECIALES.IMPORTE+HUBESPECIALES.COMISION+HUBESPECIALES.IVA) NETO "+
-// Fin Marca Cambio WELLCOM-KMF-D-62-9738-19
 " FROM ( "+
 " SELECT PP.TLI_NUMERO LIQ "+
 "       ,PE.ENTIDAD_PADRE "+
@@ -1090,11 +858,11 @@ this.queryText+=
 "             WHEN PP.TOT_TXS_CASHB != 0 THEN -PP.TOT_IVA_TARIFA_CASHB "+
 "             ELSE -PP.IVA_COMISION_COMERCIO "+
 "        END),2) IVA "+
-" FROM CHP.TBL_CHP_POSICIONES@LG_PMTU_PMTWEB_SCP_CHP PP "+
-" INNER JOIN HUB.TBL_HUB_ENTIDADES@LG_PMTU_PMTWEB_PWS_HUB PE "+
+" FROM CHP.TBL_CHP_POSICIONES@LG_PMTU_OPS$PMTEXE_SCP_CHP PP "+
+" INNER JOIN HUB.TBL_HUB_ENTIDADES@LG_PMTU_OPS$PMTEXE_PWS_HUB PE "+
 "     ON PE.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_EMI "+
 "     AND PE.TIE_NUMERO = 1 "+
-" INNER JOIN HUB.TBL_HUB_ENTIDADES@LG_PMTU_PMTWEB_PWS_HUB PE1 "+
+" INNER JOIN HUB.TBL_HUB_ENTIDADES@LG_PMTU_OPS$PMTEXE_PWS_HUB PE1 "+
 "     ON PE1.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_ADQ "+
 " WHERE ((PP.FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') AND PP.TTR_NUMERO NOT IN (20,40)) "+
 "         OR "+
@@ -1119,8 +887,8 @@ this.queryText+=
 "       ,0 IMPORTE "+
 "       ,ROUND(SUM(PF.TOT_COM_EMISOR),2) COMISION "+
 "       ,ROUND(SUM(PF.TOT_IVA_EMISOR),2) IVA "+
-" FROM CHP.TBL_CHP_POSICIONES_FINALES@LG_PMTU_PMTWEB_SCP_CHP PF "+
-"     INNER JOIN HUB.TBL_HUB_ENTIDADES@LG_PMTU_PMTWEB_PWS_HUB PE "+
+" FROM CHP.TBL_CHP_POSICIONES_FINALES@LG_PMTU_OPS$PMTEXE_SCP_CHP PF "+
+"     INNER JOIN HUB.TBL_HUB_ENTIDADES@LG_PMTU_OPS$PMTEXE_PWS_HUB PE "+
 "         ON PF.ENT_NUMERO_PROSA = PE.NUMERO_PROSA "+
 " WHERE PF.TTR_NUMERO IN (1) "+
 "       AND PF.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','dd-MM-yyyy') and TO_DATE('"+params["endDate"]+"','dd-MM-yyyy') "+
@@ -1137,8 +905,8 @@ this.queryText+=
 "       ,SUM(PP.TOTAL_IMPORTE) IMPORTE "+
 "       ,-ROUND(SUM(PP.IMPORTE_COMISION_COMERCIO),2) COMIMSION "+
 "       ,-ROUND(SUM(PP.IVA_COMISION_COMERCIO),2) IVA "+
-" FROM CHP.TBL_CHP_POSICIONES@LG_PMTU_PMTWEB_SCP_CHP PP "+
-" INNER JOIN HUB.TBL_HUB_ENTIDADES@LG_PMTU_PMTWEB_PWS_HUB PE "+
+" FROM CHP.TBL_CHP_POSICIONES@LG_PMTU_OPS$PMTEXE_SCP_CHP PP "+
+" INNER JOIN HUB.TBL_HUB_ENTIDADES@LG_PMTU_OPS$PMTEXE_PWS_HUB PE "+
 "     ON PE.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_ADQ "+
 " WHERE PP.FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
 " AND PP.TLI_NUMERO = 15 "+
@@ -1158,26 +926,17 @@ this.queryText+=
 "             WHEN HUBESPECIALES.TTR = 40 THEN 'REVERSA DE PAGOS INTERREDES' "+
 "        END "+
 "       ,HUBESPECIALES.ENTIDAD_PADRE "+
-// Inicio Marca Cambio WELLCOM-KMF-D-62-9738-19
 "       ,HUBESPECIALES.TTR ";
-// Fin Marca Cambio WELLCOM-KMF-D-62-9738-19
-//"-- FIN INTEGRACION LIQ 15 HUB DE PAGOS SAS-JPM P-06-0527-12 16/01/2015 "+
-//----------------------------------------------------------------------------//
-// Marca del Cambio: AXIA-AHH-C-20-5337-18 Inicia  la Modificacion 02/08/2019 //
-//----------------------------------------------------------------------------//
-// Inicio Marca Cambio WELLCOM-KMF-D-62-9738-19
 }else if(liq[j]=="6"){
 if(this.queryText.contains("UNION ALL")){
 this.queryText+=
 " UNION ALL ";
 }
 this.queryText+=
-//" -- INICIA VISA "+
 " SELECT 6 LIQ  "+
 "       ,a.ENTIDAD ENTIDAD "+
 "       ,a.TTR TTR "+
 "       ,SUM(a.IMPORTE) NETO  "+
-// Fin Marca Cambio WELLCOM-KMF-D-62-9738-19
 "   FROM (  "+
 " SELECT  S.TLI_NUMERO LIQ  "+
 "        ,E.ENT_NUMERO_PROSA ENTIDAD  "+
@@ -1214,23 +973,7 @@ this.queryText+=
 " ) a  "+
 " GROUP  "+
 "    BY  a.ENTIDAD  "+
-// Inicio Marca Cambio WELLCOM-KMF-D-62-9738-19
 "       ,a.TTR  ";
-// Fin Marca Cambio WELLCOM-KMF-D-62-9738-19
-//" -- TERMINA VISA "+
-//----------------------------------------------------------------------------//
-// Marca del Cambio: AXIA-AHH-C-20-5337-18 Termina la Modificacion 02/08/2019 //
-//----------------------------------------------------------------------------//
-// Inicio Marca Cambio WELLCOM-KMF-D-62-9738-19
-//----------------------------------------------------------------------------//
-// Marca del Cambio: AXIA-AHH-P-20-5766-17 Inicia  la Modificacion 31/08/2019 //
-//----------------------------------------------------------------------------//
-// Marca del Cambio: AXIA-AHH-F-52-8117-18 Inicia  la Modificacion 09/01/2019 //
-//----------------------------------------------------------------------------//
-// Marca del Cambio: AXIA-AHH-P-60-2646-14 Inicia  la Modificacion 24/06/2015 //
-//----------------------------------------------------------------------------//
-//INICIA LIQUIDACION CORRESPONSAL                                             //
-// Inicio Marca Cambio WELLCOM-KMF-D-62-9738-19
 }else if(liq[j]=="60"){
 if(this.queryText.contains("UNION ALL")){
 this.queryText+=
@@ -1241,13 +984,12 @@ this.queryText+=
 "       ,CORRESPONSAL.ENTIDAD_PADRE ENTIDAD"+
 "       ,CORRESPONSAL.TTR "+
 "       ,CORRESPONSAL.IMPORTE NETO "+
-// Fin Marca Cambio WELLCOM-KMF-D-62-9738-19
 " FROM ( "+
 " SELECT PTA.TLI_NUMERO LIQ "+
 "       ,DECODE(PEA.ENTIDAD_PADRE,58,82,PEA.ENTIDAD_PADRE ) ENTIDAD_PADRE "+
 "       ,PTA.TTR_NUMERO TTR "+
 "       ,SUM(PTA.TOTAL_IMPORTE-PTA.IMP_SOBRETASA-PTA.IMP_IVA_SOBRETASA) IMPORTE "+
-"  FROM SSP.PRSA_POSICIONES@LG_PMTU_PMTWEB_IFO2_SSP PTA "+
+"  FROM SSP.PRSA_POSICIONES@LG_PMTU_OPS$PMTEXE_IFOG1_SSP PTA "+
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PEA "+
 "    ON PEA.NUMERO_PROSA  = PTA.ENT_NUMERO_PROSA_ADQ "+
 " WHERE PTA.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
@@ -1261,7 +1003,7 @@ this.queryText+=
 "       ,31 ENTIDAD_PADRE "+
 "       ,PTA.TTR_NUMERO TTR "+
 "       ,-SUM(PTA.IMPORTE_COMISION_COMERCIO+PTA.IVA_COMISION_COMERCIO) IMPORTE "+
-"  FROM SSP.PRSA_POSICIONES@LG_PMTU_PMTWEB_IFO2_SSP PTA "+
+"  FROM SSP.PRSA_POSICIONES@LG_PMTU_OPS$PMTEXE_IFOG1_SSP PTA "+
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PEA "+
 "    ON PEA.NUMERO_PROSA  = PTA.ENT_NUMERO_PROSA_ADQ "+
 " WHERE PTA.TLI_NUMERO   = 60 "+
@@ -1275,7 +1017,7 @@ this.queryText+=
 "       ,DECODE(PEE.ENTIDAD_PADRE,58,82,PEE.ENTIDAD_PADRE ) ENTIDAD_PADRE "+
 "       ,PTA.TTR_NUMERO TTR "+
 "       ,-SUM(PTA.TOTAL_IMPORTE-PTA.TOT_IMPORTE_CASHB-PTA.TOT_IVA_TARIFA_CASHB) IMPORTE "+
-"  FROM SSP.PRSA_POSICIONES@LG_PMTU_PMTWEB_IFO2_SSP PTA "+
+"  FROM SSP.PRSA_POSICIONES@LG_PMTU_OPS$PMTEXE_IFOG1_SSP PTA "+
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PEE "+
 "    ON PEE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI"+
 " WHERE PTA.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
@@ -1284,24 +1026,19 @@ this.queryText+=
 " GROUP BY PTA.TLI_NUMERO "+
 "       ,PEE.ENTIDAD_PADRE "+
 "       ,PTA.TTR_NUMERO "+
-// Inicio Marca Cambio WELLCOM-KMF-D-62-9738-19
 " ) CORRESPONSAL ";
-//FIN LIQUIDACION CORRESPONSAL
-// INICIA marca de cambio WELL-P-23-5183-18 
-//termina Corresponsales
 }else if(liq[j]=="65"){
 if(this.queryText.contains("UNION ALL")){
 this.queryText+=
 " UNION ALL ";
 }
-/* INICIA MODIFICACION WELLGGE-P-23-5183-18.D81 03-05-2022 */
 this.queryText+= 
 " SELECT TGP.PFI_TLI_NUMERO LIQ "+
 "       ,TDE.ENT_NUM_PROSA_PAD ENTIDAD_PADRE "+
 "       ,0 TTR "+
 "       ,ROUND(SUM(TGP.PFI_TOT_ORG_CRY_AMT),2)+ROUND(SUM(TGP.PFI_TOT_INT_AMT_ASS*TGP.PFI_TOT_ORG_CRY_CNV_AMT),2)+ROUND(SUM(TGP.PFI_TOT_INT_AMT_ASS*TGP.PFI_TOT_ORG_CRY_CNV_AMT)*(SELECT PP_VALOR FROM PMADMIN.PRSA_PARAMETROS WHERE PP_ID_PARAMETRO = 'IVA_PARM    '),2) IMPORTE "+
-" FROM DGN.TBL_DGN_POS_FINALES@LG_PMTU_PMTWEB_IFO2_DGN TGP "+
-" INNER JOIN DGN.TBL_DGN_ENTITY@LG_PMTU_PMTWEB_IFO2_DGN TDE "+
+" FROM DGN.TBL_DGN_POS_FINALES@LG_PMTU_OPS$PMTEXE_IFOD_DGN TGP "+
+" INNER JOIN DGN.TBL_DGN_ENTITY@LG_PMTU_OPS$PMTEXE_IFOD_DGN TDE "+
 "     ON TGP.PFI_ENT_NUM_PROSA = TDE.ENT_NUMERO_PROSA "+
 " WHERE TGP.PFI_TLI_NUMERO = 65 "+
 " AND TGP.PFI_FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
@@ -1309,28 +1046,14 @@ this.queryText+=
 "       ,TDE.ENT_NUM_PROSA_PAD "+
 "       ,TGP.PFI_ENT_NUM_PROSA "+
 "       ,TDE.ENT_NOMBRE ";
-/* FIN MODIFICACION WELLGGE-P-23-5183-18.D81 03-05-2022 */
-}//Termina Discover
-// FIN marca de cambio  WELL-P-23-5183-18
-}//fin del for
-// termina separacion de liquidaciones
+}}
 this.queryText+=
-// Fin Marca Cambio WELLCOM-KMF-D-62-9738-19
 " ) DATOS "+
 " WHERE DECODE(DATOS.LIQ,1,22,2,32,3,33,5,26,6,6,DATOS.LIQ) IN ("+params["tipoLiq"]+") "+
 " GROUP BY DATOS.ENTIDAD "+
 " ORDER BY 1 "+
 " ) DATOS2 "+
 " GROUP BY DATOS2.ENTIDAD_PADRE "+
-//*---------------------------------------------------------------------------*/
-//*Marca del Cambio : Axia-GGB-N-77-5012-20 Termina la Modificacion 24/05/2020*/
-//----------------------------------------------------------------------------//
-// Marca del Cambio: AXIA-AHH-P-60-2646-14 Termina la Modificacion 24/06/2015 //
-//----------------------------------------------------------------------------//
-// Marca del Cambio: AXIA-AHH-F-52-8117-18 Termina la Modificacion 09/01/2019 //
-//----------------------------------------------------------------------------//
-// Marca del Cambio: AXIA-AHH-P-20-5766-17 Termina la Modificacion 31/08/2019 //
-//----------------------------------------------------------------------------//
 " ORDER BY 1 ";]]></method>
             <list-property name="resultSet">
                 <structure>
@@ -1446,19 +1169,6 @@ from </property>
             </structure>
             <property name="dataSource">Data Source</property>
             <method name="beforeOpen"><![CDATA[this.queryText=
-//-----------------------------------------------------------------------------
-//--Autor               : Gerardo G. Burguete                                --
-//--Compania            : AXIA Consultores S.A. de C.V.                      --
-//--Proyecto/Procliente : N-77-5012-20                      Fecha: 24/05/2020--
-//--Descripcion General : Instalación y Certificación de MasterCard como     --
-//--                    : Cámara  de Compensación                            --
-//--Modificacion        : Excluir archivos de camara Mastercard              --
-//--Marca del Cambio    : Axia-GGB-N-77-5012-20                              --
-//-----------------------------------------------------------------------------
-//-Marca del Cambio : Axia-GGB-N-77-5012-20 Inicia  la Modificacion 24/05/2020-
-//-----------------------------------------------------------------------------
-//"-- NUEVO 320 ABAJO GENERAL "+
-
 " SELECT cm.CAMARA " +
 "       ,cm.DESCRIPCION " +
 "       ,TABLA.ENTIDAD "+
@@ -1472,7 +1182,6 @@ from </property>
 "             ELSE 0 "+
 "        END) SALIENTE "+
 " FROM ( "+
-//" -- INICIA ENTRANTE "+
 " SELECT LIQ, ENTIDAD, TTR, SUM(IMP) IMP FROM ( "+
 "  SELECT PP.TLI_NUMERO LIQ "+
 "       ,CASE "+
@@ -1508,7 +1217,6 @@ from </property>
 "       ,PP.ENT_NUMERO_PROSA_ADQ "+
 "       ,PP.FECHA_PROCESO "+
 " UNION ALL "+
-//"  SELECT 2 LIQ "+
 " SELECT CASE  "+
 "           WHEN PRT.PRT_PROSA_ISS_ENTITY IN (95,96,97) THEN 2 "+
 "           ELSE 49 "+
@@ -1576,9 +1284,7 @@ from </property>
 "         ,PTRV_TTR_NUMERO "+
 "         ,PTRV.PTRV_TLI_NUMERO "+
 " ) GROUP BY LIQ, ENTIDAD, TTR "+
-//" -- TERMINA ENTRANTE "+
 " UNION ALL "+
-//" -- INICIA SALIENTE "+
 " SELECT LIQ, ENTIDAD, TTR, SUM(IMP) FROM ( "+
 " SELECT PP.TLI_NUMERO LIQ "+
 "       ,CASE "+
@@ -1602,7 +1308,6 @@ from </property>
 "       ,PP.TIPO_TARJETA "+
 "       ,PP.TLI_NUMERO "+
 " UNION ALL "+
-//"  SELECT TO_NUMBER('3') LIQ "+
 " SELECT CASE "+
 "          WHEN PTRV.PTRV_ENT_NUMERO_PROSA_ADQ IN (95,96,97) THEN 3 "+
 "          ELSE 50 "+
@@ -1648,7 +1353,6 @@ from </property>
 "          ELSE 50 "+
 "        END "+
 " UNION ALL "+
-//" SELECT TO_NUMBER('3') LIQ "+
 " SELECT CASE "+ 
 "          WHEN FMI_NSI_CLR_ID = 33 THEN 3 "+
 "          ELSE 50 "+
@@ -1706,7 +1410,6 @@ from </property>
 "         ELSE 50 "+
 "       END "+
 " UNION ALL "+
-//" SELECT TO_NUMBER('3') LIQ "+
 " SELECT CASE "+ 
 "          WHEN PTS.PTS_NSI_CLR_ID = 33 THEN 3 "+
 "          ELSE 50 "+
@@ -1782,7 +1485,6 @@ from </property>
 "         ELSE 50 "+
 "       END "+
 " ) GROUP BY LIQ, ENTIDAD, TTR "+
-//" --TERMINA SALIENTE "+
 " ) TABLA "+
 "  INNER " +
 "   JOIN PMADMIN.PRSA_ENTIDADES en " +
@@ -1799,9 +1501,6 @@ from </property>
 " ORDER " +
 "    BY cm.CAMARA " +
 "      ,TABLA.ENTIDAD "
-//-----------------------------------------------------------------------------
-//-Marca del Cambio : Axia-GGB-N-77-5012-20 Termina la Modificacion 24/05/2020-
-//-----------------------------------------------------------------------------
 ;]]></method>
             <list-property name="resultSet">
                 <structure>
@@ -1963,7 +1662,7 @@ from </property>
                                 <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">''</expression>
                             </image>
@@ -2317,7 +2016,7 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">''</expression>
                     </image>
@@ -2331,7 +2030,7 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">reports/images/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>

@@ -1,51 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<report xmlns="http://www.eclipse.org/birt/2005/design"  id="1">
+<report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
     <property name="createdBy">MyEclipse Report Designer Version 1.0</property>
     <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
-    <list-property name="propertyBindings">
-        <structure>
-            <property name="name">odaDriverClass</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaURL</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
-        </structure>
-        <structure>
-            <property name="name">odaUser</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbUser"].value</expression>
-        </structure>
-        <structure>
-            <property name="name">odaAutoCommit</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaIsolationMode</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure/>
-        <structure>
-            <property name="name">odaJndiName</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileName</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileStorePath</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaPassword</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbPswd"].value</expression>
-        </structure>
-    </list-property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -106,7 +64,7 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
             <property name="valueType">static</property>
             <property name="dataType">string</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">acastillo</property>
+            <property name="defaultValue">Proceso batch</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
@@ -169,69 +127,10 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <scalar-parameter name="dbHost" id="6426">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbUser" id="6427">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbPswd" id="6428">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbPort" id="6429">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbName" id="6430">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
     </parameters>
     <data-sources>
-        <!-- oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
-        </oda-data-source-->
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
+            <text-property name="displayName"></text-property>
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>contentBidiFormatStr</name>
@@ -249,7 +148,7 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -307,7 +206,7 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
 # Marca del Cambio    :  WELLGGE-T-62-9871-22    07/11/2022                     #
 #-----------------------------------------------------------------------------  #
 */
-if (params["banco"].equals("0")){
+if (params["banco"].equals("0") || params["banco"].equals("T")){
 	var concat ="       ,0 ENT ";
 	var grupo ="";
 	var where ="";
@@ -345,7 +244,7 @@ var rsp2=
 
 this.queryText="";
 
-if (params["banco"].equals("0"))
+if (params["banco"].equals("0") || params["banco"].equals("T"))
 this.queryText+=
 " SELECT SUM(GRUPO.NO_TXN) NO_TXN "+
 "       ,ROUND(SUM(GRUPO.IMPORTE),2) IMPORTE "+
@@ -545,7 +444,7 @@ concat+
 "     AND C.NUMERO_PROSA = B.ENT_NUMERO_PROSA_EMI "+
 "     AND D.NUMERO_PROSA = B.ENT_NUMERO_PROSA_ADQ ";
 
-if (params["banco"].equals("0")){}
+if (params["banco"].equals("0") || params["banco"].equals("T")){}
 else
 	this.queryText+="     AND (C.ENTIDAD_PADRE IN ("+params["banco"]+") or D.ENTIDAD_PADRE IN ("+params["banco"]+")) ";
 
@@ -583,7 +482,7 @@ concat+
 " WHERE FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"', 'DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') "+
 " AND CAMARA_ADQ IN ("+params["camaraEmi"]+") ";
 
-if (params["banco"].equals("0")){}
+if (params["banco"].equals("0") || params["banco"].equals("T")){}
 else
 	this.queryText+="     AND ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+") ";
 
@@ -615,7 +514,7 @@ concat+
 " WHERE FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"', 'DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') "+
 "     AND ((CAMARA_ADQ IN ("+params["camaraEmi"]+") AND CAMARA_EMI IN ("+params["camaraAdq"]+") AND TTR_NUMERO IN (15,16,17,18,19))) ";
 
-if (params["banco"].equals("0")){}
+if (params["banco"].equals("0") || params["banco"].equals("T")){}
 else
 	this.queryText+="     AND ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+") ";
 
@@ -801,7 +700,7 @@ grupo+
 " ) DATOS "+
 " ORDER BY 5,3 ";
 
-if (params["banco"].equals("0"))
+if (params["banco"].equals("0") || params["banco"].equals("T"))
 this.queryText+=
 " ) GRUPO "+
 " GROUP BY GRUPO.CONS "+
@@ -925,7 +824,7 @@ from </property>
                                 <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">''</expression>
                             </image>
@@ -1314,7 +1213,7 @@ else
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">''</expression>
                     </image>
@@ -1328,7 +1227,7 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">reports/images/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>

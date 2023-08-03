@@ -1,51 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
+<report xmlns="http://www.eclipse.org/birt/2005/design" version="3.2.17" id="1">
     <property name="createdBy">Eclipse BIRT Designer Version 2.3.2.r232_20090202 Build &lt;2.3.2.v20090218-0730></property>
     <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
-    <list-property name="propertyBindings">
-        <structure>
-            <property name="name">odaDriverClass</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaURL</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
-        </structure>
-        <structure>
-            <property name="name">odaUser</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbUser"].value</expression>
-        </structure>
-        <structure>
-            <property name="name">odaAutoCommit</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaIsolationMode</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure/>
-        <structure>
-            <property name="name">odaJndiName</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileName</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileStorePath</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaPassword</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbPswd"].value</expression>
-        </structure>
-    </list-property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -80,6 +38,9 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="isRequired">false</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Proceso batch</value>
+            </simple-property-list>
             <property name="controlType">text-box</property>
             <property name="distinct">true</property>
             <structure name="format">
@@ -102,7 +63,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">T</property>
+            <property name="defaultValue">1</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -113,51 +74,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">T</property>
-            <property name="distinct">true</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="bancoAdq" id="2759">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">T</property>
-            <property name="distinct">true</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="bin" id="2759">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">T</property>
-            <property name="distinct">true</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="fuente" id="2760">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">T</property>
-            <property name="distinct">true</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="liquidacion" id="2761">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">T</property>
+            <property name="defaultValue">5</property>
             <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
@@ -185,69 +102,9 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <scalar-parameter name="dbHost" id="6426">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbUser" id="6427">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbPswd" id="6428">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbPort" id="6429">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbName" id="6430">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
     </parameters>
     <data-sources>
-		<!--oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
-        </oda-data-source-->
-        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
+		<oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>contentBidiFormatStr</name>
@@ -265,7 +122,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -320,11 +177,10 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "     ON PE.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_EMI "+
 " INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
 "     ON PTT.NUMERO = PP.TTR_NUMERO "+
-" WHERE PP.ENT_NUMERO_PROSA_EMI IN ("+params["bancoEmi"]+") "+
-if (params["typeTrans"]!="T"){this.queryText+=" AND PP.TTR_NUMERO IN ("+params["typeTrans"]+") "; }
-if (params["bancoAdq"]!="T"){this.queryText+="AND PP.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+")"; }
-if (params["fuente"]!="T"){this.queryText+="AND PP.ARCH_NUMERO IN ("+params["fuente"]+")"; }
-if (params["liquidacion"]!="T"){this.queryText+="AND PP.TLI_NUMERO IN ("+params["liquidacion"]+")"; }
+" WHERE PP.ENT_NUMERO_PROSA_EMI IN ("+params["bancoEmi"]+") ";
+if(params["typeTrans"] == "T"){}else{
+this.queryText+=" AND PP.TTR_NUMERO IN ("+params["typeTrans"]+") ";
+}
 this.queryText+=" AND PP.FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
 " GROUP BY PP.ENT_NUMERO_PROSA_EMI "+
 "       ,PE.DESCRIPCION "+
@@ -375,14 +231,16 @@ this.queryText+=" AND PP.FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"',
 "             WHEN PP.TTR_NUMERO IN (20,21) THEN -(PP.TOTAL_IMPORTE-NVL(PP.IMPORTE_COMISION_INTERCAMB ,0)-NVL(PP.IVA_COMISION_INTERCAMB,0))  "+
 "             ELSE PP.TOTAL_IMPORTE-NVL(PP.IMPORTE_COMISION_INTERCAMB ,0)-NVL(PP.IVA_COMISION_INTERCAMB,0)   "+
 "        END) SIGNO_NETO  "+
-" FROM CHP.TBL_CHP_POSICIONES@LG_PMTU_PMTWEB_SCP_CHP PP  "+
-" INNER JOIN HUB.TBL_HUB_ENTIDADES@LG_PMTU_PMTWEB_PWS_HUB PE  "+
+" FROM CHP.TBL_CHP_POSICIONES@LG_PMTU_OPS$PMTEXE_SCP_CHP PP  "+
+" INNER JOIN HUB.TBL_HUB_ENTIDADES@LG_PMTU_OPS$PMTEXE_PWS_HUB PE  "+
 "     ON PE.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_EMI  "+
 " INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT  "+
 "     ON PTT.NUMERO = PP.TTR_NUMERO  "+
-" WHERE PP.ENT_NUMERO_PROSA_EMI IN ("+params["bancoEmi"]+")"+  
-" AND PP.TTR_NUMERO IN ("+params["typeTrans"]+")"+  
-" AND PP.FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY')"+  
+" WHERE PP.ENT_NUMERO_PROSA_EMI IN ("+params["bancoEmi"]+")";
+if(params["typeTrans"] == "T"){}else{
+this.queryText+=" AND PP.TTR_NUMERO IN ("+params["typeTrans"]+")";
+}  
+this.queryText+=" AND PP.FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY')"+  
 " GROUP BY PP.ENT_NUMERO_PROSA_EMI"+  
 "       ,PE.NOMBRE  "+
 "       ,DECODE(PP.RUTEO,'1','PROSA','2','TSYS','3','VISA','4','MASTERCARD', 'PROSA')"+  
@@ -437,9 +295,15 @@ this.queryText+=" AND PP.FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"',
 "     ON PE.NUMERO_PROSA = PTRV.PTRV_ENT_NUMERO_PROSA_EMI "+
 " LEFT JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
 "     ON PTT.NUMERO = PTRV.PTRV_TTR_NUMERO "+
-" WHERE PTRV.PTRV_ENT_NUMERO_PROSA_EMI IN ("+params["bancoEmi"]+") "+
-" AND PTRV.PTRV_TTR_NUMERO IN ("+params["typeTrans"]+") "+
-" AND PTRV.PTRV_FECHA_PROCESO_TRANSAC BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
+" WHERE PTRV.PTRV_ENT_NUMERO_PROSA_EMI IN ("+params["bancoEmi"]+") ";
+if(params["typeTrans"] == "T"){}else{
+this.queryText+=
+" AND PTRV.PTRV_TTR_NUMERO IN ("+params["typeTrans"]+") ";
+}
+this.queryText+=" AND PTRV.PTRV_FECHA_PROCESO_TRANSAC BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
+" GROUP BY PTRV.PTRV_ENT_NUMERO_PROSA_EMI "+
+"       ,PE.DESCRIPCION "+
+"       ,DECODE(PTRV.PTRV_TTR_NUMERO,NULL,' ** SIN TIPO DE TRX ',PTT.DESCRIPCION) ";" AND PTRV.PTRV_FECHA_PROCESO_TRANSAC BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
 " GROUP BY PTRV.PTRV_ENT_NUMERO_PROSA_EMI "+
 "       ,PE.DESCRIPCION "+
 "       ,DECODE(PTRV.PTRV_TTR_NUMERO,NULL,' ** SIN TIPO DE TRX ',PTT.DESCRIPCION) ";]]></method>
@@ -582,7 +446,7 @@ ORDER BY 1,2,3
                                 <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">if(reportContext.getOutputFormat().equals('html'))
 'http://cvs.prosa.com.mx/comunicados/Carnet_header.jpg'
@@ -933,7 +797,7 @@ else
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">if(reportContext.getOutputFormat().equals('html'))
 'http://cvs.prosa.com.mx/comunicados/Carnet_portada.jpg'
@@ -950,7 +814,7 @@ else
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">http://cvs.prosa.com.mx/comunicados/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>

@@ -1,51 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
-    <property name="createdBy">MyEclipse Report Designer Version 1.0</property>
-    <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.13.0.v202303021806</property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
-    <list-property name="propertyBindings">
-        <structure>
-            <property name="name">odaDriverClass</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaURL</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
-        </structure>
-        <structure>
-            <property name="name">odaUser</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbUser"].value</expression>
-        </structure>
-        <structure>
-            <property name="name">odaAutoCommit</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaIsolationMode</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure/>
-        <structure>
-            <property name="name">odaJndiName</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileName</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileStorePath</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaPassword</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbPswd"].value</expression>
-        </structure>
-    </list-property>
+    <property name="units">in</property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -68,142 +26,112 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);
 reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
     <text-property name="displayName">Blank Report</text-property>
     <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
     <parameters>
         <scalar-parameter name="initDate" id="2283">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">11327</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">11327</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="endDate" id="2284">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">11327</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">11327</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="banco" id="2285">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">3</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">3</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="2342">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Proceso batch</value>
+            </simple-property-list>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">ggonzalez</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="tipo" id="2859">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
             <text-property name="promptText">tipo</text-property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Ambos</value>
+            </simple-property-list>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">Ambos</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="3509">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="3510">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="susparticiones" id="3527">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">susparticiones</text-property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">11326 AND 11326</property>
-            <property name="distinct">true</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbHost" id="6426">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbUser" id="6427">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbPswd" id="6428">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbPort" id="6429">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbName" id="6430">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
+            <simple-property-list name="defaultValue">
+                <value type="constant">11326 AND 11326</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
             <structure name="format">
@@ -212,190 +140,14 @@ reportContext.setPersistentGlobalVariable("capitalize",capitalize);]]></method>
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <!--oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
-        </oda-data-source-->
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
-            <list-property name="privateDriverProperties">
-                <ex-property>
-                    <name>contentBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-                <ex-property>
-                    <name>disabledContentBidiFormatStr</name>
-                </ex-property>
-                <ex-property>
-                    <name>disabledMetadataBidiFormatStr</name>
-                </ex-property>
-                <ex-property>
-                    <name>metadataBidiFormatStr</name>
-                    <value>ILYNN</value>
-                </ex-property>
-            </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="sicpro002" id="2353">
-            <structure name="cachedMetaData">
-                <list-property name="resultSet">
-                    <structure>
-                        <property name="position">1</property>
-                        <property name="name">BANCO_ADQ</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">2</property>
-                        <property name="name">DESC_ADQ</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">3</property>
-                        <property name="name">BANCO_EMI</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">4</property>
-                        <property name="name">DESC_EMI</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">5</property>
-                        <property name="name">TTR</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">6</property>
-                        <property name="name">CLAVE_PROMOCION</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">7</property>
-                        <property name="name">MESES</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">8</property>
-                        <property name="name">NO_COMERCIO</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">9</property>
-                        <property name="name">COMERCIO</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">10</property>
-                        <property name="name">CUENTA</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">11</property>
-                        <property name="name">NO_AUTORIZACION</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">12</property>
-                        <property name="name">IMPORTE</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">13</property>
-                        <property name="name">SOBRETASA</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">14</property>
-                        <property name="name">IVA_SOBRETASA</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">15</property>
-                        <property name="name">REFERENCIA</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">16</property>
-                        <property name="name">FECHA</property>
-                        <property name="dataType">date-time</property>
-                    </structure>
-                    <structure>
-                        <property name="position">17</property>
-                        <property name="name">COBRO</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                </list-property>
-            </structure>
-            <property name="dataSource">Data Source</property>
-            <method name="beforeOpen"><![CDATA[this.queryText=
-" SELECT /*+INDEX (PTA NDX_IND_PD)*/PTA.ENT_NUMERO_PROSA_ADQ BANCO_ADQ, "+ 
-"        VBA.DESCRIPCION DESC_ADQ,  "+
-"        PTA.ENT_NUMERO_PROSA_EMI BANCO_EMI, "+ 
-"        PE.DESCRIPCION DESC_EMI, "+ 
-"        PTA.TTR_NUMERO||' '||PTT.DESCRIPCION TTR,  "+
-"        LPAD(PTA.NUMERO_BOLETA, 6, 0) CLAVE_PROMOCION,  "+
-"        SUBSTR(LPAD(PTA.NUMERO_BOLETA, 6, 0), 3, 2) MESES, "+ 
-"        TO_CHAR(PTA.NUMERO_COMERCIO) NO_COMERCIO, "+ 
-"        PTA.NOMBRE_COMERCIO COMERCIO, "+ 
-"        PTA.CUENTA,  "+
-"        PTA.NUMERO_AUTORIZACION NO_AUTORIZACION, "+ 
-"        CASE "+
-" 			WHEN PTA.TTR_NUMERO = 21 THEN NVL(-PTA.IMPORTE_TOTAL_TRANSAC,0) "+
-" 			ELSE NVL(PTA.IMPORTE_TOTAL_TRANSAC,0) "+
-" 		 END IMPORTE, "+
-"        CASE "+ 
-"        	WHEN PTA.TTR_NUMERO = 21 THEN NVL(-PAV.AV_SCHGE_AMT,0) "+
-" 			ELSE NVL(PAV.AV_SCHGE_AMT,0) "+
-" 		 END SOBRETASA,  "+
-"        CASE "+
-"        	WHEN PTA.TTR_NUMERO = 21 THEN NVL(-PAV.AV_IVA_SCHGE_AMT,0) "+
-" 			ELSE NVL(PAV.AV_IVA_SCHGE_AMT,0) "+
-" 		 END IVA_SOBRETASA,  "+
-"        TO_CHAR(PTA.NUMERO_REFERENCIA) REFERENCIA, "+ 
-"        PTA.FECHA_PROCESO_TRANSAC FECHA,  "+
-"        CASE WHEN PTA.IND_PD IN ('1', '9')  "+
-"    AND PTA.TIER_FLAG_ESQUEMA = '1' THEN 'AUT' "+ 
-"             WHEN PTA.IND_PD IN ('1', '9')  "+
-"    AND PTA.TIER_FLAG_ESQUEMA != '1' THEN '' "+ 
-"             ELSE 'N/AUT' END COBRO  "+
-"   FROM PMADMIN.PRSA_TXN_ACEPTADAS PTA  "+
-" 		 INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
-" 			ON PTT.NUMERO = PTA.TTR_NUMERO "+
-"        INNER JOIN PMADMIN.VW_BUS_ACQ VBA  "+
-"           ON VBA.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_ADQ "+ 
-"        INNER JOIN PMADMIN.PRSA_ENTIDADES PE  "+
-"           ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+ 
-"        LEFT JOIN PMADMIN.PRSA_AGENCIAS_VIAJES PAV  "+
-"          ON PAV.PARTITION_ID = PTA.PARTITION_ID "+ 
-"             AND PAV.AV_WH_GRP = PTA.TA_WH_GRP "+ 
-"             AND PAV.AV_WH_SEQ = PTA.TA_WH_SEQ "+  
-" WHERE PTA.FECHA_PROCESO_TRANSAC BETWEEN TO_DATE('"+params["initDate"]+"', 'DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') ";
-
-if (params["tipo"].equals("ADQ"))
-{
-	this.queryText+=" AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") ";
-}
-else if (params["tipo"].equals("EMI"))
-{
-	this.queryText+=" AND PTA.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+") ";
-}
-
-this.queryText+=
-"	AND PTA.TLI_NUMERO = 1 "+
-"   AND PTA.TA_WH_GRP = 'PT' "+
-"   AND (PTA.IND_PD = NVL('1', UID) "+ 
-"         OR PTA.IND_PD = '9') "+
-"   AND (PTA.ENT_NUMERO_PROSA_EMI = 2 "+
-"        AND PTA.TIER_FLAG_ESQUEMA = 1 "+
-"         Or Pta.Ent_Numero_Prosa_Emi <> 2) "
-//--Modificacion: Corrección Reporteria Local Para Amex. Entidades 240 Marca de Inicial SAS-JSG P-20-0115-16 11/07/2018
-"	AND PTA.ENT_NUMERO_PROSA_ADQ NOT IN (240) "+
-"	AND PTA.ENT_NUMERO_PROSA_EMI NOT IN (240)";
-//--Modificacion: Corrección Reporteria Local Para Amex. Entidades 240 Marca de Inicial SAS-JSG P-20-0115-16 11/07/2018]]></method>
-            <list-property name="resultSet">
+            <list-property name="resultSetHints">
                 <structure>
                     <property name="position">1</property>
                     <property name="name">BANCO_ADQ</property>
@@ -499,7 +251,161 @@ this.queryText+=
                     <property name="dataType">string</property>
                 </structure>
             </list-property>
-            <property name="queryText"></property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">BANCO_ADQ</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">DESC_ADQ</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">BANCO_EMI</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">DESC_EMI</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">TTR</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">CLAVE_PROMOCION</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">MESES</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">NO_COMERCIO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">COMERCIO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">CUENTA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">NO_AUTORIZACION</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">IMPORTE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">SOBRETASA</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">IVA_SOBRETASA</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">REFERENCIA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">FECHA</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">COBRO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[this.queryText=
+" SELECT PTA.ENT_NUMERO_PROSA_ADQ BANCO_ADQ, "+ 
+"        VBA.DESCRIPCION DESC_ADQ,  "+
+"        PTA.ENT_NUMERO_PROSA_EMI BANCO_EMI, "+ 
+"        PE.DESCRIPCION DESC_EMI, "+ 
+"        PTA.TTR_NUMERO||' '||PTT.DESCRIPCION TTR,  "+
+"        LPAD(PTA.NUMERO_BOLETA, 6, 0) CLAVE_PROMOCION,  "+
+"        SUBSTR(LPAD(PTA.NUMERO_BOLETA, 6, 0), 3, 2) MESES, "+ 
+"        TO_CHAR(PTA.NUMERO_COMERCIO) NO_COMERCIO, "+ 
+"        PTA.NOMBRE_COMERCIO COMERCIO, "+ 
+"        PTA.CUENTA,  "+
+"        PTA.NUMERO_AUTORIZACION NO_AUTORIZACION, "+ 
+"        CASE "+
+" 			WHEN PTA.TTR_NUMERO = 21 THEN NVL(-PTA.IMPORTE_TOTAL_TRANSAC,0) "+
+" 			ELSE NVL(PTA.IMPORTE_TOTAL_TRANSAC,0) "+
+" 		 END IMPORTE, "+
+"        CASE "+ 
+"        	WHEN PTA.TTR_NUMERO = 21 THEN NVL(-PAV.AV_SCHGE_AMT,0) "+
+" 			ELSE NVL(PAV.AV_SCHGE_AMT,0) "+
+" 		 END SOBRETASA,  "+
+"        CASE "+
+"        	WHEN PTA.TTR_NUMERO = 21 THEN NVL(-PAV.AV_IVA_SCHGE_AMT,0) "+
+" 			ELSE NVL(PAV.AV_IVA_SCHGE_AMT,0) "+
+" 		 END IVA_SOBRETASA,  "+
+"        TO_CHAR(PTA.NUMERO_REFERENCIA) REFERENCIA, "+ 
+"        PTA.FECHA_PROCESO_TRANSAC FECHA,  "+
+"        CASE WHEN PTA.IND_PD IN ('1', '9')  "+
+"    AND PTA.TIER_FLAG_ESQUEMA = '1' THEN 'AUT' "+ 
+"             WHEN PTA.IND_PD IN ('1', '9')  "+
+"    AND PTA.TIER_FLAG_ESQUEMA != '1' THEN '' "+ 
+"             ELSE 'N/AUT' END COBRO  "+
+"   FROM PMADMIN.PRSA_TXN_ACEPTADAS PTA  "+
+" 		 INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
+" 			ON PTT.NUMERO = PTA.TTR_NUMERO "+
+"        INNER JOIN PMADMIN.VW_BUS_ACQ VBA  "+
+"           ON VBA.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_ADQ "+ 
+"        INNER JOIN PMADMIN.PRSA_ENTIDADES PE  "+
+"           ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+ 
+"        LEFT JOIN PMADMIN.PRSA_AGENCIAS_VIAJES PAV  "+
+"          ON PAV.PARTITION_ID = PTA.PARTITION_ID "+ 
+"             AND PAV.AV_WH_GRP = PTA.TA_WH_GRP "+ 
+"             AND PAV.AV_WH_SEQ = PTA.TA_WH_SEQ "+  
+" WHERE PTA.FECHA_PROCESO_TRANSAC BETWEEN TO_DATE('"+params["initDate"]+"', 'DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"', 'DD/MM/YYYY') ";
+
+if (params["tipo"].equals("ADQ"))
+{
+	this.queryText+=" AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["banco"]+") ";
+}
+else if (params["tipo"].equals("EMI"))
+{
+	this.queryText+=" AND PTA.ENT_NUMERO_PROSA_EMI IN ("+params["banco"]+") ";
+}
+
+this.queryText+=
+"	AND PTA.TLI_NUMERO = 1 "+
+"   AND PTA.TA_WH_GRP = 'PT' "+
+"   AND (PTA.IND_PD = NVL('1', UID) "+ 
+"         OR PTA.IND_PD = '9') "+
+"   AND (PTA.ENT_NUMERO_PROSA_EMI = 2 "+
+"        AND PTA.TIER_FLAG_ESQUEMA = 1 "+
+"         Or Pta.Ent_Numero_Prosa_Emi <> 2) "
+"	AND PTA.ENT_NUMERO_PROSA_ADQ NOT IN (240) "+
+"	AND PTA.ENT_NUMERO_PROSA_EMI NOT IN (240)";
+]]></method>
+            <property name="dataSource">Data Source</property>
+            <xml-property name="queryText"><![CDATA[]]></xml-property>
         </oda-data-set>
     </data-sets>
     <styles>
@@ -559,6 +465,16 @@ this.queryText+=
                             <property name="rowSpan">2</property>
                             <property name="textAlign">center</property>
                             <property name="verticalAlign">middle</property>
+                            <image id="2353">
+                                <property name="height">104px</property>
+                                <property name="width">140px</property>
+                                <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
+this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
+else
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
+                                <property name="source">url</property>
+                                <expression name="uri">''</expression>
+                            </image>
                         </cell>
                         <cell id="1942">
                             <property name="colSpan">1</property>
@@ -918,21 +834,21 @@ this.queryText+=
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">''</expression>
                     </image>
                 </cell>
             </row>
             <row id="2034">
-                <property name="height">2.1in</property>
                 <property name="textAlign">center</property>
                 <property name="verticalAlign">middle</property>
+                <property name="height">2.1in</property>
                 <cell id="2035">
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';
 ]]></method>
                     <property name="backgroundImage">http://cvs.prosa.com.mx/comunicados/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
@@ -1231,7 +1147,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">el_bco</property>
-                                <property name="displayName">el_bco</property>
+                                <text-property name="displayName">el_bco</text-property>
                                 <expression name="expression">'Adquirente  '+row["BANCO_ADQ"]+'  '+row["DESC_ADQ"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
@@ -1247,7 +1163,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_iva</property>
-                                <property name="displayName">s_iva</property>
+                                <text-property name="displayName">s_iva</text-property>
                                 <expression name="expression">dataSetRow["IVA_SOBRETASA"]</expression>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
@@ -1257,7 +1173,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_sob</property>
-                                <property name="displayName">s_sob</property>
+                                <text-property name="displayName">s_sob</text-property>
                                 <expression name="expression">dataSetRow["SOBRETASA"]</expression>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
@@ -1267,7 +1183,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">imp</property>
-                                <property name="displayName">imp</property>
+                                <text-property name="displayName">imp</text-property>
                                 <expression name="expression">dataSetRow["IMPORTE"]</expression>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
@@ -1277,7 +1193,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">boc</property>
-                                <property name="displayName">boc</property>
+                                <text-property name="displayName">boc</text-property>
                                 <expression name="expression">dataSetRow["BANCO_EMI"]</expression>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
@@ -1287,7 +1203,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">boc2</property>
-                                <property name="displayName">boc2</property>
+                                <text-property name="displayName">boc2</text-property>
                                 <expression name="expression">dataSetRow["BANCO_EMI"]</expression>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
@@ -1297,7 +1213,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">imp2</property>
-                                <property name="displayName">imp2</property>
+                                <text-property name="displayName">imp2</text-property>
                                 <expression name="expression">dataSetRow["IMPORTE"]</expression>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
@@ -1307,7 +1223,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_sob2</property>
-                                <property name="displayName">s_sob2</property>
+                                <text-property name="displayName">s_sob2</text-property>
                                 <expression name="expression">dataSetRow["SOBRETASA"]</expression>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
@@ -1317,7 +1233,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_iva2</property>
-                                <property name="displayName">s_iva2</property>
+                                <text-property name="displayName">s_iva2</text-property>
                                 <expression name="expression">dataSetRow["IVA_SOBRETASA"]</expression>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
@@ -1327,7 +1243,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">boc3</property>
-                                <property name="displayName">boc3</property>
+                                <text-property name="displayName">boc3</text-property>
                                 <property name="dataType">integer</property>
                                 <property name="aggregateFunction">COUNT</property>
                                 <list-property name="arguments">
@@ -1340,7 +1256,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">imp3</property>
-                                <property name="displayName">imp3</property>
+                                <text-property name="displayName">imp3</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1353,7 +1269,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_sob3</property>
-                                <property name="displayName">s_sob3</property>
+                                <text-property name="displayName">s_sob3</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1366,7 +1282,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_iva3</property>
-                                <property name="displayName">s_iva3</property>
+                                <text-property name="displayName">s_iva3</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1376,6 +1292,132 @@ else
                                     </structure>
                                 </list-property>
                                 <expression name="filterExpr">row["BANCO_EMI"]!=86</expression>
+                            </structure>
+                            <structure>
+                                <property name="name">FECHA_1</property>
+                                <expression name="expression">dataSetRow["FECHA"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>fch</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">BANCO_ADQ_1</property>
+                                <expression name="expression">dataSetRow["BANCO_ADQ"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>adq</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">BANCO_EMI_1</property>
+                                <expression name="expression">dataSetRow["BANCO_EMI"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>emi</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">TTR_1</property>
+                                <expression name="expression">dataSetRow["TTR"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>tt</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">IMPORTE_1</property>
+                                <expression name="expression">dataSetRow["IMPORTE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>imp</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">NO_COMERCIO_1</property>
+                                <expression name="expression">dataSetRow["NO_COMERCIO"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>com</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">FECHA_2</property>
+                                <expression name="expression">dataSetRow["FECHA"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>fch</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">BANCO_ADQ_2</property>
+                                <expression name="expression">dataSetRow["BANCO_ADQ"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>adq</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">BANCO_EMI_2</property>
+                                <expression name="expression">dataSetRow["BANCO_EMI"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>emi</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">TTR_2</property>
+                                <expression name="expression">dataSetRow["TTR"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>tt</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">IMPORTE_2</property>
+                                <expression name="expression">dataSetRow["IMPORTE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>imp</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">NO_COMERCIO_2</property>
+                                <expression name="expression">dataSetRow["NO_COMERCIO"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>com</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">FECHA_3</property>
+                                <expression name="expression">dataSetRow["FECHA"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>fch</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">BANCO_ADQ_3</property>
+                                <expression name="expression">dataSetRow["BANCO_ADQ"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>adq</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">BANCO_EMI_3</property>
+                                <expression name="expression">dataSetRow["BANCO_EMI"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>emi</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">TTR_3</property>
+                                <expression name="expression">dataSetRow["TTR"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>tt</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">IMPORTE_3</property>
+                                <expression name="expression">dataSetRow["IMPORTE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>imp</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">NO_COMERCIO_3</property>
+                                <expression name="expression">dataSetRow["NO_COMERCIO"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>com</value>
+                                </simple-property-list>
                             </structure>
                         </list-property>
                         <property name="pageBreakInterval">100</property>
@@ -1458,7 +1500,7 @@ else
                                                 <property name="category">Medium Date</property>
                                                 <property name="pattern">Medium Date</property>
                                             </structure>
-                                            <property name="resultSetColumn">FECHA</property>
+                                            <property name="resultSetColumn">FECHA_1</property>
                                         </data>
                                     </cell>
                                     <cell id="3534"/>
@@ -1699,7 +1741,7 @@ else
                                     <cell id="3672">
                                         <data id="3684">
                                             <property name="textAlign">left</property>
-                                            <property name="resultSetColumn">TTR</property>
+                                            <property name="resultSetColumn">TTR_1</property>
                                         </data>
                                     </cell>
                                     <cell id="3673"/>
@@ -2128,13 +2170,13 @@ true</expression>
                             </structure>
                             <structure>
                                 <property name="name">el_bco</property>
-                                <property name="displayName">el_bco</property>
+                                <text-property name="displayName">el_bco</text-property>
                                 <expression name="expression">'Emisor  '+row["BANCO_EMI"]+'  '+row["DESC_EMI"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">boc</property>
-                                <property name="displayName">boc</property>
+                                <text-property name="displayName">boc</text-property>
                                 <expression name="expression">dataSetRow["BANCO_ADQ"]</expression>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
@@ -2144,7 +2186,7 @@ true</expression>
                             </structure>
                             <structure>
                                 <property name="name">imp</property>
-                                <property name="displayName">imp</property>
+                                <text-property name="displayName">imp</text-property>
                                 <expression name="expression">dataSetRow["IMPORTE"]</expression>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
@@ -2154,7 +2196,7 @@ true</expression>
                             </structure>
                             <structure>
                                 <property name="name">s_sob</property>
-                                <property name="displayName">s_sob</property>
+                                <text-property name="displayName">s_sob</text-property>
                                 <expression name="expression">dataSetRow["SOBRETASA"]</expression>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
@@ -2164,7 +2206,7 @@ true</expression>
                             </structure>
                             <structure>
                                 <property name="name">s_iva</property>
-                                <property name="displayName">s_iva</property>
+                                <text-property name="displayName">s_iva</text-property>
                                 <expression name="expression">dataSetRow["IVA_SOBRETASA"]</expression>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
@@ -2174,7 +2216,7 @@ true</expression>
                             </structure>
                             <structure>
                                 <property name="name">boc2</property>
-                                <property name="displayName">boc2</property>
+                                <text-property name="displayName">boc2</text-property>
                                 <expression name="expression">dataSetRow["BANCO_ADQ"]</expression>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
@@ -2184,7 +2226,7 @@ true</expression>
                             </structure>
                             <structure>
                                 <property name="name">imp2</property>
-                                <property name="displayName">imp2</property>
+                                <text-property name="displayName">imp2</text-property>
                                 <expression name="expression">dataSetRow["IMPORTE"]</expression>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
@@ -2194,7 +2236,7 @@ true</expression>
                             </structure>
                             <structure>
                                 <property name="name">s_sob2</property>
-                                <property name="displayName">s_sob2</property>
+                                <text-property name="displayName">s_sob2</text-property>
                                 <expression name="expression">dataSetRow["SOBRETASA"]</expression>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
@@ -2204,7 +2246,7 @@ true</expression>
                             </structure>
                             <structure>
                                 <property name="name">s_iva2</property>
-                                <property name="displayName">s_iva2</property>
+                                <text-property name="displayName">s_iva2</text-property>
                                 <expression name="expression">dataSetRow["IVA_SOBRETASA"]</expression>
                                 <property name="dataType">decimal</property>
                                 <simple-property-list name="aggregateOn">
@@ -2214,7 +2256,7 @@ true</expression>
                             </structure>
                             <structure>
                                 <property name="name">boc3</property>
-                                <property name="displayName">boc3</property>
+                                <text-property name="displayName">boc3</text-property>
                                 <property name="dataType">integer</property>
                                 <property name="aggregateFunction">COUNT</property>
                                 <list-property name="arguments">
@@ -2226,7 +2268,7 @@ true</expression>
                             </structure>
                             <structure>
                                 <property name="name">imp3</property>
-                                <property name="displayName">imp3</property>
+                                <text-property name="displayName">imp3</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -2238,7 +2280,7 @@ true</expression>
                             </structure>
                             <structure>
                                 <property name="name">s_sob3</property>
-                                <property name="displayName">s_sob3</property>
+                                <text-property name="displayName">s_sob3</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -2250,7 +2292,7 @@ true</expression>
                             </structure>
                             <structure>
                                 <property name="name">s_iva3</property>
-                                <property name="displayName">s_iva3</property>
+                                <text-property name="displayName">s_iva3</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -2259,6 +2301,111 @@ true</expression>
                                         <expression name="value">row["IVA_SOBRETASA"]</expression>
                                     </structure>
                                 </list-property>
+                            </structure>
+                            <structure>
+                                <property name="name">FECHA_1</property>
+                                <expression name="expression">dataSetRow["FECHA"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>fech</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">BANCO_EMI_1</property>
+                                <expression name="expression">dataSetRow["BANCO_EMI"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>emi</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">BANCO_ADQ_1</property>
+                                <expression name="expression">dataSetRow["BANCO_ADQ"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>adq</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">TTR_1</property>
+                                <expression name="expression">dataSetRow["TTR"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>ttr</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">IMPORTE_1</property>
+                                <expression name="expression">dataSetRow["IMPORTE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>imp</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">FECHA_2</property>
+                                <expression name="expression">dataSetRow["FECHA"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>fech</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">BANCO_EMI_2</property>
+                                <expression name="expression">dataSetRow["BANCO_EMI"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>emi</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">BANCO_ADQ_2</property>
+                                <expression name="expression">dataSetRow["BANCO_ADQ"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>adq</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">TTR_2</property>
+                                <expression name="expression">dataSetRow["TTR"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>ttr</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">IMPORTE_2</property>
+                                <expression name="expression">dataSetRow["IMPORTE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>imp</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">FECHA_3</property>
+                                <expression name="expression">dataSetRow["FECHA"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>fech</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">BANCO_EMI_3</property>
+                                <expression name="expression">dataSetRow["BANCO_EMI"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>emi</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">BANCO_ADQ_3</property>
+                                <expression name="expression">dataSetRow["BANCO_ADQ"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>adq</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">TTR_3</property>
+                                <expression name="expression">dataSetRow["TTR"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>ttr</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">IMPORTE_3</property>
+                                <expression name="expression">dataSetRow["IMPORTE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>imp</value>
+                                </simple-property-list>
                             </structure>
                         </list-property>
                         <property name="pageBreakInterval">74</property>
@@ -2341,7 +2488,7 @@ true</expression>
                                                 <property name="category">Medium Date</property>
                                                 <property name="pattern">Medium Date</property>
                                             </structure>
-                                            <property name="resultSetColumn">FECHA</property>
+                                            <property name="resultSetColumn">FECHA_1</property>
                                         </data>
                                     </cell>
                                     <cell id="3718"/>
@@ -2587,7 +2734,7 @@ true</expression>
                                     </cell>
                                     <cell id="3748">
                                         <data id="3834">
-                                            <property name="resultSetColumn">TTR</property>
+                                            <property name="resultSetColumn">TTR_1</property>
                                         </data>
                                     </cell>
                                     <cell id="3749"/>

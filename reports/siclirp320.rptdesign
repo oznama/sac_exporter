@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 2.3.2.r232_20090202 Build &lt;2.3.2.v20090218-0730></property>
-    <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.13.0.v202303021806</property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
     <list-property name="propertyBindings">
         <structure>
@@ -12,12 +11,10 @@
         <structure>
             <property name="name">odaURL</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
         </structure>
         <structure>
             <property name="name">odaUser</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbUser"].value</expression>
         </structure>
         <structure>
             <property name="name">odaAutoCommit</property>
@@ -43,9 +40,9 @@
         <structure>
             <property name="name">odaPassword</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbPswd"].value</expression>
         </structure>
     </list-property>
+    <property name="units">in</property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -60,64 +57,81 @@
 reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
     <text-property name="displayName">Blank Report</text-property>
     <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
     <parameters>
         <scalar-parameter name="initDate" id="2357">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">01/06/2012</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">01/06/2012</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="endDate" id="2358">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">01/06/2012</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">01/06/2012</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="2359">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Proceso batch</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">ggonzalez</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="2887">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="2888">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="dbHost" id="6426">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -129,6 +143,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbUser" id="6427">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -140,6 +155,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbPswd" id="6428">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -151,6 +167,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbPort" id="6429">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -162,6 +179,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbName" id="6430">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -173,11 +191,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <!--oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
-        </oda-data-source-->
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
             <list-property name="privateDriverProperties">
                 <ex-property>
@@ -196,11 +209,43 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="siclri0320" id="2356">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">LIQ</property>
+                    <property name="nativeName">LIQ</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">DESC_LIQ</property>
+                    <property name="nativeName">DESC_LIQ</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">ENTIDAD_PADRE</property>
+                    <property name="nativeName">ENTIDAD_PADRE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">DES_ENT</property>
+                    <property name="nativeName">DES_ENT</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">IMPORTE</property>
+                    <property name="nativeName">IMPORTE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
             <structure name="cachedMetaData">
                 <list-property name="resultSet">
                     <structure>
@@ -231,7 +276,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </list-property>
             </structure>
             <property name="rowFetchLimit">800</property>
-            <property name="dataSource">Data Source</property>
             <method name="beforeOpen"><![CDATA[this.queryText=
 " SELECT CASE  "+
 "             WHEN DATOS.TTR NOT IN (20,40) THEN 1 "+
@@ -267,7 +311,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "             WHEN PP.TOT_TXS_CASHB != 0 THEN -PP.TOT_IVA_TARIFA_CASHB "+
 "             ELSE -PP.IVA_COMISION_COMERCIO "+
 "        END),2) IVA "+
-//-- Inicio  CAMBIO P-02-0309-13 Alta de prefijos CARNET CHIP 506349 y 506348 para BANORTE  21/06/2017  
 "        ,SUM(CASE  "+
 "             WHEN PP.TTR_NUMERO IN (1,21) AND PP.TIPO_TARJETA = 'C' THEN PP.IMP_SOBRETASA "+  
 "             ELSE 0  "+ 
@@ -276,22 +319,13 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "             WHEN PP.TTR_NUMERO IN (1,21) AND PP.TIPO_TARJETA = 'C' THEN PP.IMP_IVA_SOBRETASA "+  
 "             ELSE 0            "+
 "        END) IMP_IVA_SOBRETAS  "+ 
-//-- FIN  CAMBIO P-02-0309-13 Alta de prefijos CARNET CHIP 506349 y 506348 para BANORTE  21/06/2017
 " FROM PMADMIN.PRSA_POSICIONES PP "+
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
 "     ON PE.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_EMI "+
 " 	  AND PE.TIE_NUMERO = 1 "+
-//-- INICIO CAMBIO PARA CUANDRE DE CENTAVOS AGRUPACION POR INTERRED 07/08/2012
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PE1 "+
 "     ON PE1.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_ADQ "+
-//-- FIN CAMBIO PARA CUANDRE DE CENTAVOS AGRUPACION POR INTERRED 07/08/2012
-//" WHERE ((PP.FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') AND PP.TTR_NUMERO NOT IN (20,40)) "+
-//"         OR "+
-//"        (PP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') AND PP.TTR_NUMERO IN (20,40)) "+ 
-//"       ) "+
-//-- INICIO  CAMBIO P-53-2021-14 Single Message en Interredes 30/06/2016
 " WHERE PP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY')  "+
-//-- FIN  CAMBIO P-53-2021-14 Single Message en Interredes 30/06/2016
 " AND PP.TLI_NUMERO = 5 "+
 " GROUP BY PP.TLI_NUMERO "+
 "         ,PE.ENTIDAD_PADRE "+
@@ -303,27 +337,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "             ELSE 0 "+
 "          END "+
 "         ,PP.TTR_NUMERO "+
-//-- INICIO CAMBIO PARA CUANDRE DE CENTAVOS AGRUPACION POR INTERRED 07/08/2012
 " 		  ,PE1.ENTIDAD_PADRE "+
-//-- FIN CAMBIO PARA CUANDRE DE CENTAVOS AGRUPACION POR INTERRED 07/08/2012
-//" UNION ALL "+
-//" SELECT PF.TLI_NUMERO LIQ "+
-//"       ,PE.ENTIDAD_PADRE "+
-//"       ,PF.TTR_NUMERO TTR "+
-//"       ,0 IMPORTE "+
-//"       ,ROUND(SUM(PF.IMPORTE_ADMON_BENEFICIOS),2) COMISION "+
-//"       ,ROUND(SUM(PF.IVA_ADMON_BENEFICIOS),2) IVA "+
-//" FROM SUPERSIC.POSICIONES_FINALES@LG_PMTU_SIC PF "+
-//"     INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
-//"         ON PF.ENT_NUMERO_PROSA = PE.NUMERO_PROSA "+
-//" WHERE PF.TTR_NUMERO IN (20,40) "+
-//"       AND PF.FECHA BETWEEN TO_DATE('"+params["initDate"]+"','dd-MM-yyyy') and TO_DATE('"+params["endDate"]+"','dd-MM-yyyy') "+
-//"       AND PF.TIPO_TARJETA = 'C' "+
-//"       AND PF.TLI_NUMERO = 5 "+
-//"       AND PE.TIE_NUMERO = 1 "+
-//" GROUP BY PF.TLI_NUMERO "+
-//"       ,PE.ENTIDAD_PADRE "+
-//"       ,PF.TTR_NUMERO "+
 " UNION ALL "+
 " SELECT PP.TLI_NUMERO LIQ "+
 "       ,PE.ENTIDAD_PADRE "+
@@ -331,17 +345,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "       ,SUM(PP.TOTAL_IMPORTE) IMPORTE "+
 "       ,-ROUND(SUM(PP.IMPORTE_COMISION_COMERCIO),2) COMIMSION "+
 "       ,-ROUND(SUM(PP.IVA_COMISION_COMERCIO),2) IVA "+
-//-- Inicio  CAMBIO P-02-0309-13 Alta de prefijos CARNET CHIP 506349 y 506348 para BANORTE  21/06/2017 
 "        ,0 IMP_SOBRETAS "+  		
 "        ,0 IMP_IVA_SOBRETAS "+ 
-//-- FIN  CAMBIO P-02-0309-13 Alta de prefijos CARNET CHIP 506349 y 506348 para BANORTE  21/06/2017
 " FROM PMADMIN.PRSA_POSICIONES PP "+
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
 "     ON PE.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_ADQ "+
-//" WHERE PP.FECHA_PROCESO BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-//-- INICIO  CAMBIO P-53-2021-14 Single Message en Interredes 30/06/2016
 " WHERE PP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY')  "+
-//-- FIN CAMBIO P-53-2021-14 Single Message en Interredes 30/06/2016
 " AND PP.TLI_NUMERO = 5 "+
 " AND PE.TIE_NUMERO = 1 "+
 " AND PP.TTR_NUMERO = 23 "+
@@ -361,48 +370,16 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "        END "+
 "       ,DATOS.ENTIDAD_PADRE "+
 " ORDER BY 3 ";]]></method>
-            <list-property name="resultSet">
-                <structure>
-                    <property name="position">1</property>
-                    <property name="name">LIQ</property>
-                    <property name="nativeName">LIQ</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">2</property>
-                    <property name="name">DESC_LIQ</property>
-                    <property name="nativeName">DESC_LIQ</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">3</property>
-                    <property name="name">ENTIDAD_PADRE</property>
-                    <property name="nativeName">ENTIDAD_PADRE</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">4</property>
-                    <property name="name">DES_ENT</property>
-                    <property name="nativeName">DES_ENT</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">5</property>
-                    <property name="name">IMPORTE</property>
-                    <property name="nativeName">IMPORTE</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-            </list-property>
-            <property name="queryText">
+            <property name="dataSource">Data Source</property>
+            <xml-property name="queryText"><![CDATA[
 
 
 
-</property>
+]]></xml-property>
         </oda-data-set>
     </data-sets>
     <cubes>
         <tabular-cube name="cuboPrincipal" id="2458">
-            <property name="defaultMeasureGroup">Summary Field</property>
             <property name="dimensions">
                 <tabular-dimension name="grupoHorizontal" id="2461">
                     <property name="defaultHierarchy">NewTabularHierarchy</property>
@@ -518,7 +495,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                                 <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">''</expression>
                             </image>
@@ -791,21 +768,21 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">''</expression>
                     </image>
                 </cell>
             </row>
             <row id="2034">
-                <property name="height">2.1in</property>
                 <property name="textAlign">center</property>
                 <property name="verticalAlign">middle</property>
+                <property name="height">2.1in</property>
                 <cell id="2035">
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">reports/images/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>
@@ -998,7 +975,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">01</property>
-                                <property name="displayName">01</property>
+                                <text-property name="displayName">01</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>bco</value>
@@ -1014,7 +991,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">02</property>
-                                <property name="displayName">02</property>
+                                <text-property name="displayName">02</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>bco</value>
@@ -1030,7 +1007,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">03</property>
-                                <property name="displayName">03</property>
+                                <text-property name="displayName">03</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>bco</value>
@@ -1046,7 +1023,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">T01</property>
-                                <property name="displayName">T01</property>
+                                <text-property name="displayName">T01</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1058,7 +1035,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">T02</property>
-                                <property name="displayName">T02</property>
+                                <text-property name="displayName">T02</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1070,7 +1047,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">T03</property>
-                                <property name="displayName">T03</property>
+                                <text-property name="displayName">T03</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1082,7 +1059,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">04</property>
-                                <property name="displayName">04</property>
+                                <text-property name="displayName">04</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>bco</value>
@@ -1097,7 +1074,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">T04</property>
-                                <property name="displayName">T04</property>
+                                <text-property name="displayName">T04</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1107,12 +1084,19 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                                     </structure>
                                 </list-property>
                             </structure>
+                            <structure>
+                                <property name="name">ENTIDAD_PADRE_1</property>
+                                <expression name="expression">dataSetRow["ENTIDAD_PADRE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>bco</value>
+                                </simple-property-list>
+                            </structure>
                         </list-property>
+                        <property name="pageBreakInterval">50</property>
                         <column id="2969">
                             <property name="width">20%</property>
                         </column>
                         <column id="2970">
-                            <property name="width">20%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -1122,9 +1106,9 @@ else
 	true</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">20%</property>
                         </column>
                         <column id="2971">
-                            <property name="width">20%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -1134,9 +1118,9 @@ else
 	true</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">20%</property>
                         </column>
                         <column id="2972">
-                            <property name="width">20%</property>
                             <list-property name="visibility">
                                 <structure>
                                     <property name="format">all</property>
@@ -1146,6 +1130,7 @@ else
 	true</expression>
                                 </structure>
                             </list-property>
+                            <property name="width">20%</property>
                         </column>
                         <column id="2973">
                             <property name="width">20%</property>
@@ -1235,7 +1220,7 @@ else
                                                 <property name="pattern">$#,##0.00</property>
                                             </structure>
                                             <property name="textAlign">right</property>
-                                            <property name="resultSetColumn">02</property>
+                                            <property name="resultSetColumn">01</property>
                                         </data>
                                     </cell>
                                     <cell id="2994">
@@ -1245,7 +1230,7 @@ else
                                                 <property name="pattern">$#,##0.00</property>
                                             </structure>
                                             <property name="textAlign">right</property>
-                                            <property name="resultSetColumn">03</property>
+                                            <property name="resultSetColumn">01</property>
                                         </data>
                                     </cell>
                                     <cell id="2995">
@@ -1255,7 +1240,7 @@ else
                                                 <property name="pattern">$#,##0.00</property>
                                             </structure>
                                             <property name="textAlign">right</property>
-                                            <property name="resultSetColumn">04</property>
+                                            <property name="resultSetColumn">01</property>
                                         </data>
                                     </cell>
                                 </row>

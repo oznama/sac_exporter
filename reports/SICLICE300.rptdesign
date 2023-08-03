@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
-    <property name="createdBy">MyEclipse Report Designer Version 1.0</property>
-    <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.13.0.v202303021806</property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">1016</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
   var multiploDiez=Math.pow(10,numDecimales);
   var k=valor*multiploDiez;
@@ -18,109 +56,127 @@
 reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
     <text-property name="displayName">Blank Report</text-property>
     <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
     <parameters>
         <scalar-parameter name="initDate" id="28">
             <property name="hidden">false</property>
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">08/10/2015</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="concealValue">false</property>
-            <property name="isRequired">true</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">08/10/2015</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="1709">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Proceso batch</value>
+            </simple-property-list>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">ggonzalez</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="2480">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="2481">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="adq" id="2734">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">adq</text-property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">725</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">725</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="emi" id="2735">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">emi</text-property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">91</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">91</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="fuente" id="2738">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">fuente</text-property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">1177</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1177</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="role" id="2974">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">role</text-property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">c</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">c</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <!--oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="140">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
-        </oda-data-source-->
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
-            <text-property name="displayName"></text-property>
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>contentBidiFormatStr</name>
@@ -138,153 +194,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@172.16.136.233:1606:PMTU</property>
-            <property name="odaUser">PMTWEB</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">UE1UV0VC</encrypted-property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="01" id="2668">
-            <structure name="cachedMetaData">
-                <list-property name="resultSet">
-                    <structure>
-                        <property name="position">1</property>
-                        <property name="name">FECHA</property>
-                        <property name="dataType">date-time</property>
-                    </structure>
-                    <structure>
-                        <property name="position">2</property>
-                        <property name="name">ADQ</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">3</property>
-                        <property name="name">DESC_ADQ</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">4</property>
-                        <property name="name">AFILIACION</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">5</property>
-                        <property name="name">NUMERO_AUTORIZACION</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">6</property>
-                        <property name="name">COMERCIO</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">7</property>
-                        <property name="name">TTR</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">8</property>
-                        <property name="name">FUENTE</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">9</property>
-                        <property name="name">EMI</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">10</property>
-                        <property name="name">DESC_EMI</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">11</property>
-                        <property name="name">CUENTA</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">12</property>
-                        <property name="name">NAT_CON</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">13</property>
-                        <property name="name">REFE</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">14</property>
-                        <property name="name">CONSUMO</property>
-                        <property name="dataType">date-time</property>
-                    </structure>
-                    <structure>
-                        <property name="position">15</property>
-                        <property name="name">IMPORTE</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">16</property>
-                        <property name="name">CUOTA_ADQ</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">17</property>
-                        <property name="name">IVA_ADQ</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">18</property>
-                        <property name="name">CUOTA_TH</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">19</property>
-                        <property name="name">IVA_TH</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">20</property>
-                        <property name="name">TOTAL</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                </list-property>
-            </structure>
-            <property name="dataSource">Data Source</property>
-            <method name="beforeOpen"><![CDATA[this.queryText=
-" SELECT PTA.FECHA_LIQ FECHA "+
-"      , (PTA.ENT_NUMERO_PROSA_ADQ ||' '|| PEA.DESCRIPCION) ADQ "+
-"      , PEA.DESCRIPCION DESC_ADQ "+
-"      , PTA.NUMERO_COMERCIO AFILIACION "+
-// Inicio de Marca de Cambio WELLCOM-KMF-T-62-8250-20 
-"	   , PTA.NUMERO_AUTORIZACION NUMERO_AUTORIZACION"+
-// Fin de Marca de Cambio WELLCOM-KMF-T-62-8250-20 
-"      , NVL(PTA.NOMBRE_COMERCIO,' ') COMERCIO "+
-"      , CASE WHEN PTA.TTR_NUMERO = 50 THEN '50 PAGOS A TARJETA DE CREDITO' WHEN PTA.TTR_NUMERO = 51 THEN '51 DEPOSITOS A CUENTAS'ELSE '' END TTR "+
-"      , PTA.ARCH_NUMERO FUENTE "+
-"      , (PTA.ENT_NUMERO_PROSA_EMI ||' '|| PEE.DESCRIPCION) EMI "+
-"      , PEE.DESCRIPCION DESC_EMI "+
-"      , PTA.CUENTA "+
-"      , PTA.NATURALEZA_CONTABLE NAT_CON "+
-"      , PTA.NUMERO_REFERENCIA REFE "+
-"      , PTA.FECHA_CONSUMO_TRANSAC CONSUMO "+
-"      , (PTA.IMPORTE_TOTAL_TRANSAC + NVL(PTA.TIER_IMPORTE_AUT,0) + NVL(PTA.IMPORTE_CUOTA_CALCULADO,0) ) IMPORTE "+
-"      , (NVL(PTA.IMPORTE_CUOTA_COMERCIO,0) + NVL(PTA.IMPORTE_CUOTA_INTERCAMBIO,0) + NVL(PTA.TA_MRCH_FEE_AMT,0) ) CUOTA_ADQ "+
-"      , (NVL(PTA.IMPORTE_IVA_COMERCIO  ,0) + NVL(PTA.IMPORTE_IVA_INTERCAMBIO  ,0) + NVL(PTA.TA_MRCH_IVA_AMT,0) ) IVA_ADQ "+
-"      , NVL(PTA.TIER_IMPORTE_AUT,0) CUOTA_TH "+
-"      , NVL(PTA.IMPORTE_CUOTA_CALCULADO,0) IVA_TH "+
-"      , ABS((PTA.IMPORTE_TOTAL_TRANSAC + NVL(PTA.TIER_IMPORTE_AUT,0) + NVL(PTA.IMPORTE_CUOTA_CALCULADO,0) -( NVL(PTA.IMPORTE_CUOTA_COMERCIO,0) + NVL(PTA.IMPORTE_CUOTA_INTERCAMBIO,0) + NVL(PTA.TA_MRCH_FEE_AMT,0) + NVL(PTA.IMPORTE_IVA_COMERCIO,0)  + NVL(PTA.IMPORTE_IVA_INTERCAMBIO,0)  + NVL(PTA.TA_MRCH_IVA_AMT,0) + NVL(PTA.TIER_IMPORTE_AUT,0) + NVL(PTA.IMPORTE_CUOTA_CALCULADO,0)) )) TOTAL "+
-"   FROM SSP.PRSA_TXN_ACEPTADAS@LG_PMTU_PMTWEB_IFO2_SSP PTA "+
-"  INNER JOIN PMADMIN.PRSA_ENTIDADES PEA "+
-"     ON PEA.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_ADQ "+
-"  INNER JOIN PMADMIN.PRSA_ENTIDADES PEE "+
-"     ON PEE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+
-"  WHERE 1=1 "+
-"    AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["adq"]+") "+
-"    AND PTA.ENT_NUMERO_PROSA_EMI IN ("+params["emi"]+") "+
-"    AND PTA.TTR_NUMERO           IN (50,51) "+
-"    AND PTA.ARCH_NUMERO          IN ("+params["fuente"]+") "+
-"    AND PTA.FECHA_LIQ = TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') ";]]></method>
-            <list-property name="resultSet">
+            <list-property name="resultSetHints">
                 <structure>
                     <property name="position">1</property>
                     <property name="name">FECHA</property>
@@ -406,8 +321,145 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                     <property name="dataType">decimal</property>
                 </structure>
             </list-property>
-            <property name="queryText">select 
-from </property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">FECHA</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">ADQ</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">DESC_ADQ</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">AFILIACION</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">NUMERO_AUTORIZACION</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">COMERCIO</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">TTR</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">FUENTE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">EMI</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">DESC_EMI</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">CUENTA</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">NAT_CON</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">REFE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">CONSUMO</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">IMPORTE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">CUOTA_ADQ</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">IVA_ADQ</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">18</property>
+                        <property name="name">CUOTA_TH</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">19</property>
+                        <property name="name">IVA_TH</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">20</property>
+                        <property name="name">TOTAL</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[this.queryText=
+" SELECT PTA.FECHA_LIQ FECHA "+
+"      , (PTA.ENT_NUMERO_PROSA_ADQ ||' '|| PEA.DESCRIPCION) ADQ "+
+"      , PEA.DESCRIPCION DESC_ADQ "+
+"      , PTA.NUMERO_COMERCIO AFILIACION "+
+"	   , PTA.NUMERO_AUTORIZACION NUMERO_AUTORIZACION"+
+"      , NVL(PTA.NOMBRE_COMERCIO,' ') COMERCIO "+
+"      , CASE WHEN PTA.TTR_NUMERO = 50 THEN '50 PAGOS A TARJETA DE CREDITO' WHEN PTA.TTR_NUMERO = 51 THEN '51 DEPOSITOS A CUENTAS'ELSE '' END TTR "+
+"      , PTA.ARCH_NUMERO FUENTE "+
+"      , (PTA.ENT_NUMERO_PROSA_EMI ||' '|| PEE.DESCRIPCION) EMI "+
+"      , PEE.DESCRIPCION DESC_EMI "+
+"      , PTA.CUENTA "+
+"      , PTA.NATURALEZA_CONTABLE NAT_CON "+
+"      , PTA.NUMERO_REFERENCIA REFE "+
+"      , PTA.FECHA_CONSUMO_TRANSAC CONSUMO "+
+"      , (PTA.IMPORTE_TOTAL_TRANSAC + NVL(PTA.TIER_IMPORTE_AUT,0) + NVL(PTA.IMPORTE_CUOTA_CALCULADO,0) ) IMPORTE "+
+"      , (NVL(PTA.IMPORTE_CUOTA_COMERCIO,0) + NVL(PTA.IMPORTE_CUOTA_INTERCAMBIO,0) + NVL(PTA.TA_MRCH_FEE_AMT,0) ) CUOTA_ADQ "+
+"      , (NVL(PTA.IMPORTE_IVA_COMERCIO  ,0) + NVL(PTA.IMPORTE_IVA_INTERCAMBIO  ,0) + NVL(PTA.TA_MRCH_IVA_AMT,0) ) IVA_ADQ "+
+"      , NVL(PTA.TIER_IMPORTE_AUT,0) CUOTA_TH "+
+"      , NVL(PTA.IMPORTE_CUOTA_CALCULADO,0) IVA_TH "+
+"      , ABS((PTA.IMPORTE_TOTAL_TRANSAC + NVL(PTA.TIER_IMPORTE_AUT,0) + NVL(PTA.IMPORTE_CUOTA_CALCULADO,0) -( NVL(PTA.IMPORTE_CUOTA_COMERCIO,0) + NVL(PTA.IMPORTE_CUOTA_INTERCAMBIO,0) + NVL(PTA.TA_MRCH_FEE_AMT,0) + NVL(PTA.IMPORTE_IVA_COMERCIO,0)  + NVL(PTA.IMPORTE_IVA_INTERCAMBIO,0)  + NVL(PTA.TA_MRCH_IVA_AMT,0) + NVL(PTA.TIER_IMPORTE_AUT,0) + NVL(PTA.IMPORTE_CUOTA_CALCULADO,0)) )) TOTAL "+
+"   FROM SSP.PRSA_TXN_ACEPTADAS@LG_PMTU_OPS$PMTEXE_IFOG1_SSP PTA "+
+"  INNER JOIN PMADMIN.PRSA_ENTIDADES PEA "+
+"     ON PEA.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_ADQ "+
+"  INNER JOIN PMADMIN.PRSA_ENTIDADES PEE "+
+"     ON PEE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+
+"  WHERE 1=1 "+
+"    AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["adq"]+") "+
+"    AND PTA.ENT_NUMERO_PROSA_EMI IN ("+params["emi"]+") "+
+"    AND PTA.TTR_NUMERO           IN (50,51) "+
+"    AND PTA.ARCH_NUMERO          IN ("+params["fuente"]+") "+
+"    AND PTA.FECHA_LIQ = TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') ";]]></method>
+            <property name="dataSource">Data Source</property>
+            <xml-property name="queryText"><![CDATA[select 
+from ]]></xml-property>
         </oda-data-set>
     </data-sets>
     <styles>
@@ -474,7 +526,7 @@ from </property>
 if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">''</expression>
                             </image>
@@ -725,21 +777,21 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">''</expression>
                     </image>
                 </cell>
             </row>
             <row id="2034">
-                <property name="height">2.1in</property>
                 <property name="textAlign">center</property>
                 <property name="verticalAlign">middle</property>
+                <property name="height">2.1in</property>
                 <cell id="2035">
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">reports/images/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>
@@ -981,37 +1033,37 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">bco</property>
-                                <property name="displayName">bco</property>
+                                <text-property name="displayName">bco</text-property>
                                 <expression name="expression">'Banco Emisor '+row["EMI"]+' '+row["DESC_EMI"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">00com</property>
-                                <property name="displayName">00com</property>
+                                <text-property name="displayName">00com</text-property>
                                 <expression name="expression">'No. Afiliacion '+row["AFILIACION"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">01com</property>
-                                <property name="displayName">01com</property>
+                                <text-property name="displayName">01com</text-property>
                                 <expression name="expression">'Nombre Comercio '+row["COMERCIO"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">ttr</property>
-                                <property name="displayName">ttr</property>
+                                <text-property name="displayName">ttr</text-property>
                                 <expression name="expression">'Tipo Transaccion '+row["TTR"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">adq</property>
-                                <property name="displayName">adq</property>
+                                <text-property name="displayName">adq</text-property>
                                 <expression name="expression">row["ADQ"]+' '+row["DESC_ADQ"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">00</property>
-                                <property name="displayName">00</property>
+                                <text-property name="displayName">00</text-property>
                                 <property name="dataType">integer</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>ttr</value>
@@ -1026,7 +1078,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">10</property>
-                                <property name="displayName">10</property>
+                                <text-property name="displayName">10</text-property>
                                 <property name="dataType">integer</property>
                                 <property name="aggregateFunction">COUNT</property>
                                 <list-property name="arguments">
@@ -1038,7 +1090,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">01</property>
-                                <property name="displayName">01</property>
+                                <text-property name="displayName">01</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>ttr</value>
@@ -1053,7 +1105,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">11</property>
-                                <property name="displayName">11</property>
+                                <text-property name="displayName">11</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1065,7 +1117,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">02</property>
-                                <property name="displayName">02</property>
+                                <text-property name="displayName">02</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>ttr</value>
@@ -1080,7 +1132,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">12</property>
-                                <property name="displayName">12</property>
+                                <text-property name="displayName">12</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1092,7 +1144,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">03</property>
-                                <property name="displayName">03</property>
+                                <text-property name="displayName">03</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>ttr</value>
@@ -1107,7 +1159,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">13</property>
-                                <property name="displayName">13</property>
+                                <text-property name="displayName">13</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1124,13 +1176,13 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">Total</property>
-                                <property name="displayName">Total</property>
+                                <text-property name="displayName">Total</text-property>
                                 <expression name="expression">row["TOTAL"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">06</property>
-                                <property name="displayName">09</property>
+                                <text-property name="displayName">09</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>ttr</value>
@@ -1145,7 +1197,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">16</property>
-                                <property name="displayName">16</property>
+                                <text-property name="displayName">16</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1157,31 +1209,31 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">07</property>
-                                <property name="displayName">07</property>
+                                <text-property name="displayName">07</text-property>
                                 <expression name="expression">row["06"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">17</property>
-                                <property name="displayName">17</property>
+                                <text-property name="displayName">17</text-property>
                                 <expression name="expression">row["16"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">CUOTA_TH</property>
-                                <property name="displayName">CUOTA_TH</property>
+                                <text-property name="displayName">CUOTA_TH</text-property>
                                 <expression name="expression">dataSetRow["CUOTA_TH"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">IVA__TH</property>
-                                <property name="displayName">IVA__TH</property>
+                                <text-property name="displayName">IVA__TH</text-property>
                                 <expression name="expression">dataSetRow["IVA_TH"]</expression>
                                 <property name="dataType">float</property>
                             </structure>
                             <structure>
                                 <property name="name">04</property>
-                                <property name="displayName">04</property>
+                                <text-property name="displayName">04</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>ttr</value>
@@ -1196,7 +1248,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">05</property>
-                                <property name="displayName">05</property>
+                                <text-property name="displayName">05</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>ttr</value>
@@ -1211,7 +1263,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">14</property>
-                                <property name="displayName">14</property>
+                                <text-property name="displayName">14</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1223,7 +1275,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">15</property>
-                                <property name="displayName">15</property>
+                                <text-property name="displayName">15</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1240,7 +1292,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">19</property>
-                                <property name="displayName">19</property>
+                                <text-property name="displayName">19</text-property>
                                 <property name="dataType">integer</property>
                                 <property name="aggregateFunction">COUNT</property>
                                 <list-property name="arguments">
@@ -1250,7 +1302,29 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                                     </structure>
                                 </list-property>
                             </structure>
+                            <structure>
+                                <property name="name">FECHA_1</property>
+                                <expression name="expression">dataSetRow["FECHA"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>fecha</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">EMI_1</property>
+                                <expression name="expression">dataSetRow["EMI"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>emi</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">TTR_1</property>
+                                <expression name="expression">dataSetRow["TTR"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>ttr</value>
+                                </simple-property-list>
+                            </structure>
                         </list-property>
+                        <property name="pageBreakInterval">50</property>
                         <column id="2780"/>
                         <column id="2781"/>
                         <column id="2782"/>
@@ -1293,7 +1367,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                                                 <property name="category">Medium Date</property>
                                                 <property name="pattern">Medium Date</property>
                                             </structure>
-                                            <property name="resultSetColumn">FECHA</property>
+                                            <property name="resultSetColumn">FECHA_1</property>
                                         </data>
                                     </cell>
                                     <cell id="2795"/>
@@ -1586,7 +1660,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                                                 <property name="pattern">$#,##0.00</property>
                                             </structure>
                                             <property name="textAlign">right</property>
-                                            <property name="resultSetColumn">01</property>
+                                            <property name="resultSetColumn">00</property>
                                         </data>
                                     </cell>
                                     <cell id="2890">

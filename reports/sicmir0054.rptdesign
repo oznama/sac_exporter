@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<report xmlns="http://www.eclipse.org/birt/2005/design"  id="1">
-    <property name="createdBy">MyEclipse Report Designer Version 1.0</property>
-    <property name="units">in</property>
+<report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.13.0.v202303021806</property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">2357</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">2357</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">2357</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">2357</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">2357</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">2357</property>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">2357</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">2357</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">2357</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -18,269 +56,128 @@
 reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
     <text-property name="displayName">Blank Report</text-property>
     <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
     <parameters>
         <scalar-parameter name="initDate" id="2359">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">22/03/2012</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">22/03/2012</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="endDate" id="2360">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">22/03/2012</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">22/03/2012</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="bancoEmi" id="2361">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">7</value>
+            </simple-property-list>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">7</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="2362">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Proceso batch</value>
+            </simple-property-list>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">acastillo</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="archivo" id="2454">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">88</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">88</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="3069">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="3070">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="2357">
-            <property name="meDriver">PMTUDBP</property>
+        <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="2357">
+            <list-property name="privateDriverProperties">
+                <ex-property>
+                    <name>contentBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+                <ex-property>
+                    <name>disabledContentBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>disabledMetadataBidiFormatStr</name>
+                </ex-property>
+                <ex-property>
+                    <name>metadataBidiFormatStr</name>
+                    <value>ILYNN</value>
+                </ex-property>
+            </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@10.255.220.165:1590:PMTu</property>
-            <property name="odaUser">PMTWEB</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">cmFpc2lucw==</encrypted-property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="sicmir0054" id="2461">
-            <structure name="cachedMetaData">
-                <list-property name="resultSet">
-                    <structure>
-                        <property name="position">1</property>
-                        <property name="name">EMI</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">2</property>
-                        <property name="name">DESC_EMI</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">3</property>
-                        <property name="name">BU_EMI</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">4</property>
-                        <property name="name">FECHA</property>
-                        <property name="dataType">date-time</property>
-                    </structure>
-                    <structure>
-                        <property name="position">5</property>
-                        <property name="name">NO_ARCH</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">6</property>
-                        <property name="name">DESC_ARCH</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">7</property>
-                        <property name="name">ARCH</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">8</property>
-                        <property name="name">TTR</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">9</property>
-                        <property name="name">TTR_DESC</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">10</property>
-                        <property name="name">ADQ</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">11</property>
-                        <property name="name">DESC_ADQ</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">12</property>
-                        <property name="name">BU_ADQ</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">13</property>
-                        <property name="name">CANTIDAD</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">14</property>
-                        <property name="name">IMPORTE</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                </list-property>
-            </structure>
-            <property name="dataSource">Data Source</property>
-            <method name="beforeOpen"><![CDATA[this.queryText=" ";
-if(!params["archivo"].match("(800|794)")){
-this.queryText+=
-" SELECT PBA.BA_ENT_EMI EMI "+
-"       ,PEE.DESCRIPCION DESC_EMI "+
-"       ,(SELECT DISTINCT VBE.BU_TX_PARENT FROM PMADMIN.VW_BUS_EMI VBE WHERE VBE.NUMERO_PROSA = PBA.BA_ENT_EMI) BU_EMI "+
-"       ,PBA.BA_FCH_PROC FECHA "+
-"       ,PBA.BA_NUM_ARCH NO_ARCH "+
-"       ,PA.DESCRIPCION DESC_ARCH "+
-"       ,PBA.BA_ARCHIVO ARCH "+
-"       ,PBA.BA_TC_PROSA TTR "+
-"       ,PTT.DESCRIPCION TTR_DESC "+
-"       ,PBA.BA_ENT_ADQ ADQ "+
-"       ,PEA.DESCRIPCION DESC_ADQ "+
-"       ,(SELECT DISTINCT VBA.BU_TX_PARENT FROM PMADMIN.VW_BUS_ACQ VBA WHERE VBA.NUMERO_PROSA = PBA.BA_ENT_ADQ) BU_ADQ "+
-"       ,SUM(PBA.BA_CANTIDAD) CANTIDAD "+
-"       ,SUM(CASE "+
-"           WHEN PBA.BA_MONEDA = 484 AND PEE.NUMERO_LN = 'DLMN' THEN "+
-"                CASE WHEN PBA.BA_TC_PROSA IN (20,21) THEN "+
-"                          -ROUND(PBA.BA_IMPORTE/(SELECT CR_RATE FROM CORE.CZ_CRNCY_RATE WHERE CR_EFF_DT = PBA.BA_FCH_PROC AND CR_CD = 484 AND CR_BU = 1033 AND CR_TYP = 1),2) "+
-"                      ELSE ROUND(PBA.BA_IMPORTE/(SELECT CR_RATE FROM CORE.CZ_CRNCY_RATE WHERE CR_EFF_DT = PBA.BA_FCH_PROC AND CR_CD = 484 AND CR_BU = 1033 AND CR_TYP = 1),2) "+
-"                END "+
-"           WHEN PBA.BA_TC_PROSA IN (20,21) THEN -PBA.BA_IMPORTE "+
-"           ELSE PBA.BA_IMPORTE "+
-"      END "+
-"  ) IMPORTE "+
-" FROM PMADMIN.PRSA_BITACORA_ARCHIVOS PBA "+
-" INNER JOIN PMADMIN.PRSA_ENTIDADES PEE "+
-"     ON PEE.NUMERO_PROSA = PBA.BA_ENT_EMI "+
-" INNER JOIN PMADMIN.PRSA_ENTIDADES PEA "+
-"     ON PEA.NUMERO_PROSA = PBA.BA_ENT_ADQ "+
-"  INNER JOIN  PMADMIN.PRSA_ARCHIVOS PA "+
-"  ON (PA.BAIN_NUMERO = TO_NUMBER(REGEXP_REPLACE(REGEXP_SUBSTR(PBA.BA_ARCHIVO,  '[^.]+'),'[[:alpha:]]','')) "+
-"      OR (NOT REGEXP_LIKE(REGEXP_REPLACE(REGEXP_SUBSTR(PBA.BA_ARCHIVO,  '\\.[^.]+\\.'),'(\\.)',''),'[[:alpha:]]') "+
-"      AND PA.BAIN_NUMERO = TO_NUMBER(REGEXP_REPLACE(REGEXP_SUBSTR(PBA.BA_ARCHIVO,  '\\.[^.]+\\.'),'(\\.)','')))) "+
-//Modificación-INICIO-SAS-AGA-A-20-5092-21
-" AND PA.ENT_NUMERO_PROSA IN ("+params["bancoEmi"]+") "+
-//Modificación-FIN-SAS-AGA-A-20-5092-21
-" INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
-"     ON PTT.NUMERO = PBA.BA_TC_PROSA "+
-" WHERE PA.ENT_NUMERO_PROSA IN ("+params["bancoEmi"]+") "+
-" AND PBA.BA_FCH_PROC BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-" AND (PBA.BA_NUM_ARCH = "+params["archivo"]+" OR PA.BAIN_NUMERO = "+params["archivo"]+" ) "+
-" AND PBA.BA_T_ARCH = 'O' "+
-" GROUP BY PBA.BA_ENT_EMI "+
-"       ,PEE.DESCRIPCION "+
-"       ,PBA.BA_FCH_PROC "+
-"       ,PBA.BA_NUM_ARCH "+
-"       ,PA.DESCRIPCION "+
-"       ,PBA.BA_ARCHIVO "+
-"       ,PBA.BA_TC_PROSA "+
-"       ,PTT.DESCRIPCION "+
-"       ,PBA.BA_ENT_ADQ "+
-"       ,PEA.DESCRIPCION ";
-}
-else {
-this.queryText+=
-" SELECT PP.ENT_NUMERO_PROSA_EMI EMI, "+
-"        PEE.DESCRIPCION DESC_EMI, "+
-"        (SELECT DISTINCT VBE.BU_TX_PARENT FROM PMADMIN.VW_BUS_EMI VBE WHERE VBE.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_EMI) BU_EMI, "+
-"        PP.FECHA_LIQ FECHA, "+
-"        PA.BAIN_NUMERO NO_ARCH, "+
-"        PA.DESCRIPCION DESC_ARCH, "+
-"        PA.BAIN_NUMERO ARCH, "+
-"        PP. TTR_NUMERO TTR, "+
-"        PTT.DESCRIPCION TTR_DESC, "+
-"        PP.STTR_NUMERO ADQ, "+
-"        PEA.DESCRIPCION DESC_ADQ, "+
-"        (SELECT DISTINCT VBA.BU_TX_PARENT FROM PMADMIN.VW_BUS_ACQ VBA WHERE VBA.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_ADQ) BU_ADQ, "+
-"        SUM(NUMERO_TRANSACCIONES) CANTIDAD, "+
-"        ROUND(SUM(CASE  "+
-"                    WHEN PP.TTR_NUMERO IN (20,21,25) THEN -PP.TOTAL_IMPORTE  "+
-"                    ELSE PP.TOTAL_IMPORTE  "+
-"                  END  "+
-"        ),2) IMPORTE "+
-" FROM PMADMIN.PRSA_POSICIONES PP "+
-" INNER JOIN PMADMIN.PRSA_ENTIDADES PEE  "+
-"      ON PEE.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_EMI  "+
-"  INNER JOIN PMADMIN.PRSA_ENTIDADES PEA  "+
-"      ON PEA.NUMERO_PROSA = PP.STTR_NUMERO "+
-"  INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT  "+
-"      ON PTT.NUMERO = PP.TTR_NUMERO "+
-"  INNER JOIN  PMADMIN.PRSA_ARCHIVOS PA ON PA.BAIN_NUMERO IN ("+params["archivo"]+")      "+
-" WHERE PP.FECHA_LIQ  BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-" AND PP.TLI_NUMERO BETWEEN 30 AND 39 "+
-" AND PP.ENT_NUMERO_PROSA_EMI = DECODE("+params["bancoEmi"]+",107,1507,181,1581) "+
-" AND PP.TTR_NUMERO IN (1,20,21,25,26) "+
-" GROUP BY PP.ENT_NUMERO_PROSA_EMI, "+
-"        PEE.DESCRIPCION, "+
-"        PP.FECHA_LIQ, "+
-"        PA.BAIN_NUMERO, "+
-"        PA.DESCRIPCION,  "+
-"        PP. TTR_NUMERO, "+
-"        PTT.DESCRIPCION, "+
-"        PP.ENT_NUMERO_PROSA_ADQ, "+
-"        PP.STTR_NUMERO, "+
-"        PEA.DESCRIPCION ";
-
-}
-]]></method>
-            <list-property name="resultSet">
+            <list-property name="resultSetHints">
                 <structure>
                     <property name="position">1</property>
                     <property name="name">EMI</property>
@@ -366,7 +263,180 @@ this.queryText+=
                     <property name="dataType">decimal</property>
                 </structure>
             </list-property>
-            <property name="queryText"></property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">EMI</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">DESC_EMI</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">BU_EMI</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">FECHA</property>
+                        <property name="dataType">date-time</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">NO_ARCH</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">DESC_ARCH</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">ARCH</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">TTR</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">TTR_DESC</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">ADQ</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">DESC_ADQ</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">BU_ADQ</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">CANTIDAD</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">IMPORTE</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[this.queryText=" ";
+if(!params["archivo"].match("(800|794)")){
+this.queryText+=
+" SELECT PBA.BA_ENT_EMI EMI "+
+"       ,PEE.DESCRIPCION DESC_EMI "+
+"       ,(SELECT DISTINCT VBE.BU_TX_PARENT FROM PMADMIN.VW_BUS_EMI VBE WHERE VBE.NUMERO_PROSA = PBA.BA_ENT_EMI) BU_EMI "+
+"       ,PBA.BA_FCH_PROC FECHA "+
+"       ,PBA.BA_NUM_ARCH NO_ARCH "+
+"       ,PA.DESCRIPCION DESC_ARCH "+
+"       ,PBA.BA_ARCHIVO ARCH "+
+"       ,PBA.BA_TC_PROSA TTR "+
+"       ,PTT.DESCRIPCION TTR_DESC "+
+"       ,PBA.BA_ENT_ADQ ADQ "+
+"       ,PEA.DESCRIPCION DESC_ADQ "+
+"       ,(SELECT DISTINCT VBA.BU_TX_PARENT FROM PMADMIN.VW_BUS_ACQ VBA WHERE VBA.NUMERO_PROSA = PBA.BA_ENT_ADQ) BU_ADQ "+
+"       ,SUM(PBA.BA_CANTIDAD) CANTIDAD "+
+"       ,SUM(CASE "+
+"           WHEN PBA.BA_MONEDA = 484 AND PEE.NUMERO_LN = 'DLMN' THEN "+
+"                CASE WHEN PBA.BA_TC_PROSA IN (20,21) THEN "+
+"                          -ROUND(PBA.BA_IMPORTE/(SELECT CR_RATE FROM CORE.CZ_CRNCY_RATE WHERE CR_EFF_DT = PBA.BA_FCH_PROC AND CR_CD = 484 AND CR_BU = 1033 AND CR_TYP = 1),2) "+
+"                      ELSE ROUND(PBA.BA_IMPORTE/(SELECT CR_RATE FROM CORE.CZ_CRNCY_RATE WHERE CR_EFF_DT = PBA.BA_FCH_PROC AND CR_CD = 484 AND CR_BU = 1033 AND CR_TYP = 1),2) "+
+"                END "+
+"           WHEN PBA.BA_TC_PROSA IN (20,21) THEN -PBA.BA_IMPORTE "+
+"           ELSE PBA.BA_IMPORTE "+
+"      END "+
+"  ) IMPORTE "+
+" FROM PMADMIN.PRSA_BITACORA_ARCHIVOS PBA "+
+" INNER JOIN PMADMIN.PRSA_ENTIDADES PEE "+
+"     ON PEE.NUMERO_PROSA = PBA.BA_ENT_EMI "+
+" INNER JOIN PMADMIN.PRSA_ENTIDADES PEA "+
+"     ON PEA.NUMERO_PROSA = PBA.BA_ENT_ADQ "+
+"  INNER JOIN  PMADMIN.PRSA_ARCHIVOS PA "+
+"  ON (PA.BAIN_NUMERO = TO_NUMBER(REGEXP_REPLACE(REGEXP_SUBSTR(PBA.BA_ARCHIVO,  '[^.]+'),'[[:alpha:]]','')) "+
+"      OR (NOT REGEXP_LIKE(REGEXP_REPLACE(REGEXP_SUBSTR(PBA.BA_ARCHIVO,  '\\.[^.]+\\.'),'(\\.)',''),'[[:alpha:]]') "+
+"      AND PA.BAIN_NUMERO = TO_NUMBER(REGEXP_REPLACE(REGEXP_SUBSTR(PBA.BA_ARCHIVO,  '\\.[^.]+\\.'),'(\\.)','')))) "+
+" AND PA.ENT_NUMERO_PROSA IN ("+params["bancoEmi"]+") "+
+" INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
+"     ON PTT.NUMERO = PBA.BA_TC_PROSA "+
+" WHERE PA.ENT_NUMERO_PROSA IN ("+params["bancoEmi"]+") "+
+" AND PBA.BA_FCH_PROC BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
+" AND (PBA.BA_NUM_ARCH = "+params["archivo"]+" OR PA.BAIN_NUMERO = "+params["archivo"]+" ) "+
+" AND PBA.BA_T_ARCH = 'O' "+
+" GROUP BY PBA.BA_ENT_EMI "+
+"       ,PEE.DESCRIPCION "+
+"       ,PBA.BA_FCH_PROC "+
+"       ,PBA.BA_NUM_ARCH "+
+"       ,PA.DESCRIPCION "+
+"       ,PBA.BA_ARCHIVO "+
+"       ,PBA.BA_TC_PROSA "+
+"       ,PTT.DESCRIPCION "+
+"       ,PBA.BA_ENT_ADQ "+
+"       ,PEA.DESCRIPCION ";
+}
+else {
+this.queryText+=
+" SELECT PP.ENT_NUMERO_PROSA_EMI EMI, "+
+"        PEE.DESCRIPCION DESC_EMI, "+
+"        (SELECT DISTINCT VBE.BU_TX_PARENT FROM PMADMIN.VW_BUS_EMI VBE WHERE VBE.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_EMI) BU_EMI, "+
+"        PP.FECHA_LIQ FECHA, "+
+"        PA.BAIN_NUMERO NO_ARCH, "+
+"        PA.DESCRIPCION DESC_ARCH, "+
+"        PA.BAIN_NUMERO ARCH, "+
+"        PP. TTR_NUMERO TTR, "+
+"        PTT.DESCRIPCION TTR_DESC, "+
+"        PP.STTR_NUMERO ADQ, "+
+"        PEA.DESCRIPCION DESC_ADQ, "+
+"        (SELECT DISTINCT VBA.BU_TX_PARENT FROM PMADMIN.VW_BUS_ACQ VBA WHERE VBA.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_ADQ) BU_ADQ, "+
+"        SUM(NUMERO_TRANSACCIONES) CANTIDAD, "+
+"        ROUND(SUM(CASE  "+
+"                    WHEN PP.TTR_NUMERO IN (20,21,25) THEN -PP.TOTAL_IMPORTE  "+
+"                    ELSE PP.TOTAL_IMPORTE  "+
+"                  END  "+
+"        ),2) IMPORTE "+
+" FROM PMADMIN.PRSA_POSICIONES PP "+
+" INNER JOIN PMADMIN.PRSA_ENTIDADES PEE  "+
+"      ON PEE.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_EMI  "+
+"  INNER JOIN PMADMIN.PRSA_ENTIDADES PEA  "+
+"      ON PEA.NUMERO_PROSA = PP.STTR_NUMERO "+
+"  INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT  "+
+"      ON PTT.NUMERO = PP.TTR_NUMERO "+
+"  INNER JOIN  PMADMIN.PRSA_ARCHIVOS PA ON PA.BAIN_NUMERO IN ("+params["archivo"]+")      "+
+" WHERE PP.FECHA_LIQ  BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
+" AND PP.TLI_NUMERO BETWEEN 30 AND 39 "+
+" AND PP.ENT_NUMERO_PROSA_EMI = DECODE("+params["bancoEmi"]+",107,1507,181,1581) "+
+" AND PP.TTR_NUMERO IN (1,20,21,25,26) "+
+" GROUP BY PP.ENT_NUMERO_PROSA_EMI, "+
+"        PEE.DESCRIPCION, "+
+"        PP.FECHA_LIQ, "+
+"        PA.BAIN_NUMERO, "+
+"        PA.DESCRIPCION,  "+
+"        PP. TTR_NUMERO, "+
+"        PTT.DESCRIPCION, "+
+"        PP.ENT_NUMERO_PROSA_ADQ, "+
+"        PP.STTR_NUMERO, "+
+"        PEA.DESCRIPCION ";
+
+}
+]]></method>
+            <property name="dataSource">Data Source</property>
+            <xml-property name="queryText"><![CDATA[]]></xml-property>
         </oda-data-set>
     </data-sets>
     <styles>
@@ -430,7 +500,7 @@ this.queryText+=
                                 <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">''</expression>
                             </image>
@@ -780,16 +850,16 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">''</expression>
                     </image>
                 </cell>
             </row>
             <row id="2141">
-                <property name="height">2.1in</property>
                 <property name="textAlign">center</property>
                 <property name="verticalAlign">middle</property>
+                <property name="height">2.1in</property>
                 <cell id="2142">
                     <property name="backgroundImage">/reports/images/reportHeader.PNG</property>
                     <property name="backgroundPositionX">center</property>
@@ -903,7 +973,7 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                                     <row id="2170">
                                         <cell id="2171">
                                             <data id="1508">
-                                                <property name="fontSize">medium</property>
+                                                <property name="fontSize">9pt</property>
                                                 <property name="paddingTop">1pt</property>
                                                 <structure name="dateTimeFormat">
                                                     <property name="category">Custom</property>
@@ -931,7 +1001,7 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                                         </cell>
                                         <cell id="2174">
                                             <data id="1727">
-                                                <property name="fontSize">medium</property>
+                                                <property name="fontSize">9pt</property>
                                                 <property name="textAlign">left</property>
                                                 <list-property name="boundDataColumns">
                                                     <structure>
@@ -1061,37 +1131,37 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                             </structure>
                             <structure>
                                 <property name="name">FECH</property>
-                                <property name="displayName">FECH</property>
+                                <text-property name="displayName">FECH</text-property>
                                 <expression name="expression">'Fecha de Proceso: '+dataSetRow["FECHA"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">titulo</property>
-                                <property name="displayName">titulo</property>
+                                <text-property name="displayName">titulo</text-property>
                                 <expression name="expression">dataSetRow["EMI"]+' '+dataSetRow["DESC_EMI"]+' '+dataSetRow["BU_EMI"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">arch</property>
-                                <property name="displayName">arch</property>
+                                <text-property name="displayName">arch</text-property>
                                 <expression name="expression">'Archivo: '+dataSetRow["NO_ARCH"]+' '+dataSetRow["DESC_ARCH"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">ttr</property>
-                                <property name="displayName">ttr</property>
+                                <text-property name="displayName">ttr</text-property>
                                 <expression name="expression">dataSetRow["TTR"]+' '+dataSetRow["TTR_DESC"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">adq</property>
-                                <property name="displayName">adq</property>
+                                <text-property name="displayName">adq</text-property>
                                 <expression name="expression">dataSetRow["ADQ"]+' '+dataSetRow["DESC_ADQ"]+' '+dataSetRow["BU_ADQ"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">00</property>
-                                <property name="displayName">00</property>
+                                <text-property name="displayName">00</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>ttr</value>
@@ -1106,7 +1176,7 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                             </structure>
                             <structure>
                                 <property name="name">10</property>
-                                <property name="displayName">10</property>
+                                <text-property name="displayName">10</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>nom</value>
@@ -1121,7 +1191,7 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                             </structure>
                             <structure>
                                 <property name="name">01</property>
-                                <property name="displayName">01</property>
+                                <text-property name="displayName">01</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>ttr</value>
@@ -1136,7 +1206,7 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                             </structure>
                             <structure>
                                 <property name="name">11</property>
-                                <property name="displayName">11</property>
+                                <text-property name="displayName">11</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>nom</value>
@@ -1151,7 +1221,7 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                             </structure>
                             <structure>
                                 <property name="name">20</property>
-                                <property name="displayName">20</property>
+                                <text-property name="displayName">20</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1163,7 +1233,7 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                             </structure>
                             <structure>
                                 <property name="name">21</property>
-                                <property name="displayName">21</property>
+                                <text-property name="displayName">21</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1173,7 +1243,50 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                                     </structure>
                                 </list-property>
                             </structure>
+                            <structure>
+                                <property name="name">EMI_1</property>
+                                <expression name="expression">dataSetRow["EMI"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>bco</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">FECHA_1</property>
+                                <expression name="expression">dataSetRow["FECHA"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>fech</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">NO_ARCH_1</property>
+                                <expression name="expression">dataSetRow["NO_ARCH"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>num</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">ARCH_1</property>
+                                <expression name="expression">dataSetRow["ARCH"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>nom</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">TTR_1</property>
+                                <expression name="expression">dataSetRow["TTR"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>ttr</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">ADQ_1</property>
+                                <expression name="expression">dataSetRow["ADQ"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>adq</value>
+                                </simple-property-list>
+                            </structure>
                         </list-property>
+                        <property name="pageBreakInterval">50</property>
                         <column id="3101"/>
                         <column id="3102"/>
                         <column id="3103"/>
@@ -1242,7 +1355,7 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                                                 <property name="category">Medium Date</property>
                                                 <property name="pattern">Medium Date</property>
                                             </structure>
-                                            <property name="resultSetColumn">FECHA</property>
+                                            <property name="resultSetColumn">FECHA_1</property>
                                         </data>
                                     </cell>
                                     <cell id="3127">
@@ -1380,7 +1493,7 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                                     <cell id="3174">
                                         <data id="3190">
                                             <property name="textAlign">center</property>
-                                            <property name="resultSetColumn">ARCH</property>
+                                            <property name="resultSetColumn">ARCH_1</property>
                                         </data>
                                     </cell>
                                     <cell id="3175">

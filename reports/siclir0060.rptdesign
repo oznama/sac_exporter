@@ -94,7 +94,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
             <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <simple-property-list name="defaultValue">
-                <value type="constant">ggonzalez</value>
+                <value type="constant">Proceso batch</value>
             </simple-property-list>
             <property name="controlType">text-box</property>
             <structure name="format">
@@ -580,7 +580,6 @@ this.queryText+=
 "       ,TO_CHAR(PTRV.PTRV_NATURALEZA_CONTABLE) TIPO_TARJETA "+
 "       ,COUNT(1) TXN "+
 "       ,SUM(CASE "+
-/*Inicia modiciacion WELLGER-C-20-1383-21.D4 25-05-2022*/
 "          WHEN PTRV.PTRV_TTR_NUMERO IN (21,20) THEN -PTRV.PTRV_IMPORTE_TOTAL_TRANSAC	"+
 "          ELSE PTRV.PTRV_IMPORTE_TOTAL_TRANSAC "+
 "        END) IMPORTE "+
@@ -592,7 +591,6 @@ this.queryText+=
 "          WHEN PTRV.PTRV_TTR_NUMERO IN (21,20) THEN -PTRV.PTRV_IMP_IVA_INTERCAMBIO "+
 "          ELSE PTRV.PTRV_IMP_IVA_INTERCAMBIO "+
 "        END) IVA "+
-/*Fin modiciacion WELLGER-C-20-1383-21.D4 25-05-2022*/
 " FROM PMADMIN.PRSA_TXN_RECHAZADAS_VAL PTRV "+
 " INNER JOIN PMADMIN.VW_BUS_ACQ VBA "+
 "     ON VBA.NUMERO_PROSA = PTRV.PTRV_ENT_NUMERO_PROSA_ADQ "+
@@ -978,7 +976,7 @@ this.queryText+=
                     </structure>
                 </list-property>
             </structure>
-            <method name="beforeOpen"><![CDATA[/*Inicia modificacion WELL-GGE F-62-8104-21 18-10-2021*/
+            <method name="beforeOpen"><![CDATA[
 if (params["banco"]=='0')
 this.queryText=" SELECT 'CONSOLIDADO' AS DESCRIPCION ";
 
@@ -1043,7 +1041,7 @@ if (params["banco"]=='0')
 else
 	this.queryText+=
 "  GROUP BY ent.DESCRIPCION ";
-/*Fin modificacion WELL-GGE F-62-8104-21 18-10-2021*/]]></method>
+]]></method>
             <property name="dataSource">Data Source</property>
             <xml-property name="queryText"><![CDATA[select 
 from ]]></xml-property>
@@ -1115,7 +1113,7 @@ from ]]></xml-property>
                                 <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">''</expression>
                             </image>
@@ -1566,7 +1564,7 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">''</expression>
                     </image>
@@ -1580,7 +1578,7 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></metho
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">reports/images/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>

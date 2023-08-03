@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
-    <property name="createdBy">MyEclipse Report Designer Version 1.0</property>
-    <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here</property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.13.0.v202303021806</property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">1016</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -18,117 +56,139 @@
 reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
     <text-property name="displayName">Blank Report</text-property>
     <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
     <parameters>
         <scalar-parameter name="initDate" id="28">
             <property name="hidden">false</property>
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">11/01/2012</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="concealValue">false</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">11/01/2012</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="banco" id="1574">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">3</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">3</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="1592">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Proceso batch</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">ggonzalez</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="endDate" id="1773">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">11/01/2012</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">11/01/2012</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="initDateAntHab" id="3428">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">05/01/2012</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">05/01/2012</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="endDateAntHab" id="3429">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">05/01/2012</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">05/01/2012</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="agrupacion0301" id="4430">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">si</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">si</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="6036">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="6037">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <!--oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
-        </oda-data-source-->
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
-            <text-property name="displayName"></text-property>
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>contentBidiFormatStr</name>
@@ -146,13 +206,103 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@172.16.136.233:1606:PMTU</property>
-            <property name="odaUser">PMTWEB</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">UE1UV0VC</encrypted-property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="Q_1" id="6100">
+            <list-property name="resultSetHints">
+                <structure>
+                    <property name="position">1</property>
+                    <property name="name">HIJO</property>
+                    <property name="nativeName">HIJO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">2</property>
+                    <property name="name">TITULO</property>
+                    <property name="nativeName">TITULO</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">3</property>
+                    <property name="name">FECHA</property>
+                    <property name="nativeName">FECHA</property>
+                    <property name="dataType">date-time</property>
+                </structure>
+                <structure>
+                    <property name="position">4</property>
+                    <property name="name">EMISOR</property>
+                    <property name="nativeName">EMISOR</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">5</property>
+                    <property name="name">EMISOR_DESC</property>
+                    <property name="nativeName">EMISOR_DESC</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">6</property>
+                    <property name="name">EMISOR_BU</property>
+                    <property name="nativeName">EMISOR_BU</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">7</property>
+                    <property name="name">ADQUIRENTE</property>
+                    <property name="nativeName">ADQUIRENTE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">8</property>
+                    <property name="name">ADQUIRENTE_DESC</property>
+                    <property name="nativeName">ADQUIRENTE_DESC</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">9</property>
+                    <property name="name">ADQUIRENTE_BU</property>
+                    <property name="nativeName">ADQUIRENTE_BU</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">10</property>
+                    <property name="name">TTR_NUMERO</property>
+                    <property name="nativeName">TTR_NUMERO</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">11</property>
+                    <property name="name">TIPO_TARJETA</property>
+                    <property name="nativeName">TIPO_TARJETA</property>
+                    <property name="dataType">string</property>
+                </structure>
+                <structure>
+                    <property name="position">12</property>
+                    <property name="name">TXN</property>
+                    <property name="nativeName">TXN</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">13</property>
+                    <property name="name">IMPORTE</property>
+                    <property name="nativeName">IMPORTE</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">14</property>
+                    <property name="name">COMISION</property>
+                    <property name="nativeName">COMISION</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="position">15</property>
+                    <property name="name">IVA</property>
+                    <property name="nativeName">IVA</property>
+                    <property name="dataType">decimal</property>
+                </structure>
+            </list-property>
             <list-property name="filter">
                 <structure>
                     <property name="operator">ne</property>
@@ -241,14 +391,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                     </structure>
                 </list-property>
             </structure>
-            <property name="dataSource">Data Source</property>
             <method name="beforeOpen"><![CDATA[this.queryText=
 " SELECT TITULOS.HIJO "+
 "       ,TITULOS.TITULO "+
 "       ,DATOS.FECHA "+
 "       ,DATOS.EMISOR "+
 "       ,DATOS.EMISOR_DESC "+
-//"       ,(SELECT DISTINCT VBE.BU_TX_PARENT FROM PMADMIN.VW_BUS_EMI VBE WHERE VBE.NUMERO_PROSA = DATOS.EMISOR AND ROWNUM = 1) EMISOR_BU "+
 "       ,CASE "+
 "           WHEN DATOS.EMISOR = 31 THEN 522 "+
 "           ELSE (SELECT DISTINCT VBE.BU_TX_PARENT FROM PMADMIN.VW_BUS_EMI VBE WHERE VBE.NUMERO_PROSA = DATOS.EMISOR UNION SELECT DISTINCT VBA.BU_TX_PARENT FROM PMADMIN.VW_BUS_ACQ VBA WHERE VBA.NUMERO_PROSA = DATOS.EMISOR) "+
@@ -810,102 +958,10 @@ this.queryText+=" LEFT JOIN (SELECT '01' PAPA, '01.1' HIJO, 'Ventas' TITULO FROM
 
 this.queryText+=
 " ON Regexp_Like(TITULOS.HIJO, Datos.Orden) "+
-//" ON TITULOS.PAPA = DATOS.ORDEN "+
 " ORDER BY HIJO ";]]></method>
-            <list-property name="resultSet">
-                <structure>
-                    <property name="position">1</property>
-                    <property name="name">HIJO</property>
-                    <property name="nativeName">HIJO</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">2</property>
-                    <property name="name">TITULO</property>
-                    <property name="nativeName">TITULO</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">3</property>
-                    <property name="name">FECHA</property>
-                    <property name="nativeName">FECHA</property>
-                    <property name="dataType">date-time</property>
-                </structure>
-                <structure>
-                    <property name="position">4</property>
-                    <property name="name">EMISOR</property>
-                    <property name="nativeName">EMISOR</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">5</property>
-                    <property name="name">EMISOR_DESC</property>
-                    <property name="nativeName">EMISOR_DESC</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">6</property>
-                    <property name="name">EMISOR_BU</property>
-                    <property name="nativeName">EMISOR_BU</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">7</property>
-                    <property name="name">ADQUIRENTE</property>
-                    <property name="nativeName">ADQUIRENTE</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">8</property>
-                    <property name="name">ADQUIRENTE_DESC</property>
-                    <property name="nativeName">ADQUIRENTE_DESC</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">9</property>
-                    <property name="name">ADQUIRENTE_BU</property>
-                    <property name="nativeName">ADQUIRENTE_BU</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">10</property>
-                    <property name="name">TTR_NUMERO</property>
-                    <property name="nativeName">TTR_NUMERO</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">11</property>
-                    <property name="name">TIPO_TARJETA</property>
-                    <property name="nativeName">TIPO_TARJETA</property>
-                    <property name="dataType">string</property>
-                </structure>
-                <structure>
-                    <property name="position">12</property>
-                    <property name="name">TXN</property>
-                    <property name="nativeName">TXN</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">13</property>
-                    <property name="name">IMPORTE</property>
-                    <property name="nativeName">IMPORTE</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">14</property>
-                    <property name="name">COMISION</property>
-                    <property name="nativeName">COMISION</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-                <structure>
-                    <property name="position">15</property>
-                    <property name="name">IVA</property>
-                    <property name="nativeName">IVA</property>
-                    <property name="dataType">decimal</property>
-                </structure>
-            </list-property>
-            <property name="queryText">select 
-from    </property>
+            <property name="dataSource">Data Source</property>
+            <xml-property name="queryText"><![CDATA[select 
+from    ]]></xml-property>
         </oda-data-set>
     </data-sets>
     <styles>
@@ -956,7 +1012,7 @@ from    </property>
                     <list-property name="boundDataColumns">
                         <structure>
                             <property name="name">encabezado</property>
-                            <property name="displayName">encabezado</property>
+                            <text-property name="displayName">encabezado</text-property>
                             <expression name="expression">if (params["banco"].search(',')>-1)
 	'';
 else
@@ -985,7 +1041,7 @@ else
                                 <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">''</expression>
                             </image>
@@ -1342,21 +1398,21 @@ else
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">''</expression>
                     </image>
                 </cell>
             </row>
             <row id="2034">
-                <property name="height">2.1in</property>
                 <property name="textAlign">center</property>
                 <property name="verticalAlign">middle</property>
+                <property name="height">2.1in</property>
                 <cell id="2035">
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">reports/images/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>
@@ -1591,7 +1647,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">El Titulo</property>
-                                <property name="displayName">El titulo</property>
+                                <text-property name="displayName">El titulo</text-property>
                                 <expression name="expression">if (params["banco"].value.equals("0"))
 {
 	'CONSOLIDADO';
@@ -1604,7 +1660,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01</property>
-                                <property name="displayName">01</property>
+                                <text-property name="displayName">01</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>agrupar</value>
@@ -1633,7 +1689,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">02</property>
-                                <property name="displayName">02</property>
+                                <text-property name="displayName">02</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>agrupar</value>
@@ -1674,7 +1730,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11</property>
-                                <property name="displayName">11</property>
+                                <text-property name="displayName">11</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>agrupar</value>
@@ -1703,7 +1759,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">12</property>
-                                <property name="displayName">12</property>
+                                <text-property name="displayName">12</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>agrupar</value>
@@ -1744,7 +1800,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">31</property>
-                                <property name="displayName">31</property>
+                                <text-property name="displayName">31</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>agrupar</value>
@@ -1766,7 +1822,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">32</property>
-                                <property name="displayName">32</property>
+                                <text-property name="displayName">32</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>agrupar</value>
@@ -1800,7 +1856,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">21</property>
-                                <property name="displayName">21</property>
+                                <text-property name="displayName">21</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>agrupar</value>
@@ -1829,7 +1885,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">23</property>
-                                <property name="displayName">23</property>
+                                <text-property name="displayName">23</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>agrupar</value>
@@ -1870,7 +1926,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">AA</property>
-                                <property name="displayName">AA</property>
+                                <text-property name="displayName">AA</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -2013,7 +2069,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">BB</property>
-                                <property name="displayName">BB</property>
+                                <text-property name="displayName">BB</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -2156,7 +2212,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">CC</property>
-                                <property name="displayName">CC</property>
+                                <text-property name="displayName">CC</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -2299,7 +2355,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">DD</property>
-                                <property name="displayName">DD</property>
+                                <text-property name="displayName">DD</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -2442,7 +2498,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">TOTAL</property>
-                                <property name="displayName">TOTAL</property>
+                                <text-property name="displayName">TOTAL</text-property>
                                 <expression name="expression">if (row["DD"]>0)
 {
 	'TOTAL A FAVOR DE PROSA';
@@ -2455,27 +2511,41 @@ else
                             </structure>
                             <structure>
                                 <property name="name">032</property>
-                                <property name="displayName">032</property>
+                                <text-property name="displayName">032</text-property>
                                 <expression name="expression">row["002"]+row["012"]+row["023"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">002</property>
-                                <property name="displayName">002</property>
-                                <expression name="expression">row["02"].toFixed(2)</expression>
+                                <text-property name="displayName">002</text-property>
+                                <expression name="expression">row["02"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">012</property>
-                                <property name="displayName">012</property>
-                                <expression name="expression">row["12"].toFixed(2)</expression>
+                                <text-property name="displayName">012</text-property>
+                                <expression name="expression">row["12"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
                             <structure>
                                 <property name="name">023</property>
-                                <property name="displayName">023</property>
-                                <expression name="expression">row["23"].toFixed(2)</expression>
+                                <text-property name="displayName">023</text-property>
+                                <expression name="expression">row["23"]</expression>
                                 <property name="dataType">decimal</property>
+                            </structure>
+                            <structure>
+                                <property name="name">EMISOR_1</property>
+                                <expression name="expression">dataSetRow["EMISOR"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>BCO</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">HIJO_1</property>
+                                <expression name="expression">dataSetRow["HIJO"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>agrupar</value>
+                                </simple-property-list>
                             </structure>
                         </list-property>
                         <property name="pageBreakInterval">60</property>

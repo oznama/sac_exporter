@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
-    <property name="createdBy">MyEclipse Report Designer Version 1.0</property>
-    <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.13.0.v202303021806</property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
     <list-property name="propertyBindings">
         <structure>
@@ -12,12 +11,10 @@
         <structure>
             <property name="name">odaURL</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
         </structure>
         <structure>
             <property name="name">odaUser</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbUser"].value</expression>
         </structure>
         <structure>
             <property name="name">odaAutoCommit</property>
@@ -43,9 +40,9 @@
         <structure>
             <property name="name">odaPassword</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbPswd"].value</expression>
         </structure>
     </list-property>
+    <property name="units">in</property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -60,135 +57,161 @@
 reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
     <text-property name="displayName">Blank Report</text-property>
     <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
     <parameters>
         <scalar-parameter name="initDate" id="2357">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">29/03/2011</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">29/03/2011</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="2359">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Proceso batch</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">ggonzalez</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="ttrnumero" id="3036">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">ttrnumero</text-property>
-            <property name="concealValue">false</property>
-            <property name="isRequired">true</property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">0</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">0</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="fuente" id="3037">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">fuente</text-property>
-            <property name="concealValue">false</property>
-            <property name="isRequired">true</property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">0</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">0</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="adq" id="3038">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">adq</text-property>
-            <property name="concealValue">false</property>
-            <property name="isRequired">true</property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">1002</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">1002</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="emi" id="3039">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">emi</text-property>
-            <property name="concealValue">false</property>
-            <property name="isRequired">true</property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">0</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">0</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="concealValue">false</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="liquidacion" id="3294">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">liquidacion</text-property>
+            <property name="valueType">static</property>
             <property name="isRequired">false</property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">0</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">0</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="afiliacion" id="3726">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">afiliacion</text-property>
+            <property name="valueType">static</property>
             <property name="isRequired">false</property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">0</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">0</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="3766">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="3767">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="dbHost" id="6426">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -200,6 +223,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbUser" id="6427">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -211,6 +235,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbPswd" id="6428">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -222,6 +247,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbPort" id="6429">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -233,6 +259,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbName" id="6430">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -244,11 +271,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <!--oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="2355">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
-        </oda-data-source-->
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
             <list-property name="privateDriverProperties">
                 <ex-property>
@@ -267,13 +289,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="Q_1" id="3293">
             <structure name="cachedMetaData"/>
-            <property name="dataSource">Data Source</property>
             <method name="beforeOpen"><![CDATA[this.queryText=
 " SELECT PTA.ARCH_NUMERO FUENTE "+
 "       ,PTA.PROC_NUMERO PROCEDENCIA "+
@@ -307,9 +328,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 " FROM PMADMIN.PRSA_TXN_ACEPTADAS PTA "+
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
 "     ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_EMI "+
-//Modificación-INICIO-SAS-AGA-A-20-5092-21
 " AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["adq"]+") "+
-//Modificación-FIN-SAS-AGA-A-20-5092-21
 " INNER JOIN PMADMIN.VW_BUS_ACQ VBA "+
 "     ON VBA.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_ADQ "+
 " INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
@@ -382,9 +401,7 @@ this.queryText+=
 " FROM PMADMIN.PRSA_TXN_LOCALES_VISA PTLV "+
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
 "     ON PE.NUMERO_PROSA = PTLV.ENT_NUMERO_PROSA_EMI "+
-//Modificación-INICIO-SAS-AGA-A-20-5092-21
 " AND PTLV.ENT_NUMERO_PROSA_ADQ IN ("+params["adq"]+") "+
-//Modificación-FIN-SAS-AGA-A-20-5092-21
 " INNER JOIN PMADMIN.VW_BUS_ACQ VBA "+
 "     ON VBA.NUMERO_PROSA = PTLV.ENT_NUMERO_PROSA_ADQ "+
 " LEFT JOIN PMTW.POS_T_TKN2 PTK2  "+
@@ -418,8 +435,9 @@ if (params["afiliacion"]!="0")
 {
 	this.queryText+=" AND PTLV.NUMERO_COMERCIO IN ("+params["afiliacion"]+") ";
 }]]></method>
-            <property name="queryText">select 
-from </property>
+            <property name="dataSource">Data Source</property>
+            <xml-property name="queryText"><![CDATA[select 
+from ]]></xml-property>
         </oda-data-set>
     </data-sets>
     <styles>
@@ -811,21 +829,21 @@ from </property>
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">''</expression>
                     </image>
                 </cell>
             </row>
             <row id="2034">
-                <property name="height">2.1in</property>
                 <property name="textAlign">center</property>
                 <property name="verticalAlign">middle</property>
+                <property name="height">2.1in</property>
                 <cell id="2035">
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';
 ]]></method>
                     <property name="backgroundImage">http://cvs.prosa.com.mx/comunicados/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
@@ -1229,13 +1247,13 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">adq</property>
-                                <property name="displayName">adq</property>
+                                <text-property name="displayName">adq</text-property>
                                 <expression name="expression">'Banco Adquirente: '+dataSetRow["ADQUIRENTE"]+' '+dataSetRow["DESC_ADQUIRENTE"]+' '+dataSetRow["BU_ADQUIRENTE"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">comer</property>
-                                <property name="displayName">comer</property>
+                                <text-property name="displayName">comer</text-property>
                                 <expression name="expression">if(dataSetRow["NO_COMERCIO"]==null)
 'No. Afiliacion: '+' '
 else
@@ -1244,31 +1262,31 @@ else
                             </structure>
                             <structure>
                                 <property name="name">ttr</property>
-                                <property name="displayName">ttr</property>
+                                <text-property name="displayName">ttr</text-property>
                                 <expression name="expression">'Tipo Transaccion: '+dataSetRow["NO_TXN"]+' '+dataSetRow["NAME_TXN"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">em</property>
-                                <property name="displayName">em</property>
+                                <text-property name="displayName">em</text-property>
                                 <expression name="expression">dataSetRow["EMISOR"]+' '+dataSetRow["DESC_EMISOR"]</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">fech</property>
-                                <property name="displayName">fech</property>
+                                <text-property name="displayName">fech</text-property>
                                 <expression name="expression">'Fecha Proceso: '</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">tx</property>
-                                <property name="displayName">tx</property>
+                                <text-property name="displayName">tx</text-property>
                                 <expression name="expression">'Total por tipo Transaccion: '</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">s_1</property>
-                                <property name="displayName">s_1</property>
+                                <text-property name="displayName">s_1</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>txn</value>
@@ -1286,7 +1304,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_2</property>
-                                <property name="displayName">s_2</property>
+                                <text-property name="displayName">s_2</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>txn</value>
@@ -1304,7 +1322,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_3</property>
-                                <property name="displayName">s_3</property>
+                                <text-property name="displayName">s_3</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>txn</value>
@@ -1322,7 +1340,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_4</property>
-                                <property name="displayName">s_4</property>
+                                <text-property name="displayName">s_4</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>txn</value>
@@ -1340,7 +1358,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_5</property>
-                                <property name="displayName">s_5</property>
+                                <text-property name="displayName">s_5</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>txn</value>
@@ -1358,7 +1376,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_6</property>
-                                <property name="displayName">s_6</property>
+                                <text-property name="displayName">s_6</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>txn</value>
@@ -1376,13 +1394,13 @@ else
                             </structure>
                             <structure>
                                 <property name="name">co</property>
-                                <property name="displayName">co</property>
+                                <text-property name="displayName">co</text-property>
                                 <expression name="expression">'Total por Comercio: '</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">s_01</property>
-                                <property name="displayName">s_01</property>
+                                <text-property name="displayName">s_01</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>affl</value>
@@ -1400,7 +1418,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_02</property>
-                                <property name="displayName">s_02</property>
+                                <text-property name="displayName">s_02</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>affl</value>
@@ -1418,7 +1436,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_03</property>
-                                <property name="displayName">s_03</property>
+                                <text-property name="displayName">s_03</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>affl</value>
@@ -1436,7 +1454,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_04</property>
-                                <property name="displayName">s_04</property>
+                                <text-property name="displayName">s_04</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>affl</value>
@@ -1454,7 +1472,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_05</property>
-                                <property name="displayName">s_05</property>
+                                <text-property name="displayName">s_05</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>affl</value>
@@ -1472,7 +1490,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_06</property>
-                                <property name="displayName">s_06</property>
+                                <text-property name="displayName">s_06</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>affl</value>
@@ -1490,13 +1508,13 @@ else
                             </structure>
                             <structure>
                                 <property name="name">gral</property>
-                                <property name="displayName">gral</property>
+                                <text-property name="displayName">gral</text-property>
                                 <expression name="expression">'Total General: '</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">s_11</property>
-                                <property name="displayName">s_11</property>
+                                <text-property name="displayName">s_11</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1511,7 +1529,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_12</property>
-                                <property name="displayName">s_12</property>
+                                <text-property name="displayName">s_12</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1526,7 +1544,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_13</property>
-                                <property name="displayName">s_13</property>
+                                <text-property name="displayName">s_13</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1541,7 +1559,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_14</property>
-                                <property name="displayName">s_14</property>
+                                <text-property name="displayName">s_14</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1556,7 +1574,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_15</property>
-                                <property name="displayName">s_15</property>
+                                <text-property name="displayName">s_15</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1571,7 +1589,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_16</property>
-                                <property name="displayName">s_16</property>
+                                <text-property name="displayName">s_16</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1586,7 +1604,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">comer2</property>
-                                <property name="displayName">comer2</property>
+                                <text-property name="displayName">comer2</text-property>
                                 <expression name="expression">if(dataSetRow["NO_COMERCIO"]==null)
 'Nombre Comercio: '+' '
 else
@@ -1595,7 +1613,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">c</property>
-                                <property name="displayName">c</property>
+                                <text-property name="displayName">c</text-property>
                                 <property name="dataType">integer</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>txn</value>
@@ -1610,7 +1628,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">c1</property>
-                                <property name="displayName">c1</property>
+                                <text-property name="displayName">c1</text-property>
                                 <property name="dataType">integer</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>affl</value>
@@ -1625,7 +1643,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">c3</property>
-                                <property name="displayName">c3</property>
+                                <text-property name="displayName">c3</text-property>
                                 <property name="dataType">integer</property>
                                 <property name="aggregateFunction">COUNT</property>
                                 <list-property name="arguments">
@@ -1637,13 +1655,13 @@ else
                             </structure>
                             <structure>
                                 <property name="name">ad</property>
-                                <property name="displayName">ad</property>
+                                <text-property name="displayName">ad</text-property>
                                 <expression name="expression">'Total por Adquirente: '</expression>
                                 <property name="dataType">string</property>
                             </structure>
                             <structure>
                                 <property name="name">c2</property>
-                                <property name="displayName">c2</property>
+                                <text-property name="displayName">c2</text-property>
                                 <property name="dataType">integer</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>adq</value>
@@ -1658,7 +1676,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_21</property>
-                                <property name="displayName">s_21</property>
+                                <text-property name="displayName">s_21</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>adq</value>
@@ -1676,7 +1694,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_22</property>
-                                <property name="displayName">s_22</property>
+                                <text-property name="displayName">s_22</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>adq</value>
@@ -1694,7 +1712,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_23</property>
-                                <property name="displayName">s_23</property>
+                                <text-property name="displayName">s_23</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>adq</value>
@@ -1712,7 +1730,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_24</property>
-                                <property name="displayName">s_24</property>
+                                <text-property name="displayName">s_24</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>adq</value>
@@ -1730,7 +1748,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_25</property>
-                                <property name="displayName">s_25</property>
+                                <text-property name="displayName">s_25</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>adq</value>
@@ -1748,7 +1766,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">s_26</property>
-                                <property name="displayName">s_26</property>
+                                <text-property name="displayName">s_26</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>adq</value>
@@ -1764,10 +1782,46 @@ else
                                     </structure>
                                 </list-property>
                             </structure>
+                            <structure>
+                                <property name="name">FECHA_PROCESO_1</property>
+                                <expression name="expression">dataSetRow["FECHA_PROCESO"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>fecha</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">ADQUIRENTE_1</property>
+                                <expression name="expression">dataSetRow["ADQUIRENTE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>adq</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">NO_COMERCIO_1</property>
+                                <expression name="expression">dataSetRow["NO_COMERCIO"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>affl</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">NO_TXN_1</property>
+                                <expression name="expression">dataSetRow["NO_TXN"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>txn</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">IMPORTE_1</property>
+                                <expression name="expression">dataSetRow["IMPORTE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>imp</value>
+                                </simple-property-list>
+                            </structure>
                         </list-property>
+                        <property name="pageBreakInterval">50</property>
                         <column id="3364">
-                            <property name="width">3%</property>
                             <property name="fontSize">7pt</property>
+                            <property name="width">3%</property>
                         </column>
                         <column id="3365">
                             <property name="width">3%</property>
@@ -1853,7 +1907,7 @@ else
                                                 <property name="category">Custom</property>
                                                 <property name="pattern">dd/MM/yyyy</property>
                                             </structure>
-                                            <property name="resultSetColumn">FECHA_PROCESO</property>
+                                            <property name="resultSetColumn">FECHA_PROCESO_1</property>
                                         </data>
                                     </cell>
                                     <cell id="3390"/>

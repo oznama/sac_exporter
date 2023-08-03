@@ -30,48 +30,6 @@
     <property name="cuboProcesoCarnet.sicmir0090.y">80</property>
     <property name="cuboProcesoCernet.sicmir0090.x">135</property>
     <property name="cuboProcesoCernet.sicmir0090.y">80</property>
-    <list-property name="propertyBindings">
-        <structure>
-            <property name="name">odaDriverClass</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaURL</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
-        </structure>
-        <structure>
-            <property name="name">odaUser</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbUser"].value</expression>
-        </structure>
-        <structure>
-            <property name="name">odaAutoCommit</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaIsolationMode</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure/>
-        <structure>
-            <property name="name">odaJndiName</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileName</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">OdaConnProfileStorePath</property>
-            <property name="id">1016</property>
-        </structure>
-        <structure>
-            <property name="name">odaPassword</property>
-            <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbPswd"].value</expression>
-        </structure>
-    </list-property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -90,6 +48,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         <scalar-parameter name="initDate" id="28">
             <property name="hidden">false</property>
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="concealValue">false</property>
@@ -102,6 +61,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="bancoAdq" id="1574">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
@@ -113,15 +73,17 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="1592">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">ggonzalez</property>
+            <property name="defaultValue">Proceso batch</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="endDate" id="1773">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
@@ -133,6 +95,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="8484">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
@@ -144,6 +107,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="8485">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
@@ -155,6 +119,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="susparticiones" id="8529">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
@@ -164,68 +129,8 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
-        <scalar-parameter name="dbHost" id="6426">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbUser" id="6427">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbPswd" id="6428">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbPort" id="6429">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
-        <scalar-parameter name="dbName" id="6430">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="distinct">true</property>
-            <list-property name="selectionList"/>
-            <property name="paramType">simple</property>
-            <property name="controlType">text-box</property>
-            <structure name="format">
-                <property name="category">Unformatted</property>
-            </structure>
-        </scalar-parameter>
     </parameters>
     <data-sources>
-        <!--oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
-        </oda-data-source-->
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
             <list-property name="privateDriverProperties">
                 <ex-property>
@@ -244,7 +149,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -253,30 +158,20 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 <structure>
                     <property name="name">importeNeto</property>
                     <expression name="expression">var total=row["TOTAL_IMPORTE"]
-//if(row["TOTAL_CUOTA_COMERCIO"]!=0)
-//	total-=row["TOTAL_CUOTA_COMERCIO"];
-//else
 	total-=row["TOTAL_CUOTA_INTERCAMBIO"];
-//if(row["TOTAL_IVA_COMERCIO"]!=0)
-//	total-=row["TOTAL_IVA_COMERCIO"];
-//else
 	total-=row["TOTAL_IVA_INTERCAMBIO"];
 total;</expression>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
                     <property name="name">iva</property>
-                    <expression name="expression">//if(row["TOTAL_IVA_COMERCIO"]!=0)
-//	row["TOTAL_IVA_COMERCIO"];
-//else
+                    <expression name="expression">
 	row["TOTAL_IVA_INTERCAMBIO"];</expression>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
                     <property name="name">comision</property>
-                    <expression name="expression">//if(row["TOTAL_CUOTA_COMERCIO"]!=0)
-//	row["TOTAL_CUOTA_COMERCIO"];
-//else
+                    <expression name="expression">
 	row["TOTAL_CUOTA_INTERCAMBIO"];</expression>
                     <property name="dataType">decimal</property>
                 </structure>
@@ -454,22 +349,7 @@ total;</expression>
             </structure>
             <property name="dataSource">Data Source</property>
             <method name="beforeOpen"><![CDATA[this.queryText=
-//#-------------------------------------------------------------------------------#
-//# Autor               : Abraham Ayala González                                 #
-//# Compania            : SAS                                   #
-//# Proyecto/Procliente : A-20-5092-21                 Fecha: 13/05/2021          #
-//# Modificacion        : HSBC / GPTM - ALTA ADQUIRENTE HOST TO HOST						    #
-//# Marca del Cambio    : SAS-AGA-A-20-5092-21                               #
-//#-----------------------------------------------------------------------------  #
-//-------------------------------------------------------------------------------//
-// Marca del Cambio: Axia-N-77-5012-20  Inicia  la Modificacion   26/10/2020 ----//
-//-------------------------------------------------------------------------------//
-// Marca del Cambio: WELLCOM-P-23-5183-18  Inicia la Modificacion 31/03/2019 ----//
-//-------------------------------------------------------------------------------// 
 " SELECT /*+ INDEX(PTA NDX_IND_ADQ, PTA NDX_IND_PD) */ PTA.ENT_NUMERO_PROSA_ADQ ENTIDAD "+
-//-------------------------------------------------------------------------------//
-// Marca del Cambio: WELLCOM-P-23-5183-18  Finaliza la Modificacion 31/03/2019 ----//
-//-------------------------------------------------------------------------------// 
 "       ,PE.DESCRIPCION DESC_ADQUIRENTE "+
 "       ,PTA.ENT_NUMERO_PROSA_EMI ENTIDAD_EMI "+
 "       ,PTA.ARCH_NUMERO FUENTE "+
@@ -482,13 +362,7 @@ total;</expression>
 "             WHEN PTA.RUTEO IN (6,7) THEN '2 TRANSACCIONES ENVIADAS A TSYS 2' "+
 "             WHEN PTA.RUTEO = 23 THEN '3 TRANSACCIONES VISA' "+
 "             WHEN PTA.RUTEO = 24 THEN '4 TRANSACCIONES MASTERCARD' "+
-//-------------------------------------------------------------------------------//
-// Marca del Cambio: WELLCOM-P-23-5183-18  Inicia la Modificacion 31/03/2019 ----//
-//-------------------------------------------------------------------------------// 
 "             WHEN PTA.RUTEO IN (64,65) THEN '5 TRANSACCIONES DISCOVER' "+
-//-------------------------------------------------------------------------------//
-// Marca del Cambio: WELLCOM-P-23-5183-18  Finaliza la Modificacion 31/03/2019 --//
-//-------------------------------------------------------------------------------//
 "             WHEN PTA.RUTEO IN (18,19,20) THEN '6 TRANSACCIONES CAMARA MasterCard'  "+
 "             ELSE 'OTRO' "+
 "        END EMISOR "+
@@ -500,15 +374,8 @@ total;</expression>
 "             WHEN PTA.MAPR_NUMERO = 1 THEN 'Master Card' "+
 "             WHEN PTA.MAPR_NUMERO = 2 THEN 'Visa' "+
 "             WHEN PTA.MAPR_NUMERO = 3 THEN 'Privada' "+
-// Marca del Cambio : KMF-P-23-5183-18 Inicia la Modificacion  01/02/2022
-//-------------------------------------------------------------------------------//
-// Marca del Cambio: WELLCOM-P-23-5183-18  Inicia la Modificacion 31/03/2019 ----//
-//-------------------------------------------------------------------------------// 
 "             WHEN PTA.MAPR_NUMERO = 7 THEN 'Discover' "+
-//-------------------------------------------------------------------------------//
-// Marca del Cambio: WELLCOM-P-23-5183-18  Finaliza la Modificacion 31/03/2019 --//
-//-------------------------------------------------------------------------------//
-// Marca del Cambio : KMF-P-23-5183-18 Termina la Modificacion  01/02/2022
+"             WHEN PTA.MAPR_NUMERO = 6 THEN 'American Express' "+
 "        END MARCA "+
 "       ,CASE "+
 "             WHEN PTA.ENT_NUMERO_PROSA_EMI IN (94,98) THEN 'Internacional' "+
@@ -521,30 +388,18 @@ total;</expression>
 "       ,PTA.TTR_NUMERO TIPO_TX "+
 "       ,PTT.DESCRIPCION DESC_TIPO_TX "+
 "       ,COUNT(1) NUMERO_TRANSACCIONES "+
-/* Inicia modificacion WELLGER-22-03-2022 P-23-5183-18.D75 */
 "       ,SUM(PTA.IMPORTE_TOTAL_TRANSAC) TOTAL_IMPORTE "+
-//"       ,SUM(DECODE(PTA.ENT_NUMERO_PROSA_EMI,319,PTA.IMPORTE_TOTAL_TRANSAC*(SELECT CAMBIO_VENTA FROM PMADMIN.PRSA_TIPOS_CAMBIO PTC WHERE FECHA = TO_DATE('17/03/2022','DD/MM/YYYY') AND ENT_NUMERO_PROSA = 230),PTA.IMPORTE_TOTAL_TRANSAC)) TOTAL_IMPORTE "+
 "       ,SUM(PTA.IMPORTE_CUOTA_INTERCAMBIO) TOTAL_CUOTA_INTERCAMBIO "+
 "       ,SUM(PTA.IMPORTE_IVA_INTERCAMBIO) TOTAL_IVA_INTERCAMBIO "+
-//"       ,SUM(DECODE(PTA.ENT_NUMERO_PROSA_EMI,319,PTA.IMPORTE_CUOTA_INTERCAMBIO*(SELECT CAMBIO_VENTA FROM PMADMIN.PRSA_TIPOS_CAMBIO PTC WHERE FECHA = TO_DATE('17/03/2022','DD/MM/YYYY') AND ENT_NUMERO_PROSA = 230),PTA.IMPORTE_CUOTA_INTERCAMBIO)) TOTAL_CUOTA_INTERCAMBIO "+
-//"       ,SUM(DECODE(PTA.ENT_NUMERO_PROSA_EMI,319,PTA.IMPORTE_IVA_INTERCAMBIO*(SELECT CAMBIO_VENTA FROM PMADMIN.PRSA_TIPOS_CAMBIO PTC WHERE FECHA = TO_DATE('17/03/2022','DD/MM/YYYY') AND ENT_NUMERO_PROSA = 230),PTA.IMPORTE_IVA_INTERCAMBIO)) TOTAL_IVA_INTERCAMBIO "+
 "       ,SUM(PTA.IMPORTE_CUOTA_COMERCIO) TOTAL_CUOTA_COMERCIO "+
 "       ,SUM(PTA.IMPORTE_IVA_COMERCIO) TOTAL_IVA_COMERCIO "+
-/* Fin modificacion WELLGER-22-03-2022 P-23-5183-18.D75 */
 "       ,PTA.IND_PD PAGOS_DIF "+
 " FROM PMADMIN.PRSA_TXN_ACEPTADAS PTA "+
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
 "     ON PE.NUMERO_PROSA = PTA.ENT_NUMERO_PROSA_ADQ "+
-//-------------------------------------------------------------------------------//
-//Modificación-INICIO-SAS-AGA-A-20-5092-21
-//-------------------------------------------------------------------------------//
 " AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+") "+
-//-------------------------------------------------------------------------------//
-//Modificación-FIN-SAS-AGA-A-20-5092-21
-//-------------------------------------------------------------------------------//
 " INNER JOIN PMADMIN.PRSA_TIPOS_TRANSACCION PTT "+
 "     ON PTT.NUMERO = PTA.TTR_NUMERO "+
-//"   WHERE PTA.PARTITION_ID BETWEEN "+params["susparticiones"]+"  "+//
 " WHERE PTA.FECHA_PROCESO_TRANSAC BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
 " AND PTA.ENT_NUMERO_PROSA_ADQ IN ("+params["bancoAdq"]+") "+
 " AND PTA.ARCH_NUMERO NOT IN (45,48,49) "+
@@ -562,13 +417,7 @@ total;</expression>
 "             WHEN PTA.RUTEO IN (6,7) THEN '2 TRANSACCIONES ENVIADAS A TSYS 2' "+
 "             WHEN PTA.RUTEO = 23 THEN '3 TRANSACCIONES VISA' "+
 "             WHEN PTA.RUTEO = 24 THEN '4 TRANSACCIONES MASTERCARD' "+
-//-------------------------------------------------------------------------------//
-// Marca del Cambio: WELLCOM-P-23-5183-18  Inicia la Modificacion 31/03/2019 ----//
-//-------------------------------------------------------------------------------// 
 "             WHEN PTA.RUTEO IN (64,65) THEN '5 TRANSACCIONES DISCOVER' "+
-//-------------------------------------------------------------------------------//
-// Marca del Cambio: WELLCOM-P-23-5183-18  Finaliza la Modificacion 31/03/2019 --//
-//-------------------------------------------------------------------------------//
 "             WHEN PTA.RUTEO IN (18,19,20) THEN '6 TRANSACCIONES CAMARA MasterCard' "+ 
 "             ELSE 'OTRO' "+
 "        END "+
@@ -580,17 +429,8 @@ total;</expression>
 "             WHEN PTA.MAPR_NUMERO = 1 THEN 'Master Card' "+
 "             WHEN PTA.MAPR_NUMERO = 2 THEN 'Visa' "+
 "             WHEN PTA.MAPR_NUMERO = 3 THEN 'Privada' "+
-//-------------------------------------------------------------------------------//
-// Marca del Cambio: Axia-N-77-5012-20  Termina la Modificacion   26/10/2020 ----//
-//-------------------------------------------------------------------------------//
-// Marca del Cambio : KMF-P-23-5183-18 Inicia la Modificacion  01/02/2022
-// Marca del Cambio: WELLCOM-P-23-5183-18  Inicia la Modificacion 31/03/2019 ----//
-//-------------------------------------------------------------------------------// 
 "             WHEN PTA.MAPR_NUMERO = 7 THEN 'Discover' "+
-//-------------------------------------------------------------------------------//
-// Marca del Cambio: WELLCOM-P-23-5183-18  Finaliza la Modificacion 31/03/2019 --//
-//-------------------------------------------------------------------------------//
-// Marca del Cambio : KMF-P-23-5183-18 Termina la Modificacion  01/02/2022 
+"             WHEN PTA.MAPR_NUMERO = 6 THEN 'American Express' "+
 "        END "+
 "       ,CASE "+
 "             WHEN PTA.ENT_NUMERO_PROSA_EMI IN (94,98) THEN 'Internacional' "+
@@ -777,12 +617,12 @@ total;</expression>
                                 <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">if(reportContext.getOutputFormat().equals('html'))
 'http://cvs.prosa.com.mx/comunicados/Carnet_header.jpg'
 else
-'http://10.247.220.132:38080/pmr/reports/images/Carnet_header.jpg'</expression>
+'http://10.247.220.132:38080/Carnet_header.jpg'</expression>
                             </image>
                         </cell>
                         <cell id="1942">
@@ -1134,12 +974,12 @@ else
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">if(reportContext.getOutputFormat().equals('html'))
 'http://cvs.prosa.com.mx/comunicados/Carnet_portada.jpg'
 else
-'http://10.247.220.132:38080/pmr/reports/images/Carnet_portada.jpg'</expression>
+'http://10.247.220.132:38080/Carnet_portada.jpg'</expression>
                     </image>
                 </cell>
             </row>
@@ -1151,7 +991,7 @@ else
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">http://cvs.prosa.com.mx/comunicados/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>
@@ -3106,10 +2946,8 @@ else if(row["EMISOR"].equals("3 TRANSACCIONES VISA"))
 "Total Visa";
 else if(row["EMISOR"].equals("4 TRANSACCIONES MASTERCARD"))
 "Total Mastercard";
-// Marca del Cambio: Axia-N-77-5012-20  Inicia  la Modificacion   26/10/2020 ----//
 else if(row["EMISOR"].equals("6 TRANSACCIONES CAMARA MasterCard"))
 "Total Camara Mastercard";
-// Marca del Cambio: Axia-N-77-5012-20  Termina la Modificacion   26/10/2020 ----//
 else
 "Total Otros"</expression>
                                                     <property name="dataType">string</property>

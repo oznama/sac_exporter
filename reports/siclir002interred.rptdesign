@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
-    <property name="createdBy">MyEclipse Report Designer Version 1.0</property>
-    <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.13.0.v202303021806</property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">1016</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
   var multiploDiez=Math.pow(10,numDecimales);
   var k=valor*multiploDiez;
@@ -18,120 +56,141 @@
 reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
     <text-property name="displayName">Blank Report</text-property>
     <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
     <parameters>
         <scalar-parameter name="initDate" id="28">
             <property name="hidden">false</property>
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">15/02/2020</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="concealValue">false</property>
-            <property name="isRequired">true</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">15/02/2020</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="1709">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Proceso batch</value>
+            </simple-property-list>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">ggonzalez</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="2480">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="2481">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="role" id="2974">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">role</text-property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">c</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">c</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="endDate" id="2975">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">17/02/2021</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">17/02/2021</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="bin" id="3704">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">bin</text-property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">false</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">false</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="adq" id="4355">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">adq</text-property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">7</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">7</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="marca" id="4356">
-            <property name="valueType">static</property>
-            <property name="dataType">string</property>
-            <property name="paramType">simple</property>
             <text-property name="promptText">marca</text-property>
-            <property name="controlType">text-box</property>
-            <property name="defaultValue">3</property>
+            <property name="valueType">static</property>
+            <property name="isRequired">false</property>
+            <property name="dataType">string</property>
             <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">3</value>
+            </simple-property-list>
+            <property name="paramType">simple</property>
+            <property name="controlType">text-box</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <!--oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="140">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
-        </oda-data-source-->
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
-            <text-property name="displayName"></text-property>
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>contentBidiFormatStr</name>
@@ -149,285 +208,12 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@172.16.136.233:1606:PMTU</property>
-            <property name="odaUser">PMTWEB</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">UE1UV0VC</encrypted-property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
         <oda-data-set extensionID="com.genuitec.eclipse.reporting.oda.dataSet" name="01" id="2668">
-            <structure name="cachedMetaData">
-                <list-property name="resultSet">
-                    <structure>
-                        <property name="position">1</property>
-                        <property name="name">EMI</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">2</property>
-                        <property name="name">ADQ</property>
-                        <property name="dataType">string</property>
-                    </structure>
-                    <structure>
-                        <property name="position">3</property>
-                        <property name="name">PREF_NUMERO</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">4</property>
-                        <property name="name">TLI_NUMERO</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">5</property>
-                        <property name="name">VISA_EMI</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">6</property>
-                        <property name="name">VISA_ADQ</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">7</property>
-                        <property name="name">SUM_VISA</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">8</property>
-                        <property name="name">MASTER_EMI</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">9</property>
-                        <property name="name">MASTER_ADQ</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">10</property>
-                        <property name="name">SUM_MASTER</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">11</property>
-                        <property name="name">CARNET_EMI</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">12</property>
-                        <property name="name">CARNET_ADQ</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">13</property>
-                        <property name="name">SUM_CARNET</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">14</property>
-                        <property name="name">OTROS_EMI</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">15</property>
-                        <property name="name">OTROS_ADQ</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">16</property>
-                        <property name="name">SUM_OTROS</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                    <structure>
-                        <property name="position">17</property>
-                        <property name="name">TOTAL</property>
-                        <property name="dataType">decimal</property>
-                    </structure>
-                </list-property>
-            </structure>
-            <property name="dataSource">Data Source</property>
-            <method name="beforeOpen"><![CDATA[this.queryText=
-//-----------------------------------------------------------------------------
-//--Compania            : WELLCOM S.A. DE C.V.                               --
-//--Nombre              : German Gonzalez                                    --
-//--Proyecto/Procliente : C-54-7129-18.D12                  Fecha: 18/08/2022--
-//--Descripcion General : Automatización de Liberación y Liquidación en      --
-//--                      módulo SIA Interredes                              --
-//--Modificacion        : Cambio en neteo de contracargos                    --
-//--Marca Del Cambio    : WELLGGE-C-54-7129-18.D12 18/08/2022                --
-//-----------------------------------------------------------------------------
-" SELECT DETALLE2.ENTIDAD_PADRE_EMI||' '||DETALLE2.BANCO_EMI EMI "+
-"       ,DETALLE2.ENTIDAD_PADRE_ADQ||' '||DETALLE2.BANCO_ADQ ADQ "+
-"       ,DETALLE2.PREF_NUMERO "+
-"       ,DETALLE2.TLI_NUMERO "+
-"       ,DETALLE2.VISA_EMI  VISA_EMI "+
-"       ,0                  VISA_ADQ "+
-"       ,DETALLE2.VISA_EMI  SUM_VISA "+
-"       ,DETALLE2.MASTER_EMI MASTER_EMI "+
-"       ,0                   MASTER_ADQ "+
-"       ,DETALLE2.MASTER_EMI SUM_MASTER "+
-"       ,DETALLE2.CARNET_EMI CARNET_EMI "+
-"       ,0                   CARNET_ADQ "+
-"       ,DETALLE2.CARNET_EMI SUM_CARNET "+
-"       ,DETALLE2.OTROS_EMI  OTROS_EMI "+
-"       ,0                   OTROS_ADQ "+
-"       ,DETALLE2.OTROS_EMI  SUM_OTROS "+
-"       ,DETALLE2.VISA_EMI+DETALLE2.MASTER_EMI+DETALLE2.CARNET_EMI+DETALLE2.OTROS_EMI TOTAL "+
-" FROM ( "+
-" SELECT DETALLE.ENTIDAD_PADRE_EMI "+
-"       ,(SELECT DESCRIPCION FROM PMADMIN.PRSA_ENTIDADES WHERE NUMERO_PROSA = DETALLE.ENTIDAD_PADRE_EMI) BANCO_EMI "+
-"       ,DETALLE.ENTIDAD_PADRE_ADQ "+
-"       ,(SELECT DESCRIPCION FROM PMADMIN.PRSA_ENTIDADES WHERE NUMERO_PROSA = DETALLE.ENTIDAD_PADRE_ADQ) BANCO_ADQ "+
-"       ,DETALLE.PREF_NUMERO "+
-"       ,DETALLE.TLI_NUMERO "+
-"       ,SUM(CASE "+
-"              WHEN DETALLE.MAPR_NUMERO IN (1) THEN "+
-"               DETALLE.IMPORTE+DETALLE.COMISION+DETALLE.IVA "+
-"              ELSE 0 "+
-"       END) MASTER_EMI "+
-"       ,SUM(CASE "+
-"              WHEN DETALLE.MAPR_NUMERO IN (2) THEN "+
-"               DETALLE.IMPORTE+DETALLE.COMISION+DETALLE.IVA+DETALLE.SOBRETASA+DETALLE.IVA_SOBRETASA "+
-"              ELSE 0 "+
-"       END) VISA_EMI "+
-"       ,SUM(CASE "+
-"              WHEN DETALLE.MAPR_NUMERO IN (3) THEN "+
-"               DETALLE.IMPORTE+DETALLE.COMISION+DETALLE.IVA "+
-"              ELSE 0 "+
-"       END) CARNET_EMI "+
-"       ,SUM(CASE "+
-"              WHEN DETALLE.MAPR_NUMERO IN (999,9) THEN "+
-"               DETALLE.IMPORTE+DETALLE.COMISION+DETALLE.IVA "+
-"              WHEN DETALLE.MAPR_NUMERO IN (0) THEN "+
-"               DETALLE.IMPORTE "+
-"              ELSE 0 "+
-"       END) OTROS_EMI "+
-"  FROM ( "+
-"  SELECT /*+INDEX (MP NDX_POS_FECH_LIQ)*/ "+
-"      MP.FECHA_LIQ "+
-"     ,EE.ENTIDAD_PADRE ENTIDAD_PADRE_EMI "+
-"     ,EA.ENTIDAD_PADRE ENTIDAD_PADRE_ADQ "+
-"     ,MP.MAPR_NUMERO "+
-/* Inicia modificacion WELLGGE-C-54-7129-18.D12 18/08/2022 */
-"     ,SUM(CASE "+
-//"              WHEN MP.TTR_NUMERO IN (20,21,23) THEN -MP.TOTAL_IMPORTE "+
-"              WHEN MP.TTR_NUMERO IN (20,21,23,15,16) THEN -MP.TOTAL_IMPORTE "+
-"              WHEN MP.TOT_TXS_CASHB != 0 THEN MP.TOTAL_IMPORTE "+
-"              ELSE MP.TOTAL_IMPORTE "+
-"       END) IMPORTE "+
-/* Fin modificacion WELLGGE-C-54-7129-18.D12 18/08/2022 */
-"     ,SUM(CASE "+
-"              WHEN MP.TTR_NUMERO = 20 THEN MP.IMPORTE_COMISION_INTERCAMB "+
-"              WHEN MP.TTR_NUMERO IN (21,23) THEN MP.IMPORTE_COMISION_COMERCIO "+
-"              ELSE -MP.IMPORTE_COMISION_COMERCIO "+
-"         END) COMISION "+
-"       ,SUM(CASE "+
-"              WHEN MP.TTR_NUMERO = 20 THEN MP.IVA_COMISION_INTERCAMB "+
-"              WHEN MP.TTR_NUMERO IN (21,23) THEN MP.IVA_COMISION_COMERCIO "+
-"              ELSE -MP.IVA_COMISION_COMERCIO "+
-"         END) IVA "+
-"       ,SUM(CASE "+
-"              WHEN MP.TTR_NUMERO IN (21,23) THEN MP.IMP_SOBRETASA "+
-"              ELSE -MP.IMP_SOBRETASA "+
-"        END) SOBRETASA "+
-"       ,SUM(CASE "+
-"              WHEN MP.TTR_NUMERO IN (21,23) THEN MP.IMP_IVA_SOBRETASA "+
-"              ELSE -MP.IMP_IVA_SOBRETASA "+
-"        END) IVA_SOBRETASA "+
-"       ,MP.PREF_NUMERO "+
-"       ,MP.TLI_NUMERO "+
-"  FROM PMADMIN.PRSA_POSICIONES MP "+
-"  INNER JOIN PMADMIN.PRSA_ENTIDADES EE "+
-"          ON MP.ENT_NUMERO_PROSA_EMI = EE.NUMERO_PROSA "+
-"  INNER JOIN PMADMIN.PRSA_ENTIDADES EA "+
-"          ON MP.ENT_NUMERO_PROSA_ADQ = EA.NUMERO_PROSA "+
-"  WHERE ((MP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') AND MP.TTR_NUMERO NOT IN (20,40)) "+
-"          OR "+
-"         (MP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') AND MP.TTR_NUMERO IN (20,40)) "+
-"        ) "+
-"  AND MP.TLI_NUMERO IN (5) "+
-"  AND EE.TIE_NUMERO = 1 "+
-"  AND EE.ENTIDAD_PADRE  NOT IN (107,113,181,125) "+
-"  AND EA.ENTIDAD_PADRE  <> 31     "+
-"  GROUP BY MP.FECHA_LIQ "+
-"          ,EE.ENTIDAD_PADRE "+
-"          ,EA.ENTIDAD_PADRE "+
-"          ,MP.MAPR_NUMERO "+
-"          ,MP.PREF_NUMERO "+
-"          ,MP.TLI_NUMERO "+
-"  UNION ALL "+
-"  SELECT MP.FECHA_LIQ "+
-"        ,PE.ENTIDAD_PADRE ENTIDAD_PADRE_EMI "+
-"        ,PA.ENTIDAD_PADRE ENTIDAD_PADRE_ADQ "+
-"        ,0 "+
-"        ,-SUM(MP.TOTAL_IMPORTE) IMPORTE "+
-"        ,-SUM(MP.IMPORTE_COMISION_COMERCIO) COMIMSION "+
-"        ,-SUM(MP.IVA_COMISION_COMERCIO) IVA "+
-"        ,0 "+
-"        ,0 "+
-"        ,MP.PREF_NUMERO "+
-"        ,MP.TLI_NUMERO "+
-"   FROM PMADMIN.PRSA_POSICIONES MP "+
-"  INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
-"     ON PE.NUMERO_PROSA = MP.ENT_NUMERO_PROSA_EMI "+
-"  INNER JOIN PMADMIN.PRSA_ENTIDADES PA "+
-"     ON PA.NUMERO_PROSA = MP.ENT_NUMERO_PROSA_ADQ "+
-"  WHERE MP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-"    AND MP.TLI_NUMERO = 5 "+
-"    AND PE.TIE_NUMERO = 1 "+
-"    AND MP.TTR_NUMERO = 23 ";
-if (params["marca"] != "T"){
-this.queryText+="	 AND MP.MAPR_NUMERO IN ("+params["marca"]+")";
-}
-this.queryText+="  GROUP BY MP.FECHA_LIQ "+
-"          ,PE.ENTIDAD_PADRE "+
-"          ,PA.ENTIDAD_PADRE "+
-"          ,MP.MAPR_NUMERO "+
-"          ,MP.PREF_NUMERO "+
-"          ,MP.TLI_NUMERO "+
-"  UNION ALL "+
-"  SELECT MP.FECHA_LIQ "+
-"        ,PE.ENTIDAD_PADRE ENTIDAD_PADRE_EMI "+
-"        ,PA.ENTIDAD_PADRE ENTIDAD_PADRE_ADQ "+
-"        ,0 "+
-"        ,SUM(MP.TOTAL_IMPORTE) IMPORTE "+
-"        ,-SUM(MP.IMPORTE_COMISION_COMERCIO) COMIMSION "+
-"        ,-SUM(MP.IVA_COMISION_COMERCIO) IVA "+
-"        ,0 "+
-"        ,0 "+
-"        ,MP.PREF_NUMERO "+
-"        ,MP.TLI_NUMERO "+
-"  FROM PMADMIN.PRSA_POSICIONES MP "+
-"  INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
-"     ON PE.NUMERO_PROSA = MP.ENT_NUMERO_PROSA_ADQ "+
-"  INNER JOIN PMADMIN.PRSA_ENTIDADES PA "+
-"     ON PA.NUMERO_PROSA = MP.ENT_NUMERO_PROSA_EMI "+
-"  WHERE MP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-"    AND MP.TLI_NUMERO = 5 "+
-"    AND PE.TIE_NUMERO = 1 "+
-"    AND MP.TTR_NUMERO = 23 "+
-//"	 AND MP.MAPR_NUMERO IN ("+params["marca"]+")"+
-"  GROUP BY MP.FECHA_LIQ "+
-"          ,PE.ENTIDAD_PADRE "+
-"          ,PA.ENTIDAD_PADRE "+
-"          ,MP.MAPR_NUMERO "+
-"          ,MP.PREF_NUMERO "+
-"          ,MP.TLI_NUMERO "+
-"  )DETALLE "+
-"  GROUP BY DETALLE.ENTIDAD_PADRE_EMI "+
-"          ,DETALLE.ENTIDAD_PADRE_ADQ "+
-"          ,DETALLE.PREF_NUMERO "+
-"          ,DETALLE.TLI_NUMERO "+
-" ) DETALLE2 "+
-" WHERE 1=1 ";
-
-if (params["adq"] == "0")
-	this.queryText+=" ";
-else
-	this.queryText+=" AND DETALLE2.ENTIDAD_PADRE_ADQ IN ("+params["adq"]+")";
-
-"  ORDER BY 1,2 ";]]></method>
-            <list-property name="resultSet">
+            <list-property name="resultSetHints">
                 <structure>
                     <property name="position">1</property>
                     <property name="name">EMI</property>
@@ -531,8 +317,273 @@ else
                     <property name="dataType">decimal</property>
                 </structure>
             </list-property>
-            <property name="queryText">select 
-from </property>
+            <structure name="cachedMetaData">
+                <list-property name="resultSet">
+                    <structure>
+                        <property name="position">1</property>
+                        <property name="name">EMI</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">2</property>
+                        <property name="name">ADQ</property>
+                        <property name="dataType">string</property>
+                    </structure>
+                    <structure>
+                        <property name="position">3</property>
+                        <property name="name">PREF_NUMERO</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">4</property>
+                        <property name="name">TLI_NUMERO</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">5</property>
+                        <property name="name">VISA_EMI</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">6</property>
+                        <property name="name">VISA_ADQ</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">7</property>
+                        <property name="name">SUM_VISA</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">8</property>
+                        <property name="name">MASTER_EMI</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">9</property>
+                        <property name="name">MASTER_ADQ</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">10</property>
+                        <property name="name">SUM_MASTER</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">11</property>
+                        <property name="name">CARNET_EMI</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">12</property>
+                        <property name="name">CARNET_ADQ</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">13</property>
+                        <property name="name">SUM_CARNET</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">14</property>
+                        <property name="name">OTROS_EMI</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">15</property>
+                        <property name="name">OTROS_ADQ</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">16</property>
+                        <property name="name">SUM_OTROS</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                    <structure>
+                        <property name="position">17</property>
+                        <property name="name">TOTAL</property>
+                        <property name="dataType">decimal</property>
+                    </structure>
+                </list-property>
+            </structure>
+            <method name="beforeOpen"><![CDATA[this.queryText=
+/*
+# Autor               :  Gerardo Lopez Carreno                                  #
+# Compania            :  SAS S.A. DE C.V.           	                        #
+# Proyecto/Procliente :  C-24-1644-22                 Fecha: 28/04/2023         #
+#-----------------------------------------------------------------------------  #
+*/
+" SELECT DETALLE2.ENTIDAD_PADRE_EMI||' '||DETALLE2.BANCO_EMI EMI "+
+"       ,DETALLE2.ENTIDAD_PADRE_ADQ||' '||DETALLE2.BANCO_ADQ ADQ "+
+"       ,DETALLE2.PREF_NUMERO "+
+"       ,DETALLE2.TLI_NUMERO "+
+"       ,DETALLE2.VISA_EMI  VISA_EMI "+
+"       ,0                  VISA_ADQ "+
+"       ,DETALLE2.VISA_EMI  SUM_VISA "+
+"       ,DETALLE2.MASTER_EMI MASTER_EMI "+
+"       ,0                   MASTER_ADQ "+
+"       ,DETALLE2.MASTER_EMI SUM_MASTER "+
+"       ,DETALLE2.CARNET_EMI CARNET_EMI "+
+"       ,0                   CARNET_ADQ "+
+"       ,DETALLE2.CARNET_EMI SUM_CARNET "+
+"       ,DETALLE2.OTROS_EMI  OTROS_EMI "+
+"       ,0                   OTROS_ADQ "+
+"       ,DETALLE2.OTROS_EMI  SUM_OTROS "+
+"       ,DETALLE2.VISA_EMI+DETALLE2.MASTER_EMI+DETALLE2.CARNET_EMI+DETALLE2.OTROS_EMI TOTAL "+
+" FROM ( "+
+" SELECT DETALLE.ENTIDAD_PADRE_EMI "+
+"       ,(SELECT DESCRIPCION FROM PMADMIN.PRSA_ENTIDADES WHERE NUMERO_PROSA = DETALLE.ENTIDAD_PADRE_EMI) BANCO_EMI "+
+"       ,DETALLE.ENTIDAD_PADRE_ADQ "+
+"       ,(SELECT DESCRIPCION FROM PMADMIN.PRSA_ENTIDADES WHERE NUMERO_PROSA = DETALLE.ENTIDAD_PADRE_ADQ) BANCO_ADQ "+
+"       ,DETALLE.PREF_NUMERO "+
+"       ,DETALLE.TLI_NUMERO "+
+"       ,SUM(CASE "+
+"              WHEN DETALLE.MAPR_NUMERO IN (1) THEN "+
+"               DETALLE.IMPORTE+DETALLE.COMISION+DETALLE.IVA "+
+"              ELSE 0 "+
+"       END) MASTER_EMI "+
+"       ,SUM(CASE "+
+"              WHEN DETALLE.MAPR_NUMERO IN (2) THEN "+
+"               DETALLE.IMPORTE+DETALLE.COMISION+DETALLE.IVA+DETALLE.SOBRETASA+DETALLE.IVA_SOBRETASA "+
+"              ELSE 0 "+
+"       END) VISA_EMI "+
+"       ,SUM(CASE "+
+"              WHEN DETALLE.MAPR_NUMERO IN (3) THEN "+
+"               DETALLE.IMPORTE+DETALLE.COMISION+DETALLE.IVA "+
+"              ELSE 0 "+
+"       END) CARNET_EMI "+
+"       ,SUM(CASE "+
+"              WHEN DETALLE.MAPR_NUMERO IN (999,9) THEN "+
+"               DETALLE.IMPORTE+DETALLE.COMISION+DETALLE.IVA "+
+"              WHEN DETALLE.MAPR_NUMERO IN (0) THEN "+
+"               DETALLE.IMPORTE "+
+"              ELSE 0 "+
+"       END) OTROS_EMI "+
+"  FROM ( "+
+"  SELECT /*+INDEX (MP NDX_POS_FECH_LIQ)*/ "+
+"      MP.FECHA_LIQ "+
+"     ,EE.ENTIDAD_PADRE ENTIDAD_PADRE_EMI "+
+"     ,EA.ENTIDAD_PADRE ENTIDAD_PADRE_ADQ "+
+"     ,MP.MAPR_NUMERO "+
+
+"     ,SUM(CASE "+
+"              WHEN MP.TTR_NUMERO IN (20,21,23,15,16) THEN -MP.TOTAL_IMPORTE "+
+"              WHEN MP.TOT_TXS_CASHB != 0 THEN MP.TOTAL_IMPORTE "+
+"              ELSE MP.TOTAL_IMPORTE "+
+"       END) IMPORTE "+
+"     ,SUM(CASE "+
+"              WHEN MP.TTR_NUMERO = 20 THEN MP.IMPORTE_COMISION_INTERCAMB "+
+"              WHEN MP.TTR_NUMERO IN (21,23) THEN MP.IMPORTE_COMISION_COMERCIO "+
+"              ELSE -MP.IMPORTE_COMISION_COMERCIO "+
+"         END) COMISION "+
+"       ,SUM(CASE "+
+"              WHEN MP.TTR_NUMERO = 20 THEN MP.IVA_COMISION_INTERCAMB "+
+"              WHEN MP.TTR_NUMERO IN (21,23) THEN MP.IVA_COMISION_COMERCIO "+
+"              ELSE -MP.IVA_COMISION_COMERCIO "+
+"         END) IVA "+
+"       ,SUM(CASE "+
+"              WHEN MP.TTR_NUMERO IN (21,23) THEN MP.IMP_SOBRETASA "+
+"              ELSE -MP.IMP_SOBRETASA "+
+"        END) SOBRETASA "+
+"       ,SUM(CASE "+
+"              WHEN MP.TTR_NUMERO IN (21,23) THEN MP.IMP_IVA_SOBRETASA "+
+"              ELSE -MP.IMP_IVA_SOBRETASA "+
+"        END) IVA_SOBRETASA "+
+"       ,MP.PREF_NUMERO "+
+"       ,MP.TLI_NUMERO "+
+"  FROM PMADMIN.PRSA_POSICIONES MP "+
+"  INNER JOIN PMADMIN.PRSA_ENTIDADES EE "+
+"          ON MP.ENT_NUMERO_PROSA_EMI = EE.NUMERO_PROSA "+
+"  INNER JOIN PMADMIN.PRSA_ENTIDADES EA "+
+"          ON MP.ENT_NUMERO_PROSA_ADQ = EA.NUMERO_PROSA "+
+"  WHERE ((MP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') AND MP.TTR_NUMERO NOT IN (20,40)) "+
+"          OR "+
+"         (MP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') AND MP.TTR_NUMERO IN (20,40)) "+
+"        ) "+
+"  AND MP.TLI_NUMERO IN (5) "+
+"  AND EE.TIE_NUMERO = 1 "+
+"  AND EE.ENTIDAD_PADRE  NOT IN (107,113,181,125) "+
+"  AND EA.ENTIDAD_PADRE  <> 31     "+
+"  GROUP BY MP.FECHA_LIQ "+
+"          ,EE.ENTIDAD_PADRE "+
+"          ,EA.ENTIDAD_PADRE "+
+"          ,MP.MAPR_NUMERO "+
+"          ,MP.PREF_NUMERO "+
+"          ,MP.TLI_NUMERO "+
+"  UNION ALL "+
+"  SELECT MP.FECHA_LIQ "+
+"        ,PE.ENTIDAD_PADRE ENTIDAD_PADRE_EMI "+
+"        ,PA.ENTIDAD_PADRE ENTIDAD_PADRE_ADQ "+
+"        ,0 "+
+"        ,-SUM(MP.TOTAL_IMPORTE) IMPORTE "+
+"        ,-SUM(MP.IMPORTE_COMISION_COMERCIO) COMIMSION "+
+"        ,-SUM(MP.IVA_COMISION_COMERCIO) IVA "+
+"        ,0 "+
+"        ,0 "+
+"        ,MP.PREF_NUMERO "+
+"        ,MP.TLI_NUMERO "+
+"   FROM PMADMIN.PRSA_POSICIONES MP "+
+"  INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
+"     ON PE.NUMERO_PROSA = MP.ENT_NUMERO_PROSA_EMI "+
+"  INNER JOIN PMADMIN.PRSA_ENTIDADES PA "+
+"     ON PA.NUMERO_PROSA = MP.ENT_NUMERO_PROSA_ADQ "+
+"  WHERE MP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
+"    AND MP.TLI_NUMERO = 5 "+
+"    AND PE.TIE_NUMERO = 1 "+
+"    AND MP.TTR_NUMERO = 23 ";
+if (params["marca"]== "T"){}else{
+this.queryText+="	 AND MP.MAPR_NUMERO IN ("+params["marca"]+")";
+}
+this.queryText+="  GROUP BY MP.FECHA_LIQ "+
+"          ,PE.ENTIDAD_PADRE "+
+"          ,PA.ENTIDAD_PADRE "+
+"          ,MP.MAPR_NUMERO "+
+"          ,MP.PREF_NUMERO "+
+"          ,MP.TLI_NUMERO "+
+"  UNION ALL "+
+"  SELECT MP.FECHA_LIQ "+
+"        ,PE.ENTIDAD_PADRE ENTIDAD_PADRE_EMI "+
+"        ,PA.ENTIDAD_PADRE ENTIDAD_PADRE_ADQ "+
+"        ,0 "+
+"        ,SUM(MP.TOTAL_IMPORTE) IMPORTE "+
+"        ,-SUM(MP.IMPORTE_COMISION_COMERCIO) COMIMSION "+
+"        ,-SUM(MP.IVA_COMISION_COMERCIO) IVA "+
+"        ,0 "+
+"        ,0 "+
+"        ,MP.PREF_NUMERO "+
+"        ,MP.TLI_NUMERO "+
+"  FROM PMADMIN.PRSA_POSICIONES MP "+
+"  INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
+"     ON PE.NUMERO_PROSA = MP.ENT_NUMERO_PROSA_ADQ "+
+"  INNER JOIN PMADMIN.PRSA_ENTIDADES PA "+
+"     ON PA.NUMERO_PROSA = MP.ENT_NUMERO_PROSA_EMI "+
+"  WHERE MP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
+"    AND MP.TLI_NUMERO = 5 "+
+"    AND PE.TIE_NUMERO = 1 "+
+"    AND MP.TTR_NUMERO = 23 "+
+"  GROUP BY MP.FECHA_LIQ "+
+"          ,PE.ENTIDAD_PADRE "+
+"          ,PA.ENTIDAD_PADRE "+
+"          ,MP.MAPR_NUMERO "+
+"          ,MP.PREF_NUMERO "+
+"          ,MP.TLI_NUMERO "+
+"  )DETALLE "+
+"  GROUP BY DETALLE.ENTIDAD_PADRE_EMI "+
+"          ,DETALLE.ENTIDAD_PADRE_ADQ "+
+"          ,DETALLE.PREF_NUMERO "+
+"          ,DETALLE.TLI_NUMERO "+
+" ) DETALLE2 "+
+" WHERE 1=1 ";
+
+if (params["adq"] == "0" || params["adq"] == "T")
+	this.queryText+=" ";
+else
+	this.queryText+=" AND DETALLE2.ENTIDAD_PADRE_ADQ IN ("+params["adq"]+")";
+
+"  ORDER BY 1,2 ";]]></method>
+            <property name="dataSource">Data Source</property>
+            <xml-property name="queryText"><![CDATA[select 
+from ]]></xml-property>
         </oda-data-set>
     </data-sets>
     <styles>
@@ -599,7 +650,7 @@ from </property>
 if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">''</expression>
                             </image>
@@ -843,21 +894,21 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">''</expression>
                     </image>
                 </cell>
             </row>
             <row id="2034">
-                <property name="height">2.1in</property>
                 <property name="textAlign">center</property>
                 <property name="verticalAlign">middle</property>
+                <property name="height">2.1in</property>
                 <cell id="2035">
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">reports/images/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>
@@ -1091,7 +1142,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S1</property>
-                                <property name="displayName">S1</property>
+                                <text-property name="displayName">S1</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1103,7 +1154,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S2</property>
-                                <property name="displayName">S2</property>
+                                <text-property name="displayName">S2</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1115,7 +1166,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S3</property>
-                                <property name="displayName">S3</property>
+                                <text-property name="displayName">S3</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1127,7 +1178,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S4</property>
-                                <property name="displayName">S4</property>
+                                <text-property name="displayName">S4</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1139,7 +1190,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S5</property>
-                                <property name="displayName">S5</property>
+                                <text-property name="displayName">S5</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1151,7 +1202,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S6</property>
-                                <property name="displayName">S6</property>
+                                <text-property name="displayName">S6</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1163,7 +1214,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S7</property>
-                                <property name="displayName">S7</property>
+                                <text-property name="displayName">S7</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1175,7 +1226,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S8</property>
-                                <property name="displayName">S8</property>
+                                <text-property name="displayName">S8</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1187,7 +1238,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S9</property>
-                                <property name="displayName">S9</property>
+                                <text-property name="displayName">S9</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1199,7 +1250,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S10</property>
-                                <property name="displayName">S10</property>
+                                <text-property name="displayName">S10</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1211,7 +1262,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S11</property>
-                                <property name="displayName">S11</property>
+                                <text-property name="displayName">S11</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1223,7 +1274,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S12</property>
-                                <property name="displayName">S12</property>
+                                <text-property name="displayName">S12</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1235,7 +1286,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S13</property>
-                                <property name="displayName">S13</property>
+                                <text-property name="displayName">S13</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1245,7 +1296,29 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                                     </structure>
                                 </list-property>
                             </structure>
+                            <structure>
+                                <property name="name">EMI_1</property>
+                                <expression name="expression">dataSetRow["EMI"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>emi</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">ADQ_1</property>
+                                <expression name="expression">dataSetRow["ADQ"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>adq</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">PREF_NUMERO_1</property>
+                                <expression name="expression">dataSetRow["PREF_NUMERO"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>pre</value>
+                                </simple-property-list>
+                            </structure>
                         </list-property>
+                        <property name="pageBreakInterval">50</property>
                         <column id="4089"/>
                         <column id="4090"/>
                         <column id="4091"/>
@@ -1864,7 +1937,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S1</property>
-                                <property name="displayName">S1</property>
+                                <text-property name="displayName">S1</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1876,7 +1949,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S2</property>
-                                <property name="displayName">S2</property>
+                                <text-property name="displayName">S2</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1888,7 +1961,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S3</property>
-                                <property name="displayName">S3</property>
+                                <text-property name="displayName">S3</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1900,7 +1973,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S4</property>
-                                <property name="displayName">S4</property>
+                                <text-property name="displayName">S4</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1912,7 +1985,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S5</property>
-                                <property name="displayName">S5</property>
+                                <text-property name="displayName">S5</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1924,7 +1997,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S6</property>
-                                <property name="displayName">S6</property>
+                                <text-property name="displayName">S6</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1936,7 +2009,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S7</property>
-                                <property name="displayName">S7</property>
+                                <text-property name="displayName">S7</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1948,7 +2021,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S8</property>
-                                <property name="displayName">S8</property>
+                                <text-property name="displayName">S8</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1960,7 +2033,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S9</property>
-                                <property name="displayName">S9</property>
+                                <text-property name="displayName">S9</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1972,7 +2045,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S10</property>
-                                <property name="displayName">S10</property>
+                                <text-property name="displayName">S10</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1984,7 +2057,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S11</property>
-                                <property name="displayName">S11</property>
+                                <text-property name="displayName">S11</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -1996,7 +2069,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S12</property>
-                                <property name="displayName">S12</property>
+                                <text-property name="displayName">S12</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -2008,7 +2081,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">S13</property>
-                                <property name="displayName">S13</property>
+                                <text-property name="displayName">S13</text-property>
                                 <property name="dataType">float</property>
                                 <property name="aggregateFunction">SUM</property>
                                 <list-property name="arguments">
@@ -2018,7 +2091,29 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                                     </structure>
                                 </list-property>
                             </structure>
+                            <structure>
+                                <property name="name">PREF_NUMERO_1</property>
+                                <expression name="expression">dataSetRow["PREF_NUMERO"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>PREFIJO</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">EMI_1</property>
+                                <expression name="expression">dataSetRow["EMI"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>emi</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">ADQ_1</property>
+                                <expression name="expression">dataSetRow["ADQ"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>adq</value>
+                                </simple-property-list>
+                            </structure>
                         </list-property>
+                        <property name="pageBreakInterval">50</property>
                         <column id="4218"/>
                         <column id="4219"/>
                         <column id="4220"/>
@@ -2215,7 +2310,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                                         <data id="4311">
                                             <property name="fontWeight">bold</property>
                                             <property name="textAlign">left</property>
-                                            <property name="resultSetColumn">PREF_NUMERO</property>
+                                            <property name="resultSetColumn">PREF_NUMERO_1</property>
                                         </data>
                                     </cell>
                                     <cell id="4278"/>

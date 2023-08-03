@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 import org.eclipse.birt.core.exception.BirtException;
 import org.eclipse.birt.core.framework.Platform;
 import org.eclipse.birt.report.engine.api.EngineConfig;
+import org.eclipse.birt.report.engine.api.IEngineTask;
 import org.eclipse.birt.report.engine.api.IReportEngine;
 import org.eclipse.birt.report.engine.api.IReportEngineFactory;
 import org.eclipse.birt.report.engine.api.IRunAndRenderTask;
@@ -25,7 +26,7 @@ import com.prosa.obj.Constants;
 
 public class BirtImplementation {
 	
-	private static Logger logger = Logger.getLogger(BirtImplementation.class);
+	private static final Logger logger = Logger.getLogger(BirtImplementation.class);
 	
 	private final String BIRT_HOME = "./ReportEngine";
 	private final String LOG_CONFIG = "./logs";
@@ -55,7 +56,8 @@ public class BirtImplementation {
 	 */
 	public void buildPdf(String birtHome, String logConfig, String pathReports, String report, String destination, Map<String, String> params, boolean isRedund) {
 		validateInputs(birtHome, logConfig, pathReports, report, destination, params);
-		logger.info("Creating report: " + this.report);
+		logger.info("Setting Report Engine ...");
+		boolean hasError = false;
 		try {
 			initConfig();
 			Platform.startup(this.config);
@@ -63,18 +65,38 @@ public class BirtImplementation {
 			initPdfOptions();
 			IRunAndRenderTask task = engine.createRunAndRenderTask(engine.openReportDesign(this.report));
 			if(params != null && !params.isEmpty()) {
+				logger.debug("Params: " + params);
 				task.setParameterValues(params);
 			}
 			task.setRenderOption(pdfOptions);
+			logger.info("Report Engine READY!");
+			logger.info("Report will be created as: " + this.destination);
+			logger.info("Running and Rendering report: " + this.report);
 			task.run();
+			
+			logger.info("Status: " + task.getStatus());
+			hasError = task.getStatus() == IEngineTask.STATUS_FAILED;
+			
+			if(task.getStatus() == IEngineTask.STATUS_SUCCEEDED)
+				logger.info("Report saved to: " + this.destination);
+			else {
+				logger.info("Errors: " + task.getErrors().size());
+				for(Object error : task.getErrors()) {
+					logger.error("Error code: " + error.hashCode() + " ::: " + error.toString());
+				}
+			}
+			
 			task.close();
 			engine.destroy();
-			logger.info("Saved to: " + this.destination);
+			
+			if(hasError)
+				Runtime.getRuntime().halt(2);
 		} catch (final BirtException e) {
 			if(e.getMessage().contains("can not be found") && isRedund) {
 				buildPdf(birtHome, logConfig, pathReports, report.toLowerCase(), destination, params, false);
 			} else {
 				logger.error("Error creating BIRT report", e);
+				Runtime.getRuntime().halt(2);
 			}
 		} finally {
 			Platform.shutdown();
@@ -83,29 +105,27 @@ public class BirtImplementation {
 	
 	private void validateInputs(String birtHome, String logConfig, String pathReports, String report, String destination, 
 			Map<String, String> params) {
-		logger.debug("Validint inputs ...");
+		logger.debug("Checking BIRT setting ...");
 		this.birtHome = birtHome != null ? birtHome : BIRT_HOME;
-		logger.debug("Setting birt home: " + this.birtHome);
+		logger.debug("BIRT home: " + this.birtHome);
 		
 		this.logConfig = logConfig != null ? logConfig : LOG_CONFIG;
-		logger.debug("Setting log config: " + this.logConfig);
+		logger.debug("BIRT log path: " + this.logConfig);
 		
 		this.pathReports = pathReports != null ? pathReports : REPORT_PATH;
-		logger.debug("Setting report path: " + this.pathReports);
+		logger.debug("BIRT report path: " + this.pathReports);
 		
 		this.report = report != null ? String.format(Constants.REPORT_SAC, this.pathReports, report, REPORT_EXT) : REPORT_HELLO_WORD;
 		
 		String date = DateTimeFormatter.ofPattern("yyyyMMdd_HHmmss").format(LocalDateTime.now());
 		this.destination = destination != null ? String.format("%s.%s", destination, Constants.PDF_EXT.toUpperCase()) : 
 			String.format("%s/%s_%s.%s", Constants.PDF_DESTINATION, getFileDestinationName(this.report), date, Constants.PDF_EXT);
-		logger.debug("Saving report to: " + this.destination);
-		logger.debug("Params: " + params);
 	}
 
 	private void initConfig() throws BirtException {
 		this.config = new EngineConfig();
 		this.config.setBIRTHome(birtHome);
-		this.config.setLogConfig(logConfig, Level.FINE);
+		this.config.setLogConfig(logConfig, Level.ALL);
 		logger.debug("Config: " + config);
 	}
 	

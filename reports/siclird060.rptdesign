@@ -1,9 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
-    <property name="createdBy">MyEclipse Report Designer Version 1.0</property>
-    <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here</property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.13.0.v202303021806</property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
+    <list-property name="propertyBindings">
+        <structure>
+            <property name="name">odaDriverClass</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaURL</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaUser</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaAutoCommit</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaIsolationMode</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaPassword</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">odaJndiName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileName</property>
+            <property name="id">1016</property>
+        </structure>
+        <structure>
+            <property name="name">OdaConnProfileStorePath</property>
+            <property name="id">1016</property>
+        </structure>
+    </list-property>
+    <property name="units">in</property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -18,82 +56,95 @@
 reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
     <text-property name="displayName">Blank Report</text-property>
     <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
     <parameters>
         <scalar-parameter name="initDate" id="28">
             <property name="hidden">false</property>
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">14/01/2012</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="concealValue">false</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">14/01/2012</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="banco" id="1574">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">6</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">6</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="1592">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Proceso batch</value>
+            </simple-property-list>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">ggonzalez</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="endDate" id="1773">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">16/01/2012</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">16/01/2012</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="6037">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="6038">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
     </parameters>
     <data-sources>
-        <!--oda-data-source extensionID="com.genuitec.eclipse.reporting.oda" name="Data Source" id="1016">
-            <property name="meDriver">PMTUDBP</property>
-            <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaJndiName">jdbc/PMTUDBP</property>
-        </oda-data-source-->
         <oda-data-source extensionID="org.eclipse.birt.report.data.oda.jdbc" name="Data Source" id="1016">
-            <text-property name="displayName"></text-property>
             <list-property name="privateDriverProperties">
                 <ex-property>
                     <name>contentBidiFormatStr</name>
@@ -111,9 +162,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@172.16.136.233:1606:PMTU</property>
-            <property name="odaUser">PMTWEB</property>
-            <encrypted-property name="odaPassword" encryptionID="base64">UE1UV0VC</encrypted-property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -137,7 +186,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </structure>
             </list-property>
             <structure name="cachedMetaData"/>
-            <property name="dataSource">Data Source</property>
             <method name="beforeOpen"><![CDATA[this.queryText=
 " SELECT TITULOS.HIJO "+ 
 "       ,TITULOS.TITULO "+ 
@@ -146,7 +194,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "       ,DATOS.EMISOR_DESC "+ 
 "       ,DATOS.EMISOR_BU  ";
 
-if (params["banco"].equals("0"))
+if (params["banco"]=="0" || params["banco"]=="T")
 {
 	this.queryText+=" ,0 ADQUIRENTE"+
 					" ,'CONSOLIDADO' ADQUIRENTE_DESC";
@@ -224,11 +272,11 @@ this.queryText+=
 "     ON VBA.NUMERO_PROSA = PP.STTR_NUMERO "+
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
 "     ON PE.NUMERO_PROSA = PP.ENT_NUMERO_PROSA_EMI "+
-" WHERE PP.TLI_NUMERO = 33 "+//DOLARES
+" WHERE PP.TLI_NUMERO = 33 "+
 " AND PP.FECHA_LIQ BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
 " AND PP.TTR_NUMERO IN (1,21,20,15,9,18,16) ";
 
-if (params["banco"].equals("0") || params["banco"]=="T")
+if (params["banco"]=="0" || params["banco"]=="T")
 {
 	this.queryText+=" ";
 }
@@ -309,10 +357,10 @@ this.queryText+=
 " INNER JOIN PMADMIN.PRSA_ENTIDADES PE "+
 "     ON PE.NUMERO_PROSA = PTRV.PTRV_ENT_NUMERO_PROSA_EMI "+
 " WHERE PTRV.PTRV_FECHA_PROCESO_TRANSAC+1 BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') "+
-" AND PTRV.PTRV_TIER_CODIGO_MONEDA = 840 "+//DOLARES
+" AND PTRV.PTRV_TIER_CODIGO_MONEDA = '840' "+
 " AND PTRV.PTRV_TTR_NUMERO NOT IN (53) ";
 
-if (params["banco"].equals("0") || params["banco"]=="T")
+if (params["banco"]=="0" || params["banco"]=="T")
 {
 	this.queryText+=" ";
 }
@@ -409,7 +457,7 @@ this.queryText+=
 "     ON VISTA2.BU = SFIT.FMI_DB_CLR_BU  "+
 " WHERE SFIT.FMI_DT+1 BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') ";
 
-if (params["banco"].equals("0") || params["banco"]=="T")
+if (params["banco"]=="0" || params["banco"]=="T")
 {
 	this.queryText+=" ";
 }
@@ -420,7 +468,7 @@ else
 
 this.queryText+=
 " AND FMI_NSI_CLR_ID = 33    "+
-" AND SFIT.FMI_CHRG_CRNCY = 840 "+
+" AND SFIT.FMI_CHRG_CRNCY = '840' "+
 " AND TRIM(FMI_OPER_ID) <> 'CZDCS030' "+ 
 " GROUP BY SFIT.FMI_DT  "+
 "       ,VISTA.NUMERO_PROSA "+
@@ -506,7 +554,7 @@ this.queryText+=
 " AND PTS.PTS_CRNCY_CD = 480 "+
 " AND PTS.PTS_CYCLE_DT+1 BETWEEN TO_DATE('"+params["initDate"]+"','DD/MM/YYYY') AND TO_DATE('"+params["endDate"]+"','DD/MM/YYYY') ";
 
-if (params["banco"].equals("0") || params["banco"]=="T")
+if (params["banco"]=="0" || params["banco"]=="T")
 {
 	this.queryText+=" ";
 }
@@ -596,6 +644,7 @@ this.queryText+=
 " 				           ) TITULOS "+
 " ON TITULOS.PAPA = DATOS.ORDEN "+
 " ORDER BY HIJO ";]]></method>
+            <property name="dataSource">Data Source</property>
         </oda-data-set>
     </data-sets>
     <styles>
@@ -664,7 +713,7 @@ this.queryText+=
                                 <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">''</expression>
                             </image>
@@ -1019,21 +1068,21 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">''</expression>
                     </image>
                 </cell>
             </row>
             <row id="2034">
-                <property name="height">2.1in</property>
                 <property name="textAlign">center</property>
                 <property name="verticalAlign">middle</property>
+                <property name="height">2.1in</property>
                 <cell id="2035">
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">reports/images/reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>
@@ -1265,7 +1314,7 @@ this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportH
                             </structure>
                             <structure>
                                 <property name="name">El titulo</property>
-                                <property name="displayName">El titulo</property>
+                                <text-property name="displayName">El titulo</text-property>
                                 <expression name="expression">if (params["banco"].value.equals("0"))
 {
 	'CONSOLIDADO';
@@ -1278,7 +1327,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">01</property>
-                                <property name="displayName">01</property>
+                                <text-property name="displayName">01</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>hijo</value>
@@ -1307,7 +1356,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">02</property>
-                                <property name="displayName">02</property>
+                                <text-property name="displayName">02</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>hijo</value>
@@ -1348,7 +1397,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">11</property>
-                                <property name="displayName">11</property>
+                                <text-property name="displayName">11</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>hijo</value>
@@ -1377,7 +1426,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">21</property>
-                                <property name="displayName">21</property>
+                                <text-property name="displayName">21</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>hijo</value>
@@ -1406,7 +1455,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">31</property>
-                                <property name="displayName">31</property>
+                                <text-property name="displayName">31</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>hijo</value>
@@ -1435,7 +1484,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">12</property>
-                                <property name="displayName">12</property>
+                                <text-property name="displayName">12</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>hijo</value>
@@ -1476,7 +1525,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">22</property>
-                                <property name="displayName">22</property>
+                                <text-property name="displayName">22</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>hijo</value>
@@ -1517,7 +1566,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">32</property>
-                                <property name="displayName">32</property>
+                                <text-property name="displayName">32</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>hijo</value>
@@ -1558,7 +1607,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">AA</property>
-                                <property name="displayName">AA</property>
+                                <text-property name="displayName">AA</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -1635,7 +1684,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">BB</property>
-                                <property name="displayName">BB</property>
+                                <text-property name="displayName">BB</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -1712,7 +1761,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">CC</property>
-                                <property name="displayName">CC</property>
+                                <text-property name="displayName">CC</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -1789,7 +1838,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">DD</property>
-                                <property name="displayName">DD</property>
+                                <text-property name="displayName">DD</text-property>
                                 <property name="dataType">float</property>
                                 <simple-property-list name="aggregateOn">
                                     <value>BCO</value>
@@ -1866,7 +1915,7 @@ else
                             </structure>
                             <structure>
                                 <property name="name">TOTAL</property>
-                                <property name="displayName">TOTAL</property>
+                                <text-property name="displayName">TOTAL</text-property>
                                 <expression name="expression">if (row["DD"]>0)
 {
 	'TOTAL A FAVOR DE PROSA';
@@ -1879,11 +1928,26 @@ else
                             </structure>
                             <structure>
                                 <property name="name">032</property>
-                                <property name="displayName">032</property>
+                                <text-property name="displayName">032</text-property>
                                 <expression name="expression">row["32"]</expression>
                                 <property name="dataType">decimal</property>
                             </structure>
+                            <structure>
+                                <property name="name">ADQUIRENTE_1</property>
+                                <expression name="expression">dataSetRow["ADQUIRENTE"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>BCO</value>
+                                </simple-property-list>
+                            </structure>
+                            <structure>
+                                <property name="name">HIJO_1</property>
+                                <expression name="expression">dataSetRow["HIJO"]</expression>
+                                <simple-property-list name="aggregateOn">
+                                    <value>hijo</value>
+                                </simple-property-list>
+                            </structure>
                         </list-property>
+                        <property name="pageBreakInterval">50</property>
                         <column id="6102">
                             <property name="width">20%</property>
                         </column>

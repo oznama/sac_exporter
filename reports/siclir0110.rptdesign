@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <report xmlns="http://www.eclipse.org/birt/2005/design" id="1">
-    <property name="createdBy">Eclipse BIRT Designer Version 2.3.2.r232_20090202 Build &lt;2.3.2.v20090218-0730></property>
-    <property name="units">in</property>
     <property name="comments">Copyright (c) 2007 &lt;&lt;Your Company Name here>></property>
+    <property name="createdBy">Eclipse BIRT Designer Version 4.13.0.v202303021806</property>
     <html-property name="description">Creates a blank report with no predefined content.</html-property>
     <list-property name="propertyBindings">
         <structure>
@@ -12,12 +11,10 @@
         <structure>
             <property name="name">odaURL</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">'jdbc:oracle:thin:@' + params["dbHost"].value + ':' + params["dbPort"].value + ':' + params["dbName"].value</expression>
         </structure>
         <structure>
             <property name="name">odaUser</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbUser"].value</expression>
         </structure>
         <structure>
             <property name="name">odaAutoCommit</property>
@@ -43,9 +40,9 @@
         <structure>
             <property name="name">odaPassword</property>
             <property name="id">1016</property>
-            <expression name="value" type="javascript">params["dbPswd"].value</expression>
         </structure>
     </list-property>
+    <property name="units">in</property>
     <method name="initialize"><![CDATA[function redondeo (valor,numDecimales){
 	var multiploDiez=Math.pow(10,numDecimales);
 	var k=valor*multiploDiez;
@@ -60,77 +57,97 @@
 reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
     <text-property name="displayName">Blank Report</text-property>
     <property name="iconFile">/templates/blank_report.gif</property>
+    <property name="layoutPreference">auto layout</property>
     <parameters>
         <scalar-parameter name="initDate" id="28">
             <property name="hidden">false</property>
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">01/12/2010</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="concealValue">false</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">01/12/2010</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="bancoEmi" id="1574">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">2</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">2</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="ejecuto" id="1592">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">Proceso batch</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">ggonzalez</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="endDate" id="1773">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">01/12/2010</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">01/12/2010</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgLcl" id="2365">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="srvImgRmt" id="2366">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
+            <property name="distinct">true</property>
+            <simple-property-list name="defaultValue">
+                <value type="constant">x</value>
+            </simple-property-list>
             <property name="paramType">simple</property>
             <property name="controlType">text-box</property>
-            <property name="defaultValue">x</property>
-            <property name="distinct">true</property>
             <structure name="format">
                 <property name="category">Unformatted</property>
             </structure>
         </scalar-parameter>
         <scalar-parameter name="dbHost" id="6426">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -142,6 +159,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbUser" id="6427">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -153,6 +171,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbPswd" id="6428">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -164,6 +183,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbPort" id="6429">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -175,6 +195,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
         </scalar-parameter>
         <scalar-parameter name="dbName" id="6430">
             <property name="valueType">static</property>
+            <property name="isRequired">false</property>
             <property name="dataType">string</property>
             <property name="distinct">true</property>
             <list-property name="selectionList"/>
@@ -204,7 +225,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </ex-property>
             </list-property>
             <property name="odaDriverClass">oracle.jdbc.driver.OracleDriver</property>
-            <property name="odaURL">jdbc:oracle:thin:@locahost:1521:schema</property>
+            <property name="odaURL">jdbc:oracle:oci8:/@PMTU</property>
         </oda-data-source>
     </data-sources>
     <data-sets>
@@ -292,7 +313,6 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                 </structure>
             </list-property>
             <structure name="cachedMetaData"/>
-            <property name="dataSource">Data Source</property>
             <method name="beforeOpen"><![CDATA[this.queryText=
 " SELECT "+
 "  DATOS.ENTIDAD_PADRE "+
@@ -540,6 +560,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
 "  DATOS.ENTIDAD_PADRE "+ 
 " ,DATOS.DESCRIPCION "+
 " ,DATOS.BU_PARENT "; ]]></method>
+            <property name="dataSource">Data Source</property>
         </oda-data-set>
     </data-sets>
     <styles>
@@ -605,7 +626,7 @@ reportContext.setPersistentGlobalVariable("redondeo",redondeo);]]></method>
                                 <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_header.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_header.jpg';]]></method>
                                 <property name="source">url</property>
                                 <expression name="uri">''</expression>
                             </image>
@@ -865,6 +886,10 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method
         </simple-master-page>
         <simple-master-page name="Portada" id="1371">
             <property name="orientation">landscape</property>
+            <property name="topMargin">1in</property>
+            <property name="leftMargin">1.25in</property>
+            <property name="bottomMargin">1in</property>
+            <property name="rightMargin">1.25in</property>
         </simple-master-page>
     </page-setup>
     <body>
@@ -879,21 +904,21 @@ this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_header.jpg';]]></method
                         <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.URI=params['srvImgRmt']+'/Carnet_portada.jpg';
 else
-this.URI=params['srvImgLcl']+'/pmr/reports/images/Carnet_portada.jpg';]]></method>
+this.URI=params['srvImgLcl']+'/Carnet_portada.jpg';]]></method>
                         <property name="source">url</property>
                         <expression name="uri">''</expression>
                     </image>
                 </cell>
             </row>
             <row id="2034">
-                <property name="height">2.1in</property>
                 <property name="textAlign">center</property>
                 <property name="verticalAlign">middle</property>
+                <property name="height">2.1in</property>
                 <cell id="2035">
                     <method name="onRender"><![CDATA[if(reportContext.getOutputFormat().equalsIgnoreCase('HTML'))
 this.getStyle().backgroundImage=params['srvImgRmt']+'/reportHeader.png';
 else
-this.getStyle().backgroundImage=params['srvImgLcl']+'/pmr/reports/images/reportHeader.png';]]></method>
+this.getStyle().backgroundImage=params['srvImgLcl']+'/reportHeader.png';]]></method>
                     <property name="backgroundImage">reports\images\reportHeader.png</property>
                     <property name="backgroundPositionX">center</property>
                     <property name="backgroundPositionY">center</property>
@@ -1319,25 +1344,25 @@ else
                 </structure>
                 <structure>
                     <property name="name">PFR_CR_CNTRPAGOS</property>
-                    <property name="displayName">PFR_CR_CNTRPAGOS</property>
+                    <text-property name="displayName">PFR_CR_CNTRPAGOS</text-property>
                     <expression name="expression">dataSetRow["PFR_CR_CNTRPAGOS"]</expression>
                     <property name="dataType">integer</property>
                 </structure>
                 <structure>
                     <property name="name">PFR_CR_TXN_AMTRPAGOS</property>
-                    <property name="displayName">PFR_CR_TXN_AMTRPAGOS</property>
+                    <text-property name="displayName">PFR_CR_TXN_AMTRPAGOS</text-property>
                     <expression name="expression">dataSetRow["PFR_CR_TXN_AMTRPAGOS"]</expression>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
                     <property name="name">PFR_CR_MRCH_IMP_STASA110</property>
-                    <property name="displayName">PFR_CR_MRCH_IMP_STASA110</property>
+                    <text-property name="displayName">PFR_CR_MRCH_IMP_STASA110</text-property>
                     <expression name="expression">dataSetRow["PFR_CR_MRCH_IMP_STASA110"]</expression>
                     <property name="dataType">decimal</property>
                 </structure>
                 <structure>
                     <property name="name">PFR_CR_MRCH_IVA_STASA110</property>
-                    <property name="displayName">PFR_CR_MRCH_IVA_STASA110</property>
+                    <text-property name="displayName">PFR_CR_MRCH_IVA_STASA110</text-property>
                     <expression name="expression">dataSetRow["PFR_CR_MRCH_IVA_STASA110"]</expression>
                     <property name="dataType">decimal</property>
                 </structure>
@@ -1356,7 +1381,7 @@ else
                     <expression name="expression">dataSetRow["PFR_REPR_DB"]</expression>
                     <property name="dataType">decimal</property>
                 </structure>
-				<structure>
+                <structure>
                     <property name="name">PFR_REPR_DB2</property>
                     <expression name="expression">dataSetRow["PFR_REPR_DB2"]</expression>
                     <property name="dataType">decimal</property>
@@ -1366,7 +1391,7 @@ else
                     <expression name="expression">dataSetRow["PFR_CNTR_DB"]</expression>
                     <property name="dataType">decimal</property>
                 </structure>
-				<structure>
+                <structure>
                     <property name="name">PFR_CNTR_DB2</property>
                     <expression name="expression">dataSetRow["PFR_CNTR_DB2"]</expression>
                     <property name="dataType">decimal</property>
@@ -1376,7 +1401,7 @@ else
                     <expression name="expression">dataSetRow["PFR_CNTR_CR"]</expression>
                     <property name="dataType">decimal</property>
                 </structure>
-				<structure>
+                <structure>
                     <property name="name">PFR_CNTR_CR2</property>
                     <expression name="expression">dataSetRow["PFR_CNTR_CR2"]</expression>
                     <property name="dataType">decimal</property>
@@ -1386,10 +1411,24 @@ else
                     <expression name="expression">dataSetRow["PFR_REPR_CR"]</expression>
                     <property name="dataType">decimal</property>
                 </structure>
-				<structure>
+                <structure>
                     <property name="name">PFR_REPR_CR2</property>
                     <expression name="expression">dataSetRow["PFR_REPR_CR2"]</expression>
                     <property name="dataType">decimal</property>
+                </structure>
+                <structure>
+                    <property name="name">ENTIDAD_PADRE_1</property>
+                    <expression name="expression">dataSetRow["ENTIDAD_PADRE"]</expression>
+                    <simple-property-list name="aggregateOn">
+                        <value>grpBancoEmi</value>
+                    </simple-property-list>
+                </structure>
+                <structure>
+                    <property name="name">BU_PARENT_1</property>
+                    <expression name="expression">dataSetRow["BU_PARENT"]</expression>
+                    <simple-property-list name="aggregateOn">
+                        <value>bu</value>
+                    </simple-property-list>
                 </structure>
             </list-property>
             <property name="pageBreakInterval">50</property>
@@ -1965,7 +2004,7 @@ else
                                                 </text>
                                             </cell>
                                             <cell id="2900">
-											 <data id="2915">
+                                                <data id="2915">
                                                     <property name="fontSize">9pt</property>
                                                     <structure name="numberFormat">
                                                         <property name="category">Fixed</property>
@@ -1984,7 +2023,7 @@ else
                                                     </list-property>
                                                     <property name="resultSetColumn">PFR_CNTR_DB2</property>
                                                 </data>
-											</cell>
+                                            </cell>
                                             <cell id="2901">
                                                 <data id="2916">
                                                     <property name="backgroundAttachment">scroll</property>
@@ -2053,7 +2092,7 @@ else
                                                 </text>
                                             </cell>
                                             <cell id="2889">
-											<data id="2913">
+                                                <data id="2913">
                                                     <property name="fontSize">9pt</property>
                                                     <structure name="numberFormat">
                                                         <property name="category">Fixed</property>
@@ -2072,7 +2111,7 @@ else
                                                     </list-property>
                                                     <property name="resultSetColumn">PFR_REPR_DB2</property>
                                                 </data>
-												</cell>
+                                            </cell>
                                             <cell id="2890">
                                                 <data id="2914">
                                                     <property name="backgroundAttachment">scroll</property>
@@ -2766,7 +2805,7 @@ else
                                                 </text>
                                             </cell>
                                             <cell id="2904">
-											<data id="29141">
+                                                <data id="29141">
                                                     <property name="fontSize">9pt</property>
                                                     <structure name="numberFormat">
                                                         <property name="category">Fixed</property>
@@ -2785,7 +2824,7 @@ else
                                                     </list-property>
                                                     <property name="resultSetColumn">PFR_CNTR_CR2</property>
                                                 </data>
-											</cell>
+                                            </cell>
                                             <cell id="2905">
                                                 <data id="2917">
                                                     <property name="backgroundAttachment">scroll</property>
@@ -2854,7 +2893,7 @@ else
                                                 </text>
                                             </cell>
                                             <cell id="2908">
-											<data id="29131">
+                                                <data id="29131">
                                                     <property name="fontSize">9pt</property>
                                                     <structure name="numberFormat">
                                                         <property name="category">Fixed</property>
@@ -2873,7 +2912,7 @@ else
                                                     </list-property>
                                                     <property name="resultSetColumn">PFR_REPR_CR2</property>
                                                 </data>
-												</cell>
+                                            </cell>
                                             <cell id="2909">
                                                 <data id="2918">
                                                     <property name="backgroundAttachment">scroll</property>

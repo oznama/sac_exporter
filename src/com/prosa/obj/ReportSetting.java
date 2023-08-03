@@ -31,6 +31,8 @@ public class ReportSetting {
 		switch (numReport) {
 		case "001":
 			repConfig.getParams().put(ReportParams.BANCO, args[2]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI_ORIG, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN_ORIG, args[4]);
 			break;
@@ -50,8 +52,9 @@ public class ReportSetting {
 			repConfig.getParams().put(ReportParams.NATCONTABLE, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+			repConfig.getParams().put(ReportParams.INIT_DATE_ANT_HAB, args[3]);
+			repConfig.getParams().put(ReportParams.END_DATE_ANT_HAB, args[4]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI_ORIG, args[3]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN_ORIG, args[4]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN_ORIG, args[4]);
 			repConfig.getParams().put(ReportParams.ARG_DIA, "false");
 			break;
@@ -155,8 +158,9 @@ public class ReportSetting {
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case "007":
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[2]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[3]);
+			repConfig.getParams().put(ReportParams.BANCO, args[2]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
 			break;
 		}
 		return repConfig;
@@ -222,11 +226,11 @@ public class ReportSetting {
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case "010":
-		case "070":
+		case "069":
+		case "078":
 		case "079":
 		case "080":
 		case "081":
-		case "082":
 			repConfig.getParams().put(ReportParams.BANCO, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
@@ -251,6 +255,8 @@ public class ReportSetting {
 			repConfig.getParams().put(ReportParams.NATCONTABLE, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+			repConfig.getParams().put(ReportParams.INIT_DATE_ANT_HAB, args[3]);
+			repConfig.getParams().put(ReportParams.END_DATE_ANT_HAB, args[4]);
 			break;
 		}
 		return repConfig;
@@ -269,10 +275,12 @@ public class ReportSetting {
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case "012":
-		case "067":
+		case "066":
 			repConfig.getParams().put(ReportParams.TIPO_LIQUIDACION, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+			repConfig.getParams().put(ReportParams.init_Date_Hab_Ant, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+			repConfig.getParams().put(ReportParams.end_Date_Hab_Ant, args[4]);
 			break;
 		}
 		return repConfig;
@@ -324,11 +332,11 @@ public class ReportSetting {
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[6]);
 			break;
 		case "035":
+			repConfig.setReportName(reportName.toLowerCase());
 			repConfig.getParams().put(ReportParams.BANCO, args[2]);
-			repConfig.getParams().put(ReportParams.CAMARA_ADQ, args[3]);
-			repConfig.getParams().put(ReportParams.TIPO_PROCESO, args[4]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[5]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[6]);
+			repConfig.getParams().put(ReportParams.TIPO_PROCESO, args[3]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[5]);
 			break;
 		}
 		return repConfig;
@@ -347,9 +355,10 @@ public class ReportSetting {
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case "018":
-		case "068":
+		case "067":
+		case "074":
 		case "075":
-		case "076":
+		case "077":
 			repConfig.getParams().put(ReportParams.BANCO, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
@@ -371,7 +380,7 @@ public class ReportSetting {
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case "019":
-			repConfig.getParams().put(ReportParams.BANCO, args[2]);
+			repConfig.getParams().put(ReportParams.BANCOADQ, args[2]);
 			repConfig.getParams().put(ReportParams.TIPO_TRANSACCION, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[5]);
@@ -398,7 +407,7 @@ public class ReportSetting {
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[5]);
 			break;
-		case "069":
+		case "068":
 			repConfig.getParams().put(ReportParams.BIN, args[2]); // T
 			repConfig.getParams().put(ReportParams.BANCOEMI, args[3]);
 			repConfig.getParams().put(ReportParams.TLIQUIDACION, args[4]);
@@ -407,7 +416,7 @@ public class ReportSetting {
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[7]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[8]);
 			break;
-		case "072":
+		case "071":
 			repConfig.getParams().put(ReportParams.BIN, args[2]); // T
 			repConfig.getParams().put(ReportParams.BANCOEMI, args[3]);
 			repConfig.getParams().put(ReportParams.TLIQUIDACION, args[4]);
@@ -439,9 +448,9 @@ public class ReportSetting {
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case "022":
-		case "071":
+		case "070":
+		case "082":
 		case "083":
-		case "084":
 			repConfig.getParams().put(ReportParams.BANCO, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
@@ -477,6 +486,7 @@ public class ReportSetting {
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[7]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[8]);
 			break;
+		case "097":
 		case "098":
 		case "099":
 		case "100":
@@ -488,7 +498,6 @@ public class ReportSetting {
 		case "106":
 		case "107":
 		case "108":
-		case "109":
 			repConfig.getParams().put(ReportParams.BANCO_ADQUIRENTE, args[2]);
 			repConfig.getParams().put(ReportParams.BANCO_EMISOR, args[3]);
 			repConfig.getParams().put(ReportParams.FUENTE, args[4]);
@@ -509,11 +518,11 @@ public class ReportSetting {
 		case "024":
 		case "025":
 		case "026":
-			repConfig.getParams().put(ReportParams.BANCO, args[2]);
+			repConfig.getParams().put(ReportParams.BANCOADQ, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
 			break;
-		case "043":
+		case "042":
 			repConfig.getParams().put(ReportParams.MONEDA, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
@@ -528,8 +537,9 @@ public class ReportSetting {
 		switch (numReport) {
 		case "027":
 		case "028":
-		case "074":
+		case "073":
 			repConfig.getParams().put(ReportParams.BANCO, args[2]);
+			repConfig.getParams().put(ReportParams.BANCOADQ, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
 			break;
@@ -564,7 +574,7 @@ public class ReportSetting {
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
 			break;
-		case "038":
+		case "037":
 			repConfig.getParams().put(ReportParams.BANCOADQ, args[2]);
 			repConfig.getParams().put(ReportParams.TIPO_TRANS, args[3]);
 			repConfig.getParams().put(ReportParams.ARCHIVO, args[4]);
@@ -596,11 +606,12 @@ public class ReportSetting {
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case "034":
-			repConfig.getParams().put(ReportParams.BANCO, args[2]);
-			repConfig.getParams().put(ReportParams.TIPO, args[3]);
+			repConfig.getParams().put(ReportParams.BANCOADQ, args[2]);
+			repConfig.getParams().put(ReportParams.TIPO_TRANS, args[3]);
 			repConfig.getParams().put(ReportParams.ARCHIVO, args[4]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[5]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[6]);
+			repConfig.getParams().put(ReportParams.NATCONTABLE, args[5]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[6]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[7]);
 			break;
 		}
 		return repConfig;
@@ -611,7 +622,7 @@ public class ReportSetting {
 		repConfig.setReportName(this.reportName);
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
-		case "039":
+		case "038":
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[3]);
 			break;
@@ -624,7 +635,7 @@ public class ReportSetting {
 		repConfig.setReportName(this.reportName);
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
-		case "040":
+		case "039":
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[3]);
 			break;
@@ -637,7 +648,7 @@ public class ReportSetting {
 		repConfig.setReportName(this.reportName);
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
-		case "041":
+		case "040":
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[3]);
 			break;
@@ -645,12 +656,12 @@ public class ReportSetting {
 		return repConfig;
 	}
 
-	public ReportConfig createSICLIR002(String[] args) {
+	public ReportConfig createSICLIR002INTERREDES(String[] args) {
 		ReportConfig repConfig = new ReportConfig();
-		repConfig.setReportName(this.reportName);
+		repConfig.setReportName("SICLIR002INTERRED");
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
-		case "042":
+		case "041":
 			repConfig.getParams().put(ReportParams.BANCO_ADQUIRENTE, args[2]);
 			repConfig.getParams().put(ReportParams.MARCA, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);
@@ -660,9 +671,23 @@ public class ReportSetting {
 		return repConfig;
 	}
 
-	public ReportConfig createSICLIRI0050(String[] args) {
+	public ReportConfig createSICLIRI050(String[] args) {
 		ReportConfig repConfig = new ReportConfig();
-		repConfig.setReportName(this.reportName);
+		repConfig.setReportName("SICLIRI050");
+		repConfig.setPdfName(args[1]);
+		switch (numReport) {
+		case "043":
+			repConfig.getParams().put(ReportParams.BANCO, args[2]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+			break;
+		}
+		return repConfig;
+	}
+
+	public ReportConfig createSICLIRI060(String[] args) {
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName("SICLIRI060");
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case "044":
@@ -674,9 +699,9 @@ public class ReportSetting {
 		return repConfig;
 	}
 
-	public ReportConfig createSICLIRI0060(String[] args) {
+	public ReportConfig createSICLIRI020(String[] args) {
 		ReportConfig repConfig = new ReportConfig();
-		repConfig.setReportName(this.reportName);
+		repConfig.setReportName("SICLIRI020");
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case "045":
@@ -688,12 +713,40 @@ public class ReportSetting {
 		return repConfig;
 	}
 
-	public ReportConfig createSICLIRI0020(String[] args) {
+	public ReportConfig createSICLIRI130(String[] args) {
 		ReportConfig repConfig = new ReportConfig();
-		repConfig.setReportName(this.reportName);
+		repConfig.setReportName("SICLIRI130");
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case "046":
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[2]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[3]);
+			break;
+		}
+		return repConfig;
+	}
+
+	public ReportConfig createSICLIRD320(String[] args) {
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName("SICLIRD320");
+		repConfig.setPdfName(args[1]);
+		switch (numReport) {
+		case "047":
+			repConfig.getParams().put(ReportParams.TIPO_LIQUIDACION, args[2]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
+			repConfig.getParams().put(ReportParams.init_Date_Hab_Ant, args[3]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+			break;
+		}
+		return repConfig;
+	}
+	
+	public ReportConfig createSICLIRD050(String[] args) {
+		ReportConfig repConfig = new ReportConfig();
+		repConfig.setReportName("SICLIRD050");
+		repConfig.setPdfName(args[1]);
+		switch (numReport) {
+		case "048":
 			repConfig.getParams().put(ReportParams.BANCO, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
@@ -702,36 +755,9 @@ public class ReportSetting {
 		return repConfig;
 	}
 
-	public ReportConfig createSICLIRI0130(String[] args) {
+	public ReportConfig createSICLIRD060(String[] args) {
 		ReportConfig repConfig = new ReportConfig();
-		repConfig.setReportName(this.reportName);
-		repConfig.setPdfName(args[1]);
-		switch (numReport) {
-		case "047":
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[2]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[3]);
-			break;
-		}
-		return repConfig;
-	}
-
-	public ReportConfig createSICLIRI320(String[] args) {
-		ReportConfig repConfig = new ReportConfig();
-		repConfig.setReportName(this.reportName);
-		repConfig.setPdfName(args[1]);
-		switch (numReport) {
-		case "048":
-			repConfig.getParams().put(ReportParams.LIQUIDACION, args[2]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
-			break;
-		}
-		return repConfig;
-	}
-	
-	public ReportConfig createSICLIRD0050(String[] args) {
-		ReportConfig repConfig = new ReportConfig();
-		repConfig.setReportName(this.reportName);
+		repConfig.setReportName("SICLIRD060");
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case "049":
@@ -743,7 +769,7 @@ public class ReportSetting {
 		return repConfig;
 	}
 
-	public ReportConfig createSICLIRD0060(String[] args) {
+	public ReportConfig createSICLIRD020(String[] args) {
 		ReportConfig repConfig = new ReportConfig();
 		repConfig.setReportName(this.reportName);
 		repConfig.setPdfName(args[1]);
@@ -757,45 +783,30 @@ public class ReportSetting {
 		return repConfig;
 	}
 
-	public ReportConfig createSICLIRD0020(String[] args) {
+	public ReportConfig createSICLIRD130(String[] args) {
 		ReportConfig repConfig = new ReportConfig();
-		repConfig.setReportName(this.reportName);
+		repConfig.setReportName("siclird130");
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case "051":
-			repConfig.getParams().put(ReportParams.BANCO, args[2]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[2]);
+			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[3]);
 			break;
 		}
 		return repConfig;
 	}
 
-	public ReportConfig createSICLIRD0130(String[] args) {
+	public ReportConfig createSICLICE300(String[] args) {
 		ReportConfig repConfig = new ReportConfig();
-		repConfig.setReportName(this.reportName);
+		repConfig.setReportName("SICLICE300");
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
 		case "052":
-			repConfig.getParams().put(ReportParams.BANCO, args[2]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
-			break;
-		}
-		return repConfig;
-	}
-
-	public ReportConfig createSICLICE0300(String[] args) {
-		ReportConfig repConfig = new ReportConfig();
-		repConfig.setReportName(this.reportName);
-		repConfig.setPdfName(args[1]);
-		switch (numReport) {
-		case "053":
 			repConfig.getParams().put(ReportParams.BANCO_ADQUIRENTE, args[2]);
 			repConfig.getParams().put(ReportParams.BANCO_EMISOR, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[5]);
 			break;
+		case "053":
 		case "054":
 		case "055":
 		case "056":
@@ -806,23 +817,21 @@ public class ReportSetting {
 		case "061":
 		case "062":
 		case "063":
-		case "064":
 			repConfig.getParams().put(ReportParams.BANCO_ADQUIRENTE, args[2]);
 			repConfig.getParams().put(ReportParams.BANCO_EMISOR, args[3]);
 			repConfig.getParams().put(ReportParams.FUENTE, args[4]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[5]);
-			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[6]);
 			break;
 		}
 		return repConfig;
 	}
 
-	public ReportConfig createSICLICA0170(String[] args) {
+	public ReportConfig createSICLICA170(String[] args) {
 		ReportConfig repConfig = new ReportConfig();
-		repConfig.setReportName(this.reportName);
+		repConfig.setReportName("SICLICA170");
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
-		case "065":
+		case "064":
 			repConfig.getParams().put(ReportParams.BANCO_ADQUIRENTE, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
@@ -831,12 +840,12 @@ public class ReportSetting {
 		return repConfig;
 	}
 
-	public ReportConfig createSICLICE0170(String[] args) {
+	public ReportConfig createSICLICE170(String[] args) {
 		ReportConfig repConfig = new ReportConfig();
-		repConfig.setReportName(this.reportName);
+		repConfig.setReportName("SICLICE170");
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
-		case "066":
+		case "065":
 			repConfig.getParams().put(ReportParams.BANCO_EMISOR, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
@@ -850,7 +859,7 @@ public class ReportSetting {
 		repConfig.setReportName(this.reportName);
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
-		case "073":
+		case "072":
 			repConfig.getParams().put(ReportParams.BANCOADQ, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
@@ -864,7 +873,7 @@ public class ReportSetting {
 		repConfig.setReportName(this.reportName);
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
-		case "077":
+		case "076":
 			repConfig.getParams().put(ReportParams.TIPO_RECHAZO, args[2]);
 			repConfig.getParams().put(ReportParams.BANCOADQ, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);
@@ -873,13 +882,13 @@ public class ReportSetting {
 		}
 		return repConfig;
 	}
-	
+	/*
 	public ReportConfig createSICLIR00280(String[] args) {
 		ReportConfig repConfig = new ReportConfig();
 		repConfig.setReportName(this.reportName);
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
-		case "078":
+		case "077":
 			repConfig.getParams().put(ReportParams.BANCO, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
@@ -887,17 +896,17 @@ public class ReportSetting {
 		}
 		return repConfig;
 	}
-
+	*/
 	public ReportConfig createSICMOR0305H(String[] args) {
 		ReportConfig repConfig = new ReportConfig();
 		repConfig.setReportName(this.reportName);
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
+		case "084":
 		case "085":
 		case "086":
 		case "087":
 		case "088":
-		case "089":
 			repConfig.getParams().put(ReportParams.BANCOADQ, args[2]);
 			repConfig.getParams().put(ReportParams.BANCOEMI, args[3]);
 			repConfig.getParams().put(ReportParams.TIPO_TRANS, args[4]);
@@ -915,9 +924,9 @@ public class ReportSetting {
 		repConfig.setReportName(this.reportName);
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
+		case "089":
 		case "090":
 		case "091":
-		case "092":
 			repConfig.getParams().put(ReportParams.BANCOEMI, args[2]);
 			repConfig.getParams().put(ReportParams.ARCHIVO, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);
@@ -932,7 +941,7 @@ public class ReportSetting {
 		repConfig.setReportName(this.reportName);
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
-		case "093":
+		case "092":
 			repConfig.getParams().put(ReportParams.BANCOEMI, args[2]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_FIN, args[4]);
@@ -946,10 +955,10 @@ public class ReportSetting {
 		repConfig.setReportName(this.reportName);
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
+		case "093":
 		case "094":
 		case "095":
 		case "096":
-		case "097":
 			repConfig.getParams().put(ReportParams.BANCOADQ, args[2]);
 			repConfig.getParams().put(ReportParams.BANCOEMI, args[3]);
 			repConfig.getParams().put(ReportParams.TIPO_TRANS, args[4]);
@@ -966,7 +975,7 @@ public class ReportSetting {
 		repConfig.setReportName(this.reportName);
 		repConfig.setPdfName(args[1]);
 		switch (numReport) {
-		case "110":
+		case "109":
 			repConfig.getParams().put(ReportParams.BANCOEMI, args[2]);
 			repConfig.getParams().put(ReportParams.BANCOADQ, args[3]);
 			repConfig.getParams().put(ReportParams.RANGO_FECHA_INI, args[4]);

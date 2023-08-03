@@ -11,22 +11,23 @@ import com.prosa.report.JasperImplementation;
 
 public class ReportService {
 
-	private static Logger logger = Logger.getLogger(ReportService.class);
+	private static final Logger logger = Logger.getLogger(ReportService.class);
 
 	private ReportConfig reportConfig;
 
 	public void generateReport(String args[]) {
 		selectReport(args);
 		if (reportConfig != null) {
+			logger.debug("Report " + reportConfig.getReportName() + " supported of type: "+ reportConfig.getReportType() +"!");
 			reportConfig.setPdfName(String.format("%s/%s",
-					Properties.PATH_DEST == null ? Constants.PDF_DESTINATION : Properties.PATH_DEST,
-					reportConfig.getPdfNameReal()));
+					Properties.getPATH_DEST() == null ? Constants.PDF_DESTINATION : Properties.getPATH_DEST(),
+					reportConfig.getPdfName()));
 			try {
 				switch (reportConfig.getReportType()) {
 				case BIRT:
-					setDbParams();
+					reportConfig.getParams().put("srvImgLcl", Properties.getPATH_IMAGES());
 					BirtImplementation birtImplementation = new BirtImplementation();
-					birtImplementation.buildPdf(null, Properties.PATH_LOG, Properties.PATH_REPORTS,
+					birtImplementation.buildPdf(null, Properties.getPATH_LOG(), Properties.getPATH_REPORTS(),
 							reportConfig.getReportName(), reportConfig.getPdfName(), reportConfig.getParams(), true);
 					break;
 				case JASPER:
@@ -35,41 +36,16 @@ public class ReportService {
 					break;
 				}
 
-			} catch (Exception e) {
+			} catch (SACException e) {
 				logger.error("Error to generate report", e);
+				Runtime.getRuntime().halt(2);
 			}
 		}
 	}
 
-	public void dummy() {
-
-//		BirtImplementation birtImplementation = new BirtImplementation();
-//		birtImplementation.buildPdf(null, null, null, null, null); // Report hello world
-//		
-//		Map<String, String> params = new HashMap<String, String>();
-//		params.put("srvImgRmt", "https://aplicpm.prosa.com.mx/imgpmr");
-//		params.put("srvImgLcl", "http://10.255.198.61:38080");
-//		params.put("initDateOrig", "28/03/2023");
-//		params.put("endDateOrig", "29/03/2023");
-//		params.put("banco", "0");
-//		birtImplementation.buildPdf(null, null, "SICLIR0060", null, params);
-//		params.remove("banco");
-//		params.put("agrDia", "01");
-//		birtImplementation.buildPdf(null, null, "SICLIR0077", null, params);
-
-	}
-
-	private void setDbParams() {
-		reportConfig.getParams().put(Constants.DB_HOST, Properties.DB_HOST);
-		reportConfig.getParams().put(Constants.DB_PORT, Properties.DB_PORT);
-		reportConfig.getParams().put(Constants.DB_NAME, Properties.DB_NAME);
-		reportConfig.getParams().put(Constants.DB_USER, Properties.DB_USER);
-		reportConfig.getParams().put(Constants.DB_PSWD, Properties.DB_PSWD);
-	}
-
 	private void selectReport(String[] args) {
 		ReportSetting reportDb = new ReportSetting(args[0]);
-		logger.debug("Gerating report " + reportDb.getReportName() + " ...");
+		logger.debug("Checking if report " + reportDb.getReportName() + " is supported ...");
 		switch (reportDb.getReportName()) {
 		case "SICLIR0060":
 			this.reportConfig = reportDb.createSICLIR0060(args);
@@ -155,44 +131,44 @@ public class ReportService {
 		case "SICLIRP320":
 			this.reportConfig = reportDb.createSICLIRP320(args);
 			break;
-		case "siclir002interred":
-			this.reportConfig = reportDb.createSICLIR002(args);
+		case "SICLIR002INTERREDES":
+			this.reportConfig = reportDb.createSICLIR002INTERREDES(args);
 			break;
 		case "SICLIRI050":
-			this.reportConfig = reportDb.createSICLIRI0050(args);
+			this.reportConfig = reportDb.createSICLIRI050(args);
 			break;
 		case "SICLIRI060":
-			this.reportConfig = reportDb.createSICLIRI0060(args);
+			this.reportConfig = reportDb.createSICLIRI060(args);
 			break;
 		case "SICLIRI020":
-			this.reportConfig = reportDb.createSICLIRI0020(args);
+			this.reportConfig = reportDb.createSICLIRI020(args);
 			break;
 		case "SICLIRI130":
-			this.reportConfig = reportDb.createSICLIRI0130(args);
+			this.reportConfig = reportDb.createSICLIRI130(args);
 			break;
 		case "SICLIRD050":
-			this.reportConfig = reportDb.createSICLIRD0050(args);
+			this.reportConfig = reportDb.createSICLIRD050(args);
 			break;
 		case "SICLIRD060":
-			this.reportConfig = reportDb.createSICLIRD0060(args);
+			this.reportConfig = reportDb.createSICLIRD060(args);
 			break;
 		case "SICLIRD020":
-			this.reportConfig = reportDb.createSICLIRD0020(args);
+			this.reportConfig = reportDb.createSICLIRD020(args);
 			break;
 		case "SICLIRD130":
-			this.reportConfig = reportDb.createSICLIRD0130(args);
+			this.reportConfig = reportDb.createSICLIRD130(args);
 			break;
 		case "SICLICE300":
-			this.reportConfig = reportDb.createSICLICE0300(args);
+			this.reportConfig = reportDb.createSICLICE300(args);
 			break;
 		case "SICLICA170":
-			this.reportConfig = reportDb.createSICLICA0170(args);
+			this.reportConfig = reportDb.createSICLICA170(args);
 			break;
 		case "SICLICE170":
-			this.reportConfig = reportDb.createSICLICE0170(args);
+			this.reportConfig = reportDb.createSICLICE170(args);
 			break;
-		case "SICLIRI320":
-			this.reportConfig = reportDb.createSICLIRI320(args);
+		case "SICLIRD320":
+			this.reportConfig = reportDb.createSICLIRD320(args);
 			break;
 		case "SICLIR0110":
 			this.reportConfig = reportDb.createSICLIR0110(args);
@@ -200,8 +176,23 @@ public class ReportService {
 		case "SICMOR0305":
 			this.reportConfig = reportDb.createSICMOR0305(args);
 			break;
+		case "SICMOR0305H":
+			this.reportConfig = reportDb.createSICMOR0305H(args);
+			break;
 		case "SICMOR0340":
 			this.reportConfig = reportDb.createSICMOR0340(args);
+			break;
+		case "SICMIR0054":
+			this.reportConfig = reportDb.createSICMIR0054(args);
+			break;
+		case "SICMIR0420":
+			this.reportConfig = reportDb.createSICMIR0420(args);
+			break;
+		case "SICMOR0210":
+			this.reportConfig = reportDb.createSICMOR0210(args);
+			break;
+		case "SICMOF0100":
+			this.reportConfig = reportDb.createSICMOF0100(args);
 			break;
 		default:
 			logger.warn("Report not " + reportDb.getReportName() + " match");

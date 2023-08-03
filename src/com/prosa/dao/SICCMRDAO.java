@@ -14,15 +14,13 @@ import com.prosa.jasper.beans.SICCMRObj;
 
 public class SICCMRDAO {
 
-	private Logger logger = Logger.getLogger(SICCMRDAO.class);
+	private static final Logger logger = Logger.getLogger(SICCMRDAO.class);
 
 	public SICCMRDAO() {
 	}
 
 	private Connection obtieneConexion() {
-		Connection conexion = ConnectionManager.conexionOCI();
-		//ConnectionManager.conexionDS().getConnection();
-		return conexion;
+		return ConnectionManager.conexionOCI();
 	}
 
 	private void cierraConexion(Connection conexion) {
@@ -70,8 +68,8 @@ public class SICCMRDAO {
 			}
 			pStmt.close();
 			rDatos.close();
-		} catch (Exception e) {
-			logger.error(" Error al obtener NombreMarca:" + e);
+		} catch (SQLException e) {
+			logger.error(" Error al obtener NombreMarca:" + clave);
 		} finally {
 			ConnectionManager.close(rDatos);
 			ConnectionManager.close(pStmt);
@@ -115,8 +113,8 @@ public class SICCMRDAO {
 			}
 			pStmt.close();
 			rDatos.close();
-		} catch (Exception e) {
-			logger.error(" Error al obtener NombreCamara:" + e);
+		} catch (SQLException e) {
+			logger.error(" Error al obtener NombreCamara:" + clave);
 		} finally {
 			ConnectionManager.close(rDatos);
 			ConnectionManager.close(pStmt);
@@ -416,9 +414,8 @@ public class SICCMRDAO {
 				lista.add(objeto);
 			}
 			rDatos.close();
-		} catch (Exception e) {
-			logger.error("Error al consultar SICCMR0077 " + ", " + e.toString());
-			logger.error(e);
+		} catch (SQLException e) {
+			logger.error("Error al consultar SICCMR0077");
 			lista = new ArrayList<>();
 		} finally {
 			ConnectionManager.close(rDatos);
